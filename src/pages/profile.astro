@@ -17,7 +17,7 @@ const userProfile = {
                     <h2 class="text-xl font-semibold mb-4 text-gray-900 border-b border-gray-200 pb-2">Personal Information</h2>
                     <div class="space-y-4">
                         <div>
-                            <label class="font-medium text-gray-700 block mb-1">Name</label>
+                            <label class="font-semibold text-gray-700 block mb-1">Name</label>
                             <p id="user-name" class="text-lg text-gray-900">{userProfile.name}</p>
                         </div>
                     </div>
@@ -58,7 +58,7 @@ const userProfile = {
     if (preferenceContainer && preferenceAnswers.length > 0) {
       const answersHtml = preferenceAnswers.map((item: PreferenceAnswer) => `
         <div class="group">
-          <h3 class="font-medium text-gray-900">${item.question}</h3>
+          <h3 class="font-semibold text-gray-900">${item.question}</h3>
           <p class="mt-2 text-gray-700 text-lg">${item.answer}</p>
         </div>
       `).join('');
