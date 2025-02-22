@@ -1,11 +1,75 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import MainLayout from '../layouts/MainLayout.astro';
+import MatchCard from '../components/MatchCard.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// Mock data for demonstration
+const mockMatches = [
+  {
+    id: 1,
+    name: 'Alex Rivera',
+    bio: 'Coffee enthusiast, amateur photographer, and weekend hiker. Looking for someone to share adventures with!',
+    interests: ['Photography', 'Hiking', 'Coffee', 'Travel'],
+    imageUrl: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3',
+    compatibility: 95
+  },
+  {
+    id: 2,
+    name: 'Sarah Chen',
+    bio: 'Art curator by day, jazz pianist by night. Passionate about cultural experiences and meaningful conversations.',
+    interests: ['Art', 'Music', 'Culture', 'Food'],
+    imageUrl: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3',
+    compatibility: 88
+  },
+];
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<MainLayout title="Find Your Perfect Match">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <h1 class="text-4xl font-bold text-gray-900 mb-4">
+        Find Your Perfect Match
+      </h1>
+      <p class="text-lg text-gray-600">
+        Discover compatible matches at our bar
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {mockMatches.map(match => (
+        <MatchCard
+          match={match}
+          isPremium={false}
+        />
+      ))}
+    </div>
+  </div>
+</MainLayout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    try {
+      const onboardingData = localStorage.getItem('userOnboarding');
+      if (!onboardingData) {
+        // No onboarding data found, redirect to onboarding
+        window.location.href = '/onboarding';
+        return;
+      }
+
+      const parsed = JSON.parse(onboardingData);
+      if (!parsed.completed) {
+        // Onboarding not completed, redirect to onboarding
+        window.location.href = '/onboarding';
+        return;
+      }
+
+      // User has completed onboarding, update the UI with their name
+      const userName = parsed.name;
+      console.log(`Welcome back, ${userName}!`);
+      
+    } catch (error) {
+      console.error('Error checking onboarding status:', error);
+      // On error, redirect to onboarding to be safe
+      window.location.href = '/onboarding';
+    }
+  });
+</script>

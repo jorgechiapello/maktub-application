@@ -1,0 +1,210 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+
+const questions = [
+  {
+    id: 1,
+    question: "What's your ideal first date?",
+    options: [
+      "Coffee and conversation",
+      "Adventure activity",
+      "Dinner and drinks",
+      "Cultural event"
+    ]
+  },
+  {
+    id: 2,
+    question: "How do you prefer to spend your weekends?",
+    options: [
+      "Outdoor activities",
+      "Relaxing at home",
+      "Socializing with friends",
+      "Exploring new places"
+    ]
+  }
+];
+---
+
+<MainLayout title="Onboarding">
+  <div class="max-w-2xl mx-auto mt-10 px-4 sm:px-6 lg:px-8">
+    <div class="bg-white shadow-xl rounded-lg p-6">
+      <div class="mb-8">
+        <div class="w-full bg-gray-200 rounded-full h-2">
+          <div
+            id="progress-bar"
+            class="bg-primary rounded-full h-2 transition-all duration-500 w-0"
+          />
+        </div>
+      </div>
+
+      <form id="onboardingForm" class="space-y-8">
+        <!-- Personal Info Section -->
+        <div id="personal-info" class="space-y-4">
+          <h2 class="text-2xl font-semibold text-gray-900">Welcome! Let's get started.</h2>
+          <div>
+            <label for="name" class="block text-sm font-medium text-gray-700">What's your name?</label>
+            <input 
+              type="text" 
+              name="name" 
+              id="name" 
+              required 
+              class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm" 
+            />
+          </div>
+        </div>
+
+        <!-- Questions Section (Initially Hidden) -->
+        {questions.map((q) => (
+          <div 
+            id={`question-${q.id}`} 
+            class="question-section hidden space-y-4"
+            data-question-id={q.id}
+          >
+            <h2 class="text-2xl font-semibold text-gray-900">{q.question}</h2>
+            <div class="grid gap-4">
+              {q.options.map((option, index) => (
+                <button
+                  type="button"
+                  class="w-full text-left px-4 py-3 border border-gray-300 rounded-lg
+                         hover:border-primary hover:bg-primary/5 transition-colors
+                         focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                  data-question-id={q.id}
+                  data-option={option}
+                >
+                  {option}
+                </button>
+              ))}
+            </div>
+          </div>
+        ))}
+
+        <div class="flex justify-between">
+          <button 
+            type="button" 
+            id="prev-button"
+            class="hidden px-6 py-2 text-gray-600 hover:text-gray-900 focus:outline-none"
+          >
+            Previous
+          </button>
+          <button 
+            type="button" 
+            id="next-button"
+            class="ml-auto bg-primary text-white py-2 px-6 rounded-md hover:bg-primary-dark 
+                   focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+          >
+            Next
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</MainLayout>
+
+<script define:vars={{ questions }}>
+  let currentStep = 0;
+  const totalSteps = questions.length + 1; // +1 for personal info
+  const answers = {};
+
+  // Elements
+  const form = document.getElementById('onboardingForm');
+  const progressBar = document.getElementById('progress-bar');
+  const personalInfo = document.getElementById('personal-info');
+  const nextButton = document.getElementById('next-button');
+  const prevButton = document.getElementById('prev-button');
+  const questionSections = document.querySelectorAll('.question-section');
+
+  // Check if user has already completed onboarding
+  document.addEventListener('DOMContentLoaded', () => {
+    try {
+      const onboardingData = localStorage.getItem('userOnboarding');
+      if (onboardingData) {
+        const parsed = JSON.parse(onboardingData);
+        if (parsed.completed) {
+          window.location.href = '/';
+        }
+      }
+      updateProgress();
+    } catch (error) {
+      console.error('Error checking onboarding status:', error);
+    }
+  });
+
+  // Update progress bar
+  function updateProgress() {
+    const progress = (currentStep / (totalSteps - 1)) * 100;
+    if (progressBar) progressBar.style.width = `${progress}%`;
+  }
+
+  // Show/hide sections based on current step
+  function updateVisibility() {
+    if (personalInfo) {
+      personalInfo.classList.toggle('hidden', currentStep !== 0);
+    }
+
+    questionSections.forEach((section, index) => {
+      section.classList.toggle('hidden', index + 1 !== currentStep);
+    });
+
+    // Update button visibility
+    if (prevButton) prevButton.classList.toggle('hidden', currentStep === 0);
+    if (nextButton) {
+      nextButton.textContent = currentStep === totalSteps - 1 ? 'Complete' : 'Next';
+    }
+  }
+
+  // Handle option selection
+  questionSections.forEach(section => {
+    const buttons = section.querySelectorAll('button[data-option]');
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        const questionId = button.getAttribute('data-question-id');
+        const option = button.getAttribute('data-option');
+        answers[questionId] = option;
+
+        // Remove active state from all buttons in this section
+        buttons.forEach(b => b.classList.remove('bg-primary/5', 'border-primary'));
+        // Add active state to selected button
+        button.classList.add('bg-primary/5', 'border-primary');
+      });
+    });
+  });
+
+  // Handle navigation
+  nextButton?.addEventListener('click', () => {
+    if (currentStep === 0) {
+      const nameInput = document.getElementById('name');
+      if (!nameInput?.value) {
+        alert('Please enter your name');
+        return;
+      }
+      answers.name = nameInput.value;
+    }
+
+    if (currentStep === totalSteps - 1) {
+      // Save all data and complete onboarding
+      try {
+        localStorage.setItem('userOnboarding', JSON.stringify({
+          ...answers,
+          completed: true,
+          timestamp: new Date().toISOString()
+        }));
+        window.location.href = '/';
+      } catch (error) {
+        console.error('Error saving onboarding data:', error);
+        alert('There was an error saving your information. Please try again.');
+      }
+    } else {
+      currentStep++;
+      updateVisibility();
+      updateProgress();
+    }
+  });
+
+  prevButton?.addEventListener('click', () => {
+    if (currentStep > 0) {
+      currentStep--;
+      updateVisibility();
+      updateProgress();
+    }
+  });
+</script>
