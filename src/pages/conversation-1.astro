@@ -1,0 +1,69 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+
+const conversation = {
+    id: 1,
+    name: 'Alex Rivera',
+    messages: [
+        { id: 1, sender: 'Alex', content: 'Hey! I saw we matched!', timestamp: '10:30 AM' },
+        { id: 2, sender: 'You', content: 'Hi Alex! Yes, I loved your profile!', timestamp: '10:32 AM' },
+        { id: 3, sender: 'Alex', content: 'Thanks! Would you like to grab coffee sometime?', timestamp: '10:35 AM' },
+        { id: 4, sender: 'You', content: 'That sounds great! When are you free?', timestamp: '10:36 AM' },
+    ]
+};
+---
+
+<MainLayout title={`Chat with ${conversation.name}`}>
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="max-w-3xl mx-auto">
+            <div class="flex items-center mb-6">
+                <a href="/conversations" class="text-blue-600 hover:text-blue-800 mr-4">
+                    ← Back to conversations
+                </a>
+                <h1 class="text-2xl font-bold text-gray-900">Chat with {conversation.name}</h1>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <div class="space-y-4 mb-6 max-h-[500px] overflow-y-auto">
+                    {conversation.messages.map((message) => (
+                        <div class:list={[
+                            'flex',
+                            message.sender === 'You' ? 'justify-end' : 'justify-start'
+                        ]}>
+                            <div class:list={[
+                                'max-w-[70%] rounded-lg p-3',
+                                message.sender === 'You' 
+                                    ? 'bg-blue-600 text-white' 
+                                    : 'bg-gray-100 text-gray-900'
+                            ]}>
+                                <p>{message.content}</p>
+                                <p class:list={[
+                                    'text-xs mt-1',
+                                    message.sender === 'You' 
+                                        ? 'text-blue-100' 
+                                        : 'text-gray-500'
+                                ]}>{message.timestamp}</p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+                
+                <div class="mt-4">
+                    <form class="flex gap-2">
+                        <input 
+                            type="text" 
+                            placeholder="Type your message..." 
+                            class="flex-grow p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        />
+                        <button 
+                            type="submit"
+                            class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                        >
+                            Send
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+</MainLayout>

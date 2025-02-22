@@ -1,0 +1,45 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+
+// Mock data for demonstration
+const userProfile = {
+    name: 'John Doe',
+    answers: [
+        { question: 'What are you looking for?', answer: 'A meaningful connection' },
+        { question: 'What are your hobbies?', answer: 'Photography, hiking, and cooking' },
+        { question: 'What is your ideal first date?', answer: 'A casual coffee and walk in the park' },
+    ]
+};
+---
+
+<MainLayout title="Your Profile">
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="max-w-2xl mx-auto">
+            <h1 class="text-3xl font-bold text-gray-900 mb-8">Your Profile</h1>
+            
+            <div class="space-y-8">
+                <section>
+                    <h2 class="text-xl font-semibold mb-4 text-gray-900 border-b border-gray-200 pb-2">Personal Information</h2>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="font-medium text-gray-700 block mb-1">Name</label>
+                            <p class="text-lg text-gray-900">{userProfile.name}</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h2 class="text-xl font-semibold mb-4 text-gray-900 border-b border-gray-200 pb-2">Your Answers</h2>
+                    <div class="space-y-6">
+                        {userProfile.answers.map((qa) => (
+                            <div class="group">
+                                <h3 class="font-medium text-gray-900">{qa.question}</h3>
+                                <p class="mt-2 text-gray-700 text-lg">{qa.answer}</p>
+                            </div>
+                        ))}
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+</MainLayout>

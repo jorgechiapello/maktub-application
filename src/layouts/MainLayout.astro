@@ -7,17 +7,57 @@ const { title } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <style>
+      body {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      }
+    </style>
     <title>{title} | Maktub Matchmaking</title>
   </head>
   <body class="h-full">
     <div class="min-h-full">
       <nav class="bg-primary">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div class="flex h-16 items-center justify-between">
+          <div class="flex h-16 items-center">
             <div class="flex items-center">
               <div class="flex-shrink-0">
-                <img class="h-8 w-auto" src="/logo.svg" alt="Maktub" />
+                <!-- <img class="h-8 w-auto" src="/logo.svg" alt="Maktub" /> -->
+              </div>
+              {/* Get current path */}
+              <div class="ml-10 flex space-x-8">
+                <a 
+                  href="/" 
+                  class:list={[
+                    'text-sm font-medium px-3 py-2 rounded-md',
+                    Astro.url.pathname === '/' 
+                      ? 'bg-white bg-opacity-20 text-white'
+                      : 'text-white text-opacity-80 hover:text-opacity-100 hover:bg-opacity-10 hover:bg-white'
+                  ]}
+                >
+                  Crushes
+                </a>
+                <a 
+                  href="/profile" 
+                  class:list={[
+                    'text-sm font-medium px-3 py-2 rounded-md',
+                    Astro.url.pathname === '/profile'
+                      ? 'bg-white bg-opacity-20 text-white'
+                      : 'text-white text-opacity-80 hover:text-opacity-100 hover:bg-opacity-10 hover:bg-white'
+                  ]}
+                >
+                  Profile
+                </a>
+                <a 
+                  href="/conversations" 
+                  class:list={[
+                    'text-sm font-medium px-3 py-2 rounded-md',
+                    Astro.url.pathname === '/conversations'
+                      ? 'bg-white bg-opacity-20 text-white'
+                      : 'text-white text-opacity-80 hover:text-opacity-100 hover:bg-opacity-10 hover:bg-white'
+                  ]}
+                >
+                  Conversations
+                </a>
               </div>
             </div>
           </div>

@@ -19,7 +19,10 @@ const { name, bio, interests, imageUrl, compatibility } = match;
     <img
       src={imageUrl}
       alt={name}
-      class="w-full h-48 object-cover"
+      width="400"
+      loading="eager"
+      decoding="async"
+      class="w-full h-full object-cover"
     />
     <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-4">
       <div class="flex justify-between items-end">
