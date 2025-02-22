@@ -34,8 +34,7 @@ const userProfile = {
     </main>
 </MainLayout>
 
-<script>
-  // Function to load user info from localStorage
+<script is:inline>
   function loadUserInfo() {
     const userOnboarding = JSON.parse(localStorage.getItem('userOnboarding') || '{}');
     const nameElement = document.getElementById('user-name');
@@ -44,19 +43,12 @@ const userProfile = {
     }
   }
 
-  // Function to load answers from localStorage
   function loadAnswers() {
-    interface PreferenceAnswer {
-      question: string;
-      answer: string;
-    }
-
-    const preferenceAnswers: PreferenceAnswer[] = JSON.parse(localStorage.getItem('preferenceAnswers') || '[]');
-    console.log(preferenceAnswers);
+    const preferenceAnswers = JSON.parse(localStorage.getItem('preferenceAnswers') || '[]');
     const preferenceContainer = document.getElementById('preference-answers-container');
     
     if (preferenceContainer && preferenceAnswers.length > 0) {
-      const answersHtml = preferenceAnswers.map((item: PreferenceAnswer) => `
+      const answersHtml = preferenceAnswers.map(item => `
         <div class="group">
           <h3 class="font-semibold text-gray-900">${item.question}</h3>
           <p class="mt-2 text-gray-700 text-lg">${item.answer}</p>
@@ -67,8 +59,8 @@ const userProfile = {
     }
   }
 
-  // Load answers when the page loads
-  document.addEventListener('DOMContentLoaded', () => {
+  // Load data both on initial page load and subsequent navigations
+  document.addEventListener('astro:page-load', () => {
     loadUserInfo();
     loadAnswers();
   });
