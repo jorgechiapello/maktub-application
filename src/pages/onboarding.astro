@@ -1,28 +1,8 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
 
-const questions = [
-  {
-    id: 1,
-    question: "What's your ideal first date?",
-    options: [
-      "Coffee and conversation",
-      "Adventure activity",
-      "Dinner and drinks",
-      "Cultural event"
-    ]
-  },
-  {
-    id: 2,
-    question: "How do you prefer to spend your weekends?",
-    options: [
-      "Outdoor activities",
-      "Relaxing at home",
-      "Socializing with friends",
-      "Exploring new places"
-    ]
-  }
-];
+import { questions } from '../data/questions';
+
 ---
 
 <MainLayout title="Onboarding">
@@ -44,7 +24,7 @@ const questions = [
           <div>
             <label for="name" class="block text-sm font-medium text-gray-700">What's your name?</label>
             <input 
-              type="text" 
+              type="text"
               name="name" 
               id="name" 
               required 
@@ -104,9 +84,9 @@ const questions = [
   let currentStep = 0;
   const totalSteps = questions.length + 1; // +1 for personal info
   const answers = {};
+  const profileAnswers = {}
 
   // Elements
-  const form = document.getElementById('onboardingForm');
   const progressBar = document.getElementById('progress-bar');
   const personalInfo = document.getElementById('personal-info');
   const nextButton = document.getElementById('next-button');
@@ -177,17 +157,29 @@ const questions = [
         alert('Please enter your name');
         return;
       }
-      answers.name = nameInput.value;
+      profileAnswers.name = nameInput.value;
     }
 
     if (currentStep === totalSteps - 1) {
       // Save all data and complete onboarding
       try {
+        // Create an array of answers with full question objects
+        const answersArray = Object.entries(answers).map(([questionId, answer]) => {
+          const question = questions.find(q => q.id === parseInt(questionId));
+          console.log(question, answer)
+          return {
+            question: question.question,
+            answer: answer
+          };
+        });
+
         localStorage.setItem('userOnboarding', JSON.stringify({
-          ...answers,
           completed: true,
+          ...profileAnswers,
           timestamp: new Date().toISOString()
         }));
+        // Store the complete answers
+        localStorage.setItem('preferenceAnswers', JSON.stringify(answersArray));
         window.location.href = '/';
       } catch (error) {
         console.error('Error saving onboarding data:', error);

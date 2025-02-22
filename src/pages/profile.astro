@@ -1,14 +1,9 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
 
-// Mock data for demonstration
 const userProfile = {
-    name: 'John Doe',
-    answers: [
-        { question: 'What are you looking for?', answer: 'A meaningful connection' },
-        { question: 'What are your hobbies?', answer: 'Photography, hiking, and cooking' },
-        { question: 'What is your ideal first date?', answer: 'A casual coffee and walk in the park' },
-    ]
+    name: 'Loading...',
+    answers: []
 };
 ---
 
@@ -23,23 +18,73 @@ const userProfile = {
                     <div class="space-y-4">
                         <div>
                             <label class="font-medium text-gray-700 block mb-1">Name</label>
-                            <p class="text-lg text-gray-900">{userProfile.name}</p>
+                            <p id="user-name" class="text-lg text-gray-900">{userProfile.name}</p>
                         </div>
                     </div>
                 </section>
 
                 <section>
-                    <h2 class="text-xl font-semibold mb-4 text-gray-900 border-b border-gray-200 pb-2">Your Answers</h2>
-                    <div class="space-y-6">
-                        {userProfile.answers.map((qa) => (
-                            <div class="group">
-                                <h3 class="font-medium text-gray-900">{qa.question}</h3>
-                                <p class="mt-2 text-gray-700 text-lg">{qa.answer}</p>
-                            </div>
-                        ))}
+                    <h2 class="text-xl font-semibold mb-4 text-gray-900 border-b border-gray-200 pb-2">Your Preferences</h2>
+                    <div id="preference-answers-container" class="space-y-6">
+                        <!-- Preference answers will be loaded here by JavaScript -->
                     </div>
                 </section>
             </div>
         </div>
     </main>
 </MainLayout>
+
+<script>
+  // Function to load user info from localStorage
+  function loadUserInfo() {
+    const userOnboarding = JSON.parse(localStorage.getItem('userOnboarding') || '{}');
+    const nameElement = document.getElementById('user-name');
+    if (nameElement) {
+      nameElement.textContent = userOnboarding.name || 'Guest';
+    }
+  }
+
+  // Function to load answers from localStorage
+  function loadAnswers() {
+    interface PreferenceAnswer {
+      question: string;
+      answer: string;
+    }
+
+    const preferenceAnswers: PreferenceAnswer[] = JSON.parse(localStorage.getItem('preferenceAnswers') || '[]');
+    console.log(preferenceAnswers);
+    const preferenceContainer = document.getElementById('preference-answers-container');
+    
+    if (preferenceContainer && preferenceAnswers.length > 0) {
+      const answersHtml = preferenceAnswers.map((item: PreferenceAnswer) => `
+        <div class="group">
+          <h3 class="font-medium text-gray-900">${item.question}</h3>
+          <p class="mt-2 text-gray-700 text-lg">${item.answer}</p>
+        </div>
+      `).join('');
+      
+      preferenceContainer.innerHTML = answersHtml;
+    }
+  }
+
+  // Load answers when the page loads
+  document.addEventListener('DOMContentLoaded', () => {
+    loadUserInfo();
+    loadAnswers();
+  });
+</script>
+
+<style>
+  .answer-item {
+    margin-bottom: 1.5rem;
+  }
+
+  .question {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .answer {
+    color: #666;
+  }
+</style>
