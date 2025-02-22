@@ -36,3 +36,4 @@ The goal is to build a client-side web application that's easy to share and show
 - [ ] Use brand colors for message bubbles on the conversations pages 
 - [ ] Upload a proper logo
 - [ ] Replace words on upper navigation bar for logos
+- [ ] Tanslate the app to Spanish
