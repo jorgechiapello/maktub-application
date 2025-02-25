@@ -32,10 +32,12 @@ The goal is to build a client-side web application that's easy to share and show
 ## TODOs
 - [x] Upload a proper logo
 - [x] Replace words on upper navigation bar for logos
-- [ ] Fix conversations to be only emojis or prefixed messages
-- [ ] Instead of messages, use emojis or prefixed messages to represent the conversation
+- [x] Instead of messages, use emojis or prefixed messages to represent the conversation
 - [x] Replace "Back to conversations" with an icon
 - [x] Use brand colors for message bubbles on the conversations pages 
 - [x] Use brand colors for entire page 
 - [x] Tanslate the app to Spanish
 - [x] Add contrast on conversations page to make it easier to read
+- [ ] Fix conversations to be only emojis or prefixed messages
+- [ ] Update conversations and potential answers
+- [ ] Add script to deploy the app

@@ -1,6 +1,16 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
 import LeftArrow from '../components/LeftArrow.astro';
+import ConversationChat from '../components/ConversationChat.astro';
+
+const predefinedMessages = [
+    '¡Hola! Me encantó tu perfil',
+    'Me gustaría conocerte mejor',
+    '¿Te gustaría tomar un café?',
+    '¿Cuándo estás libre?',
+    'Me parece genial',
+    'Gracias por tu mensaje'
+];
 
 const conversation = {
     id: 1,
@@ -22,47 +32,10 @@ const conversation = {
                 <h1 class="text-2xl font-bold text-gray-900">Chat con {conversation.name}</h1>
             </div>
             
-            <div class="bg-white rounded-lg shadow-md p-6">
-                <div class="space-y-4 mb-6 max-h-[500px] overflow-y-auto">
-                    {conversation.messages.map((message) => (
-                        <div class:list={[
-                            'flex',
-                            message.sender === 'You' ? 'justify-end' : 'justify-start'
-                        ]}>
-                            <div class:list={[
-                                'max-w-[70%] rounded-lg p-3',
-                                message.sender === 'You' 
-                                    ? 'bg-primary text-white' 
-                                    : 'bg-gray-100 text-gray-900'
-                            ]}>
-                                <p>{message.content}</p>
-                                <p class:list={[
-                                    'text-xs mt-1',
-                                    message.sender === 'You' 
-                                        ? 'text-primary-100' 
-                                        : 'text-gray-500'
-                                ]}>{message.timestamp}</p>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-                
-                <div class="mt-4">
-                    <form class="flex gap-2">
-                        <input 
-                            type="text" 
-                            placeholder="Escribe tu mensaje..." 
-                            class="flex-grow p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
-                        />
-                        <button 
-                            type="submit"
-                            class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary-700 transition-colors"
-                        >
-                            Send
-                        </button>
-                    </form>
-                </div>
-            </div>
+            <ConversationChat
+                messages={conversation.messages}
+                predefinedMessages={predefinedMessages}
+            />
         </div>
     </main>
 </MainLayout>

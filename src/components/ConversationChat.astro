@@ -1,0 +1,92 @@
+---
+interface Message {
+    id: number;
+    sender: string;
+    content: string;
+    timestamp: string;
+}
+
+interface Props {
+    messages: Message[];
+    predefinedMessages: string[];
+}
+
+const { messages, predefinedMessages } = Astro.props;
+---
+
+<div class="bg-white rounded-lg shadow-md p-6">
+    <div class="space-y-4 mb-6 max-h-[500px] overflow-y-auto">
+        {messages.map((message) => (
+            <div class:list={[
+                'flex',
+                message.sender === 'You' ? 'justify-end' : 'justify-start'
+            ]}>
+                <div class:list={[
+                    'max-w-[70%] rounded-lg p-3',
+                    message.sender === 'You' 
+                        ? 'bg-primary text-white' 
+                        : 'bg-gray-100 text-gray-900'
+                ]}>
+                    <p>{message.content}</p>
+                    <p class:list={[
+                        'text-xs mt-1',
+                        message.sender === 'You' 
+                            ? 'text-primary-100' 
+                            : 'text-gray-500'
+                    ]}>{message.timestamp}</p>
+                </div>
+            </div>
+        ))}
+    </div>
+    
+    <div class="mt-4">
+        <form id="messageForm" class="flex gap-2">
+            <select 
+                id="messageSelect"
+                class="flex-grow p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                required
+            >
+                <option value="">Selecciona un mensaje...</option>
+                {predefinedMessages.map((message) => (
+                    <option value={message}>{message}</option>
+                ))}
+            </select>
+            <button 
+                type="submit"
+                class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary-dark transition-colors"
+            >
+                Enviar
+            </button>
+        </form>
+
+        <script>
+            const messageForm = document.getElementById('messageForm') as HTMLFormElement;
+            const messageSelect = document.getElementById('messageSelect') as HTMLSelectElement;
+            const messagesContainer = document.querySelector('.space-y-4') as HTMLDivElement;
+
+            if (messageForm && messageSelect && messagesContainer) {
+                messageForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    
+                    const selectedMessage = messageSelect.value;
+                    if (!selectedMessage) return;
+
+                    const currentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+                    
+                    const messageHTML = `
+                        <div class="flex justify-end">
+                            <div class="max-w-[70%] rounded-lg p-3 bg-primary text-white">
+                                <p>${selectedMessage}</p>
+                                <p class="text-xs mt-1 text-primary-100">${currentTime}</p>
+                            </div>
+                        </div>
+                    `;
+
+                    messagesContainer.insertAdjacentHTML('beforeend', messageHTML);
+                    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+                    messageSelect.value = '';
+                });
+            }
+        </script>
+    </div>
+</div>
