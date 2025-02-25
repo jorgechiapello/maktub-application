@@ -12,60 +12,65 @@ const { title } = Astro.props;
     <ViewTransitions />
   </head>
   <body class="h-full">
-    <div class="min-h-full">
-      <nav class="bg-primary">
-        <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
-          <div class="flex h-16 items-center">
-            <div class="flex items-center">
-              <div class="flex-shrink-0">
-                <img class="h-16 w-auto" src="/logo.svg" alt="Maktub" />
-              </div>
-              {/* Get current path */}
-              <div class="ml-2 flex space-x-5">
-                <a 
-                  href="/" 
-                  class:list={[
-                    'text-sm font-medium px-3 py-2 rounded-md',
-                    Astro.url.pathname === '/' 
-                      ? 'bg-white bg-opacity-20 text-white'
-                      : 'text-white text-opacity-80 hover:text-opacity-100 hover:bg-opacity-10 hover:bg-white'
-                  ]}
-                >
-                  Crushes
-                </a>
-                <a 
-                  href="/profile" 
-                  class:list={[
-                    'text-sm font-medium px-3 py-2 rounded-md',
-                    Astro.url.pathname === '/profile'
-                      ? 'bg-white bg-opacity-20 text-white'
-                      : 'text-white text-opacity-80 hover:text-opacity-100 hover:bg-opacity-10 hover:bg-white'
-                  ]}
-                >
-                  Profile
-                </a>
-                <a 
-                  href="/conversations" 
-                  class:list={[
-                    'text-sm font-medium px-3 py-2 rounded-md',
-                    Astro.url.pathname === '/conversations'
-                      ? 'bg-white bg-opacity-20 text-white'
-                      : 'text-white text-opacity-80 hover:text-opacity-100 hover:bg-opacity-10 hover:bg-white'
-                  ]}
-                >
-                  Conversations
-                </a>
-              </div>
+    <nav class="bg-primary">
+      <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <div class="flex h-16 items-center w-full relative">
+          <div class="absolute left-0">
+            <img class="h-16 w-auto" src="/logo.svg" alt="Maktub" />
+          </div>
+          {/* Get current path */}
+          <div class="flex space-x-12 justify-center flex-1 mx-auto">
+              <a 
+                href="/" 
+                class:list={[
+                  'font-medium p-3 rounded-md flex items-center justify-center',
+                  Astro.url.pathname === '/' 
+                    ? 'bg-white bg-opacity-20 text-white'
+                    : 'text-white text-opacity-80 hover:text-opacity-100 hover:bg-opacity-10 hover:bg-white'
+                ]}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-8 h-8">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+                </svg>
+                <span class="sr-only">Crushes</span>
+              </a>
+              <a 
+                href="/profile" 
+                class:list={[
+                  'font-medium p-3 rounded-md flex items-center justify-center',
+                  Astro.url.pathname === '/profile'
+                    ? 'bg-white bg-opacity-20 text-white'
+                    : 'text-white text-opacity-80 hover:text-opacity-100 hover:bg-opacity-10 hover:bg-white'
+                ]}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-8 h-8">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                </svg>
+                <span class="sr-only">Profile</span>
+              </a>
+              <a 
+                href="/conversations" 
+                class:list={[
+                  'font-medium p-3 rounded-md flex items-center justify-center',
+                  Astro.url.pathname === '/conversations'
+                    ? 'bg-white bg-opacity-20 text-white'
+                    : 'text-white text-opacity-80 hover:text-opacity-100 hover:bg-opacity-10 hover:bg-white'
+                ]}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-8 h-8">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 0 1-.825-.242m9.345-8.334a2.126 2.126 0 0 0-.476-.095 48.64 48.64 0 0 0-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0 0 11.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155" />
+                </svg>
+                <span class="sr-only">Conversations</span>
+              </a>
             </div>
           </div>
-        </div>
-      </nav>
+      </div>
+    </nav>
 
-      <main>
-        <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
-          <slot />
-        </div>
-      </main>
-    </div>
+    <main>
+      <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
+        <slot />
+      </div>
+    </main>
   </body>
 </html>

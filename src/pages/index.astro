@@ -65,10 +65,6 @@ const mockMatches = [
         return;
       }
 
-      // User has completed onboarding, update the UI with their name
-      const userName = parsed.name;
-      console.log(`Welcome back, ${userName}!`);
-      
     } catch (error) {
       console.error('Error checking onboarding status:', error);
       // On error, redirect to onboarding to be safe
