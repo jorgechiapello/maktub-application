@@ -1,5 +1,6 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
+import LeftArrow from '../components/LeftArrow.astro';
 
 const conversation = {
     id: 2,
@@ -17,9 +18,7 @@ const conversation = {
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div class="max-w-3xl mx-auto">
             <div class="flex items-center mb-6">
-                <a href="/conversations" class="text-blue-600 hover:text-blue-800 mr-4">
-                    ← Back to conversations
-                </a>
+                <LeftArrow href="/conversations" />
                 <h1 class="text-2xl font-bold text-gray-900">Chat with {conversation.name}</h1>
             </div>
             
