@@ -6,17 +6,26 @@ interface Props {
 const { class: className } = Astro.props;
 ---
 
-<svg
-  xmlns="http://www.w3.org/2000/svg"
-  viewBox="0 0 24 24"
-  fill="none"
+<svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+  width="30pt" 
+  height="30pt" 
+  viewBox="0 0 69 70"
+  preserveAspectRatio="xMidYMid meet"
+>
+<g 
+  transform="translate(0,70) scale(0.100000,-0.1)"
+  fill="currentColor"
   stroke="currentColor"
   stroke-width="1.5"
   class={`w-8 h-8 ${className || ''}`}
 >
-  <path
-    stroke-linecap="round"
-    stroke-linejoin="round"
-    d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
-  />
+<path d="M310 601 c-84 -18 -158 -77 -201 -161 -34 -66 -33 -176 3 -245 31
+-60 77 -105 138 -136 64 -32 176 -32 240 0 61 32 107 76 138 136 52 101 27
+247 -56 328 -65 63 -176 97 -262 78z m176 -39 c123 -63 182 -208 135 -333 -20
+-53 -70 -115 -72 -91 -1 7 -3 17 -4 22 -1 6 -3 19 -4 31 0 12 -16 36 -35 55
+l-34 34 -102 0 -102 0 -34 -34 c-28 -28 -34 -42 -34 -75 0 -23 -4 -41 -9 -41
+-19 0 -61 63 -76 112 -26 90 -15 159 40 239 69 99 222 137 331 81z"/>
+<path d="M306 504 c-38 -39 -37 -105 3 -145 40 -39 82 -39 122 0 39 39 41 105
+4 145 -34 36 -92 36 -129 0z"/>
+</g>
 </svg>
