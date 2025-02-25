@@ -1,31 +1,30 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
 
-// Mock data for demonstration
 const conversations = [
     {
         id: 1,
         name: 'Alex Rivera',
-        lastMessage: 'That sounds great! When are you free?',
-        timestamp: '2 min ago',
+        lastMessage: '¡Suena genial! ¿Cuándo estás libre?',
+        timestamp: 'hace 2 min',
         unread: true,
         href: '/conversation-1'
     },
     {
         id: 2,
         name: 'Sarah Chen',
-        lastMessage: 'I love that coffee shop too!',
-        timestamp: '1 hour ago',
+        lastMessage: '¡A mí también me encanta esa cafetería!',
+        timestamp: 'hace 1 hora',
         unread: false,
         href: '/conversation-2'
     }
 ];
 ---
 
-<MainLayout title="Your Conversations">
+<MainLayout title="Tus Conversaciones">
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div class="max-w-3xl mx-auto">
-            <h1 class="text-3xl font-bold mb-8 text-gray-900">Your Conversations</h1>
+            <h1 class="text-3xl font-bold mb-8 text-gray-900">Tus Conversaciones</h1>
             <div class="space-y-4">
                 {conversations.map((conversation) => (
                     <div class="bg-white rounded-lg shadow hover:shadow-md transition-shadow p-4 cursor-pointer">
@@ -35,7 +34,7 @@ const conversations = [
                                     <div class="flex items-center gap-2">
                                         <h3 class="font-semibold text-gray-900">{conversation.name}</h3>
                                         {conversation.unread && (
-                                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-0.5 rounded-full">New</span>
+                                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-0.5 rounded-full">Nuevo</span>
                                         )}
                                     </div>
                                     <p class="text-gray-600 text-sm">{conversation.lastMessage}</p>

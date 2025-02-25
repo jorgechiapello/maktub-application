@@ -37,5 +37,5 @@ The goal is to build a client-side web application that's easy to share and show
 - [x] Replace "Back to conversations" with an icon
 - [x] Use brand colors for message bubbles on the conversations pages 
 - [x] Use brand colors for entire page 
-- [ ] Tanslate the app to Spanish
+- [x] Tanslate the app to Spanish
 - [ ] Add contrast on conversations page to make it easier to read

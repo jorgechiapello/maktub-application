@@ -7,17 +7,17 @@ const userProfile = {
 };
 ---
 
-<MainLayout title="Your Profile">
+<MainLayout title="Tu Perfil">
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div class="max-w-2xl mx-auto">
-            <h1 class="text-3xl font-bold text-gray-900 mb-8">Your Profile</h1>
+            <h1 class="text-3xl font-bold text-gray-900 mb-8">Tu Perfil</h1>
             
             <div class="space-y-8">
                 <section>
-                    <h2 class="text-xl font-semibold mb-4 text-gray-900 border-b border-gray-200 pb-2">Personal Information</h2>
+                    <h2 class="text-xl font-semibold mb-4 text-gray-900 border-b border-gray-200 pb-2">Información Personal</h2>
                     <div class="space-y-4">
                         <div>
-                            <label class="font-semibold text-gray-700 block mb-1">Name</label>
+                            <label class="font-semibold text-gray-700 block mb-1">Nombre</label>
                             <p id="user-name" class="text-lg text-gray-900">{userProfile.name}</p>
                         </div>
                     </div>
@@ -59,7 +59,6 @@ const userProfile = {
     }
   }
 
-  // Load data both on initial page load and subsequent navigations
   document.addEventListener('astro:page-load', () => {
     loadUserInfo();
     loadAnswers();

@@ -2,35 +2,34 @@
 import MainLayout from '../layouts/MainLayout.astro';
 import MatchCard from '../components/MatchCard.astro';
 
-// Mock data for demonstration
 const mockMatches = [
   {
     id: 1,
     name: 'Alex Rivera',
-    bio: 'Coffee enthusiast, amateur photographer, and weekend hiker. Looking for someone to share adventures with!',
-    interests: ['Photography', 'Hiking', 'Coffee', 'Travel'],
+    bio: 'Entusiasta del café, fotógrafo amateur y excursionista de fin de semana. ¡Buscando a alguien para compartir aventuras!',
+    interests: ['Fotografía', 'Senderismo', 'Café', 'Viajes'],
     imageUrl: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3',
     compatibility: 95
   },
   {
     id: 2,
     name: 'Sarah Chen',
-    bio: 'Art curator by day, jazz pianist by night. Passionate about cultural experiences and meaningful conversations.',
-    interests: ['Art', 'Music', 'Culture', 'Food'],
+    bio: 'Curadora de arte de día, pianista de jazz de noche. Apasionada por las experiencias culturales y las conversaciones significativas.',
+    interests: ['Arte', 'Música', 'Cultura', 'Gastronomía'],
     imageUrl: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3',
     compatibility: 88
   },
 ];
 ---
 
-<MainLayout title="Find Your Perfect Match">
+<MainLayout title="Encuentra tu Match">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-12">
       <h1 class="text-4xl font-bold text-gray-900 mb-4">
-        Find Your Perfect Match
+        Encuentra tu Match
       </h1>
       <p class="text-lg text-gray-600">
-        Discover compatible matches at our bar
+        Descubre compatibles matches en nuestro bar
       </p>
     </div>
 

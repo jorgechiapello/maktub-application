@@ -7,32 +7,32 @@ interface Question {
 export const questions: Question[] = [
   {
     id: 1,
-    question: "What's your ideal first date?",
+    question: "¿Cuál sería tu cita ideal?",
     options: [
-      "Coffee and conversation",
-      "Adventure activity",
-      "Dinner and drinks",
-      "Cultural event"
+      "Café y conversación",
+      "Actividad de aventura",
+      "Cena y bebidas",
+      "Evento cultural"
     ]
   },
   {
     id: 2,
-    question: "How do you prefer to spend your weekends?",
+    question: "¿Cómo prefieres pasar tus fines de semana?",
     options: [
-      "Outdoor activities",
-      "Relaxing at home",
-      "Socializing with friends",
-      "Exploring new places"
+      "Actividades al aire libre",
+      "Relajándome en casa",
+      "Socializando con amigos",
+      "Explorando nuevos lugares"
     ]
   },
   {
     id: 3,
-    question: "What are you looking for?",
+    question: "¿Qué estás buscando?",
     options: [
-      "Long-term relationship",
-      "Casual dating",
-      "Friendship",
-      "Not sure yet"
+      "Relación a largo plazo",
+      "Citas casuales",
+      "Amistad",
+      "Aún no estoy seguro/a"
     ]
   },
 ];

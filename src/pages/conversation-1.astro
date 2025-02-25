@@ -6,20 +6,20 @@ const conversation = {
     id: 1,
     name: 'Alex Rivera',
     messages: [
-        { id: 1, sender: 'Alex', content: 'Hey! I saw we matched!', timestamp: '10:30 AM' },
-        { id: 2, sender: 'You', content: 'Hi Alex! Yes, I loved your profile!', timestamp: '10:32 AM' },
-        { id: 3, sender: 'Alex', content: 'Thanks! Would you like to grab coffee sometime?', timestamp: '10:35 AM' },
-        { id: 4, sender: 'You', content: 'That sounds great! When are you free?', timestamp: '10:36 AM' },
+        { id: 1, sender: 'Alex', content: '¡Hola! ¡Vi que hicimos match!', timestamp: '10:30 AM' },
+        { id: 2, sender: 'You', content: '¡Hola Alex! ¡Sí, me encantó tu perfil!', timestamp: '10:32 AM' },
+        { id: 3, sender: 'Alex', content: '¡Gracias! ¿Te gustaría tomar un café algún día?', timestamp: '10:35 AM' },
+        { id: 4, sender: 'You', content: '¡Me parece genial! ¿Cuándo estás libre?', timestamp: '10:36 AM' },
     ]
 };
 ---
 
-<MainLayout title={`Chat with ${conversation.name}`}>
+<MainLayout title={`Chat con ${conversation.name}`}>
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div class="max-w-3xl mx-auto">
             <div class="flex items-center mb-6">
                 <LeftArrow href="/conversations" />
-                <h1 class="text-2xl font-bold text-gray-900">Chat with {conversation.name}</h1>
+                <h1 class="text-2xl font-bold text-gray-900">Chat con {conversation.name}</h1>
             </div>
             
             <div class="bg-white rounded-lg shadow-md p-6">
@@ -51,7 +51,7 @@ const conversation = {
                     <form class="flex gap-2">
                         <input 
                             type="text" 
-                            placeholder="Type your message..." 
+                            placeholder="Escribe tu mensaje..." 
                             class="flex-grow p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                         />
                         <button 
