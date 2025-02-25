@@ -35,7 +35,7 @@ The goal is to build a client-side web application that's easy to share and show
 - [ ] Fix conversations to be only emojis or prefixed messages
 - [ ] Instead of messages, use emojis or prefixed messages to represent the conversation
 - [ ] Replace "Back to conversations" with an icon
-- [ ] Use brand colors for message bubbles on the conversations pages 
-- [ ] Use brand colors for entire page 
+- [x] Use brand colors for message bubbles on the conversations pages 
+- [x] Use brand colors for entire page 
 - [ ] Tanslate the app to Spanish
 - [ ] Add contrast on conversations page to make it easier to read

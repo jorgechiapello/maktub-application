@@ -33,14 +33,14 @@ const conversation = {
                             <div class:list={[
                                 'max-w-[70%] rounded-lg p-3',
                                 message.sender === 'You' 
-                                    ? 'bg-blue-600 text-white' 
+                                    ? 'bg-primary text-white' 
                                     : 'bg-gray-100 text-gray-900'
                             ]}>
                                 <p>{message.content}</p>
                                 <p class:list={[
                                     'text-xs mt-1',
                                     message.sender === 'You' 
-                                        ? 'text-blue-100' 
+                                        ? 'text-primary-100' 
                                         : 'text-gray-500'
                                 ]}>{message.timestamp}</p>
                             </div>
@@ -57,7 +57,7 @@ const conversation = {
                         />
                         <button 
                             type="submit"
-                            class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                            class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
                         >
                             Send
                         </button>
