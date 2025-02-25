@@ -27,19 +27,19 @@ const conversations = [
             <h1 class="text-3xl font-bold mb-8 text-gray-900">Tus Conversaciones</h1>
             <div class="space-y-4">
                 {conversations.map((conversation) => (
-                    <div class="bg-white rounded-lg shadow hover:shadow-md transition-shadow p-4 cursor-pointer">
+                    <div class="bg-primary rounded-lg shadow hover:shadow-lg hover:bg-primary/90 transition-all duration-200 p-4 cursor-pointer">
                         <a href={conversation.href} class="block">
                             <div class="flex items-center">
                                 <div class="flex-grow">
                                     <div class="flex items-center gap-2">
-                                        <h3 class="font-semibold text-gray-900">{conversation.name}</h3>
+                                        <h3 class="font-semibold text-white">{conversation.name}</h3>
                                         {conversation.unread && (
-                                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-0.5 rounded-full">Nuevo</span>
+                                            <span class="bg-white/20 text-white text-xs px-2 py-0.5 rounded-full">Nuevo</span>
                                         )}
                                     </div>
-                                    <p class="text-gray-600 text-sm">{conversation.lastMessage}</p>
+                                    <p class="text-white/90 text-sm">{conversation.lastMessage}</p>
                                 </div>
-                                <div class="text-sm text-gray-500">
+                                <div class="text-sm text-white/80">
                                     {conversation.timestamp}
                                 </div>
                             </div>

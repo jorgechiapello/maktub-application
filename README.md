@@ -38,4 +38,4 @@ The goal is to build a client-side web application that's easy to share and show
 - [x] Use brand colors for message bubbles on the conversations pages 
 - [x] Use brand colors for entire page 
 - [x] Tanslate the app to Spanish
-- [ ] Add contrast on conversations page to make it easier to read
+- [x] Add contrast on conversations page to make it easier to read
