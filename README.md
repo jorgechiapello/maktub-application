@@ -31,7 +31,7 @@ The goal is to build a client-side web application that's easy to share and show
 
 ## TODOs
 - [ ] Upload a proper logo
-- [ ] Replace words on upper navigation bar for logos
+- [X] Replace words on upper navigation bar for logos
 - [ ] Fix conversations to be only emojis or prefixed messages
 - [ ] Instead of messages, use emojis or prefixed messages to represent the conversation
 - [ ] Replace "Back to conversations" with an icon
