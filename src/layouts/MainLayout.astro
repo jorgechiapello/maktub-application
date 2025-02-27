@@ -1,4 +1,6 @@
 ---
+import Analytics from '@vercel/analytics/astro';
+import  SpeedInsights  from "@vercel/speed-insights/astro"
 import { ViewTransitions } from 'astro:transitions';
 import IconProfile from '../components/icon-profile.astro';
 import IconChat from '../components/icon-chat.astro';
@@ -69,5 +71,7 @@ const { title } = Astro.props;
         <slot />
       </div>
     </main>
+    <Analytics />
+    <SpeedInsights />
   </body>
 </html>
