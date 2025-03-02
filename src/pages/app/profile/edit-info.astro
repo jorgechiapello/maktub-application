@@ -1,0 +1,135 @@
+---
+import MainLayout from '../../../layouts/AppMainLayout.astro';
+import LeftArrow from '../../../components/LeftArrow.astro';
+
+const userProfile = {
+    name: 'Loading...',
+};
+---
+
+<MainLayout title="Editar Información">
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="max-w-2xl mx-auto">
+            <div class="flex items-center gap-4 mb-4">
+                <LeftArrow href="/app/profile" />
+                <h1 class="text-3xl font-bold text-gray-900">Editar Información</h1>
+            </div>
+            <p class="text-gray-600 mb-8">Actualiza tu información personal. Esta información nos ayuda a personalizar tu experiencia y mantener tu perfil actualizado.</p>
+            
+            <form id="edit-profile-form" class="space-y-8">
+                <section>
+                    <h2 class="text-xl font-semibold mb-4 text-gray-900 border-b border-gray-200 pb-2">Información Personal</h2>
+                    <div class="space-y-4">
+                        <div>
+                            <label for="name" class="font-semibold text-gray-700 block mb-1">Nombre completo</label>
+                            <input type="text" id="name" name="name" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                        </div>
+                        <div>
+                            <label for="email" class="font-semibold text-gray-700 block mb-1">Email</label>
+                            <input type="email" id="email" name="email" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                        </div>
+                        <div>
+                            <label for="ocupacion" class="font-semibold text-gray-700 block mb-1">Ocupación</label>
+                            <input type="text" id="ocupacion" name="ocupacion" placeholder="Tu ocupación actual" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                        </div>
+                        <div>
+                            <label for="bio" class="font-semibold text-gray-700 block mb-1">Sobre ti</label>
+                            <textarea id="bio" name="bio" rows="4" placeholder="Cuéntanos un poco sobre ti..." class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"></textarea>
+                            <p class="text-sm text-gray-500 mt-1">Máximo 280 caracteres</p>
+                        </div>
+                    </div>
+                </section>
+                
+                <div class="flex flex-col items-end space-y-2">
+                    <button type="submit" id="submit-button" class="px-4 py-2 bg-primary text-white rounded-md hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 flex items-center space-x-2">
+                        <span>Guardar Cambios</span>
+                        <span id="loading-spinner" class="hidden">
+                            <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                        </span>
+                    </button>
+                    <p id="save-status" class="text-sm text-green-600 opacity-0 transition-opacity duration-200"></p>
+                </div>
+            </form>
+        </div>
+    </main>
+</MainLayout>
+
+<script is:inline>
+  function loadUserInfo() {
+    const userOnboarding = JSON.parse(localStorage.getItem('userOnboarding') || '{}');
+    document.getElementById('name').value = userOnboarding.name || '';
+    document.getElementById('email').value = userOnboarding.email || '';
+    document.getElementById('ocupacion').value = userOnboarding.ocupacion || '';
+    document.getElementById('bio').value = userOnboarding.bio || '';
+  }
+
+  function showSaveStatus(message, isError = false) {
+    const statusElement = document.getElementById('save-status');
+    statusElement.textContent = message;
+    statusElement.classList.remove('opacity-0');
+    statusElement.classList.add('opacity-100');
+    if (isError) {
+      statusElement.classList.remove('text-green-600');
+      statusElement.classList.add('text-red-600');
+    } else {
+      statusElement.classList.remove('text-red-600');
+      statusElement.classList.add('text-green-600');
+    }
+    setTimeout(() => {
+      statusElement.classList.remove('opacity-100');
+      statusElement.classList.add('opacity-0');
+    }, 3000);
+  }
+
+  function handleFormSubmit(e) {
+    e.preventDefault();
+    
+    const bioText = document.getElementById('bio').value;
+    if (bioText.length > 280) {
+      showSaveStatus('La descripción no puede exceder los 280 caracteres', true);
+      return;
+    }
+
+    // Show loading state
+    const button = document.getElementById('submit-button');
+    const spinner = document.getElementById('loading-spinner');
+    button.disabled = true;
+    spinner.classList.remove('hidden');
+
+    const formData = {
+      name: document.getElementById('name').value,
+      email: document.getElementById('email').value,
+      ocupacion: document.getElementById('ocupacion').value,
+      bio: bioText,
+    };
+
+    // Simulate a small delay to show the loading state
+    setTimeout(() => {
+      try {
+        const existingData = JSON.parse(localStorage.getItem('userOnboarding') || '{}');
+        const updatedData = { ...existingData, ...formData };
+        localStorage.setItem('userOnboarding', JSON.stringify(updatedData));
+        showSaveStatus('Guardado correctamente');
+      } catch (error) {
+        showSaveStatus('Error al guardar', true);
+      }
+
+      // Reset button state
+      button.disabled = false;
+      spinner.classList.add('hidden');
+    }, 500);
+
+    return false;
+  }
+
+  document.addEventListener('astro:page-load', () => {
+    loadUserInfo();
+    const form = document.getElementById('edit-profile-form');
+    if (form) {
+      form.onsubmit = handleFormSubmit;
+    }
+  });
+</script>

@@ -1,0 +1,52 @@
+---
+import MainLayout from '../../../layouts/AppMainLayout.astro';
+import PencilIcon from '../../../components/icons/PencilIcon.astro';
+import CameraIcon from '../../../components/icons/CameraIcon.astro';
+import SettingsIcon from '../../../components/icons/SettingsIcon.astro';
+---
+
+<MainLayout title="Tu Perfil">
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="max-w-2xl mx-auto">
+            <div class="text-center">
+                <div class="relative w-32 h-32 mx-auto mb-4">
+                    <img
+                        id="profile-picture"
+                        src="https://i.pravatar.cc/200?u=maktub-profile-6"
+                        alt="Profile picture"
+                        class="rounded-full w-full h-full object-cover border-4 border-gray-200"
+                    />
+                </div>
+                <h1 id="user-name" class="text-3xl font-bold text-gray-900 mb-2">Loading...</h1>
+                <p id="user-ocupacion" class="text-gray-600 mb-4">Loading...</p>
+                <p id="user-bio" class="text-gray-700 mb-8 max-w-lg mx-auto">Loading...</p>
+                
+                <div class="flex justify-center gap-12 mb-8">
+                    <a href="/app/profile/settings" class="w-16 h-16 flex items-center justify-center bg-primary text-white rounded-full hover:bg-primary-dark transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 shadow-lg">
+                        <SettingsIcon class="w-7 h-7" />
+                    </a>
+                    <a href="/app/profile/add-picture" class="w-16 h-16 flex items-center justify-center bg-primary text-white rounded-full hover:bg-primary-dark transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 shadow-lg">
+                        <CameraIcon class="w-7 h-7" />
+                    </a>
+                    <a href="/app/profile/edit-info" class="w-16 h-16 flex items-center justify-center bg-primary text-white rounded-full hover:bg-primary-dark transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 shadow-lg">
+                        <PencilIcon class="w-7 h-7" />
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+</MainLayout>
+
+<script is:inline>
+    function loadUserInfo() {
+        const userOnboarding = JSON.parse(localStorage.getItem('userOnboarding') || '{}');
+        
+        document.getElementById('user-name').textContent = userOnboarding.name || 'Sin nombre';
+        document.getElementById('user-ocupacion').textContent = userOnboarding.ocupacion || 'Sin ocupación';
+        document.getElementById('user-bio').textContent = userOnboarding.bio || 'Sin descripción';
+    }
+
+    document.addEventListener('astro:page-load', () => {
+        loadUserInfo();
+    });
+</script>

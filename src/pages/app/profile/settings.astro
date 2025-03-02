@@ -1,0 +1,72 @@
+---
+import MainLayout from '../../../layouts/AppMainLayout.astro';
+import LeftArrow from '../../../components/LeftArrow.astro';
+---
+
+<MainLayout title="Ajustes">
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div class="max-w-2xl mx-auto">
+      <div class="flex items-center gap-4 mb-4">
+        <LeftArrow href="/app/profile" />
+        <h1 class="text-3xl font-bold text-gray-900">Ajustes</h1>
+      </div>
+      <div class="space-y-8">
+        <section>
+          <h2
+            class="text-xl font-semibold mb-4 text-gray-900 border-b border-gray-200 pb-2"
+          >
+            Tus Preferencias
+          </h2>
+          <div id="preference-answers-container" class="space-y-6">
+            <!-- Preference answers will be loaded here by JavaScript -->
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+</MainLayout>
+
+<script is:inline>
+  function loadAnswers() {
+    const preferenceAnswers = JSON.parse(
+      localStorage.getItem('preferenceAnswers') || '[]',
+    );
+    const preferenceContainer = document.getElementById(
+      'preference-answers-container',
+    );
+
+    if (preferenceContainer && preferenceAnswers.length > 0) {
+      const answersHtml = preferenceAnswers
+        .map(
+          (item) => `
+        <div class="group">
+          <h3 class="font-semibold text-gray-900">${item.question}</h3>
+          <p class="mt-2 text-gray-700 text-lg">${item.answer}</p>
+        </div>
+      `,
+        )
+        .join('');
+
+      preferenceContainer.innerHTML = answersHtml;
+    }
+  }
+
+  document.addEventListener('astro:page-load', () => {
+    loadAnswers();
+  });
+</script>
+
+<style>
+  .answer-item {
+    margin-bottom: 1.5rem;
+  }
+
+  .question {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .answer {
+    color: #666;
+  }
+</style>
