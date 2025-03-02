@@ -1,5 +1,6 @@
 ---
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import StarIcon from '../components/StarIcon.astro'
 ---
 <!DOCTYPE html>
 <html lang="en-US" class="twbb">
@@ -49,7 +50,7 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
 <link rel='stylesheet' id='tbdemo-fonts-css' href='wp-content/plugins/ai-builder-demo-plugin-master/assets/css/fonts.css?ver=1.11.0' type='text/css' media='all' />
 <link rel='stylesheet' id='tbdemo-open-sans-css' href='https://fonts.googleapis.com/css?family=Open+Sans%3A300%2C400%2C500%2C600%2C700%2C800&#038;display=swap&#038;ver=6.7.2' type='text/css' media='all' />
 <link rel='stylesheet' id='tbdemo-fakeEditor-css' href='wp-content/plugins/ai-builder-demo-plugin-master/assets/css/fakeEditor.css?ver=1.11.0' type='text/css' media='all' />
-<link rel='stylesheet' id='dashicons-css' href='public/wp-includes/css/dashicons.min.css?ver=6.7.2' type='text/css' media='all' />
+<link rel='stylesheet' id='dashicons-css' href='wp-includes/css/dashicons.min.css?ver=6.7.2' type='text/css' media='all' />
 <link rel='stylesheet' id='woocommerce-layout-css' href='wp-content/plugins/woocommerce/assets/css/woocommerce-layout.css?ver=9.7.0' type='text/css' media='all' />
 <link rel='stylesheet' id='woocommerce-smallscreen-css' href='wp-content/plugins/woocommerce/assets/css/woocommerce-smallscreen.css?ver=9.7.0' type='text/css' media='only screen and (max-width: 768px)' />
 <style id='woocommerce-inline-inline-css' type='text/css'>
@@ -60,7 +61,6 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
 <link rel='stylesheet' id='brands-styles-css' href='wp-content/plugins/woocommerce/assets/css/brands.css?ver=9.7.0' type='text/css' media='all' />
 <link rel='stylesheet' id='tenweb-website-builder-open-sanse-css' href='https://fonts.googleapis.com/css2?family=Open+Sans%3Awght%40300%3B400%3B600%3B700%3B800&#038;display=swap&#038;ver=2.1.12' type='text/css' media='all' />
 <link rel='stylesheet' id='tenweb-website-builder-theme-style-css' href='wp-content/themes/tenweb-website-builder-theme/assets/css/styles-wc.min.css?ver=2.1.12' type='text/css' media='all' />
-<link rel='stylesheet' id='elementor-icons-css' href='wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min.css?ver=5.35.0' type='text/css' media='all' />
 <link rel='stylesheet' id='elementor-post-1632-css' href='wp-content/uploads/sites/128/elementor/css/post-1632.css?ver=1740921597' type='text/css' media='all' />
 <link rel='stylesheet' id='twbb-pro-features-css' href='wp-content/plugins/tenweb-builder/pro-features/assets/css/frontend.min.css?ver=1.30.5' type='text/css' media='all' />
 <link rel='stylesheet' id='e-animation-fadeInUp-css' href='wp-content/plugins/elementor/assets/lib/animations/styles/fadeInUp.min.css?ver=3.27.6' type='text/css' media='all' />
@@ -73,8 +73,8 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
 <link rel='stylesheet' id='widget-image-css' href='wp-content/plugins/elementor/assets/css/widget-image.min.css?ver=3.27.6' type='text/css' media='all' />
 <link rel='stylesheet' id='elementor-post-1602-css' href='wp-content/uploads/sites/128/elementor/css/post-1602.css?ver=1740921597' type='text/css' media='all' />
 <link rel='stylesheet' id='google-fonts-1-css' href='https://fonts.googleapis.com/css?family=Montserrat%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&#038;display=block&#038;ver=6.7.2' type='text/css' media='all' />
-<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin><script type="text/javascript" src="public/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
-<script type="text/javascript" src="public/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js"></script>
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin><script type="text/javascript" src="wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
+<script type="text/javascript" src="wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js"></script>
 <script type="text/javascript" id="twbb-editor-helper-script-js-extra">
 /* <![CDATA[ */
 var twbb_helper = {"domain_id":"308386"};
@@ -644,33 +644,34 @@ var woocommerce_params = {"ajax_url":"\/26\/wp-admin\/admin-ajax.php","wc_ajax_u
                             <div class="e-rating-wrapper" itemprop="ratingValue" content="5" role="img" aria-label="Rated 5 out of 5" data-settings="{&quot;view_type&quot;:&quot;masonry&quot;,&quot;slides_per_view&quot;:null,&quot;slides_per_view_tablet&quot;:null,&quot;slides_per_view_mobile&quot;:null,&quot;column_count_masonry&quot;:3,&quot;column_count_masonry_tablet&quot;:2,&quot;column_count_masonry_mobile&quot;:1,&quot;slides_to_scroll&quot;:null,&quot;slides_count&quot;:6,&quot;pagination&quot;:null,&quot;show_arrows&quot;:null,&quot;speed&quot;:null,&quot;autoplay&quot;:null,&quot;autoplay_speed&quot;:null,&quot;loop&quot;:null,&quot;pause_on_interaction&quot;:null,&quot;breakpoints&quot;:{&quot;space_between&quot;:null,&quot;space_between_tablet&quot;:null,&quot;space_between_mobile&quot;:null},&quot;tenweb_enable_stars&quot;:&quot;yes&quot;}">
                                             <div class="e-icon">
                 <div class="e-icon-wrapper e-icon-marked">
-                    <i aria-hidden="true" class="eicon-star"></i>                </div>
+                    <StarIcon />
+                </div>
                 <div class="e-icon-wrapper e-icon-unmarked">
-                    <i aria-hidden="true" class="eicon-star"></i>                </div>
+                    <StarIcon />                </div>
             </div>
                         <div class="e-icon">
                 <div class="e-icon-wrapper e-icon-marked">
-                    <i aria-hidden="true" class="eicon-star"></i>                </div>
+                    <StarIcon />                </div>
                 <div class="e-icon-wrapper e-icon-unmarked">
-                    <i aria-hidden="true" class="eicon-star"></i>                </div>
+                    <StarIcon />                </div>
             </div>
                         <div class="e-icon">
                 <div class="e-icon-wrapper e-icon-marked">
-                    <i aria-hidden="true" class="eicon-star"></i>                </div>
+                    <StarIcon />                </div>
                 <div class="e-icon-wrapper e-icon-unmarked">
-                    <i aria-hidden="true" class="eicon-star"></i>                </div>
+                    <StarIcon />                </div>
             </div>
                         <div class="e-icon">
                 <div class="e-icon-wrapper e-icon-marked">
-                    <i aria-hidden="true" class="eicon-star"></i>                </div>
+                    <StarIcon />                </div>
                 <div class="e-icon-wrapper e-icon-unmarked">
-                    <i aria-hidden="true" class="eicon-star"></i>                </div>
+                    <StarIcon />                </div>
             </div>
                         <div class="e-icon">
                 <div class="e-icon-wrapper e-icon-marked">
-                    <i aria-hidden="true" class="eicon-star"></i>                </div>
+                    <StarIcon />                </div>
                 <div class="e-icon-wrapper e-icon-unmarked">
-                    <i aria-hidden="true" class="eicon-star"></i>                </div>
+                    <StarIcon />                </div>
             </div>
                                         </div>
                         </div>
@@ -694,33 +695,33 @@ var woocommerce_params = {"ajax_url":"\/26\/wp-admin\/admin-ajax.php","wc_ajax_u
                             <div class="e-rating-wrapper" itemprop="ratingValue" content="5" role="img" aria-label="Rated 5 out of 5" data-settings="{&quot;view_type&quot;:&quot;masonry&quot;,&quot;slides_per_view&quot;:null,&quot;slides_per_view_tablet&quot;:null,&quot;slides_per_view_mobile&quot;:null,&quot;column_count_masonry&quot;:3,&quot;column_count_masonry_tablet&quot;:2,&quot;column_count_masonry_mobile&quot;:1,&quot;slides_to_scroll&quot;:null,&quot;slides_count&quot;:6,&quot;pagination&quot;:null,&quot;show_arrows&quot;:null,&quot;speed&quot;:null,&quot;autoplay&quot;:null,&quot;autoplay_speed&quot;:null,&quot;loop&quot;:null,&quot;pause_on_interaction&quot;:null,&quot;breakpoints&quot;:{&quot;space_between&quot;:null,&quot;space_between_tablet&quot;:null,&quot;space_between_mobile&quot;:null},&quot;tenweb_enable_stars&quot;:&quot;yes&quot;}">
                                             <div class="e-icon">
                 <div class="e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked">
-                    <i aria-hidden="true" class="eicon-star"></i>                </div>
+                    <StarIcon />                </div>
                 <div class="e-icon-wrapper e-icon-unmarked">
-                    <i aria-hidden="true" class="eicon-star"></i>                </div>
+                    <StarIcon />                </div>
             </div>
                         <div class="e-icon">
                 <div class="e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked">
-                    <i aria-hidden="true" class="eicon-star"></i>                </div>
+                    <StarIcon />                </div>
                 <div class="e-icon-wrapper e-icon-unmarked">
-                    <i aria-hidden="true" class="eicon-star"></i>                </div>
+                    <StarIcon />                </div>
             </div>
                         <div class="e-icon">
                 <div class="e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked">
-                    <i aria-hidden="true" class="eicon-star"></i>                </div>
+                    <StarIcon />                </div>
                 <div class="e-icon-wrapper e-icon-unmarked">
-                    <i aria-hidden="true" class="eicon-star"></i>                </div>
+                    <StarIcon />                </div>
             </div>
                         <div class="e-icon">
                 <div class="e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked">
-                    <i aria-hidden="true" class="eicon-star"></i>                </div>
+                    <StarIcon />                </div>
                 <div class="e-icon-wrapper e-icon-unmarked">
-                    <i aria-hidden="true" class="eicon-star"></i>                </div>
+                    <StarIcon />                </div>
             </div>
                         <div class="e-icon">
                 <div class="e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked">
-                    <i aria-hidden="true" class="eicon-star"></i>                </div>
+                    <StarIcon />                </div>
                 <div class="e-icon-wrapper e-icon-unmarked">
-                    <i aria-hidden="true" class="eicon-star"></i>                </div>
+                    <StarIcon />                </div>
             </div>
                                         </div>
                         </div>
@@ -744,33 +745,33 @@ var woocommerce_params = {"ajax_url":"\/26\/wp-admin\/admin-ajax.php","wc_ajax_u
                             <div class="e-rating-wrapper" itemprop="ratingValue" content="5" role="img" aria-label="Rated 5 out of 5" data-settings="{&quot;view_type&quot;:&quot;masonry&quot;,&quot;slides_per_view&quot;:null,&quot;slides_per_view_tablet&quot;:null,&quot;slides_per_view_mobile&quot;:null,&quot;column_count_masonry&quot;:3,&quot;column_count_masonry_tablet&quot;:2,&quot;column_count_masonry_mobile&quot;:1,&quot;slides_to_scroll&quot;:null,&quot;slides_count&quot;:6,&quot;pagination&quot;:null,&quot;show_arrows&quot;:null,&quot;speed&quot;:null,&quot;autoplay&quot;:null,&quot;autoplay_speed&quot;:null,&quot;loop&quot;:null,&quot;pause_on_interaction&quot;:null,&quot;breakpoints&quot;:{&quot;space_between&quot;:null,&quot;space_between_tablet&quot;:null,&quot;space_between_mobile&quot;:null},&quot;tenweb_enable_stars&quot;:&quot;yes&quot;}">
                                             <div class="e-icon">
                 <div class="e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked">
-                    <i aria-hidden="true" class="eicon-star"></i>                </div>
+                    <StarIcon />                </div>
                 <div class="e-icon-wrapper e-icon-unmarked">
-                    <i aria-hidden="true" class="eicon-star"></i>                </div>
+                    <StarIcon />                </div>
             </div>
                         <div class="e-icon">
                 <div class="e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked">
-                    <i aria-hidden="true" class="eicon-star"></i>                </div>
+                    <StarIcon />                </div>
                 <div class="e-icon-wrapper e-icon-unmarked">
-                    <i aria-hidden="true" class="eicon-star"></i>                </div>
+                    <StarIcon />                </div>
             </div>
                         <div class="e-icon">
                 <div class="e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked">
-                    <i aria-hidden="true" class="eicon-star"></i>                </div>
+                    <StarIcon />                </div>
                 <div class="e-icon-wrapper e-icon-unmarked">
-                    <i aria-hidden="true" class="eicon-star"></i>                </div>
+                    <StarIcon />                </div>
             </div>
                         <div class="e-icon">
                 <div class="e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked">
-                    <i aria-hidden="true" class="eicon-star"></i>                </div>
+                    <StarIcon />                </div>
                 <div class="e-icon-wrapper e-icon-unmarked">
-                    <i aria-hidden="true" class="eicon-star"></i>                </div>
+                    <StarIcon />                </div>
             </div>
                         <div class="e-icon">
                 <div class="e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked">
-                    <i aria-hidden="true" class="eicon-star"></i>                </div>
+                    <StarIcon />                </div>
                 <div class="e-icon-wrapper e-icon-unmarked">
-                    <i aria-hidden="true" class="eicon-star"></i>                </div>
+                    <StarIcon />                </div>
             </div>
                                         </div>
                         </div>
@@ -794,33 +795,33 @@ var woocommerce_params = {"ajax_url":"\/26\/wp-admin\/admin-ajax.php","wc_ajax_u
                             <div class="e-rating-wrapper" itemprop="ratingValue" content="5" role="img" aria-label="Rated 5 out of 5" data-settings="{&quot;view_type&quot;:&quot;masonry&quot;,&quot;slides_per_view&quot;:null,&quot;slides_per_view_tablet&quot;:null,&quot;slides_per_view_mobile&quot;:null,&quot;column_count_masonry&quot;:3,&quot;column_count_masonry_tablet&quot;:2,&quot;column_count_masonry_mobile&quot;:1,&quot;slides_to_scroll&quot;:null,&quot;slides_count&quot;:6,&quot;pagination&quot;:null,&quot;show_arrows&quot;:null,&quot;speed&quot;:null,&quot;autoplay&quot;:null,&quot;autoplay_speed&quot;:null,&quot;loop&quot;:null,&quot;pause_on_interaction&quot;:null,&quot;breakpoints&quot;:{&quot;space_between&quot;:null,&quot;space_between_tablet&quot;:null,&quot;space_between_mobile&quot;:null},&quot;tenweb_enable_stars&quot;:&quot;yes&quot;}">
                                             <div class="e-icon">
                 <div class="e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked">
-                    <i aria-hidden="true" class="eicon-star"></i>                </div>
+                    <StarIcon />                </div>
                 <div class="e-icon-wrapper e-icon-unmarked">
-                    <i aria-hidden="true" class="eicon-star"></i>                </div>
+                    <StarIcon />                </div>
             </div>
                         <div class="e-icon">
                 <div class="e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked">
-                    <i aria-hidden="true" class="eicon-star"></i>                </div>
+                    <StarIcon />                </div>
                 <div class="e-icon-wrapper e-icon-unmarked">
-                    <i aria-hidden="true" class="eicon-star"></i>                </div>
+                    <StarIcon />                </div>
             </div>
                         <div class="e-icon">
                 <div class="e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked">
-                    <i aria-hidden="true" class="eicon-star"></i>                </div>
+                    <StarIcon />                </div>
                 <div class="e-icon-wrapper e-icon-unmarked">
-                    <i aria-hidden="true" class="eicon-star"></i>                </div>
+                    <StarIcon />                </div>
             </div>
                         <div class="e-icon">
                 <div class="e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked">
-                    <i aria-hidden="true" class="eicon-star"></i>                </div>
+                    <StarIcon />                </div>
                 <div class="e-icon-wrapper e-icon-unmarked">
-                    <i aria-hidden="true" class="eicon-star"></i>                </div>
+                    <StarIcon />                </div>
             </div>
                         <div class="e-icon">
                 <div class="e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked">
-                    <i aria-hidden="true" class="eicon-star"></i>                </div>
+                    <StarIcon />                </div>
                 <div class="e-icon-wrapper e-icon-unmarked">
-                    <i aria-hidden="true" class="eicon-star"></i>                </div>
+                    <StarIcon />                </div>
             </div>
                                         </div>
                         </div>
@@ -844,33 +845,33 @@ var woocommerce_params = {"ajax_url":"\/26\/wp-admin\/admin-ajax.php","wc_ajax_u
                             <div class="e-rating-wrapper" itemprop="ratingValue" content="5" role="img" aria-label="Rated 5 out of 5" data-settings="{&quot;view_type&quot;:&quot;masonry&quot;,&quot;slides_per_view&quot;:null,&quot;slides_per_view_tablet&quot;:null,&quot;slides_per_view_mobile&quot;:null,&quot;column_count_masonry&quot;:3,&quot;column_count_masonry_tablet&quot;:2,&quot;column_count_masonry_mobile&quot;:1,&quot;slides_to_scroll&quot;:null,&quot;slides_count&quot;:6,&quot;pagination&quot;:null,&quot;show_arrows&quot;:null,&quot;speed&quot;:null,&quot;autoplay&quot;:null,&quot;autoplay_speed&quot;:null,&quot;loop&quot;:null,&quot;pause_on_interaction&quot;:null,&quot;breakpoints&quot;:{&quot;space_between&quot;:null,&quot;space_between_tablet&quot;:null,&quot;space_between_mobile&quot;:null},&quot;tenweb_enable_stars&quot;:&quot;yes&quot;}">
                                             <div class="e-icon">
                 <div class="e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked">
-                    <i aria-hidden="true" class="eicon-star"></i>                </div>
+                    <StarIcon />                </div>
                 <div class="e-icon-wrapper e-icon-unmarked">
-                    <i aria-hidden="true" class="eicon-star"></i>                </div>
+                    <StarIcon />                </div>
             </div>
                         <div class="e-icon">
                 <div class="e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked">
-                    <i aria-hidden="true" class="eicon-star"></i>                </div>
+                    <StarIcon />                </div>
                 <div class="e-icon-wrapper e-icon-unmarked">
-                    <i aria-hidden="true" class="eicon-star"></i>                </div>
+                    <StarIcon />                </div>
             </div>
                         <div class="e-icon">
                 <div class="e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked">
-                    <i aria-hidden="true" class="eicon-star"></i>                </div>
+                    <StarIcon />                </div>
                 <div class="e-icon-wrapper e-icon-unmarked">
-                    <i aria-hidden="true" class="eicon-star"></i>                </div>
+                    <StarIcon />                </div>
             </div>
                         <div class="e-icon">
                 <div class="e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked">
-                    <i aria-hidden="true" class="eicon-star"></i>                </div>
+                    <StarIcon />                </div>
                 <div class="e-icon-wrapper e-icon-unmarked">
-                    <i aria-hidden="true" class="eicon-star"></i>                </div>
+                    <StarIcon />                </div>
             </div>
                         <div class="e-icon">
                 <div class="e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked">
-                    <i aria-hidden="true" class="eicon-star"></i>                </div>
+                    <StarIcon />                </div>
                 <div class="e-icon-wrapper e-icon-unmarked">
-                    <i aria-hidden="true" class="eicon-star"></i>                </div>
+                    <StarIcon />                </div>
             </div>
                                         </div>
                         </div>
@@ -894,33 +895,33 @@ var woocommerce_params = {"ajax_url":"\/26\/wp-admin\/admin-ajax.php","wc_ajax_u
                             <div class="e-rating-wrapper" itemprop="ratingValue" content="5" role="img" aria-label="Rated 5 out of 5" data-settings="{&quot;view_type&quot;:&quot;masonry&quot;,&quot;slides_per_view&quot;:null,&quot;slides_per_view_tablet&quot;:null,&quot;slides_per_view_mobile&quot;:null,&quot;column_count_masonry&quot;:3,&quot;column_count_masonry_tablet&quot;:2,&quot;column_count_masonry_mobile&quot;:1,&quot;slides_to_scroll&quot;:null,&quot;slides_count&quot;:6,&quot;pagination&quot;:null,&quot;show_arrows&quot;:null,&quot;speed&quot;:null,&quot;autoplay&quot;:null,&quot;autoplay_speed&quot;:null,&quot;loop&quot;:null,&quot;pause_on_interaction&quot;:null,&quot;breakpoints&quot;:{&quot;space_between&quot;:null,&quot;space_between_tablet&quot;:null,&quot;space_between_mobile&quot;:null},&quot;tenweb_enable_stars&quot;:&quot;yes&quot;}">
                                             <div class="e-icon">
                 <div class="e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked">
-                    <i aria-hidden="true" class="eicon-star"></i>                </div>
+                    <StarIcon />                </div>
                 <div class="e-icon-wrapper e-icon-unmarked">
-                    <i aria-hidden="true" class="eicon-star"></i>                </div>
+                    <StarIcon />                </div>
             </div>
                         <div class="e-icon">
                 <div class="e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked">
-                    <i aria-hidden="true" class="eicon-star"></i>                </div>
+                    <StarIcon />                </div>
                 <div class="e-icon-wrapper e-icon-unmarked">
-                    <i aria-hidden="true" class="eicon-star"></i>                </div>
+                    <StarIcon />                </div>
             </div>
                         <div class="e-icon">
                 <div class="e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked">
-                    <i aria-hidden="true" class="eicon-star"></i>                </div>
+                    <StarIcon />                </div>
                 <div class="e-icon-wrapper e-icon-unmarked">
-                    <i aria-hidden="true" class="eicon-star"></i>                </div>
+                    <StarIcon />                </div>
             </div>
                         <div class="e-icon">
                 <div class="e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked">
-                    <i aria-hidden="true" class="eicon-star"></i>                </div>
+                    <StarIcon />                </div>
                 <div class="e-icon-wrapper e-icon-unmarked">
-                    <i aria-hidden="true" class="eicon-star"></i>                </div>
+                    <StarIcon />                </div>
             </div>
                         <div class="e-icon">
                 <div class="e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked e-icon-wrapper e-icon-marked">
-                    <i aria-hidden="true" class="eicon-star"></i>                </div>
+                    <StarIcon />                </div>
                 <div class="e-icon-wrapper e-icon-unmarked">
-                    <i aria-hidden="true" class="eicon-star"></i>                </div>
+                    <StarIcon />                </div>
             </div>
                                         </div>
                         </div>
@@ -1281,7 +1282,7 @@ var wc_order_attribution = {"params":{"lifetime":1.0000000000000001e-5,"session"
 <script type="text/javascript" src="wp-content/plugins/woocommerce/assets/js/frontend/order-attribution.min.js?ver=9.7.0" id="wc-order-attribution-js"></script>
 <script type="text/javascript" src="wp-content/plugins/elementor/assets/lib/swiper/v8/swiper.min.js?ver=8.4.5" id="swiper-js"></script>
 <script type="text/javascript" src="wp-content/plugins/elementor/assets/lib/jquery-numerator/jquery-numerator.min.js?ver=0.2.1" id="jquery-numerator-js"></script>
-<script type="text/javascript" src="public/wp-includes/js/imagesloaded.min.js?ver=5.0.0" id="imagesloaded-js"></script>
+<script type="text/javascript" src="wp-includes/js/imagesloaded.min.js?ver=5.0.0" id="imagesloaded-js"></script>
 <script type="text/javascript" id="tbdemo-main-js-extra">
 /* <![CDATA[ */
 var taa = {"is_builder2":"1","is_home":"1","billed_annually":"Billed annually","billed_monthly":"Billed monthly","home_page_id":"1602","home_permalink":"https:\/\/aisite.10web.io\/26\/openly-precise-narwhal\/","upgrade_popup_customize_title":"Save the customization you have made","upgrade_popup_customize_descr":"Get 7 day free trial of 10Web Pro to edit your website, generate more content and images, and launch your superfast website on 10Web.","dashboard_url":"https:\/\/my.10web.io"};
@@ -1298,7 +1299,7 @@ var twbb_theme_customize = {"from_demo":"1","fonts":{"152":"ABeeZee","56":"Abel"
 <script type="text/javascript" src="wp-content/plugins/elementor/assets/lib/font-awesome/js/v4-shims.min.js?ver=3.27.6" id="font-awesome-4-shim-js"></script>
 <script type="text/javascript" src="wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=3.27.6" id="elementor-webpack-runtime-js"></script>
 <script type="text/javascript" src="wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=3.27.6" id="elementor-frontend-modules-js"></script>
-<script type="text/javascript" src="public/wp-includes/js/jquery/ui/core.min.js?ver=1.13.3" id="jquery-ui-core-js"></script>
+<script type="text/javascript" src="wp-includes/js/jquery/ui/core.min.js?ver=1.13.3" id="jquery-ui-core-js"></script>
 <script type="text/javascript" id="elementor-frontend-js-before">
 /* <![CDATA[ */
 var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":false},"i18n":{"shareOnFacebook":"Share on Facebook","shareOnTwitter":"Share on Twitter","pinIt":"Pin it","download":"Download","downloadImage":"Download image","fullscreen":"Fullscreen","zoom":"Zoom","share":"Share","playVideo":"Play Video","previous":"Previous","next":"Next","close":"Close","a11yCarouselPrevSlideMessage":"Previous slide","a11yCarouselNextSlideMessage":"Next slide","a11yCarouselFirstSlideMessage":"This is the first slide","a11yCarouselLastSlideMessage":"This is the last slide","a11yCarouselPaginationBulletMessage":"Go to slide"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"Mobile Portrait","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"Mobile Landscape","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"Tablet Portrait","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"Tablet Landscape","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"Laptop","value":1366,"default_value":1366,"direction":"max","is_enabled":false},"widescreen":{"label":"Widescreen","value":2400,"default_value":2400,"direction":"min","is_enabled":false}},"hasCustomBreakpoints":false},"version":"3.27.6","is_static":false,"experimentalFeatures":{"container":true,"e_swiper_latest":true,"e_onboarding":true,"home_screen":true,"link-in-bio":true,"floating-buttons":true,"launchpad-checklist":true,"fast_editing_tools":true,"sections_generation":true,"co_pilot":true},"urls":{"assets":"https:\/\/aisite.10web.io\/26\/wp-content\/plugins\/elementor\/assets\/","ajaxurl":"https:\/\/aisite.10web.io\/26\/wp-admin\/admin-ajax.php","uploadUrl":"https:\/\/aisite.10web.io\/26\/wp-content\/uploads\/sites\/128"},"nonces":{"floatingButtonsClickTracking":"a569c5f146"},"swiperClass":"swiper","settings":{"page":[],"editorPreferences":[]},"kit":{"active_breakpoints":["viewport_mobile","viewport_tablet"],"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description","body_background_background":"classic","woocommerce_notices_elements":["wc_error","wc_message","wc_info"]},"post":{"id":1602,"title":"Home","excerpt":"","featuredImage":false}};
@@ -1311,8 +1312,8 @@ var ElementorTenwebFrontendConfig = {"ajaxurl":"https:\/\/aisite.10web.io\/26\/w
 /* ]]> */
 </script>
 <script type="text/javascript" src="wp-content/plugins/tenweb-builder/pro-features/assets/js/concated_frontend.min.js?ver=1.30.5" id="twbb-pro-features-frontend-script-js"></script>
-<script type="text/javascript" src="public/wp-includes/js/underscore.min.js?ver=1.13.7" id="underscore-js"></script>
-<script type="text/javascript" src="public/wp-includes/js/masonry.min.js?ver=4.2.2" id="masonry-js"></script>
+<script type="text/javascript" src="wp-includes/js/underscore.min.js?ver=1.13.7" id="underscore-js"></script>
+<script type="text/javascript" src="wp-includes/js/masonry.min.js?ver=4.2.2" id="masonry-js"></script>
 <script type="text/javascript" id="wc-cart-fragments-js-extra">
 /* <![CDATA[ */
 var wc_cart_fragments_params = {"ajax_url":"\/26\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/26\/?wc-ajax=%%endpoint%%","cart_hash_key":"wc_cart_hash_2fc96f0ffa8da8f589393f7c155e1035","fragment_name":"wc_fragments_2fc96f0ffa8da8f589393f7c155e1035","request_timeout":"5000"};
