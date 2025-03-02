@@ -4,9 +4,9 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#b2133e',    // Pink from brand
-        secondary: '#000000',  // Black from brand
-        background: '#FFFFFF', // White from brand
+        primary: '#b2133e',
+        secondary: '#000000',
+        background: '#FFFFFF',
         'primary-light': '#FF3333',
         'primary-dark': '#CC0000',
       },
