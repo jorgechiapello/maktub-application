@@ -44,5 +44,8 @@ The goal is to build a client-side web application that's easy to share and show
 - [ ] Update onboarding questions
 - [ ] Schedule a date
 - [ ] Update questions during onboarding
-- [ ] Wait after onboarding before onboarding
+- [ ] Wait 10 seconds after onboarding before redirecting
 - [ ] Update profiles
+- [ ] Show a points system on the profile page
+- [ ] aling top bar icons
+- [ ] Improve profile page (just copy Tinder)
