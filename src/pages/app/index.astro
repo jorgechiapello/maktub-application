@@ -53,21 +53,21 @@ const mockMatches = [
       const onboardingData = localStorage.getItem('userOnboarding');
       if (!onboardingData) {
         // No onboarding data found, redirect to onboarding
-        window.location.href = '/onboarding';
+        window.location.href = '/app/onboarding';
         return;
       }
 
       const parsed = JSON.parse(onboardingData);
       if (!parsed.completed) {
         // Onboarding not completed, redirect to onboarding
-        window.location.href = '/onboarding';
+        window.location.href = '/app/onboarding';
         return;
       }
 
     } catch (error) {
       console.error('Error checking onboarding status:', error);
       // On error, redirect to onboarding to be safe
-      window.location.href = '/onboarding';
+      window.location.href = '/app/onboarding';
     }
   });
 </script>
