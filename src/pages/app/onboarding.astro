@@ -17,7 +17,7 @@ import { questions } from '../../data/questions';
         </div>
       </div>
 
-      <form id="onboardingForm" class="space-y-8">
+      <form id="onboardingForm" class="space-y-8" onsubmit="return false;">
         <!-- Personal Info Section -->
         <div id="personal-info" class="space-y-4">
           <h2 class="text-2xl font-semibold text-gray-900">Bienvenido! A continuación, completaremos un pequeño formulario.</h2>
@@ -117,6 +117,7 @@ import { questions } from '../../data/questions';
 
   // Show/hide sections based on current step
   function updateVisibility() {
+    console.log('Updating visibility for step:', currentStep);
     if (personalInfo) {
       personalInfo.classList.toggle('hidden', currentStep !== 0);
     }
@@ -149,15 +150,25 @@ import { questions } from '../../data/questions';
     });
   });
 
+  // Prevent form submission on enter
+  document.getElementById('onboardingForm')?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    return false;
+  });
+
   // Handle navigation
   nextButton?.addEventListener('click', () => {
+    console.log('Current step:', currentStep, 'Total steps:', totalSteps);
     if (currentStep === 0) {
       const nameInput = document.getElementById('name');
-      if (!nameInput?.value) {
+      if (!nameInput?.value.trim()) {
+        nameInput.classList.add('border-red-500');
+        nameInput.focus();
         alert('Por favor, introduce tu nombre');
         return;
       }
-      profileAnswers.name = nameInput.value;
+      nameInput.classList.remove('border-red-500');
+      profileAnswers.name = nameInput.value.trim();
     }
 
     if (currentStep === totalSteps - 1) {
@@ -179,7 +190,7 @@ import { questions } from '../../data/questions';
         }));
         // Store the complete answers
         localStorage.setItem('preferenceAnswers', JSON.stringify(answersArray));
-        window.location.href = '/';
+        window.location.href = '/app';
       } catch (error) {
         console.error('Error saving onboarding data:', error);
         alert('There was an error saving your information. Please try again.');
