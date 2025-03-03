@@ -7,6 +7,16 @@ export interface Question {
 
 export const preferenceQuestions: Question[] = [
   {
+    id: 'gender',
+    question: '¿Qué género de pareja prefieres?',
+    category: 'preference',
+    options: [
+      'Hombres',
+      'Mujeres',
+      'Ambos',
+    ],
+  },
+  {
     id: 1,
     question: '¿Cómo describirías tu enfoque en el amor?',
     category: 'preference',
