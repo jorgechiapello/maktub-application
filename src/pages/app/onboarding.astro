@@ -118,14 +118,6 @@ const questions = [ ...profileQuestions,...preferenceQuestions];
 
   document.addEventListener('DOMContentLoaded', () => {
     try {
-      const onboardingData = localStorage.getItem('userOnboarding');
-      if (onboardingData) {
-        const parsed = JSON.parse(onboardingData);
-        if (parsed.completed) {
-          window.location.href = '/';
-        }
-      }
-      
       updateProgress();
     } catch (error) {
       console.error('Error checking onboarding status:', error);
