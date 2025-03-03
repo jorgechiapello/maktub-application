@@ -5,7 +5,7 @@ import { getDestinationUrl } from '../utils/demo-helper';
 const { url } = Astro;
 const targetPath = url.searchParams.get('path') || '/app';
 
-const destinationUrl = getDestinationUrl(targetPath, Astro.url.origin);
+const destinationUrl = getDestinationUrl(targetPath, '');
 ---
 
 <DeviceFrameLayout title="Mobile Demo">
@@ -26,7 +26,6 @@ const destinationUrl = getDestinationUrl(targetPath, Astro.url.origin);
       <a href="/" class="exit-button">Exit Demo</a>
     </div>
   </div>
-  {Astro.url.origin}
   <iframe 
     src={destinationUrl} 
     class="demo-frame" 

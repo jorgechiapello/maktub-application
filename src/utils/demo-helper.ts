@@ -4,17 +4,17 @@
 
 /**
  * Gets the destination URL for the iframe based on the target path
- * and the current origin
+ * and the optional origin
  * 
  * @param targetPath The path to navigate to
- * @param origin The current site origin
+ * @param origin Optional origin. If empty, uses relative URL
  * @returns The complete URL to load in the iframe
  */
-export function getDestinationUrl(targetPath: string, origin: string): string {
+export function getDestinationUrl(targetPath: string, origin: string = ''): string {
   // Clean the target path to make sure it starts with a slash
   const cleanPath = targetPath.startsWith('/') ? targetPath : `/${targetPath}`;
   
-  // Construct the full URL
+  // Construct the URL - relative if no origin provided
   return `${origin}${cleanPath}`;
 }
 
