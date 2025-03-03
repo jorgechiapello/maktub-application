@@ -2,11 +2,9 @@
 import DeviceFrameLayout from '../layouts/DeviceFrameLayout.astro';
 import { getDestinationUrl } from '../utils/demo-helper';
 
-// Get the desired app page to display from query parameters or default to home
 const { url } = Astro;
 const targetPath = url.searchParams.get('path') || '/app';
 
-// Redirect to the actual content inside an iframe
 const destinationUrl = getDestinationUrl(targetPath, Astro.url.origin);
 ---
 
@@ -28,7 +26,7 @@ const destinationUrl = getDestinationUrl(targetPath, Astro.url.origin);
       <a href="/" class="exit-button">Exit Demo</a>
     </div>
   </div>
-  
+  {Astro.url.origin}
   <iframe 
     src={destinationUrl} 
     class="demo-frame" 
