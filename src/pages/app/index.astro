@@ -1,7 +1,7 @@
 ---
 import MainLayout from '../../layouts/AppMainLayout.astro';
 import MatchCard from '../../components/MatchCard.astro';
-import { mockMatches } from '../../data/matches.ts';
+import { crushes } from '../../data/crushes.ts';
 ---
 
 <MainLayout title="Encuentra tu Crush">
@@ -15,12 +15,9 @@ import { mockMatches } from '../../data/matches.ts';
 
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
       {
-        mockMatches.map((match, index) => (
+        crushes.map((match, index) => (
           <MatchCard
-            match={{
-              ...match,
-              imageUrl: match.imageUrl + (index === 0 ? '&priority=true' : ''),
-            }}
+            match={match}
             isPremium={false}
           />
         ))
