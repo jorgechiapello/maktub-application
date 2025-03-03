@@ -1,7 +1,26 @@
 ---
 import MainLayout from '../../layouts/AppMainLayout.astro';
 
-import { questions } from '../../data/questions';
+import { preferenceQuestions, type Question } from '../../data/questions';
+
+const profileQuestions: Question[] = [
+  {
+    id: 'name',
+    question: "¿Cómo es tu nombre completo?",
+    category: 'profile',
+  },
+  {
+    id: 'age',
+    question: "¿Cuál es tu edad?",
+    category: 'profile',
+  },
+  {
+    id: 'job',
+    question: "¿Cuál es tu ocupación?",
+    category: 'profile',
+  },
+];
+const questions = [ ...profileQuestions,...preferenceQuestions];
 
 ---
 
@@ -18,46 +37,44 @@ import { questions } from '../../data/questions';
       </div>
 
       <form id="onboardingForm" class="space-y-8" onsubmit="return false;">
-        <!-- Personal Info Section -->
-        <div id="personal-info" class="space-y-4">
-          <h2 class="text-2xl font-semibold text-gray-900">Bienvenido! A continuación, completaremos un pequeño formulario.</h2>
-          <div>
-            <label for="name" class="block text-sm font-medium text-gray-700">¿Cuál es tu nombre?</label>
-            <input 
-              type="text"
-              name="name" 
-              id="name" 
-              required 
-              class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm" 
-            />
-          </div>
-        </div>
-
-        <!-- Questions Section (Initially Hidden) -->
-        {questions.map((q) => (
+        {questions.map((q, index) => (
           <div 
-            id={`question-${q.id}`} 
-            class="question-section hidden space-y-4"
+            id={`personal-question-${q.id}`} 
+            class="personal-question-section space-y-4"
             data-question-id={q.id}
+            style={index === 0 ? "" : "display: none;"}
           >
-            <h2 class="text-2xl font-semibold text-gray-900">{q.question}</h2>
-            <div class="grid gap-4">
-              {q.options.map((option, index) => (
-                <button
-                  type="button"
-                  class="w-full text-left px-4 py-3 border border-gray-300 rounded-lg
-                         hover:border-primary hover:bg-primary/5 transition-colors
-                         focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
-                  data-question-id={q.id}
-                  data-option={option}
-                >
-                  {option}
-                </button>
-              ))}
+            <h2 class="text-2xl font-semibold text-gray-900">{index === 0 ? "Bienvenido! A continuación, completaremos un pequeño formulario." : ""}</h2>
+            <div class="space-y-4">
+              <label for={q.id.toString()} class="block text-sm font-medium text-gray-700">{q.question}</label>
+              {!q.options ? (
+                <input 
+                  type="text"
+                  name={q.id.toString()} 
+                  id={q.id.toString()} 
+                  required 
+                  class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm" 
+                />
+              ) : (
+                <div class="grid gap-4">
+                  {q.options?.map((option) => (
+                    <button
+                      type="button"
+                      class="w-full text-left px-4 py-3 border border-gray-300 rounded-lg
+                             hover:border-primary hover:bg-primary/5 transition-colors
+                             focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                      data-question-id={q.id}
+                      data-option={option}
+                    >
+                      {option}
+                    </button>
+                  ))}
+                </div>
+                <input type="hidden" name={q.id.toString()} id={q.id.toString()} required />
+              )}
             </div>
           </div>
         ))}
-
         <div class="flex justify-between">
           <button 
             type="button" 
@@ -82,18 +99,17 @@ import { questions } from '../../data/questions';
 
 <script define:vars={{ questions }}>
   let currentStep = 0;
-  const totalSteps = questions.length + 1; // +1 for personal info
-  const answers = {};
-  const profileAnswers = {}
+  const totalSteps = questions.length;
 
-  // Elements
+  const profileAnswers = {};
+  const preferenceAnswers = {};
+
   const progressBar = document.getElementById('progress-bar');
-  const personalInfo = document.getElementById('personal-info');
   const nextButton = document.getElementById('next-button');
   const prevButton = document.getElementById('prev-button');
+  const personalQuestionSections = document.querySelectorAll('.personal-question-section');
   const questionSections = document.querySelectorAll('.question-section');
 
-  // Check if user has already completed onboarding
   document.addEventListener('DOMContentLoaded', () => {
     try {
       const onboardingData = localStorage.getItem('userOnboarding');
@@ -103,6 +119,7 @@ import { questions } from '../../data/questions';
           window.location.href = '/';
         }
       }
+      
       updateProgress();
     } catch (error) {
       console.error('Error checking onboarding status:', error);
@@ -118,12 +135,15 @@ import { questions } from '../../data/questions';
   // Show/hide sections based on current step
   function updateVisibility() {
     console.log('Updating visibility for step:', currentStep);
-    if (personalInfo) {
-      personalInfo.classList.toggle('hidden', currentStep !== 0);
-    }
+    
+    // Handle personal questions (first set of questions)
+    personalQuestionSections.forEach((section, index) => {
+      section.style.display = index === currentStep ? 'block' : 'none';
+    });
 
+    // Handle preference questions (second set of questions)
     questionSections.forEach((section, index) => {
-      section.classList.toggle('hidden', index + 1 !== currentStep);
+      section.classList.toggle('hidden', index + personalQuestionSections.length !== currentStep);
     });
 
     // Update button visibility
@@ -133,14 +153,19 @@ import { questions } from '../../data/questions';
     }
   }
 
-  // Handle option selection
-  questionSections.forEach(section => {
+  // Handle option selection for all sections
+  personalQuestionSections.forEach(section => {
     const buttons = section.querySelectorAll('button[data-option]');
+    const input = section.querySelector('input[type="hidden"]');
+    
     buttons.forEach(button => {
       button.addEventListener('click', () => {
-        const questionId = button.getAttribute('data-question-id');
         const option = button.getAttribute('data-option');
-        answers[questionId] = option;
+        
+        // Update hidden input value
+        if (input) {
+          input.value = option;
+        }
 
         // Remove active state from all buttons in this section
         buttons.forEach(b => b.classList.remove('bg-primary/5', 'border-primary'));
@@ -159,37 +184,51 @@ import { questions } from '../../data/questions';
   // Handle navigation
   nextButton?.addEventListener('click', () => {
     console.log('Current step:', currentStep, 'Total steps:', totalSteps);
-    if (currentStep === 0) {
-      const nameInput = document.getElementById('name');
-      if (!nameInput?.value.trim()) {
-        nameInput.classList.add('border-red-500');
-        nameInput.focus();
-        alert('Por favor, introduce tu nombre');
-        return;
-      }
-      nameInput.classList.remove('border-red-500');
-      profileAnswers.name = nameInput.value.trim();
+    
+    // Get the current section and question data
+    const currentSection = personalQuestionSections[currentStep];
+    const questionId = currentSection.getAttribute('data-question-id');
+    const currentQuestion = questions.find(q => q.id.toString() === questionId);
+    
+    if (!currentQuestion) {
+      console.error('Question not found:', questionId);
+      return;
     }
 
-    if (currentStep === totalSteps - 1) {
-      try {
-        // Create an array of answers with full question objects
-        const answersArray = Object.entries(answers).map(([questionId, answer]) => {
-          const question = questions.find(q => q.id === parseInt(questionId));
-          console.log(question, answer)
-          return {
-            question: question.question,
-            answer: answer
-          };
-        });
+    // Find input in this section
+    const input = currentSection.querySelector('input');
+    
+    // Validate
+    if (!input || !input.value.trim()) {
+      const buttons = currentSection.querySelectorAll('button');
+      buttons.forEach(b => b.classList.add('border-red-500'));
+      alert('Por favor, selecciona una opción');
+      return;
+    }
+    
+    console.log(currentQuestion)
+    if (currentQuestion.category === 'profile') {
+      profileAnswers[questionId] = input.value;
+    } else {
+      preferenceAnswers[questionId] = input.value;
+    }
+  
+    const buttons = currentSection.querySelectorAll('button');
+    buttons.forEach(b => b.classList.remove('border-red-500'));
+    const answer = input.value.trim();
+    
+    if (currentQuestion.category === 'profile') {
+      profileAnswers[questionId] = answer;
+    } else if (currentQuestion.category === 'preference') {
+      preferenceAnswers[questionId] = answer;
+    }
 
-        localStorage.setItem('userOnboarding', JSON.stringify({
-          completed: true,
-          ...profileAnswers,
-          timestamp: new Date().toISOString()
-        }));
-        // Store the complete answers
-        localStorage.setItem('preferenceAnswers', JSON.stringify(answersArray));
+    if (currentStep === questions.length - 1) {
+      try {
+
+        localStorage.setItem('profileAnswers', JSON.stringify(profileAnswers));
+        localStorage.setItem('preferenceAnswers', JSON.stringify(preferenceAnswers));
+
         window.location.href = '/app';
       } catch (error) {
         console.error('Error saving onboarding data:', error);
@@ -209,4 +248,8 @@ import { questions } from '../../data/questions';
       updateProgress();
     }
   });
+  
+  // Initialize visibility
+  updateVisibility();
+  updateProgress();
 </script>

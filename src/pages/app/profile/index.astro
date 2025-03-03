@@ -12,13 +12,13 @@ import SettingsIcon from '../../../components/icons/SettingsIcon.astro';
                 <div class="relative w-32 h-32 mx-auto mb-4">
                     <img
                         id="profile-picture"
-                        src="https://i.pravatar.cc/200?u=maktub-profile-6"
+                        src="https://i.pravatar.cc/200?u=maktub-profile-9"
                         alt="Profile picture"
                         class="rounded-full w-full h-full object-cover border-4 border-gray-200"
                     />
                 </div>
                 <h1 id="user-name" class="text-3xl font-bold text-gray-900 mb-2">Loading...</h1>
-                <p id="user-ocupacion" class="text-gray-600 mb-4">Loading...</p>
+                <p id="user-job" class="text-gray-600 mb-4">Loading...</p>
                 <p id="user-bio" class="text-gray-700 mb-8 max-w-lg mx-auto">Loading...</p>
                 
                 <div class="flex justify-center gap-12 mb-8">
@@ -39,11 +39,11 @@ import SettingsIcon from '../../../components/icons/SettingsIcon.astro';
 
 <script is:inline>
     function loadUserInfo() {
-        const userOnboarding = JSON.parse(localStorage.getItem('userOnboarding') || '{}');
-        
-        document.getElementById('user-name').textContent = userOnboarding.name || 'Sin nombre';
-        document.getElementById('user-ocupacion').textContent = userOnboarding.ocupacion || 'Sin ocupación';
-        document.getElementById('user-bio').textContent = userOnboarding.bio || 'Sin descripción';
+        const profileAnswers = JSON.parse(localStorage.getItem('profileAnswers') || '{}');
+        console.log(profileAnswers);
+        document.getElementById('user-name').textContent = profileAnswers.name || 'Sin nombre';
+        document.getElementById('user-job').textContent = profileAnswers.job || 'Sin ocupación';
+        document.getElementById('user-bio').textContent = profileAnswers.bio || 'Sin descripción';
     }
 
     document.addEventListener('astro:page-load', () => {
