@@ -3,52 +3,95 @@ import MainLayout from '../../../layouts/AppMainLayout.astro';
 import PencilIcon from '../../../components/icons/PencilIcon.astro';
 import CameraIcon from '../../../components/icons/CameraIcon.astro';
 import SettingsIcon from '../../../components/icons/SettingsIcon.astro';
+import LoyaltyCard from '../../../components/LoyaltyCard.astro';
+import LoyaltyManager from '../../../components/LoyaltyManager.astro';
 ---
 
 <MainLayout title="Tu Perfil">
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div class="max-w-2xl mx-auto">
-            <div class="text-center">
-                <div class="relative w-32 h-32 mx-auto mb-4">
-                    <img
-                        id="profile-picture"
-                        src="https://i.pravatar.cc/200?u=maktub-profile-9"
-                        alt="Profile picture"
-                        class="rounded-full w-full h-full object-cover border-4 border-gray-200"
-                    />
-                </div>
-                <h1 id="user-name" class="text-3xl font-bold text-gray-900 mb-2">Loading...</h1>
-                <p id="user-job" class="text-gray-600 mb-1">Loading...</p>
-                <p id="user-age" class="text-gray-600 mb-4">Loading...</p>
-                <p id="user-bio" class="text-gray-700 mb-8 max-w-lg mx-auto">Loading...</p>
-                
-                <div class="flex justify-center gap-12 mb-8">
-                    <a href="/app/profile/settings" class="w-16 h-16 flex items-center justify-center bg-primary text-white rounded-full hover:bg-primary-dark transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 shadow-lg">
-                        <SettingsIcon class="w-7 h-7" />
-                    </a>
-                    <a href="/app/profile/add-picture" class="w-16 h-16 flex items-center justify-center bg-primary text-white rounded-full hover:bg-primary-dark transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 shadow-lg">
-                        <CameraIcon class="w-7 h-7" />
-                    </a>
-                    <a href="/app/profile/edit-info" class="w-16 h-16 flex items-center justify-center bg-primary text-white rounded-full hover:bg-primary-dark transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 shadow-lg">
-                        <PencilIcon class="w-7 h-7" />
-                    </a>
-                </div>
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-1">
+    <div class="max-w-2xl mx-auto">
+      <div class="text-center flex justify-center flex-col items-center gap-4">
+        <div class="flex justify-center flex-col items-center gap-3">
+          <div class="relative w-32 h-32 mx-auto">
+            <img
+              id="profile-picture"
+              src="https://i.pravatar.cc/200?u=maktub-profile-9"
+              alt="Profile picture"
+              class="rounded-full w-full h-full object-cover border-4 border-gray-200"
+            />
+          </div>
+          <div>
+            <h1 id="user-name" class="text-3xl font-bold text-gray-900">
+              Loading...
+            </h1>
+            <div class="space-y-1">
+              <p id="user-job" class="text-gray-600">Loading...</p>
+              <p id="user-age" class="text-gray-600">Loading...</p>
+              <p id="user-bio" class="text-gray-700 max-w-lg mx-auto">
+                Loading...
+              </p>
             </div>
+          </div>
+          <div class="flex justify-center gap-12">
+            <a
+              href="/app/profile/settings"
+              class="w-16 h-16 flex items-center justify-center bg-primary text-white rounded-full hover:bg-primary-dark transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 shadow-lg"
+            >
+              <SettingsIcon class="w-7 h-7" />
+            </a>
+            <a
+              href="/app/profile/add-picture"
+              class="w-16 h-16 flex items-center justify-center bg-primary text-white rounded-full hover:bg-primary-dark transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 shadow-lg"
+            >
+              <CameraIcon class="w-7 h-7" />
+            </a>
+            <a
+              href="/app/profile/edit-info"
+              class="w-16 h-16 flex items-center justify-center bg-primary text-white rounded-full hover:bg-primary-dark transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 shadow-lg"
+            >
+              <PencilIcon class="w-7 h-7" />
+            </a>
+          </div>
         </div>
-    </main>
+        <div class="mt-6">
+          <h2 class="text-2xl font-bold text-gray-900 mb-1 text-center">
+            Tu Nivel de Lealtad
+          </h2>
+          <LoyaltyCard
+            level="bronze"
+            currentPoints={0}
+            nextLevelPoints={1000}
+          />
+          <LoyaltyManager />
+        </div>
+      </div>
+    </div>
+  </main>
 </MainLayout>
 
 <script is:inline>
-    function loadUserInfo() {
-        const profileAnswers = JSON.parse(localStorage.getItem('profileAnswers') || '{}');
-        console.log(profileAnswers);
-        document.getElementById('user-name').textContent = profileAnswers.name || 'Sin nombre';
-        document.getElementById('user-job').textContent = profileAnswers.job || 'Sin ocupación';
-        document.getElementById('user-age').textContent = profileAnswers.age ? `${profileAnswers.age} años` : 'Edad no especificada';
-        document.getElementById('user-bio').textContent = profileAnswers.bio || 'Sin descripción';
-    }
+  function loadUserInfo() {
+    const profileAnswers = JSON.parse(
+      localStorage.getItem('profileAnswers') || '{}',
+    );
+    console.log(profileAnswers);
+    document.getElementById('user-name').textContent =
+      profileAnswers.name || 'Sin nombre';
+    document.getElementById('user-job').textContent =
+      profileAnswers.job || 'Sin ocupación';
+    document.getElementById('user-age').textContent = profileAnswers.age
+      ? `${profileAnswers.age} años`
+      : 'Edad no especificada';
+    document.getElementById('user-bio').textContent =
+      profileAnswers.bio || 'Sin descripción';
 
-    document.addEventListener('astro:page-load', () => {
-        loadUserInfo();
-    });
+    // Initialize loyalty points if they don't exist
+    if (!localStorage.getItem('loyaltyPoints')) {
+      localStorage.setItem('loyaltyPoints', '0');
+    }
+  }
+
+  document.addEventListener('astro:page-load', () => {
+    loadUserInfo();
+  });
 </script>

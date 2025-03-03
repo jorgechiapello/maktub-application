@@ -1,0 +1,145 @@
+---
+// This component handles the loyalty points management
+---
+
+<div class="mt-6 text-center flex justify-center gap-4">
+  <button id="add-points-btn" class="bg-primary hover:bg-primary-dark text-white font-bold py-2 px-4 rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
+    Ganar 100 Puntos (Demo)
+  </button>
+  <button id="reset-points-btn" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">
+    Reiniciar Puntos (Demo)
+  </button>
+</div>
+
+<script is:inline>
+  const LEVELS = {
+    bronze: { min: 0, max: 499, next: 'silver', nextPoints: 500 },
+    silver: { min: 500, max: 999, next: 'golden', nextPoints: 1000 },
+    golden: { min: 1000, max: Infinity, next: null, nextPoints: null }
+  };
+
+  // Get user's current loyalty points
+  function getLoyaltyPoints() {
+    return parseInt(localStorage.getItem('loyaltyPoints') || '0', 10);
+  }
+
+  // Save loyalty points to localStorage
+  function saveLoyaltyPoints(points) {
+    localStorage.setItem('loyaltyPoints', points.toString());
+  }
+
+  // Determine user's level based on points
+  function getUserLevel(points) {
+    if (points >= LEVELS.golden.min) return 'golden';
+    if (points >= LEVELS.silver.min) return 'silver';
+    return 'bronze';
+  }
+
+  // Update the loyalty card display
+  function updateLoyaltyCard() {
+    const points = getLoyaltyPoints();
+    const level = getUserLevel(points);
+    const levelInfo = LEVELS[level];
+    
+    // Find the loyalty card component
+    const loyaltyCard = document.querySelector('.loyalty-card-component');
+    if (!loyaltyCard) return;
+    
+    // Update the card with current level and points
+    loyaltyCard.setAttribute('data-level', level);
+    loyaltyCard.setAttribute('data-points', points.toString());
+    
+    // Update the points message
+    const pointsMessage = document.getElementById('points-message');
+    if (pointsMessage) {
+      if (level !== 'golden') {
+        const pointsNeeded = levelInfo.nextPoints - points;
+        pointsMessage.innerHTML = `Te faltan <span class="font-bold text-primary">${pointsNeeded}</span> puntos para llegar a ${levelInfo.next}`;
+      } else {
+        pointsMessage.textContent = '¡Felicidades! Has alcanzado el nivel máximo';
+      }
+    }
+    
+    // Update the current points display
+    const currentPointsElement = document.getElementById('current-points');
+    if (currentPointsElement) {
+      currentPointsElement.textContent = points.toString();
+    }
+    
+    // Update the points overlay on the card image
+    const currentPointsOverlay = document.getElementById('current-points-overlay');
+    if (currentPointsOverlay) {
+      currentPointsOverlay.textContent = points.toString();
+    }
+    
+    // Update the card image based on level
+    const cardElement = document.querySelector('.loyalty-card img');
+    if (cardElement) {
+      // Update the image source based on the level
+      if (level === 'bronze') {
+        cardElement.src = '/bronze-loyalty-card.png';
+        cardElement.alt = 'Bronze Loyalty Card';
+      } else if (level === 'silver') {
+        cardElement.src = '/silver-loyalty-card.png';
+        cardElement.alt = 'Silver Loyalty Card';
+      } else {
+        cardElement.src = '/gold-loyalty-card.png';
+        cardElement.alt = 'Golden Loyalty Card';
+      }
+    }
+  }
+
+  // Add demo points (for testing)
+  function addDemoPoints() {
+    const currentPoints = getLoyaltyPoints();
+    const newPoints = currentPoints + 100;
+    saveLoyaltyPoints(newPoints);
+    updateLoyaltyCard();
+    
+    // Show a notification
+    const notification = document.createElement('div');
+    notification.className = 'fixed bottom-4 right-4 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg transition-opacity duration-500';
+    notification.textContent = '¡Has ganado 100 puntos!';
+    document.body.appendChild(notification);
+    
+    // Remove notification after 3 seconds
+    setTimeout(() => {
+      notification.style.opacity = '0';
+      setTimeout(() => notification.remove(), 500);
+    }, 3000);
+  }
+
+  // Reset demo points (for testing)
+  function resetDemoPoints() {
+    saveLoyaltyPoints(0);
+    updateLoyaltyCard();
+    
+    // Show a notification
+    const notification = document.createElement('div');
+    notification.className = 'fixed bottom-4 right-4 bg-red-500 text-white px-4 py-2 rounded-lg shadow-lg transition-opacity duration-500';
+    notification.textContent = '¡Puntos reiniciados a 0!';
+    document.body.appendChild(notification);
+    
+    // Remove notification after 3 seconds
+    setTimeout(() => {
+      notification.style.opacity = '0';
+      setTimeout(() => notification.remove(), 500);
+    }, 3000);
+  }
+
+  // Initialize when the page loads
+  document.addEventListener('astro:page-load', () => {
+    const addPointsBtn = document.getElementById('add-points-btn');
+    if (addPointsBtn) {
+      addPointsBtn.addEventListener('click', addDemoPoints);
+    }
+    
+    const resetPointsBtn = document.getElementById('reset-points-btn');
+    if (resetPointsBtn) {
+      resetPointsBtn.addEventListener('click', resetDemoPoints);
+    }
+    
+    // Initial update
+    updateLoyaltyCard();
+  });
+</script>
