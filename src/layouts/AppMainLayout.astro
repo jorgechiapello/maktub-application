@@ -14,55 +14,58 @@ const { title } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title} | Maktub Matchmaking</title>
+    <title>{title} | Maktub</title>
     <ViewTransitions />
   </head>
   <body class="h-full">
     <nav class="bg-primary">
-      <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
-        <div class="flex h-16 items-center w-full relative">
-          <div class="absolute left-0">
-            <img class="h-16 w-auto" src="/logo.png" alt="Maktub" />
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex h-16 items-center justify-between">
+          <div class="flex-shrink-0">
+            <img class="h-10 w-auto" src="/logo.png" alt="Maktub" />
           </div>
-          <div class="flex space-x-10 justify-center flex-1 mx-auto">
-              <a 
-                href="/app" 
-                class:list={[
-                  'font-medium p-3 rounded-md flex items-center justify-center',
-                  Astro.url.pathname === '/' 
-                    ? 'bg-white bg-opacity-20 text-white'
-                    : 'text-white text-opacity-80 hover:text-opacity-100 hover:bg-opacity-10 hover:bg-white'
-                ]}
-              >
-                <IconCrush />
-                <span class="sr-only">Crushes</span>
-              </a>
-              <a 
-                href="/app/profile" 
-                class:list={[
-                  'font-medium p-3 rounded-md flex items-center justify-center',
-                  Astro.url.pathname === '/profile'
-                    ? 'bg-white bg-opacity-20 text-white'
-                    : 'text-white text-opacity-80 hover:text-opacity-100 hover:bg-opacity-10 hover:bg-white'
-                ]}
-              >
-                <IconProfile />
-                <span class="sr-only">Profile</span>
-              </a>
-              <a 
-                href="/app/conversations" 
-                class:list={[
-                  'font-medium p-3 rounded-md flex items-center justify-center',
-                  Astro.url.pathname === '/conversations'
-                    ? 'bg-white bg-opacity-20 text-white'
-                    : 'text-white text-opacity-80 hover:text-opacity-100 hover:bg-opacity-10 hover:bg-white'
-                ]}
-              >
-                <IconChat />
-                <span class="sr-only">Conversations</span>
-              </a>
-            </div>
+          <div class="flex items-center justify-center space-x-12">
+            <a 
+              href="/app" 
+              class:list={[
+                'font-medium p-3 rounded-md flex items-center justify-center',
+                Astro.url.pathname === '/' 
+                  ? 'bg-white bg-opacity-20 text-white'
+                  : 'text-white text-opacity-80 hover:text-opacity-100 hover:bg-opacity-10 hover:bg-white'
+              ]}
+            >
+              <IconCrush />
+              <span class="sr-only">Crushes</span>
+            </a>
+            <a 
+              href="/app/profile" 
+              class:list={[
+                'font-medium p-3 rounded-md flex items-center justify-center',
+                Astro.url.pathname === '/profile'
+                  ? 'bg-white bg-opacity-20 text-white'
+                  : 'text-white text-opacity-80 hover:text-opacity-100 hover:bg-opacity-10 hover:bg-white'
+              ]}
+            >
+              <IconProfile />
+              <span class="sr-only">Profile</span>
+            </a>
+            <a 
+              href="/app/conversations" 
+              class:list={[
+                'font-medium p-3 rounded-md flex items-center justify-center',
+                Astro.url.pathname === '/conversations'
+                  ? 'bg-white bg-opacity-20 text-white'
+                  : 'text-white text-opacity-80 hover:text-opacity-100 hover:bg-opacity-10 hover:bg-white'
+              ]}
+            >
+              <IconChat />
+              <span class="sr-only">Conversations</span>
+            </a>
           </div>
+          <div class="w-10">
+            <!-- Empty div for balanced spacing -->
+          </div>
+        </div>
       </div>
     </nav>
 
