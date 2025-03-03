@@ -1,5 +1,6 @@
 ---
 import MainLayout from '../../layouts/AppMainLayout.astro';
+import LoadingSpinner from '../../components/LoadingSpinner.astro';
 
 import { preferenceQuestions, type Question } from '../../data/questions';
 
@@ -25,7 +26,12 @@ const questions = [ ...profileQuestions,...preferenceQuestions];
 ---
 
 <MainLayout title="Onboarding">
-  <div class="max-w-2xl mx-auto mt-10 px-4 sm:px-6 lg:px-8">
+  <!-- Loading Spinner (initially hidden) -->
+  <div id="loadingContainer" class="hidden">
+    <LoadingSpinner message="Preparando tu experiencia personalizada..." />
+  </div>
+
+  <div class="max-w-2xl mx-auto mt-10 px-4 sm:px-6 lg:px-8" id="onboardingContainer">
     <div class="bg-white shadow-xl rounded-lg p-6">
       <div class="mb-8">
         <div class="w-full bg-gray-200 rounded-full h-2">
@@ -225,11 +231,22 @@ const questions = [ ...profileQuestions,...preferenceQuestions];
 
     if (currentStep === questions.length - 1) {
       try {
-
         localStorage.setItem('profileAnswers', JSON.stringify(profileAnswers));
         localStorage.setItem('preferenceAnswers', JSON.stringify(preferenceAnswers));
-
-        window.location.href = '/app';
+        
+        const onboardingContainer = document.getElementById('onboardingContainer');
+        if (onboardingContainer) {
+          onboardingContainer.style.display = 'none';
+        }
+        
+        const loadingContainer = document.getElementById('loadingContainer');
+        if (loadingContainer) {
+          loadingContainer.classList.remove('hidden');
+        }
+        
+        setTimeout(() => {
+          window.location.href = '/app';
+        }, 5000);
       } catch (error) {
         console.error('Error saving onboarding data:', error);
         alert('There was an error saving your information. Please try again.');
@@ -249,7 +266,6 @@ const questions = [ ...profileQuestions,...preferenceQuestions];
     }
   });
   
-  // Initialize visibility
   updateVisibility();
   updateProgress();
 </script>
