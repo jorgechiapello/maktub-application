@@ -1,0 +1,329 @@
+---
+interface Props {
+  matchId: number;
+  matchName: string;
+}
+
+const { matchId, matchName } = Astro.props;
+
+// Get current date and generate calendar for current month
+const currentDate = new Date();
+const currentYear = currentDate.getFullYear();
+const currentMonth = currentDate.getMonth();
+
+// Get the first day of the month
+const firstDayOfMonth = new Date(currentYear, currentMonth, 1);
+const firstDayOfWeek = firstDayOfMonth.getDay(); // 0 = Sunday, 1 = Monday, etc.
+
+// Get the number of days in the month
+const lastDayOfMonth = new Date(currentYear, currentMonth + 1, 0);
+const daysInMonth = lastDayOfMonth.getDate();
+
+// Create array of days for the calendar
+const days = [];
+// Add empty cells for days before the first day of the month
+for (let i = 0; i < firstDayOfWeek; i++) {
+  days.push(null);
+}
+// Add days of the month
+for (let i = 1; i <= daysInMonth; i++) {
+  days.push(i);
+}
+
+// Get month name
+const monthNames = [
+  'Enero',
+  'Febrero',
+  'Marzo',
+  'Abril',
+  'Mayo',
+  'Junio',
+  'Julio',
+  'Agosto',
+  'Septiembre',
+  'Octubre',
+  'Noviembre',
+  'Diciembre',
+];
+const monthName = monthNames[currentMonth];
+
+// Generate available time slots
+const timeSlots = [
+  '18:00',
+  '18:30',
+  '19:00',
+  '19:30',
+  '20:00',
+  '20:30',
+  '21:00',
+  '21:30',
+  '22:00',
+  '22:30',
+];
+---
+
+<div class="bg-white rounded-lg shadow-lg p-6">
+  <div class="mb-6 text-center">
+    <h2 class="text-2xl font-bold text-gray-900">
+      Programa una cita con {matchName}
+    </h2>
+    <p class="text-gray-600 mt-2">Selecciona una fecha y hora para tu cita</p>
+  </div>
+
+  <div class="mb-6">
+    <div class="flex justify-between items-center mb-4">
+      <h3 class="text-xl font-semibold text-gray-900">
+        {monthName}
+        {currentYear}
+      </h3>
+      <div class="flex space-x-2">
+        <button id="prev-month" class="p-2 rounded-full hover:bg-gray-100">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-5 h-5"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M15.75 19.5 8.25 12l7.5-7.5"></path>
+          </svg>
+        </button>
+        <button id="next-month" class="p-2 rounded-full hover:bg-gray-100">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-5 h-5"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="m8.25 4.5 7.5 7.5-7.5 7.5"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-7 gap-1">
+      <div class="text-center font-medium text-gray-500 py-2">Dom</div>
+      <div class="text-center font-medium text-gray-500 py-2">Lun</div>
+      <div class="text-center font-medium text-gray-500 py-2">Mar</div>
+      <div class="text-center font-medium text-gray-500 py-2">Mié</div>
+      <div class="text-center font-medium text-gray-500 py-2">Jue</div>
+      <div class="text-center font-medium text-gray-500 py-2">Vie</div>
+      <div class="text-center font-medium text-gray-500 py-2">Sáb</div>
+
+      {
+        days.map((day, index) => (
+          <div
+            class:list={[
+              'aspect-square flex items-center justify-center rounded-full',
+              day ? 'hover:bg-primary cursor-pointer day-cell' : '',
+              day === currentDate.getDate()
+                ? 'bg-white text-primary border border-primary hover:bg-gray-100'
+                : '',
+              day && day < currentDate.getDate()
+                ? 'text-gray-300 cursor-not-allowed'
+                : 'text-gray-700',
+            ]}
+            data-day={day}
+          >
+            {day || ''}
+          </div>
+        ))
+      }
+    </div>
+  </div>
+
+  <div id="time-slots" class="hidden mb-6">
+    <h3 class="text-lg font-semibold text-gray-900 mb-3">
+      Horarios disponibles
+    </h3>
+    <div class="grid grid-cols-2 sm:grid-cols-5 gap-2">
+      {
+        timeSlots.map((time) => (
+          <button
+            class="time-slot px-4 py-2 border border-gray-200 rounded-lg text-center"
+            data-time={time}
+          >
+            {time}
+          </button>
+        ))
+      }
+    </div>
+  </div>
+
+  <div id="selected-date-time" class="hidden mb-6 p-4 bg-gray-50 rounded-lg">
+    <h3 class="text-lg font-semibold text-gray-900 mb-2">Tu selección</h3>
+    <p id="selected-date-display" class="text-gray-700"></p>
+    <p id="selected-time-display" class="text-gray-700"></p>
+  </div>
+
+  <div class="flex justify-end space-x-3">
+    <a
+      href="/app"
+      class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50"
+    >
+      Cancelar
+    </a>
+    <button
+      id="confirm-button"
+      class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary-dark disabled:opacity-50 disabled:cursor-not-allowed"
+      disabled
+    >
+      Confirmar cita
+    </button>
+  </div>
+</div>
+
+<script define:vars={{ matchId }}>
+  let selectedDay = null;
+  let selectedTime = null;
+
+  function initializeCalendar() {
+    const dayCells = document.querySelectorAll('.day-cell');
+    const timeSlots = document.querySelectorAll('.time-slot');
+    const timeSlotsContainer = document.getElementById('time-slots');
+    const selectedDateTimeContainer =
+      document.getElementById('selected-date-time');
+    const selectedDateDisplay = document.getElementById(
+      'selected-date-display',
+    );
+    const selectedTimeDisplay = document.getElementById(
+      'selected-time-display',
+    );
+    const confirmButton = document.getElementById('confirm-button');
+
+    const currentDate = new Date();
+    const monthNames = [
+      'Enero',
+      'Febrero',
+      'Marzo',
+      'Abril',
+      'Mayo',
+      'Junio',
+      'Julio',
+      'Agosto',
+      'Septiembre',
+      'Octubre',
+      'Noviembre',
+      'Diciembre',
+    ];
+
+    // Handle day selection
+    dayCells.forEach((dayCell) => {
+      const day = parseInt(dayCell.dataset.day);
+
+      // Disable past days
+      if (day < currentDate.getDate()) {
+        dayCell.classList.add('pointer-events-none');
+        return;
+      }
+
+      dayCell.addEventListener('click', () => {
+        // Reset previously selected day
+        dayCells.forEach((cell) => {
+          if (parseInt(cell.dataset.day) !== currentDate.getDate()) {
+            cell.classList.remove(
+              'bg-primary',
+              'bg-primary-dark',
+              'text-white',
+            );
+            cell.classList.add('text-gray-700');
+          }
+        });
+
+        // Highlight selected day
+        if (day !== currentDate.getDate()) {
+          dayCell.classList.add('bg-primary', 'text-white');
+          dayCell.classList.remove('text-gray-700');
+        }
+
+        selectedDay = day;
+        timeSlotsContainer.classList.remove('hidden');
+        updateSelectedDateTime();
+      });
+    });
+
+    // Handle time selection
+    timeSlots.forEach((timeSlot) => {
+      timeSlot.addEventListener('click', () => {
+        // Reset previously selected time
+        timeSlots.forEach((slot) => {
+          slot.classList.remove('bg-secondary', 'text-white');
+        });
+
+        // Highlight selected time
+        timeSlot.classList.add('bg-primary', 'text-white');
+
+        selectedTime = timeSlot.dataset.time;
+        updateSelectedDateTime();
+      });
+    });
+
+    function updateSelectedDateTime() {
+      if (selectedDay) {
+        const selectedMonth = currentDate.getMonth();
+        const selectedYear = currentDate.getFullYear();
+
+        selectedDateDisplay.textContent = `Fecha: ${selectedDay} de ${monthNames[selectedMonth]} de ${selectedYear}`;
+
+        if (selectedTime) {
+          selectedTimeDisplay.textContent = `Hora: ${selectedTime}`;
+          selectedDateTimeContainer.classList.remove('hidden');
+          confirmButton.disabled = false;
+        }
+      }
+    }
+
+    // Handle confirmation
+    confirmButton.addEventListener('click', () => {
+      if (!selectedDay || !selectedTime);
+
+      // In a real app, you would send this data to your backend
+      const appointmentData = {
+        matchId,
+        day: selectedDay,
+        month: currentDate.getMonth() + 1,
+        year: currentDate.getFullYear(),
+        time: selectedTime,
+      };
+
+      // For now, just save to localStorage and redirect
+      const appointments = JSON.parse(
+        localStorage.getItem('appointments') || '[]',
+      );
+      appointments.push(appointmentData);
+      localStorage.setItem('appointments', JSON.stringify(appointments));
+
+      console.log('Appointment saved to localStorage');
+      console.log('localStorage:', localStorage);
+
+      initializeCalendar();
+
+      // Show success message and redirect
+      alert('¡Cita programada con éxito!');
+      window.location.href = '/app';
+    });
+
+    // Month navigation (would be implemented in a real app)
+    const prevMonthButton = document.getElementById('prev-month');
+    const nextMonthButton = document.getElementById('next-month');
+
+    prevMonthButton.addEventListener('click', () => {
+      alert('En una aplicación real, aquí se mostraría el mes anterior');
+    });
+
+    nextMonthButton.addEventListener('click', () => {
+      alert('En una aplicación real, aquí se mostraría el mes siguiente');
+    });
+  }
+
+  initializeCalendar();
+</script>

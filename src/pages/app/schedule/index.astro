@@ -1,0 +1,139 @@
+---
+import MainLayout from '../../../layouts/AppMainLayout.astro';
+
+// In a real app, you would fetch match data from a database
+// For now, we'll use the same mock data as in the app index
+const mockMatches = [
+  {
+    id: 1,
+    name: 'Alex Rivera',
+    bio: 'Entusiasta del café, fotógrafo amateur y excursionista de fin de semana. ¡Buscando a alguien para compartir aventuras!',
+    interests: ['Fotografía', 'Senderismo', 'Café', 'Viajes'],
+    imageUrl: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3',
+    compatibility: 95
+  },
+  {
+    id: 2,
+    name: 'Sarah Chen',
+    bio: 'Curadora de arte de día, pianista de jazz de noche. Apasionada por las experiencias culturales y las conversaciones significativas.',
+    interests: ['Arte', 'Música', 'Cultura', 'Gastronomía'],
+    imageUrl: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3',
+    compatibility: 88
+  },
+];
+
+// Month names for displaying dates
+const monthNames = [
+  "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+  "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+];
+---
+
+<MainLayout title="Mis citas programadas">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-8">
+      <h1 class="text-3xl font-bold text-gray-900 mb-2">
+        Mis citas programadas
+      </h1>
+      <p class="text-lg text-gray-600">
+        Gestiona tus próximas citas con tus crushes
+      </p>
+    </div>
+
+    <div id="appointments-container" class="space-y-4">
+      <div class="text-center py-8 text-gray-500" id="no-appointments">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-16 h-16 mx-auto mb-4 text-gray-300">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" />
+        </svg>
+        <p class="text-lg">No tienes citas programadas</p>
+        <a href="/app" class="inline-block mt-4 px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary-dark">
+          Encuentra crushes
+        </a>
+      </div>
+    </div>
+  </div>
+</MainLayout>
+
+<script define:vars={{ mockMatches, monthNames }}>
+  document.addEventListener('DOMContentLoaded', () => {
+    const onboardingData = localStorage.getItem('profileAnswers');
+    if (!onboardingData) {
+      // No onboarding data found, redirect to onboarding
+      window.location.href = '/app/onboarding';
+      return;
+    }
+
+    // Get appointments from localStorage
+    const appointments = JSON.parse(localStorage.getItem('appointments') || '[]');
+    const appointmentsContainer = document.getElementById('appointments-container');
+    const noAppointmentsElement = document.getElementById('no-appointments');
+    
+    if (appointments.length > 0) {
+      // Hide the "no appointments" message
+      noAppointmentsElement.classList.add('hidden');
+      
+      // Sort appointments by date
+      appointments.sort((a, b) => {
+        const dateA = new Date(a.year, a.month - 1, a.day);
+        const dateB = new Date(b.year, b.month - 1, b.day);
+        return dateA - dateB;
+      });
+      
+      // Create elements for each appointment
+      appointments.forEach(appointment => {
+        const match = mockMatches.find(m => m.id === appointment.matchId);
+        if (!match) return;
+        
+        const appointmentElement = document.createElement('div');
+        appointmentElement.className = 'bg-white rounded-lg shadow-lg overflow-hidden';
+        appointmentElement.innerHTML = `
+          <div class="flex flex-col md:flex-row">
+            <div class="md:w-1/4">
+              <img src="${match.imageUrl}" alt="${match.name}" class="w-full h-full object-cover md:h-40" />
+            </div>
+            <div class="p-4 md:p-6 md:w-3/4 flex flex-col md:flex-row justify-between items-start md:items-center">
+              <div>
+                <h3 class="text-xl font-semibold text-gray-900">${match.name}</h3>
+                <p class="text-gray-600 mt-1">
+                  <span class="font-medium">Fecha:</span> ${appointment.day} de ${monthNames[appointment.month - 1]} de ${appointment.year}
+                </p>
+                <p class="text-gray-600">
+                  <span class="font-medium">Hora:</span> ${appointment.time}
+                </p>
+              </div>
+              <div class="mt-4 md:mt-0 flex space-x-2">
+                <button class="cancel-appointment px-3 py-1 border border-gray-300 rounded text-gray-700 hover:bg-gray-50" data-index="${appointments.indexOf(appointment)}">
+                  Cancelar
+                </button>
+                <button class="reschedule-appointment px-3 py-1 bg-secondary text-white rounded hover:bg-gray-800" data-match-id="${match.id}">
+                  Reprogramar
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+        
+        appointmentsContainer.appendChild(appointmentElement);
+      });
+      
+      // Add event listeners for cancel and reschedule buttons
+      document.querySelectorAll('.cancel-appointment').forEach(button => {
+        button.addEventListener('click', () => {
+          const index = parseInt(button.dataset.index);
+          if (confirm('¿Estás seguro de que deseas cancelar esta cita?')) {
+            appointments.splice(index, 1);
+            localStorage.setItem('appointments', JSON.stringify(appointments));
+            window.location.reload();
+          }
+        });
+      });
+      
+      document.querySelectorAll('.reschedule-appointment').forEach(button => {
+        button.addEventListener('click', () => {
+          const matchId = parseInt(button.dataset.matchId);
+          window.location.href = `/app/schedule/${matchId}`;
+        });
+      });
+    }
+  });
+</script>
