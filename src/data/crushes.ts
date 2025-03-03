@@ -49,7 +49,7 @@ export const crushes = [
     name: 'Camila Ríos',
     bio: 'Diseñadora gráfica y fan de los gatos. Me encanta el arte, la moda y todo lo relacionado con la creatividad.',
     interests: ['Arte', 'Moda', 'Gatos', 'Diseño'],
-    imageUrl: '/profile-pictures/woman-3.avif',
+    imageUrl: '/profile-pictures/woman-3.jpg',
     compatibility: 87,
     gender: 'female'
   },
