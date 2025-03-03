@@ -5,7 +5,11 @@ interface Props {
   nextLevelPoints: number;
 }
 
-const { level = 'bronze', currentPoints = 0, nextLevelPoints = 1000 } = Astro.props;
+const {
+  level = 'bronze',
+  currentPoints = 0,
+  nextLevelPoints = 1000,
+} = Astro.props;
 
 const levelInfo = {
   bronze: {
@@ -22,32 +26,45 @@ const levelInfo = {
     title: 'GOLDEN',
     nextLevel: '',
     imagePath: '/gold-loyalty-card.png',
-  }
+  },
 };
 
 const info = levelInfo[level];
 const pointsNeeded = nextLevelPoints - currentPoints;
 ---
 
-<div class="flex flex-col items-center loyalty-card-component" data-level={level} data-points={currentPoints}>
+<div
+  class="flex flex-col items-center loyalty-card-component"
+  data-level={level}
+  data-points={currentPoints}
+>
+  <div class="mb-4 text-center">
+    <p id="points-message" class="text-lg font-medium text-gray-700">
+      {
+        level !== 'golden' ? (
+          <>
+            Te faltan <span class="font-bold text-primary">{pointsNeeded}</span>{' '}
+            puntos para llegar a {info.nextLevel}
+          </>
+        ) : (
+          <>¡Felicidades! Has alcanzado el nivel máximo</>
+        )
+      }
+    </p>
+    <p class="text-sm text-gray-500 mt-1">
+      Tienes <span id="current-points" class="font-semibold"
+        >{currentPoints}</span
+      > puntos acumulados
+    </p>
+    <p class="text-sm text-gray-500 mt-1">
+      Sigue coleccionando puntos para desbloquear más beneficios
+    </p>
+  </div>
   <div class="loyalty-card relative w-48 shadow-lg">
-    <img 
-      src={info.imagePath} 
-      alt={`${info.title} Loyalty Card`} 
+    <img
+      src={info.imagePath}
+      alt={`${info.title} Loyalty Card`}
       class="w-full h-auto rounded-xl"
     />
-  </div>
-  
-  <!-- Points Message -->
-  <div class="mt-4 text-center">
-    <p id="points-message" class="text-lg font-medium text-gray-700">
-      {level !== 'golden' ? (
-        <>Te faltan <span class="font-bold text-primary">{pointsNeeded}</span> puntos para llegar a {info.nextLevel}</>
-      ) : (
-        <>¡Felicidades! Has alcanzado el nivel máximo</>
-      )}
-    </p>
-    <p class="text-sm text-gray-500 mt-1">Tienes <span id="current-points" class="font-semibold">{currentPoints}</span> puntos acumulados</p>
-    <p class="text-sm text-gray-500 mt-1">Sigue coleccionando puntos para desbloquear más beneficios</p>
   </div>
 </div>
