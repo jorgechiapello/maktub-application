@@ -47,5 +47,6 @@ The goal is to build a client-side web application that's easy to share and show
 - [x] Show a points system on the profile page
 - [x] Schedule a date
 - [x] Update profiles (4 men, 4 women)
+- [x] Add demo section to simulate a mobile device
 - [ ] Show profiles depending on the user sexual preferences
 - [ ] Fix conversations to be only emojis or prefixed messages
