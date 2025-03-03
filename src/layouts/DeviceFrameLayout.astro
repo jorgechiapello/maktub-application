@@ -1,0 +1,154 @@
+---
+import { ViewTransitions } from 'astro:transitions';
+
+const { title = 'Demo', deviceColor = 'black' } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-gray-100">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title} | Maktub Demo</title>
+    <ViewTransitions />
+  </head>
+  <body class="h-full flex items-center justify-center p-4 sm:p-8 md:p-12">
+    <div class={`device-container ${deviceColor}`}>
+      <div class="device-frame">
+        <div class="device-header">
+          <div class="device-sensors"></div>
+        </div>
+        <div class="device-screen">
+          <slot />
+        </div>
+        <div class="device-home-button"></div>
+      </div>
+    </div>
+  </body>
+</html>
+
+<style>
+  body {
+    background-color: #f5f5f7;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+
+  .device-container {
+    position: relative;
+    width: 500px;
+    height: 975px;
+    margin: 0 auto;
+    border: 16px solid black;
+    border-radius: 54px;
+    box-shadow: 0 50px 100px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .device-container.white {
+    border-color: #e2e2e2;
+    box-shadow: 0 50px 100px rgba(0, 0, 0, 0.15);
+  }
+
+  .device-container.gold {
+    border-color: #f3e1c9;
+    box-shadow: 0 50px 100px rgba(0, 0, 0, 0.15);
+  }
+
+  .device-container.rose-gold {
+    border-color: #f8d7cd;
+    box-shadow: 0 50px 100px rgba(0, 0, 0, 0.15);
+  }
+
+  .device-frame {
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .device-header {
+    position: relative;
+    height: 30px;
+    background-color: black;
+    z-index: 1;
+  }
+
+  .white .device-header,
+  .gold .device-header,
+  .rose-gold .device-header {
+    background-color: black;
+  }
+
+  .device-sensors {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 30px;
+    background-color: black;
+    border-radius: 0 0 20px 20px;
+    overflow: hidden;
+  }
+
+  .device-sensors::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 6px;
+    background-color: #1a1a1a;
+    border-radius: 3px;
+  }
+
+  .device-screen {
+    flex: 1;
+    width: 100%;
+    background-color: white;
+    overflow: hidden;
+  }
+
+  .device-home-button {
+    position: relative;
+    height: 5px;
+    width: 100%;
+    background-color: black; /* Matches border color */
+  }
+
+  .white .device-home-button {
+    background-color: #e2e2e2;
+  }
+
+  .gold .device-home-button {
+    background-color: #f3e1c9;
+  }
+
+  .rose-gold .device-home-button {
+    background-color: #f8d7cd;
+  }
+
+  /* Responsive adjustments for smaller screens */
+  @media (max-width: 480px) {
+    .device-container {
+      width: 320px;
+      height: 650px;
+      border-width: 10px;
+      border-radius: 36px;
+    }
+    
+    .device-header {
+      height: 20px;
+    }
+    
+    .device-sensors {
+      height: 20px;
+    }
+    
+    .device-sensors::before {
+      top: 6px;
+      width: 40px;
+      height: 4px;
+    }
+  }
+</style>

@@ -1,0 +1,130 @@
+---
+import DeviceFrameLayout from '../layouts/DeviceFrameLayout.astro';
+import { getDestinationUrl } from '../utils/demo-helper';
+
+// Get the desired app page to display from query parameters or default to home
+const { url } = Astro;
+const targetPath = url.searchParams.get('path') || '/app';
+
+// Redirect to the actual content inside an iframe
+const destinationUrl = getDestinationUrl(targetPath, Astro.url.origin);
+---
+
+<DeviceFrameLayout title="Mobile Demo">
+  <div class="demo-controls">
+    <div class="device-controls">
+      <select id="deviceColorSelector" class="device-color-selector">
+        <option value="black">Black</option>
+        <option value="white">White</option>
+        <option value="gold">Gold</option>
+        <option value="rose-gold">Rose Gold</option>
+      </select>
+    </div>
+    <div class="navigation-controls">
+      <a href="/demo?path=/app" class="nav-button">Home</a>
+      <a href="/demo?path=/app/profile" class="nav-button">Profile</a>
+      <a href="/demo?path=/app/conversations" class="nav-button">Chats</a>
+      <a href="/demo?path=/app/schedule" class="nav-button">Schedule</a>
+      <a href="/" class="exit-button">Exit Demo</a>
+    </div>
+  </div>
+  
+  <iframe 
+    src={destinationUrl} 
+    class="demo-frame" 
+    frameborder="0"
+    title="Maktub App Demo">
+  </iframe>
+</DeviceFrameLayout>
+
+<style>
+  .demo-frame {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+  
+  .demo-controls {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .device-controls {
+    margin-bottom: 10px;
+  }
+  
+  .device-color-selector {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    background-color: white;
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  .navigation-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .nav-button, .exit-button {
+    padding: 8px 12px;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    text-decoration: none;
+  }
+  
+  .nav-button {
+    background-color: #f0f0f0;
+    color: #333;
+  }
+  
+  .nav-button:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .exit-button {
+    margin-top: 10px;
+    background-color: #d32f2f;
+    color: white;
+  }
+  
+  .exit-button:hover {
+    background-color: #b71c1c;
+  }
+  
+  @media (max-width: 640px) {
+    .demo-controls {
+      top: auto;
+      bottom: 20px;
+      left: 20px;
+    }
+  }
+</style>
+
+<script>
+  // Handle device color selection
+  const deviceColorSelector = document.getElementById('deviceColorSelector');
+  const deviceContainer = document.querySelector('.device-container');
+  
+  if (deviceColorSelector && deviceContainer) {
+    deviceColorSelector.addEventListener('change', (e) => {
+      // Remove all color classes
+      deviceContainer.classList.remove('black', 'white', 'gold', 'rose-gold');
+      // Add the selected color class
+      deviceContainer.classList.add(e.target.value);
+    });
+  }
+</script>

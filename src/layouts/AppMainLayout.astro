@@ -73,3 +73,35 @@ const { title } = Astro.props;
     <SpeedInsights />
   </body>
 </html>
+
+<script>
+  // Check if we're in a demo iframe
+  function isInDemoFrame() {
+    return window.self !== window.top;
+  }
+  
+  // Apply demo-specific styles if needed
+  if (isInDemoFrame()) {
+    document.documentElement.classList.add('in-demo-frame');
+  }
+</script>
+
+<style>
+  /* Styles for when the app is inside a demo frame */
+  :global(html.in-demo-frame) {
+    overflow: auto;
+    height: 100%;
+  }
+  
+  :global(html.in-demo-frame body) {
+    overflow: auto;
+    height: 100%;
+  }
+  
+  /* Make sure nav works properly in demo mode */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+</style>
