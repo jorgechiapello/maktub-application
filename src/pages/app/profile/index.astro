@@ -18,7 +18,8 @@ import SettingsIcon from '../../../components/icons/SettingsIcon.astro';
                     />
                 </div>
                 <h1 id="user-name" class="text-3xl font-bold text-gray-900 mb-2">Loading...</h1>
-                <p id="user-job" class="text-gray-600 mb-4">Loading...</p>
+                <p id="user-job" class="text-gray-600 mb-1">Loading...</p>
+                <p id="user-age" class="text-gray-600 mb-4">Loading...</p>
                 <p id="user-bio" class="text-gray-700 mb-8 max-w-lg mx-auto">Loading...</p>
                 
                 <div class="flex justify-center gap-12 mb-8">
@@ -43,6 +44,7 @@ import SettingsIcon from '../../../components/icons/SettingsIcon.astro';
         console.log(profileAnswers);
         document.getElementById('user-name').textContent = profileAnswers.name || 'Sin nombre';
         document.getElementById('user-job').textContent = profileAnswers.job || 'Sin ocupación';
+        document.getElementById('user-age').textContent = profileAnswers.age ? `${profileAnswers.age} años` : 'Edad no especificada';
         document.getElementById('user-bio').textContent = profileAnswers.bio || 'Sin descripción';
     }
 

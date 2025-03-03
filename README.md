@@ -42,10 +42,10 @@ The goal is to build a client-side web application that's easy to share and show
 - [x] Update questions during onboarding
 - [x] Wait 10 seconds after onboarding before redirecting
 - [x] Update onboarding questions
+- [x] Improve profile page (just copy Tinder)
 - [ ] Fix conversations to be only emojis or prefixed messages
 - [ ] Picture at landing of APP
 - [ ] Schedule a date
 - [ ] Update profiles
 - [ ] Show a points system on the profile page
 - [ ] aling top bar icons
-- [ ] Improve profile page (just copy Tinder)

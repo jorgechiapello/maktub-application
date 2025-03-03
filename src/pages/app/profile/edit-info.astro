@@ -33,6 +33,10 @@ const userProfile = {
                             <input type="text" id="job" name="job" placeholder="Tu ocupación actual" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" />
                         </div>
                         <div>
+                            <label for="age" class="font-semibold text-gray-700 block mb-1">Edad</label>
+                            <input type="number" id="age" name="age" placeholder="Tu edad" min="1" max="120" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                        </div>
+                        <div>
                             <label for="bio" class="font-semibold text-gray-700 block mb-1">Sobre ti</label>
                             <textarea id="bio" name="bio" rows="4" placeholder="Cuéntanos un poco sobre ti..." class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"></textarea>
                             <p class="text-sm text-gray-500 mt-1">Máximo 280 caracteres</p>
@@ -63,6 +67,7 @@ const userProfile = {
     document.getElementById('name').value = profileAnswers.name || '';
     document.getElementById('email').value = profileAnswers.email || '';
     document.getElementById('job').value = profileAnswers.job || '';
+    document.getElementById('age').value = profileAnswers.age || '';
     document.getElementById('bio').value = profileAnswers.bio || '';
   }
 
@@ -103,6 +108,7 @@ const userProfile = {
       name: document.getElementById('name').value,
       email: document.getElementById('email').value,
       job: document.getElementById('job').value,
+      age: document.getElementById('age').value,
       bio: bioText,
     };
 
