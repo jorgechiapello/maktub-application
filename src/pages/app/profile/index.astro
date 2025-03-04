@@ -60,6 +60,12 @@ import LoyaltyManager from '@components/LoyaltyManager.astro';
             nextLevelPoints={1000}
           />
           <LoyaltyManager />
+          <button
+            id="reset-data-btn"
+            class="mt-6 px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 transition-colors focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 shadow-md"
+          >
+            Resetear datos de perfil
+          </button>
         </div>
       </div>
     </div>
@@ -82,13 +88,27 @@ import LoyaltyManager from '@components/LoyaltyManager.astro';
     document.getElementById('user-bio').textContent =
       profileAnswers.bio || 'Sin descripción';
 
-    // Initialize loyalty points if they don't exist
     if (!localStorage.getItem('loyaltyPoints')) {
       localStorage.setItem('loyaltyPoints', '0');
     }
   }
 
+  function resetProfileData() {
+    if (confirm('¿Estás seguro de que quieres resetear todos los datos de tu perfil? Esta acción no se puede deshacer.')) {
+      localStorage.removeItem('profileAnswers');
+      localStorage.removeItem('preferencesAnswers');
+      alert('Datos de perfil reseteados correctamente. La página se recargará.');
+      window.location.reload();
+    }
+  }
+
   document.addEventListener('astro:page-load', () => {
     loadUserInfo();
+    
+    // Add event listener for reset button
+    const resetBtn = document.getElementById('reset-data-btn');
+    if (resetBtn) {
+      resetBtn.addEventListener('click', resetProfileData);
+    }
   });
 </script>
