@@ -48,8 +48,10 @@ The goal is to build a client-side web application that's easy to share and show
 - [x] Schedule a date
 - [x] Update profiles (4 men, 4 women)
 - [x] Add demo section to simulate a mobile device
-- [ ] Show profiles depending on the user sexual preferences
+- [x] Show profiles depending on the user sexual preferences
+- [x] Use brand font
+- [x] Add "falta poco" on the onboarding
+- [x] Add counter of questions
+- [x] Add message with the number of questions
 - [ ] Fix conversations to be only emojis or prefixed messages
-- [ ] Add message with the number of questions
-- [ ] Add "falta poco" on the onboarding
-- [ ] Add counter of questions
+- [ ] Improve conversations to show how inviting works
