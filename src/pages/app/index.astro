@@ -1,8 +1,10 @@
 ---
 import MainLayout from '@layouts/AppMainLayout.astro';
-import MatchCard from '@components/MatchCard.astro';
+import CrushCard from '@components/CrushCard.astro';
+import LoveLoadingAnimation from '@components/LoveLoadingAnimation.astro';
 import { crushes } from '../../data/crushes.ts';
 ---
+
 <MainLayout title="Encuentra tu Crush">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-12">
@@ -12,12 +14,18 @@ import { crushes } from '../../data/crushes.ts';
       </p>
     </div>
 
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {
-        crushes.map((match, index) => (
-          <MatchCard match={match} isPremium={false} />
-        ))
-      }
+    <!-- Loading spinner initially visible -->
+    <div id="loadingContainer" class="py-12">
+      <LoveLoadingAnimation message="Encontrando tus matches perfectos..." />
+    </div>
+
+    <!-- Crushes grid initially hidden -->
+    <div id="crushesGrid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 hidden">
+      {crushes.map((match) => (
+        <div class="crush-card" data-gender={match.gender}>
+          <CrushCard match={match} isPremium={false} />
+        </div>
+      ))}
     </div>
   </div>
 </MainLayout>
@@ -25,7 +33,41 @@ import { crushes } from '../../data/crushes.ts';
 <script>
   const profileAnswers = localStorage.getItem('profileAnswers');
   if (!profileAnswers) {
-    // No onboarding data found, redirect to onboarding
     window.location.href = '/app/onboarding';
   }
+
+  function filterCrushesByPreference() {
+    const loadingContainer = document.getElementById('loadingContainer');
+    const crushesGrid = document.getElementById('crushesGrid');
+    const crushCards = document.querySelectorAll('.crush-card');
+    
+    try {
+      const preferenceAnswers = JSON.parse(localStorage.getItem('preferenceAnswers') || '{}');
+      const genderPreference = preferenceAnswers.gender || 'Ambos';
+      
+      crushCards.forEach(card => {
+        const gender = card.getAttribute('data-gender');
+        
+        if (genderPreference === 'Ambos' || 
+            (genderPreference === 'Hombres' && gender === 'male') ||
+            (genderPreference === 'Mujeres' && gender === 'female')) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+      
+      setTimeout(() => {
+        if (loadingContainer) loadingContainer.classList.add('hidden');
+        if (crushesGrid) crushesGrid.classList.remove('hidden');
+      }, 1500);
+      
+    } catch (error) {
+      console.error('Error filtering crushes:', error);
+      if (loadingContainer) loadingContainer.classList.add('hidden');
+      if (crushesGrid) crushesGrid.classList.remove('hidden');
+    }
+  }
+  
+  document.addEventListener('DOMContentLoaded', filterCrushesByPreference);
 </script>

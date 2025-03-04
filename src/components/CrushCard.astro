@@ -15,7 +15,7 @@ const { match, isPremium } = Astro.props;
 const { name, bio, interests, imageUrl, compatibility } = match;
 ---
 
-<div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-[1.02] transition-transform duration-300">
+<div data-name="crushCard" class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-[1.02] transition-transform duration-300">
   <div class="relative">
     <img
       src={imageUrl}
