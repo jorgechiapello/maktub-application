@@ -7,7 +7,7 @@ import { crushes } from '../../data/crushes.ts';
 
 <MainLayout title="Encuentra tu Crush">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-12">
+    <div class="text-center mb-3">
       <h1 class="text-4xl font-bold text-gray-900 mb-4">Encuentra tu Crush</h1>
       <p class="text-lg text-gray-600">
         Descubre compatibles crushes en nuestro bar
@@ -15,7 +15,7 @@ import { crushes } from '../../data/crushes.ts';
     </div>
 
     <!-- Loading spinner initially visible -->
-    <div id="loadingContainer" class="py-12">
+    <div id="loadingContainer" class="py-1">
       <LoveLoadingAnimation message="Encontrando tus matches perfectos..." />
     </div>
 
@@ -60,7 +60,7 @@ import { crushes } from '../../data/crushes.ts';
       setTimeout(() => {
         if (loadingContainer) loadingContainer.classList.add('hidden');
         if (crushesGrid) crushesGrid.classList.remove('hidden');
-      }, 1500);
+      }, 1000);
       
     } catch (error) {
       console.error('Error filtering crushes:', error);
