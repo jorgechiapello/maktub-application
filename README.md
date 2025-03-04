@@ -50,3 +50,6 @@ The goal is to build a client-side web application that's easy to share and show
 - [x] Add demo section to simulate a mobile device
 - [ ] Show profiles depending on the user sexual preferences
 - [ ] Fix conversations to be only emojis or prefixed messages
+- [ ] Add message with the number of questions
+- [ ] Add "falta poco" on the onboarding
+- [ ] Add counter of questions

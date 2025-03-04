@@ -3,7 +3,6 @@ import MainLayout from '../../layouts/AppMainLayout.astro';
 import MatchCard from '../../components/MatchCard.astro';
 import { crushes } from '../../data/crushes.ts';
 ---
-
 <MainLayout title="Encuentra tu Crush">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-12">
@@ -16,10 +15,7 @@ import { crushes } from '../../data/crushes.ts';
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
       {
         crushes.map((match, index) => (
-          <MatchCard
-            match={match}
-            isPremium={false}
-          />
+          <MatchCard match={match} isPremium={false} />
         ))
       }
     </div>
@@ -27,12 +23,9 @@ import { crushes } from '../../data/crushes.ts';
 </MainLayout>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const onboardingData = localStorage.getItem('profileAnswers');
-    if (!onboardingData) {
-      // No onboarding data found, redirect to onboarding
-      window.location.href = '/app/onboarding';
-      return;
-    }
-  });
+  const profileAnswers = localStorage.getItem('profileAnswers');
+  if (!profileAnswers) {
+    // No onboarding data found, redirect to onboarding
+    window.location.href = '/app/onboarding';
+  }
 </script>
