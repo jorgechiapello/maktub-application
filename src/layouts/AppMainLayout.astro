@@ -15,6 +15,9 @@ const { title } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title} | Maktub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <ViewTransitions />
   </head>
   <body class="h-full">
@@ -87,6 +90,11 @@ const { title } = Astro.props;
 </script>
 
 <style>
+  /* Global font styles */
+  :global(*) {
+    font-family: 'Montserrat', sans-serif;
+  }
+  
   /* Styles for when the app is inside a demo frame */
   :global(html.in-demo-frame) {
     overflow: auto;

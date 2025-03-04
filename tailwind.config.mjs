@@ -11,7 +11,7 @@ export default {
         'primary-dark': '#CC0000',
       },
       fontFamily: {
-        sans: ['Inter var', 'sans-serif'],
+        sans: ['Montserrat', 'sans-serif'],
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in',
