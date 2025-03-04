@@ -1,6 +1,6 @@
 ---
 import MainLayout from '@layouts/AppMainLayout.astro';
-import LoadingSpinner from '@components/LoadingSpinner.astro';
+import LoveLoadingAnimation from '@components/LoveLoadingAnimation.astro';
 
 import { preferenceQuestions, type Question } from '../../data/questions';
 
@@ -26,9 +26,8 @@ const questions = [ ...profileQuestions,...preferenceQuestions];
 ---
 
 <MainLayout title="Onboarding">
-  <!-- Loading Spinner (initially hidden) -->
   <div id="loadingContainer" class="hidden">
-    <LoadingSpinner message="Preparando tu experiencia personalizada..." />
+    <LoveLoadingAnimation message="Preparando tu experiencia personalizada..." />
   </div>
 
   <div class="max-w-2xl mx-auto mt-10 px-4 sm:px-6 lg:px-8" id="onboardingContainer">
