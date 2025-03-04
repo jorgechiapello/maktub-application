@@ -1,8 +1,8 @@
 ---
-import MainLayout from '../../../layouts/AppMainLayout.astro';
-import Calendar from '../../../components/Calendar.astro';
-import LeftArrow from '../../../components/LeftArrow.astro';
-import { crushes } from '../../../data/crushes';
+import MainLayout from '@layouts/AppMainLayout.astro';
+import Calendar from '@components/Calendar.astro';
+import LeftArrow from '@components/LeftArrow.astro';
+import { crushes } from '@data/crushes';
 
 const matchId = 1;
 const match = crushes.find(m => m.id === matchId);

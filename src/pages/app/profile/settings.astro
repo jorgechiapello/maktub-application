@@ -1,7 +1,7 @@
 ---
-import MainLayout from '../../../layouts/AppMainLayout.astro';
-import LeftArrow from '../../../components/LeftArrow.astro';
-import { preferenceQuestions, type Question } from '../../../data/questions';
+import MainLayout from '@layouts/AppMainLayout.astro';
+import LeftArrow from '@components/LeftArrow.astro';
+import { preferenceQuestions } from '@data/questions';
 ---
 
 <MainLayout title="Ajustes">
@@ -27,7 +27,8 @@ import { preferenceQuestions, type Question } from '../../../data/questions';
   </main>
 </MainLayout>
 
-<script define:vars={{ preferenceQuestions }}>
+<script>
+  import { preferenceQuestions } from '@data/questions';
   function loadAnswers() {
     const rawPreferenceAnswers = JSON.parse(
       localStorage.getItem('preferenceAnswers') || '{}',
