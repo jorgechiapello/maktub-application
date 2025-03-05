@@ -9,9 +9,6 @@ import { crushes } from '../../data/crushes.ts';
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-3">
       <h1 class="text-4xl font-bold text-gray-900 mb-4">Encuentra tu Crush</h1>
-      <p class="text-lg text-gray-600">
-        Descubre compatibles crushes en nuestro bar
-      </p>
     </div>
 
     <!-- Loading spinner initially visible -->
@@ -31,43 +28,56 @@ import { crushes } from '../../data/crushes.ts';
 </MainLayout>
 
 <script>
-  const profileAnswers = localStorage.getItem('profileAnswers');
-  if (!profileAnswers) {
-    window.location.href = '/app/onboarding';
-  }
+  document.addEventListener('astro:page-load', () => {
+    const profileAnswers = localStorage.getItem('profileAnswers');
+    if (!profileAnswers) {
+      window.location.href = '/app/onboarding';
+      return;
+    }
 
-  function filterCrushesByPreference() {
-    const loadingContainer = document.getElementById('loadingContainer');
-    const crushesGrid = document.getElementById('crushesGrid');
-    const crushCards = document.querySelectorAll('.crush-card');
-    
-    try {
-      const preferenceAnswers = JSON.parse(localStorage.getItem('preferenceAnswers') || '{}');
-      const genderPreference = preferenceAnswers.gender || 'Ambos';
+    function filterCrushesByPreference() {
+      const loadingContainer = document.getElementById('loadingContainer');
+      const crushesGrid = document.getElementById('crushesGrid');
+      const crushCards = document.querySelectorAll('.crush-card');
       
-      crushCards.forEach(card => {
-        const gender = card.getAttribute('data-gender');
-        
-        if (genderPreference === 'Ambos' || 
-            (genderPreference === 'Hombres' && gender === 'male') ||
-            (genderPreference === 'Mujeres' && gender === 'female')) {
-          card.classList.remove('hidden');
-        } else {
-          card.classList.add('hidden');
-        }
-      });
-      
-      setTimeout(() => {
+      // If the page is already loaded (coming back via view transitions)
+      // immediately hide loading and show content
+      if (document.documentElement.hasAttribute('data-astro-transition')) {
         if (loadingContainer) loadingContainer.classList.add('hidden');
         if (crushesGrid) crushesGrid.classList.remove('hidden');
-      }, 1000);
+      }
       
-    } catch (error) {
-      console.error('Error filtering crushes:', error);
-      if (loadingContainer) loadingContainer.classList.add('hidden');
-      if (crushesGrid) crushesGrid.classList.remove('hidden');
+      try {
+        const preferenceAnswers = JSON.parse(localStorage.getItem('preferenceAnswers') || '{}');
+        const genderPreference = preferenceAnswers.gender || 'Ambos';
+        
+        crushCards.forEach(card => {
+          const gender = card.getAttribute('data-gender');
+          
+          if (genderPreference === 'Ambos' || 
+              (genderPreference === 'Hombres' && gender === 'male') ||
+              (genderPreference === 'Mujeres' && gender === 'female')) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+        
+        // Only use setTimeout for initial page load, not for transitions
+        if (!document.documentElement.hasAttribute('data-astro-transition')) {
+          setTimeout(() => {
+            if (loadingContainer) loadingContainer.classList.add('hidden');
+            if (crushesGrid) crushesGrid.classList.remove('hidden');
+          }, 1000);
+        }
+        
+      } catch (error) {
+        console.error('Error filtering crushes:', error);
+        if (loadingContainer) loadingContainer.classList.add('hidden');
+        if (crushesGrid) crushesGrid.classList.remove('hidden');
+      }
     }
-  }
-  
-  document.addEventListener('DOMContentLoaded', filterCrushesByPreference);
+    
+    filterCrushesByPreference();
+  });
 </script>
