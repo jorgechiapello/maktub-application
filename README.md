@@ -53,6 +53,7 @@ The goal is to build a client-side web application that's easy to share and show
 - [x] Add "falta poco" on the onboarding
 - [x] Add counter of questions
 - [x] Add message with the number of questions
+- [ ] Add schedules pages for all crushes
 - [ ] Schedule is by week and by slots from 19 to 24, 24 to 5 by hour, you can choose the ones you want
 - [ ] Ask fewer questions
 - [ ] Age range you are looking for
@@ -60,3 +61,4 @@ The goal is to build a client-side web application that's easy to share and show
 - [ ] Conversation 1 make it like you invite and they accept
 - [ ] Conversation 2 you receive the invite, with options Accept, Reschedule, Cancel
 - [ ] Fix conversations to be only emojis or prefixed messages
+- [ ] Increase logo size

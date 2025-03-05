@@ -6,9 +6,11 @@ interface Props {
 
 const { matchId, matchName } = Astro.props;
 
-const hours = [];
+const timeSlots = [];
 for (let hour = 19; hour <= 24; hour++) {
-  hours.push(`${hour}:00`);
+  const startTime = `${hour}:00`;
+  const endTime = `${hour + 1 === 25 ? 1 : hour + 1}:00`;
+  timeSlots.push({ startTime, endTime });
 }
 
 const days = [];
@@ -24,7 +26,7 @@ for (let i = 0; i < 7; i++) {
   date.setDate(monday.getDate() + i);
   days.push({
     date: date,
-    dayName: new Intl.DateTimeFormat('es', { weekday: 'short' }).format(date),
+    dayName: new Intl.DateTimeFormat('es', { weekday: 'long' }).format(date),
     dayNumber: date.getDate(),
   });
 }
@@ -43,50 +45,49 @@ for (let i = 0; i < 7; i++) {
     </p>
   </div>
 
-  <div class="mb-6">
-    <div class="grid grid-cols-7 gap-1">
-      {/* Day headers */}
-      {
-        days.map((day) => (
-          <div class="text-center font-medium text-gray-500 py-2">
-            <div>{day.dayName}</div>
-            <div class="text-sm">{day.dayNumber}</div>
-          </div>
-        ))
-      }
-
-      {/* Time slots grid */}
-      {
-        hours.map((hour) =>
-          days.map((day) => {
-            const slotId = `${day.date.toISOString().split('T')[0]}T${hour}`;
+  <div class="mb-4 space-y-3">
+    {/* Days with time slots */}
+    {days.map((day) => (
+      <div class="day-container">
+        <div class="day-header mb-1 pb-1 border-b border-gray-200">
+          <h3 class="text-lg font-semibold text-gray-800 capitalize">
+            {day.dayName} {day.dayNumber}
+          </h3>
+        </div>
+        <div class="time-slots-row flex flex-wrap gap-2">
+          {timeSlots.map((slot) => {
+            const slotId = `${day.date.toISOString().split('T')[0]}T${slot.startTime}`;
             return (
               <div
-                class="time-slot aspect-square flex items-center justify-center border-2 rounded-lg cursor-pointer transition-all duration-200 border-gray-200"
+                class="time-slot px-3 py-1 border-2 rounded-lg cursor-pointer transition-all duration-200 border-gray-200 w-36 text-center text-sm"
                 data-slot-id={slotId}
               >
-                {hour}
+                {slot.startTime} - {slot.endTime}
               </div>
             );
-          }),
-        )
-      }
-    </div>
+          })}
+        </div>
+      </div>
+    ))}
   </div>
 
   <div
     id="selected-slots"
-    class="mb-6 p-4 bg-gray-50 rounded-lg shadow-sm hidden"
+    class="mb-4 p-3 bg-gray-50 rounded-lg shadow-sm hidden"
   >
-    <div class="flex justify-between items-center mb-3">
-      <h3 class="text-lg font-semibold text-gray-900">
-        Horarios seleccionados
-      </h3>
-      <span
-        id="slots-counter"
-        class="px-3 py-1 bg-primary text-white rounded-full text-sm"
-        >0 seleccionados</span
-      >
+    <div class="mb-2">
+      <div class="flex items-center justify-between">
+        <h3 class="text-lg font-semibold text-gray-900">
+          Horarios seleccionados
+        </h3>
+      </div>
+      <div class="mt-1">
+        <span
+          id="slots-counter"
+          class="px-2 py-0.5 bg-primary text-white rounded-full text-xs font-medium"
+          >0 seleccionados</span
+        >
+      </div>
     </div>
     <div id="selected-slots-list" class="space-y-2"></div>
   </div>
@@ -134,15 +135,20 @@ for (let i = 0; i < 7; i++) {
       selectedArray
         .sort()
         .map(slot => {
-          const [date, time] = slot.split('T');
+          const [date, startTime] = slot.split('T');
           const slotDate = new Date(date);
           const dayName = new Intl.DateTimeFormat('es', { weekday: 'long' })
             .format(slotDate)
             .replace(/^\w/, c => c.toUpperCase());
           
+          // Calculate end time
+          const [hour] = startTime.split(':');
+          const endHour = parseInt(hour) + 1 === 25 ? 1 : parseInt(hour) + 1;
+          const endTime = `${endHour}:00`;
+          
           return `
             <div class="text-gray-700 p-2 border-b border-gray-100">
-              <span><strong>${dayName}</strong> a las <strong>${time}</strong></span>
+              <span><strong>${dayName}</strong> de <strong>${startTime}</strong> a <strong>${endTime}</strong></span>
             </div>
           `;
         })

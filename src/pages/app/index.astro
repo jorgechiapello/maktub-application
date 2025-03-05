@@ -17,7 +17,7 @@ import { crushes } from '../../data/crushes.ts';
     </div>
 
     <!-- Crushes grid initially hidden -->
-    <div id="crushesGrid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 hidden">
+    <div id="crushesGrid" class="grid md:grid-cols-1 lg:grid-cols-3 gap-6 hidden">
       {crushes.map((match) => (
         <div class="crush-card" data-gender={match.gender}>
           <CrushCard match={match} isPremium={false} />
