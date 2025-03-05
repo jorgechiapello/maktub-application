@@ -6,163 +6,89 @@ interface Props {
 
 const { matchId, matchName } = Astro.props;
 
-// Get current date and generate calendar for current month
-const currentDate = new Date();
-const currentYear = currentDate.getFullYear();
-const currentMonth = currentDate.getMonth();
+const hours = [];
+for (let hour = 19; hour <= 24; hour++) {
+  hours.push(`${hour}:00`);
+}
 
-// Get the first day of the month
-const firstDayOfMonth = new Date(currentYear, currentMonth, 1);
-const firstDayOfWeek = firstDayOfMonth.getDay(); // 0 = Sunday, 1 = Monday, etc.
-
-// Get the number of days in the month
-const lastDayOfMonth = new Date(currentYear, currentMonth + 1, 0);
-const daysInMonth = lastDayOfMonth.getDate();
-
-// Create array of days for the calendar
 const days = [];
-// Add empty cells for days before the first day of the month
-for (let i = 0; i < firstDayOfWeek; i++) {
-  days.push(null);
-}
-// Add days of the month
-for (let i = 1; i <= daysInMonth; i++) {
-  days.push(i);
-}
+const currentDate = new Date();
+const currentDay = currentDate.getDay(); // 0 = Sunday, 1 = Monday, ...
+const mondayOffset = currentDay === 0 ? -6 : 1 - currentDay; // If Sunday, go back 6 days, otherwise go back to Monday
 
-// Get month name
-const monthNames = [
-  'Enero',
-  'Febrero',
-  'Marzo',
-  'Abril',
-  'Mayo',
-  'Junio',
-  'Julio',
-  'Agosto',
-  'Septiembre',
-  'Octubre',
-  'Noviembre',
-  'Diciembre',
-];
-const monthName = monthNames[currentMonth];
+const monday = new Date(currentDate);
+monday.setDate(currentDate.getDate() + mondayOffset);
 
-// Generate available time slots
-const timeSlots = [
-  '18:00',
-  '18:30',
-  '19:00',
-  '19:30',
-  '20:00',
-  '20:30',
-  '21:00',
-  '21:30',
-  '22:00',
-  '22:30',
-];
+for (let i = 0; i < 7; i++) {
+  const date = new Date(monday);
+  date.setDate(monday.getDate() + i);
+  days.push({
+    date: date,
+    dayName: new Intl.DateTimeFormat('es', { weekday: 'short' }).format(date),
+    dayNumber: date.getDate(),
+  });
+}
 ---
 
-<div class="bg-white rounded-lg shadow-lg p-6">
+<div class="bg-white rounded-lg shadow-lg p-6" id="calendar-container" data-match-id={matchId}>
   <div class="mb-6 text-center">
     <h2 class="text-2xl font-bold text-gray-900">
       Programa una cita con {matchName}
     </h2>
-    <p class="text-gray-600 mt-2">Selecciona una fecha y hora para tu cita</p>
+    <p class="text-gray-600 mt-2">
+      Haz clic en múltiples horarios para indicar tu disponibilidad
+    </p>
+    <p class="text-sm text-primary mt-1">
+      (Puedes seleccionar varios horarios)
+    </p>
   </div>
 
   <div class="mb-6">
-    <div class="flex justify-between items-center mb-4">
-      <h3 class="text-xl font-semibold text-gray-900">
-        {monthName}
-        {currentYear}
-      </h3>
-      <div class="flex space-x-2">
-        <button id="prev-month" class="p-2 rounded-full hover:bg-gray-100">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            class="w-5 h-5"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M15.75 19.5 8.25 12l7.5-7.5"></path>
-          </svg>
-        </button>
-        <button id="next-month" class="p-2 rounded-full hover:bg-gray-100">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            class="w-5 h-5"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="m8.25 4.5 7.5 7.5-7.5 7.5"></path>
-          </svg>
-        </button>
-      </div>
-    </div>
-
     <div class="grid grid-cols-7 gap-1">
-      <div class="text-center font-medium text-gray-500 py-2">Dom</div>
-      <div class="text-center font-medium text-gray-500 py-2">Lun</div>
-      <div class="text-center font-medium text-gray-500 py-2">Mar</div>
-      <div class="text-center font-medium text-gray-500 py-2">Mié</div>
-      <div class="text-center font-medium text-gray-500 py-2">Jue</div>
-      <div class="text-center font-medium text-gray-500 py-2">Vie</div>
-      <div class="text-center font-medium text-gray-500 py-2">Sáb</div>
-
+      {/* Day headers */}
       {
-        days.map((day, index) => (
-          <div
-            class:list={[
-              'aspect-square flex items-center justify-center rounded-full',
-              day ? 'hover:bg-primary cursor-pointer day-cell' : '',
-              day === currentDate.getDate()
-                ? 'bg-white text-primary border border-primary hover:bg-gray-100'
-                : '',
-              day && day < currentDate.getDate()
-                ? 'text-gray-300 cursor-not-allowed'
-                : 'text-gray-700',
-            ]}
-            data-day={day}
-          >
-            {day || ''}
+        days.map((day) => (
+          <div class="text-center font-medium text-gray-500 py-2">
+            <div>{day.dayName}</div>
+            <div class="text-sm">{day.dayNumber}</div>
           </div>
         ))
       }
-    </div>
-  </div>
 
-  <div id="time-slots" class="hidden mb-6">
-    <h3 class="text-lg font-semibold text-gray-900 mb-3">
-      Horarios disponibles
-    </h3>
-    <div class="grid grid-cols-2 sm:grid-cols-5 gap-2">
+      {/* Time slots grid */}
       {
-        timeSlots.map((time) => (
-          <button
-            class="time-slot px-4 py-2 border border-gray-200 rounded-lg text-center"
-            data-time={time}
-          >
-            {time}
-          </button>
-        ))
+        hours.map((hour) =>
+          days.map((day) => {
+            const slotId = `${day.date.toISOString().split('T')[0]}T${hour}`;
+            return (
+              <div
+                class="time-slot aspect-square flex items-center justify-center border-2 rounded-lg cursor-pointer transition-all duration-200 border-gray-200"
+                data-slot-id={slotId}
+              >
+                {hour}
+              </div>
+            );
+          }),
+        )
       }
     </div>
   </div>
 
-  <div id="selected-date-time" class="hidden mb-6 p-4 bg-gray-50 rounded-lg">
-    <h3 class="text-lg font-semibold text-gray-900 mb-2">Tu selección</h3>
-    <p id="selected-date-display" class="text-gray-700"></p>
-    <p id="selected-time-display" class="text-gray-700"></p>
+  <div
+    id="selected-slots"
+    class="mb-6 p-4 bg-gray-50 rounded-lg shadow-sm hidden"
+  >
+    <div class="flex justify-between items-center mb-3">
+      <h3 class="text-lg font-semibold text-gray-900">
+        Horarios seleccionados
+      </h3>
+      <span
+        id="slots-counter"
+        class="px-3 py-1 bg-primary text-white rounded-full text-sm"
+        >0 seleccionados</span
+      >
+    </div>
+    <div id="selected-slots-list" class="space-y-2"></div>
   </div>
 
   <div class="flex justify-end space-x-3">
@@ -177,153 +103,109 @@ const timeSlots = [
       class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary-dark disabled:opacity-50 disabled:cursor-not-allowed"
       disabled
     >
-      Confirmar cita
+      Confirmar horarios
     </button>
   </div>
 </div>
 
-<script define:vars={{ matchId }}>
-  let selectedDay = null;
-  let selectedTime = null;
+<script>
+  let selectedSlots = new Set();
 
-  function initializeCalendar() {
-    const dayCells = document.querySelectorAll('.day-cell');
-    const timeSlots = document.querySelectorAll('.time-slot');
-    const timeSlotsContainer = document.getElementById('time-slots');
-    const selectedDateTimeContainer =
-      document.getElementById('selected-date-time');
-    const selectedDateDisplay = document.getElementById(
-      'selected-date-display',
-    );
-    const selectedTimeDisplay = document.getElementById(
-      'selected-time-display',
-    );
-    const confirmButton = document.getElementById('confirm-button');
-
-    const currentDate = new Date();
-    const monthNames = [
-      'Enero',
-      'Febrero',
-      'Marzo',
-      'Abril',
-      'Mayo',
-      'Junio',
-      'Julio',
-      'Agosto',
-      'Septiembre',
-      'Octubre',
-      'Noviembre',
-      'Diciembre',
-    ];
-
-    // Handle day selection
-    dayCells.forEach((dayCell) => {
-      const day = parseInt(dayCell.dataset.day);
-
-      // Disable past days
-      if (day < currentDate.getDate()) {
-        dayCell.classList.add('pointer-events-none');
-        return;
-      }
-
-      dayCell.addEventListener('click', () => {
-        // Reset previously selected day
-        dayCells.forEach((cell) => {
-          if (parseInt(cell.dataset.day) !== currentDate.getDate()) {
-            cell.classList.remove(
-              'bg-primary',
-              'bg-primary-dark',
-              'text-white',
-            );
-            cell.classList.add('text-gray-700');
-          }
-        });
-
-        // Highlight selected day
-        if (day !== currentDate.getDate()) {
-          dayCell.classList.add('bg-primary', 'text-white');
-          dayCell.classList.remove('text-gray-700');
-        }
-
-        selectedDay = day;
-        timeSlotsContainer.classList.remove('hidden');
-        updateSelectedDateTime();
-      });
-    });
-
-    // Handle time selection
-    timeSlots.forEach((timeSlot) => {
-      timeSlot.addEventListener('click', () => {
-        // Reset previously selected time
-        timeSlots.forEach((slot) => {
-          slot.classList.remove('bg-secondary', 'text-white');
-        });
-
-        // Highlight selected time
-        timeSlot.classList.add('bg-primary', 'text-white');
-
-        selectedTime = timeSlot.dataset.time;
-        updateSelectedDateTime();
-      });
-    });
-
-    function updateSelectedDateTime() {
-      if (selectedDay) {
-        const selectedMonth = currentDate.getMonth();
-        const selectedYear = currentDate.getFullYear();
-
-        selectedDateDisplay.textContent = `Fecha: ${selectedDay} de ${monthNames[selectedMonth]} de ${selectedYear}`;
-
-        if (selectedTime) {
-          selectedTimeDisplay.textContent = `Hora: ${selectedTime}`;
-          selectedDateTimeContainer.classList.remove('hidden');
-          confirmButton.disabled = false;
-        }
-      }
-    }
-
-    // Handle confirmation
-    confirmButton.addEventListener('click', () => {
-      if (!selectedDay || !selectedTime);
-
-      // In a real app, you would send this data to your backend
-      const appointmentData = {
-        matchId,
-        day: selectedDay,
-        month: currentDate.getMonth() + 1,
-        year: currentDate.getFullYear(),
-        time: selectedTime,
-      };
-
-      // For now, just save to localStorage and redirect
-      const appointments = JSON.parse(
-        localStorage.getItem('appointments') || '[]',
-      );
-      appointments.push(appointmentData);
-      localStorage.setItem('appointments', JSON.stringify(appointments));
-
-      console.log('Appointment saved to localStorage');
-      console.log('localStorage:', localStorage);
-
-      initializeCalendar();
-
-      // Show success message and redirect
-      alert('¡Cita programada con éxito!');
-      window.location.href = '/app';
-    });
-
-    // Month navigation (would be implemented in a real app)
-    const prevMonthButton = document.getElementById('prev-month');
-    const nextMonthButton = document.getElementById('next-month');
-
-    prevMonthButton.addEventListener('click', () => {
-      alert('En una aplicación real, aquí se mostraría el mes anterior');
-    });
-
-    nextMonthButton.addEventListener('click', () => {
-      alert('En una aplicación real, aquí se mostraría el mes siguiente');
-    });
+  
+  function updateSelectedSlotsDisplay() {
+    const elements = {
+      container: document.getElementById('selected-slots'),
+      list: document.getElementById('selected-slots-list'),
+      button: document.getElementById('confirm-button'),
+      counter: document.getElementById('slots-counter')
+    };
+    
+    if (!elements.container || !elements.list || !elements.button || !elements.counter) return;
+    
+    const selectedArray = Array.from(selectedSlots);
+    const hasSlots = selectedArray.length > 0;
+    
+    elements.container.classList.toggle('hidden', !hasSlots);
+    elements.button.disabled = !hasSlots;
+    
+    elements.counter.textContent = `${selectedArray.length} ${selectedArray.length === 1 ? 'seleccionado' : 'seleccionados'}`;
+    
+    elements.list.innerHTML = hasSlots ? 
+      selectedArray
+        .sort()
+        .map(slot => {
+          const [date, time] = slot.split('T');
+          const slotDate = new Date(date);
+          const dayName = new Intl.DateTimeFormat('es', { weekday: 'long' })
+            .format(slotDate)
+            .replace(/^\w/, c => c.toUpperCase());
+          
+          return `
+            <div class="text-gray-700 p-2 border-b border-gray-100">
+              <span><strong>${dayName}</strong> a las <strong>${time}</strong></span>
+            </div>
+          `;
+        })
+        .join('') 
+      : '';
   }
 
+  function initializeCalendar() {
+    setupTimeSlots();
+    setupConfirmButton();
+    updateSelectedSlotsDisplay();
+  }
+  
+  function setupTimeSlots() {
+    document.querySelectorAll('.time-slot').forEach(slot => {
+      slot.removeEventListener('click', handleSlotClick);
+      
+      slot.addEventListener('click', handleSlotClick);
+    });
+  }
+  
+  function handleSlotClick(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    
+    const slot = event.currentTarget;
+    const slotId = slot.dataset.slotId;
+    
+    if (!slotId) return;
+    
+    if (selectedSlots.has(slotId)) {
+      selectedSlots.delete(slotId);
+      slot.classList.remove('bg-primary', 'text-white', 'border-primary');
+    } else {
+      selectedSlots.add(slotId);
+      slot.classList.add('bg-primary', 'text-white', 'border-primary');
+    }
+    
+    updateSelectedSlotsDisplay();
+  }
+  
+  function setupConfirmButton() {
+    const confirmButton = document.getElementById('confirm-button');
+    if (!confirmButton) return;
+    
+    confirmButton.removeEventListener('click', handleConfirmClick);
+    confirmButton.addEventListener('click', handleConfirmClick);
+  }
+  
+  function handleConfirmClick() {
+    if (selectedSlots.size === 0) {
+      alert('Por favor, selecciona al menos un horario');
+      return;
+    }
+    
+    alert('¡Horarios confirmados con éxito!');
+    window.location.href = '/app';
+  }
+
+
+  
+  document.addEventListener('DOMContentLoaded', initializeCalendar);
+  document.addEventListener('astro:page-load', initializeCalendar);
+  
   initializeCalendar();
 </script>

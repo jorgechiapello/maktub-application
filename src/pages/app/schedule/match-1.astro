@@ -16,15 +16,15 @@ if (!match) {
   <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="mb-6">
       <LeftArrow href="/app" />
-      <Calendar matchId={match.id} matchName={match.name} />
+      <div data-match-id={match.id}>
+        <Calendar matchId={match.id} matchName={match.name} />
+      </div>
     </div>
   </div>
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const onboardingData = localStorage.getItem('profileAnswers');
-      if (!onboardingData) {
-        // No onboarding data found, redirect to onboarding
+      if (!localStorage.getItem('profileAnswers')) {
         window.location.href = '/app/onboarding';
         return;
       }
