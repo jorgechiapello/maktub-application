@@ -1,0 +1,33 @@
+---
+import MainLayout from '@layouts/AppMainLayout.astro';
+import Calendar from '@components/Calendar.astro';
+import LeftArrow from '@components/LeftArrow.astro';
+import { crushes } from '../../../data/crushes';
+
+const matchId = 8;
+const match = crushes.find(m => m.id === matchId);
+
+if (!match) {
+  return new Response('', { status: 404 });
+}
+---
+
+<MainLayout title={`Programar cita con ${match.name}`}>
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="mb-6">
+      <LeftArrow href="/app" />
+      <div data-match-id={match.id}>
+        <Calendar matchId={match.id} matchName={match.name} />
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (!localStorage.getItem('profileAnswers')) {
+        window.location.href = '/app/onboarding';
+        return;
+      }
+    });
+  </script>
+</MainLayout>
