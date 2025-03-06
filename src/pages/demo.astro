@@ -17,20 +17,26 @@ const destinationUrl = getDestinationUrl(targetPath, '');
         <option value="gold">Gold</option>
         <option value="rose-gold">Rose Gold</option>
       </select>
+      <div class="height-controls">
+        <input type="number" id="deviceHeightInput" placeholder="Set Height (px)" class="height-input" value="900" />
+        <button id="setHeightButton" class="set-height-button">Set Height</button>
+      </div>
+      <div class="width-controls">
+        <input type="number" id="deviceWidthInput" placeholder="Set Width (px)" class="width-input" value="400" />
+        <button id="setWidthButton" class="set-width-button">Set Width</button>
+      </div>
     </div>
     <div class="navigation-controls">
       <a href="/demo?path=/app" class="nav-button">Home</a>
-      <a href="/demo?path=/app/profile" class="nav-button">Profile</a>
-      <a href="/demo?path=/app/conversations" class="nav-button">Chats</a>
-      <a href="/demo?path=/app/schedule" class="nav-button">Schedule</a>
       <a href="/" class="exit-button">Exit Demo</a>
     </div>
   </div>
-  <iframe 
-    src={destinationUrl} 
-    class="demo-frame" 
+  <iframe
+    src={destinationUrl}
+    class="demo-frame"
     frameborder="0"
-    title="Maktub App Demo">
+    title="Maktub App Demo"
+  >
   </iframe>
 </DeviceFrameLayout>
 
@@ -40,7 +46,7 @@ const destinationUrl = getDestinationUrl(targetPath, '');
     height: 100%;
     border: none;
   }
-  
+
   .demo-controls {
     position: fixed;
     top: 20px;
@@ -54,11 +60,14 @@ const destinationUrl = getDestinationUrl(targetPath, '');
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   }
-  
+
   .device-controls {
     margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
   }
-  
+
   .device-color-selector {
     padding: 8px 12px;
     border-radius: 6px;
@@ -67,14 +76,63 @@ const destinationUrl = getDestinationUrl(targetPath, '');
     font-size: 14px;
     width: 100%;
   }
-  
+
+  .height-input {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    background-color: white;
+    font-size: 14px;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .set-height-button {
+    padding: 8px 12px;
+    border-radius: 6px;
+    background-color: #4caf50;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+
+  .set-height-button:hover {
+    background-color: #45a049;
+  }
+
+  .width-input {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    background-color: white;
+    font-size: 14px;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .set-width-button {
+    padding: 8px 12px;
+    border-radius: 6px;
+    background-color: #4caf50;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+
+  .set-width-button:hover {
+    background-color: #45a049;
+  }
+
   .navigation-controls {
     display: flex;
     flex-direction: column;
     gap: 8px;
   }
-  
-  .nav-button, .exit-button {
+
+  .nav-button,
+  .exit-button {
     padding: 8px 12px;
     border-radius: 6px;
     text-align: center;
@@ -82,26 +140,26 @@ const destinationUrl = getDestinationUrl(targetPath, '');
     transition: all 0.2s ease;
     text-decoration: none;
   }
-  
+
   .nav-button {
     background-color: #f0f0f0;
     color: #333;
   }
-  
+
   .nav-button:hover {
     background-color: #e0e0e0;
   }
-  
+
   .exit-button {
     margin-top: 10px;
     background-color: #d32f2f;
     color: white;
   }
-  
+
   .exit-button:hover {
     background-color: #b71c1c;
   }
-  
+
   @media (max-width: 640px) {
     .demo-controls {
       top: auto;
@@ -115,13 +173,35 @@ const destinationUrl = getDestinationUrl(targetPath, '');
   // Handle device color selection
   const deviceColorSelector = document.getElementById('deviceColorSelector');
   const deviceContainer = document.querySelector('.device-container');
-  
+  const deviceHeightInput = document.getElementById('deviceHeightInput');
+  const setHeightButton = document.getElementById('setHeightButton');
+  const deviceWidthInput = document.getElementById('deviceWidthInput');
+  const setWidthButton = document.getElementById('setWidthButton');
+
   if (deviceColorSelector && deviceContainer) {
     deviceColorSelector.addEventListener('change', (e) => {
       // Remove all color classes
       deviceContainer.classList.remove('black', 'white', 'gold', 'rose-gold');
       // Add the selected color class
       deviceContainer.classList.add(e.target.value);
+    });
+  }
+
+  if (setHeightButton && deviceHeightInput && deviceContainer) {
+    setHeightButton.addEventListener('click', () => {
+      const newHeight = deviceHeightInput.value;
+      if (newHeight) {
+        deviceContainer.style.height = `${newHeight}px`;
+      }
+    });
+  }
+
+  if (setWidthButton && deviceWidthInput && deviceContainer) {
+    setWidthButton.addEventListener('click', () => {
+      const newWidth = deviceWidthInput.value;
+      if (newWidth) {
+        deviceContainer.style.width = `${newWidth}px`;
+      }
     });
   }
 </script>

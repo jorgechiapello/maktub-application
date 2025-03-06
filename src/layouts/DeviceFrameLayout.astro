@@ -12,7 +12,7 @@ const { title = 'Demo', deviceColor = 'black' } = Astro.props;
     <title>{title} | Maktub Demo</title>
     <ViewTransitions />
   </head>
-  <body class="h-full flex items-center justify-center p-4 sm:p-8 md:p-12">
+  <body class="h-full flex items-center justify-center p-4 sm:p-8 md:p-12 p-12">
     <div class={`device-container ${deviceColor}`}>
       <div class="device-frame">
         <div class="device-header">
@@ -35,29 +35,29 @@ const { title = 'Demo', deviceColor = 'black' } = Astro.props;
 
   .device-container {
     position: relative;
-    width: 500px;
-    height: 975px;
+    width: 400px;
+    height: 80%;
     margin: 0 auto;
-    border: 16px solid black;
-    border-radius: 54px;
-    box-shadow: 0 50px 100px rgba(0, 0, 0, 0.25);
+    border: 12px solid black;
+    border-radius: 40px;
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.25);
     overflow: hidden;
     transition: all 0.3s ease;
   }
 
   .device-container.white {
     border-color: #e2e2e2;
-    box-shadow: 0 50px 100px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.15);
   }
 
   .device-container.gold {
     border-color: #f3e1c9;
-    box-shadow: 0 50px 100px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.15);
   }
 
   .device-container.rose-gold {
     border-color: #f8d7cd;
-    box-shadow: 0 50px 100px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.15);
   }
 
   .device-frame {
@@ -69,7 +69,7 @@ const { title = 'Demo', deviceColor = 'black' } = Astro.props;
 
   .device-header {
     position: relative;
-    height: 30px;
+    height: 24px;
     background-color: black;
     z-index: 1;
   }
@@ -84,7 +84,7 @@ const { title = 'Demo', deviceColor = 'black' } = Astro.props;
     position: absolute;
     top: 0;
     width: 100%;
-    height: 30px;
+    height: 24px;
     background-color: black;
     border-radius: 0 0 20px 20px;
     overflow: hidden;
@@ -93,11 +93,11 @@ const { title = 'Demo', deviceColor = 'black' } = Astro.props;
   .device-sensors::before {
     content: '';
     position: absolute;
-    top: 8px;
+    top: 6px;
     left: 50%;
     transform: translateX(-50%);
-    width: 60px;
-    height: 6px;
+    width: 50px;
+    height: 5px;
     background-color: #1a1a1a;
     border-radius: 3px;
   }
@@ -111,7 +111,7 @@ const { title = 'Demo', deviceColor = 'black' } = Astro.props;
 
   .device-home-button {
     position: relative;
-    height: 5px;
+    height: 4px;
     width: 100%;
     background-color: black; /* Matches border color */
   }
@@ -131,24 +131,24 @@ const { title = 'Demo', deviceColor = 'black' } = Astro.props;
   /* Responsive adjustments for smaller screens */
   @media (max-width: 480px) {
     .device-container {
-      width: 320px;
-      height: 650px;
-      border-width: 10px;
-      border-radius: 36px;
+      width: 256px;
+      height: 520px;
+      border-width: 8px;
+      border-radius: 28px;
     }
     
     .device-header {
-      height: 20px;
+      height: 16px;
     }
     
     .device-sensors {
-      height: 20px;
+      height: 16px;
     }
     
     .device-sensors::before {
-      top: 6px;
-      width: 40px;
-      height: 4px;
+      top: 4px;
+      width: 32px;
+      height: 3px;
     }
   }
 </style>
