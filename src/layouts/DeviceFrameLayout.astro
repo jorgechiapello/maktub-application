@@ -34,9 +34,8 @@ const { title = 'Demo', deviceColor = 'black' } = Astro.props;
   }
 
   .device-container {
-    position: relative;
-    width: 400px;
-    height: 80%;
+    --container-height: 90%;
+    height: var(--container-height);
     margin: 0 auto;
     border: 12px solid black;
     border-radius: 40px;
@@ -152,3 +151,13 @@ const { title = 'Demo', deviceColor = 'black' } = Astro.props;
     }
   }
 </style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const deviceContainer = document.querySelector('.device-container');
+    if (deviceContainer) {
+      const height = deviceContainer.offsetHeight;
+      deviceContainer.style.width = `${0.51 * height}px`;
+    }
+  });
+</script>
