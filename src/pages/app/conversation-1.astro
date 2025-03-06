@@ -3,38 +3,53 @@ import MainLayout from '@layouts/AppMainLayout.astro';
 import LeftArrow from '@components/LeftArrow.astro';
 import ConversationChat from '@components/ConversationChat.astro';
 
-const predefinedMessages = [
-    'Me encantó tu perfil',
-    'Me gustaría conocerte mejor',
-    'Me parece genial',
-    'Gracias por aeptar mi invitación',
-    'Con ganas de conocerte'
-];
-
 const conversation = {
-    id: 1,
-    name: 'Alex Rivera',
-    messages: [
-        { id: 1, sender: 'You', content: 'Invitación al bar el 23 de marzo de 2025', timestamp: '10:35 AM', type: 'invitation' },
-        { id: 2, sender: 'Alex', content: 'Invitación aceptada', timestamp: '10:36 AM', type: 'acceptance' },
-        { id: 3, sender: 'You', content: 'Con ganas de conocerte', timestamp: '10:37 AM', type: 'regular' },
-        { id: 4, sender: 'Alex', content: 'Me encantó tu perfil', timestamp: '10:38 AM', type: 'regular' },
-    ]
+  id: 1,
+  name: 'Alex Rivera',
+  messages: [
+    {
+      id: 1,
+      sender: 'You',
+      content: 'Invitación al bar el 23 de marzo de 2025',
+      timestamp: '10:35 AM',
+      type: 'invitation',
+    },
+    {
+      id: 2,
+      sender: 'Alex',
+      content: 'Invitación aceptada',
+      timestamp: '10:36 AM',
+      type: 'acceptance',
+    },
+    {
+      id: 3,
+      sender: 'You',
+      content: 'Te veo pronto 😍',
+      timestamp: '10:37 AM',
+      type: 'regular',
+    },
+    {
+      id: 4,
+      sender: 'Alex',
+      content: 'Falta poco para vernos',
+      timestamp: '10:38 AM',
+      type: 'regular',
+    },
+  ],
 };
 ---
 
 <MainLayout title={`Chat con ${conversation.name}`}>
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div class="max-w-3xl mx-auto">
-            <div class="flex items-center mb-6">
-                <LeftArrow href="conversations" />
-                <h1 class="text-2xl font-bold text-gray-900">Chat con {conversation.name}</h1>
-            </div>
-            
-            <ConversationChat
-                messages={conversation.messages}
-                predefinedMessages={predefinedMessages}
-            />
-        </div>
-    </main>
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div class="max-w-3xl mx-auto">
+      <div class="flex items-center mb-6">
+        <LeftArrow href="conversations" />
+        <h1 class="text-2xl font-bold text-gray-900">
+          Chat con {conversation.name}
+        </h1>
+      </div>
+
+      <ConversationChat messages={conversation.messages} />
+    </div>
+  </main>
 </MainLayout>
