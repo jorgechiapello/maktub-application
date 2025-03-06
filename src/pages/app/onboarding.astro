@@ -251,19 +251,7 @@ const questions = [ ...profileQuestions,...preferenceQuestions];
         localStorage.setItem('profileAnswers', JSON.stringify(profileAnswers));
         localStorage.setItem('preferenceAnswers', JSON.stringify(preferenceAnswers));
         
-        const onboardingContainer = document.getElementById('onboardingContainer');
-        if (onboardingContainer) {
-          onboardingContainer.style.display = 'none';
-        }
-        
-        const loadingContainer = document.getElementById('loadingContainer');
-        if (loadingContainer) {
-          loadingContainer.classList.remove('hidden');
-        }
-        
-        setTimeout(() => {
-          window.location.href = '/app';
-        }, 5000);
+        window.location.href = '/app';
       } catch (error) {
         console.error('Error saving onboarding data:', error);
         alert('There was an error saving your information. Please try again.');

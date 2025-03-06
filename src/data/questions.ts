@@ -75,35 +75,5 @@ export const preferenceQuestions: Question[] = [
       "Prefiero que las cosas fluyan sin presiones",
       "Me asusta un poco, pero si es la persona correcta, lo intento"
     ]
-  },
-  {
-    id: 7,
-    question: "¿Qué tan importante es para ti la independencia en pareja?",
-    category: 'preference',
-    options: [
-      "Necesito mi espacio personal y mi tiempo a solas",
-      "Me gusta un balance entre compartir y tener momentos propios",
-      "Me gusta estar siempre acompañado/a de mi pareja"
-    ]
-  },
-  {
-    id: 8,
-    question: "¿Cuál es tu lenguaje del amor?",
-    category: 'preference',
-    options: [
-      "Palabras de afirmación y elogios",
-      "Contacto físico y muestras de cariño",
-      "Actos de servicio y pequeños detalles"
-    ]
-  },
-  {
-    id: 9,
-    question: "¿Qué valor no puede faltar en tu pareja ideal?",
-    category: 'preference',
-    options: [
-      "Honestidad",
-      "Sentido del humor",
-      "Ambición y ganas de crecer"
-    ]
-  },
+  }
 ];
