@@ -4,6 +4,7 @@ interface Message {
     sender: string;
     content: string;
     timestamp: string;
+    type: string;
 }
 
 interface Props {
@@ -25,7 +26,9 @@ const { messages, predefinedMessages } = Astro.props;
                     'max-w-[70%] rounded-lg p-3',
                     message.sender === 'You' 
                         ? 'bg-primary text-white' 
-                        : 'bg-gray-100 text-gray-900'
+                        : 'bg-gray-100 text-gray-900',
+                    message.type === 'invitation' ? 'border border-primary bg-red-100 text-red-900' : '',
+                    message.type === 'acceptance' ? 'bg-green-100 text-green-800' : ''
                 ]}>
                     <p>{message.content}</p>
                     <p class:list={[
@@ -35,6 +38,13 @@ const { messages, predefinedMessages } = Astro.props;
                             : 'text-gray-500'
                     ]}>{message.timestamp}</p>
                 </div>
+                {message.type === 'invitation' && message.sender !== 'You' && (
+                    <div class="flex flex-col justify-center gap-2 mt-2">
+                        <button class="bg-green-500 text-white px-3 py-1 rounded">Aceptar</button>
+                        <button class="bg-orange-500 text-white px-3 py-1 rounded">Negar pero reagendar</button>
+                        <button class="bg-red-500 text-white px-3 py-1 rounded">Negar</button>
+                    </div>
+                )}
             </div>
         ))}
     </div>
