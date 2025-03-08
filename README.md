@@ -29,6 +29,12 @@ The goal is to build a client-side web application that's easy to share and show
    npm run dev
    ```
 
+## TODOs Landing page
+- [ ] Translate to Spanish
+- [ ] Add blog posts
+- [ ] Use proper pictures
+- [ ] Use proper logo
+
 ## TODOs
 - [x] Upload a proper logo
 - [x] Replace words on upper navigation bar for logos
@@ -53,12 +59,12 @@ The goal is to build a client-side web application that's easy to share and show
 - [x] Add "falta poco" on the onboarding
 - [x] Add counter of questions
 - [x] Add message with the number of questions
-- [ ] Add schedules pages for all crushes
-- [ ] Schedule is by week and by slots from 19 to 24, 24 to 5 by hour, you can choose the ones you want
-- [ ] Ask fewer questions
-- [ ] Age range you are looking for
-- [ ] "Searching for crushes" in the initial loading
-- [ ] Conversation 1 make it like you invite and they accept
-- [ ] Conversation 2 you receive the invite, with options Accept, Reschedule, Cancel
-- [ ] Fix conversations to be only emojis or prefixed messages
-- [ ] Increase logo size
+- [x] Add schedules pages for all crushes
+- [x] Schedule is by week and by slots from 19 to 24, 24 to 5 by hour, you can choose the ones you want
+- [x] Ask fewer questions
+- [x] Age range you are looking for
+- [x] "Searching for crushes" in the initial loading
+- [x] Conversation 1 make it like you invite and they accept
+- [x] Conversation 2 you receive the invite, with options Accept, Reschedule, Cancel
+- [x] Fix conversations to be only emojis or prefixed messages
+- [x] Increase logo size   
