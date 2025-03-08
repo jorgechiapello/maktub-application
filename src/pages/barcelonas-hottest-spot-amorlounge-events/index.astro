@@ -27,7 +27,7 @@ const shareUrl = encodeURIComponent(pageUrl);
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    color: #666;
+    color: #ff0000;;
     font-size: 1rem;
   }
   .breadcrumb-list li {
@@ -36,7 +36,7 @@ const shareUrl = encodeURIComponent(pageUrl);
     gap: 0.75rem;
   }
   .breadcrumb-list a {
-    color: #ff69b4;
+    color: #ff0000;;
     text-decoration: none;
     transition: color 0.2s;
     font-weight: 500;
@@ -90,7 +90,7 @@ const shareUrl = encodeURIComponent(pageUrl);
     font-size: 1.125rem;
   }
   .social-link:hover {
-    color: #ff69b4;
+    color: #ff0000;;
   }
   .social-link i {
     font-size: 1.125rem;
@@ -141,7 +141,7 @@ const shareUrl = encodeURIComponent(pageUrl);
   }
 
   .share-button:hover {
-    color: #ff69b4;
+    color: #ff0000;;
   }
 
   .related-posts {
@@ -191,14 +191,14 @@ const shareUrl = encodeURIComponent(pageUrl);
   }
 
   .related-post-category a {
-    color: #ff69b4;
+    color: #ff0000;;
     text-decoration: none;
     font-size: 0.875rem;
     font-weight: 500;
   }
 
   .related-post-category a:hover {
-    color: #ff1493;
+    color: #cc0000;
   }
 
   .related-post-title {
@@ -215,7 +215,7 @@ const shareUrl = encodeURIComponent(pageUrl);
   }
 
   .related-post-title a:hover {
-    color: #ff69b4;
+    color: #ff0000;;
   }
 
   .related-post-excerpt {
@@ -226,7 +226,7 @@ const shareUrl = encodeURIComponent(pageUrl);
   }
 
   .related-post-link {
-    color: #ff69b4;
+    color: #ff0000;;
     text-decoration: none;
     font-weight: 500;
     display: flex;
@@ -236,7 +236,7 @@ const shareUrl = encodeURIComponent(pageUrl);
   }
 
   .related-post-link:hover {
-    color: #ff1493;
+    color: #cc0000;
   }
 
   .related-post-link i {
@@ -298,7 +298,7 @@ const shareUrl = encodeURIComponent(pageUrl);
 
   .form-input:focus {
     outline: none;
-    border-color: #ff69b4;
+    border-color: #ff0000;;
   }
 
   .form-actions {
@@ -311,7 +311,7 @@ const shareUrl = encodeURIComponent(pageUrl);
     font-size: 1rem;
     font-weight: 500;
     color: #fff;
-    background-color: #ff69b4;
+    background-color: #ff0000;;
     border: none;
     border-radius: 6px;
     cursor: pointer;
@@ -319,7 +319,7 @@ const shareUrl = encodeURIComponent(pageUrl);
   }
 
   .submit-button:hover {
-    background-color: #ff1493;
+    background-color: #cc0000;
   }
 
   .form-disclaimer {
@@ -450,13 +450,13 @@ const shareUrl = encodeURIComponent(pageUrl);
   }
 
   .breadcrumb-list a {
-    color: #ff69b4;
+    color: #ff0000;;
     text-decoration: none;
     transition: color 0.2s;
   }
 
   .breadcrumb-list a:hover {
-    color: #ff1493;
+    color: #cc0000;
   }
 
   .breadcrumb-separator {
@@ -514,7 +514,7 @@ const shareUrl = encodeURIComponent(pageUrl);
   }
 
   .post-date i {
-    color: #ff69b4;
+    color: #ff0000;;
   }
 
   .social-links {
@@ -530,7 +530,7 @@ const shareUrl = encodeURIComponent(pageUrl);
   }
 
   .social-link:hover {
-    color: #ff69b4;
+    color: #ff0000;;
   }
 
   .post-content {
@@ -621,219 +621,219 @@ const shareUrl = encodeURIComponent(pageUrl);
         </div>
       </div>
     </header>
-  </div>
-  <div class="post-image">
-    <img
-      fetchpriority="high"
-      width="1820"
-      height="1024"
-      src="/wp-content/uploads/sites/128/2025/03/tenweb_media_rrzsflcu0.webp"
-      alt="Maktub Events Venue - A vibrant social space in Barcelona"
-    />
-  </div>
-  <div class="post-content">
-    <p>
-      Maktub es más que un simple bar de citas; es un centro de interacción
-      social y experiencias inolvidables. Organizamos una variedad de eventos a
-      lo largo de la semana, desde noches temáticas hasta presentaciones de
-      música en vivo. Únete a nosotros para una noche de diversión, conexión y
-      recuerdos inolvidables.
-    </p>
-    <p>
-      Nuestros eventos están diseñados para crear un ambiente animado y
-      envolvente, permitiéndote conocer nuevas personas y ampliar tus conexiones
-      sociales. Desde reuniones íntimas hasta fiestas a gran escala, ofrecemos
-      experiencias para todos los gustos.
-    </p>
-    <p>
-      Mantente atento a nuestros próximos eventos, que contarán con invitados
-      especiales, música en vivo y promociones exclusivas. Síguenos en redes
-      sociales para estar al tanto de las últimas novedades y anuncios.
-    </p>
-    <div class="share-section">
-      <h5 class="share-heading">Comparte este posteo</h5>
-      <div class="share-buttons">
-        <a
-          href={`https://www.linkedin.com/sharing/share-offsite/?url=${shareUrl}`}
-          class="share-button"
-          aria-label="Compartir en LinkedIn"
-          target="_blank"
-          rel="noopener"
-        >
-          <i class="fab fa-linkedin"></i>
-        </a>
-        <a
-          href={`https://twitter.com/intent/tweet?url=${shareUrl}&text=${shareText}`}
-          class="share-button"
-          aria-label="Compartir en Twitter"
-          target="_blank"
-          rel="noopener"
-        >
-          <i class="fab fa-twitter"></i>
-        </a>
-        <a
-          href={`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`}
-          class="share-button"
-          aria-label="Compartir en Facebook"
-          target="_blank"
-          rel="noopener"
-        >
-          <i class="fab fa-facebook"></i>
-        </a>
+    <div class="post-image">
+      <img
+        fetchpriority="high"
+        width="1820"
+        height="1024"
+        src="/wp-content/uploads/sites/128/2025/03/tenweb_media_rrzsflcu0.webp"
+        alt="Maktub Events Venue - A vibrant social space in Barcelona"
+      />
+    </div>
+    <div class="post-content">
+      <p>
+        Maktub es más que un simple bar de citas; es un centro de interacción
+        social y experiencias inolvidables. Organizamos una variedad de eventos
+        a lo largo de la semana, desde noches temáticas hasta presentaciones de
+        música en vivo. Únete a nosotros para una noche de diversión, conexión y
+        recuerdos inolvidables.
+      </p>
+      <p>
+        Nuestros eventos están diseñados para crear un ambiente animado y
+        envolvente, permitiéndote conocer nuevas personas y ampliar tus
+        conexiones sociales. Desde reuniones íntimas hasta fiestas a gran
+        escala, ofrecemos experiencias para todos los gustos.
+      </p>
+      <p>
+        Mantente atento a nuestros próximos eventos, que contarán con invitados
+        especiales, música en vivo y promociones exclusivas. Síguenos en redes
+        sociales para estar al tanto de las últimas novedades y anuncios.
+      </p>
+      <div class="share-section">
+        <h5 class="share-heading">Comparte este posteo</h5>
+        <div class="share-buttons">
+          <a
+            href={`https://www.linkedin.com/sharing/share-offsite/?url=${shareUrl}`}
+            class="share-button"
+            aria-label="Compartir en LinkedIn"
+            target="_blank"
+            rel="noopener"
+          >
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a
+            href={`https://twitter.com/intent/tweet?url=${shareUrl}&text=${shareText}`}
+            class="share-button"
+            aria-label="Compartir en Twitter"
+            target="_blank"
+            rel="noopener"
+          >
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a
+            href={`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`}
+            class="share-button"
+            aria-label="Compartir en Facebook"
+            target="_blank"
+            rel="noopener"
+          >
+            <i class="fab fa-facebook"></i>
+          </a>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="newsletter-section">
-    <h2 class="newsletter-heading">Suscríbete a nuestro boletín</h2>
-    <p class="newsletter-description">
-      Mantente al día con las últimas publicaciones del blog. Sin spam, lo
-      prometemos.
-    </p>
-    <form class="newsletter-form" method="post">
-      <input type="hidden" name="post_id" value="1631" />
-      <input type="hidden" name="form_id" value="10rgf1zi" />
-      <input
-        type="hidden"
-        name="referer_title"
-        value="Barcelona's Hottest Spot: Maktub Events"
-      />
-      <input type="hidden" name="queried_id" value="1601" />
-
-      <div class="form-group">
-        <label for="form-field-email" class="form-label">Email</label>
-        <input
-          type="email"
-          name="form_fields[email]"
-          id="form-field-email"
-          class="form-input"
-          placeholder="Ingresa tu correo electrónico"
-          required
-          aria-required="true"
-        />
-      </div>
-
-      <div class="form-actions">
-        <button type="submit" class="submit-button">
-          <span>Suscríbete</span>
-        </button>
-      </div>
-
-      <p class="form-disclaimer">
-        Al hacer clic en "Suscríbete", confirmas que aceptas nuestros Términos y
-        Condiciones.
+    <div class="newsletter-section">
+      <h2 class="newsletter-heading">Subscribirse a nuestro boletín</h2>
+      <p class="newsletter-description">
+        Mantente al día con las últimas publicaciones del blog. Sin spam, lo
+        prometemos.
       </p>
-    </form>
-  </div>
-  <div class="related-posts">
-    <h2 class="related-posts-heading">Publicaciones relacionadas</h2>
-    <div class="related-posts-grid">
-      <article class="related-post">
-        <a
-          href="/barcelonas-hottest-spot-amorlounge-events/"
-          class="related-post-image"
-        >
-          <img
-            width="1820"
-            height="1024"
-            src="/wp-content/uploads/sites/128/2025/03/tenweb_media_rrzsflcu0.webp"
-            alt="Eventos Maktub en Barcelona"
-            loading="lazy"
-          />
-        </a>
-        <div class="related-post-category">
-          <a href="/eventos/">Eventos</a>
-        </div>
-        <h5 class="related-post-title">
-          <a href="/barcelonas-hottest-spot-amorlounge-events/">
-            El lugar más vibrante de Barcelona: Eventos Maktub
-          </a>
-        </h5>
-        <div class="related-post-excerpt">
-          <p>
-            Vive la vibrante vida nocturna y los eventos exclusivos de Maktub,
-            el bar de citas líder en Barcelona.
-          </p>
-        </div>
-        <a
-          href="/barcelonas-hottest-spot-amorlounge-events/"
-          class="related-post-link"
-          aria-label="Leer más sobre Eventos Maktub en Barcelona"
-        >
-          Leer más <i class="fas fa-angle-right" aria-hidden="true"></i>
-        </a>
-      </article>
+      <form class="newsletter-form" method="post">
+        <input type="hidden" name="post_id" value="1631" />
+        <input type="hidden" name="form_id" value="10rgf1zi" />
+        <input
+          type="hidden"
+          name="referer_title"
+          value="Barcelona's Hottest Spot: Maktub Events"
+        />
+        <input type="hidden" name="queried_id" value="1601" />
 
-      <article class="related-post">
-        <a
-          href="/the-art-of-conversation-dating-strategies-for/"
-          class="related-post-image"
-        >
-          <img
-            width="1820"
-            height="1024"
-            src="/wp-content/uploads/sites/128/2025/03/tenweb_media_rx9hefrca.webp"
-            alt="Estrategias de conversación para citas"
-            loading="lazy"
+        <div class="form-group">
+          <label for="form-field-email" class="form-label">Email</label>
+          <input
+            type="email"
+            name="form_fields[email]"
+            id="form-field-email"
+            class="form-input"
+            placeholder="Ingresa tu correo electrónico"
+            required
+            aria-required="true"
           />
-        </a>
-        <div class="related-post-category">
-          <a href="/estrategias-de-citas/">Estrategias de citas</a>
         </div>
-        <h5 class="related-post-title">
-          <a href="/the-art-of-conversation-dating-strategies-for/">
-            El arte de la conversación: Estrategias de citas para Maktub
-          </a>
-        </h5>
-        <div class="related-post-excerpt">
-          <p>
-            Domina el arte de la conversación y crea conexiones duraderas en
-            Maktub.
-          </p>
-        </div>
-        <a
-          href="/the-art-of-conversation-dating-strategies-for/"
-          class="related-post-link"
-          aria-label="Leer más sobre estrategias de conversación"
-        >
-          Leer más <i class="fas fa-angle-right" aria-hidden="true"></i>
-        </a>
-      </article>
 
-      <article class="related-post">
-        <a
-          href="/unlocking-love-in-barcelona-your-guide-to/"
-          class="related-post-image"
-        >
-          <img
-            width="1820"
-            height="1024"
-            src="/wp-content/uploads/sites/128/2025/03/tenweb_media_R7ZFYALQF.webp"
-            alt="Guía de Maktub Barcelona"
-            loading="lazy"
-          />
-        </a>
-        <div class="related-post-category">
-          <a href="/consejos-de-citas/">Consejos de citas</a>
+        <div class="form-actions">
+          <button type="submit" class="submit-button">
+            <span>Subscribirse</span>
+          </button>
         </div>
-        <h5 class="related-post-title">
-          <a href="/unlocking-love-in-barcelona-your-guide-to/">
-            Desbloqueando el amor en Barcelona: Tu guía para Maktub
+
+        <p class="form-disclaimer">
+          Al hacer clic en "Subscribirse", confirmas que aceptas nuestros Términos
+          y Condiciones.
+        </p>
+      </form>
+    </div>
+    <div class="related-posts">
+      <h2 class="related-posts-heading">Publicaciones relacionadas</h2>
+      <div class="related-posts-grid">
+        <article class="related-post">
+          <a
+            href="/barcelonas-hottest-spot-amorlounge-events/"
+            class="related-post-image"
+          >
+            <img
+              width="1820"
+              height="1024"
+              src="/wp-content/uploads/sites/128/2025/03/tenweb_media_rrzsflcu0.webp"
+              alt="Eventos Maktub en Barcelona"
+              loading="lazy"
+            />
           </a>
-        </h5>
-        <div class="related-post-excerpt">
-          <p>
-            Descubre la atmósfera única y las salas temáticas de Maktub, el bar
-            de citas líder en Barcelona.
-          </p>
-        </div>
-        <a
-          href="/unlocking-love-in-barcelona-your-guide-to/"
-          class="related-post-link"
-          aria-label="Leer más sobre la guía de Maktub"
-        >
-          Leer más <i class="fas fa-angle-right" aria-hidden="true"></i>
-        </a>
-      </article>
+          <div class="related-post-category">
+            <a href="/eventos/">Eventos</a>
+          </div>
+          <h5 class="related-post-title">
+            <a href="/barcelonas-hottest-spot-amorlounge-events/">
+              El lugar más vibrante de Barcelona: Eventos Maktub
+            </a>
+          </h5>
+          <div class="related-post-excerpt">
+            <p>
+              Vive la vibrante vida nocturna y los eventos exclusivos de Maktub,
+              el bar de citas líder en Barcelona.
+            </p>
+          </div>
+          <a
+            href="/barcelonas-hottest-spot-amorlounge-events/"
+            class="related-post-link"
+            aria-label="Leer más sobre Eventos Maktub en Barcelona"
+          >
+            Leer más <i class="fas fa-angle-right" aria-hidden="true"></i>
+          </a>
+        </article>
+
+        <article class="related-post">
+          <a
+            href="/the-art-of-conversation-dating-strategies-for/"
+            class="related-post-image"
+          >
+            <img
+              width="1820"
+              height="1024"
+              src="/wp-content/uploads/sites/128/2025/03/tenweb_media_rx9hefrca.webp"
+              alt="Estrategias de conversación para citas"
+              loading="lazy"
+            />
+          </a>
+          <div class="related-post-category">
+            <a href="/estrategias-de-citas/">Estrategias de citas</a>
+          </div>
+          <h5 class="related-post-title">
+            <a href="/the-art-of-conversation-dating-strategies-for/">
+              El arte de la conversación: Estrategias de citas para Maktub
+            </a>
+          </h5>
+          <div class="related-post-excerpt">
+            <p>
+              Domina el arte de la conversación y crea conexiones duraderas en
+              Maktub.
+            </p>
+          </div>
+          <a
+            href="/the-art-of-conversation-dating-strategies-for/"
+            class="related-post-link"
+            aria-label="Leer más sobre estrategias de conversación"
+          >
+            Leer más <i class="fas fa-angle-right" aria-hidden="true"></i>
+          </a>
+        </article>
+
+        <article class="related-post">
+          <a
+            href="/unlocking-love-in-barcelona-your-guide-to/"
+            class="related-post-image"
+          >
+            <img
+              width="1820"
+              height="1024"
+              src="/wp-content/uploads/sites/128/2025/03/tenweb_media_R7ZFYALQF.webp"
+              alt="Guía de Maktub Barcelona"
+              loading="lazy"
+            />
+          </a>
+          <div class="related-post-category">
+            <a href="/consejos-de-citas/">Consejos de citas</a>
+          </div>
+          <h5 class="related-post-title">
+            <a href="/unlocking-love-in-barcelona-your-guide-to/">
+              Desbloqueando el amor en Barcelona: Tu guía para Maktub
+            </a>
+          </h5>
+          <div class="related-post-excerpt">
+            <p>
+              Descubre la atmósfera única y las salas temáticas de Maktub, el
+              bar de citas líder en Barcelona.
+            </p>
+          </div>
+          <a
+            href="/unlocking-love-in-barcelona-your-guide-to/"
+            class="related-post-link"
+            aria-label="Leer más sobre la guía de Maktub"
+          >
+            Leer más <i class="fas fa-angle-right" aria-hidden="true"></i>
+          </a>
+        </article>
+      </div>
     </div>
   </div>
 </PageLandingLayout>
