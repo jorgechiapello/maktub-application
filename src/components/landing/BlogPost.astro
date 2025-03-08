@@ -1,5 +1,6 @@
 ---
 const { pageTitle, siteUrl, publishDate } = Astro.props;
+import NewsletterInvite from '@components/landing/NewsletterInvite.astro';
 
 const formattedDate = publishDate.toLocaleDateString('es-ES', {
   year: 'numeric',
@@ -110,47 +111,6 @@ const shareUrl = encodeURIComponent(pageUrl);
         </a>
       </div>
     </div>
-  </div>
-  <div class="newsletter-section">
-    <h2 class="newsletter-heading">Subscribirse a nuestro boletín</h2>
-    <p class="newsletter-description">
-      Mantente al día con las últimas publicaciones del blog. Sin spam, lo
-      prometemos.
-    </p>
-    <form class="newsletter-form" method="post">
-      <input type="hidden" name="post_id" value="1631" />
-      <input type="hidden" name="form_id" value="10rgf1zi" />
-      <input
-        type="hidden"
-        name="referer_title"
-        value="Barcelona's Hottest Spot: Maktub Events"
-      />
-      <input type="hidden" name="queried_id" value="1601" />
-
-      <div class="form-group">
-        <label for="form-field-email" class="form-label">Email</label>
-        <input
-          type="email"
-          name="form_fields[email]"
-          id="form-field-email"
-          class="form-input"
-          placeholder="Ingresa tu correo electrónico"
-          required
-          aria-required="true"
-        />
-      </div>
-
-      <div class="form-actions">
-        <button type="submit" class="submit-button">
-          <span>Subscribirse</span>
-        </button>
-      </div>
-
-      <p class="form-disclaimer">
-        Al hacer clic en "Subscribirse", confirmas que aceptas nuestros Términos
-        y Condiciones.
-      </p>
-    </form>
   </div>
   <div class="related-posts">
     <h2 class="related-posts-heading">Publicaciones relacionadas</h2>
@@ -264,6 +224,7 @@ const shareUrl = encodeURIComponent(pageUrl);
       </article>
     </div>
   </div>
+  <NewsletterInvite />
 </article>
 <style>
   .breadcrumb-nav {
@@ -490,108 +451,6 @@ const shareUrl = encodeURIComponent(pageUrl);
     font-size: 0.875rem;
   }
 
-  .newsletter-section {
-    margin: 4rem 0;
-    padding: 3rem;
-    background-color: #f8f9fa;
-    border-radius: 12px;
-    text-align: center;
-  }
-
-  .newsletter-heading {
-    font-size: 1.75rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    color: #333;
-  }
-
-  .newsletter-description {
-    font-size: 1.125rem;
-    color: #666;
-    margin-bottom: 2rem;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .newsletter-form {
-    margin: 0 auto;
-  }
-
-  .form-group {
-    margin-bottom: 1.5rem;
-  }
-
-  .form-label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 500;
-    color: #333;
-    text-align: left;
-  }
-
-  .form-input {
-    width: 100%;
-    padding: 0.75rem 1rem;
-    font-size: 1rem;
-    line-height: 1.5;
-    color: #333;
-    background-color: #fff;
-    border: 2px solid #ddd;
-    border-radius: 6px;
-    transition: border-color 0.2s ease;
-  }
-
-  .form-input:focus {
-    outline: none;
-    border-color: #ff0000;
-  }
-
-  .form-actions {
-    margin-bottom: 1rem;
-  }
-
-  .submit-button {
-    display: inline-block;
-    padding: 0.75rem 2rem;
-    font-size: 1rem;
-    font-weight: 500;
-    color: #fff;
-    background-color: #ff0000;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-  }
-
-  .submit-button:hover {
-    background-color: #cc0000;
-  }
-
-  .form-disclaimer {
-    font-size: 0.875rem;
-    color: #666;
-    margin-top: 1rem;
-  }
-
-  .post-image {
-    margin: 2rem 0;
-    overflow: hidden;
-  }
-
-  .post-image img {
-    width: 100%;
-    height: auto;
-    display: block;
-    transition: transform 0.3s ease;
-  }
-
-  .post-image:hover img {
-    transform: scale(1.02);
-  }
-
-  .container {
-  }
-
   @media (max-width: 768px) {
     .post-image {
       margin: 1.5rem 0;
@@ -618,19 +477,6 @@ const shareUrl = encodeURIComponent(pageUrl);
 
     .post-content {
       padding: 1.5rem 0;
-    }
-
-    .newsletter-section {
-      padding: 2rem 1rem;
-      margin: 2rem 0;
-    }
-
-    .newsletter-heading {
-      font-size: 1.5rem;
-    }
-
-    .newsletter-description {
-      font-size: 1rem;
     }
 
     .related-posts {
