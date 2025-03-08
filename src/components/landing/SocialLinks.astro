@@ -1,0 +1,51 @@
+---
+const { shareUrl, shareText } = Astro.props;
+---
+
+<div class="social-links">
+  <a
+    href={`https://www.linkedin.com/sharing/share-offsite/?url=${shareUrl}`}
+    class="social-link"
+    aria-label="Compartir en LinkedIn"
+    target="_blank"
+    rel="noopener"
+  >
+    <i class="fab fa-linkedin"></i>
+  </a>
+  <a
+    href={`https://twitter.com/intent/tweet?url=${shareUrl}&text=${shareText}`}
+    class="social-link"
+    aria-label="Compartir en Twitter"
+    target="_blank"
+    rel="noopener"
+  >
+    <i class="fab fa-twitter"></i>
+  </a>
+  <a
+    href={`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`}
+    class="social-link"
+    aria-label="Compartir en Facebook"
+    target="_blank"
+    rel="noopener"
+  >
+    <i class="fab fa-facebook"></i>
+  </a>
+</div>
+<style>
+  .social-links {
+    display: flex;
+    gap: 1.25rem;
+  }
+  .social-link {
+    color: #666;
+    text-decoration: none;
+    transition: color 0.2s;
+    font-size: 1.125rem;
+  }
+  .social-link:hover {
+    color: #ff0000;
+  }
+  .social-link i {
+    font-size: 1.125rem;
+  }
+</style>
