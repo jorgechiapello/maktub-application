@@ -1,0 +1,188 @@
+<style>
+  .site-footer {
+    padding: 4rem 0 2rem;
+    background-color: white;
+  }
+  .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) 2fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+  .footer-section h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #000;
+  }
+  .footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .footer-links li {
+    margin-bottom: 0.5rem;
+  }
+  .footer-links a,
+  .footer-link {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover,
+  .footer-link:hover {
+    color: #666;
+  }
+  .footer-legal {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+  .newsletter-form {
+    display: flex;
+    gap: 0.5rem;
+  }
+  .newsletter-input {
+    flex: 1;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  .newsletter-button {
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s;
+  }
+  .newsletter-button:hover {
+    background-color: #ff1493;
+  }
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 2rem;
+    border-top: 1px solid #eee;
+  }
+  .footer-social {
+    display: flex;
+    gap: 1rem;
+  }
+  .footer-social a {
+    color: #333;
+    text-decoration: none;
+  }
+  .footer-social a:hover {
+    color: #666;
+  }
+  .social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #f5f5f5;
+    transition: background-color 0.2s;
+  }
+  .social-link:hover {
+    background-color: #e0e0e0;
+  }
+  .social-link svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  @media (max-width: 768px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    .footer-bottom {
+      flex-direction: column;
+      gap: 1rem;
+      text-align: center;
+    }
+  }
+</style>
+
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-grid">
+      <div class="footer-section">
+        <h3>Explore</h3>
+        <ul class="footer-links">
+          <li><a href="/about-us/">Conocenos</a></li>
+          <li><a href="/the-app/">La App</a></li>
+          <li><a href="/contact-location/">Contactanos</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Salas Temáticas</h3>
+        <ul class="footer-links">
+          <li>
+            <a href="/rooms/romantic-rendezvous/">Encuentro Romántico</a>
+          </li>
+          <li>
+            <a href="/rooms/barcelona-nights/">Noches Barcelonesas</a>
+          </li>
+          <li><a href="/rooms/secret-garden/">Jardín Secreto</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Menu</h3>
+        <ul class="footer-links">
+          <li><a href="/menu/cocktails/">Cocktails</a></li>
+          <li><a href="/menu/tapas/">Tapas</a></li>
+          <li><a href="/menu/desserts/">Postres</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Mantente actualizado</h3>
+        <div class="flex flex-col gap-2">
+          <p>
+            Subscribirse a nuestro boletín para recibir las últimas
+            noticias y ofertas exclusivas.
+          </p>
+          <form class="newsletter-form">
+            <input
+              class="newsletter-input"
+              type="email"
+              placeholder="Tu correo electrónico"
+            />
+            <button class="newsletter-button" type="submit">
+              Subscribirse
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-legal">
+        <span>© 2024 Maktub. Todos los derechos reservados.</span>
+        <a href="/privacy-policy/" class="footer-link">Política de Privacidad</a>
+        <a href="/terms-of-service/" class="footer-link">Términos de Servicio</a>
+      </div>
+      <div class="footer-social">
+        <a href="#" class="social-link">
+          <svg><!-- Instagram icon --></svg>
+        </a>
+        <a href="#" class="social-link">
+          <svg><!-- Facebook icon --></svg>
+        </a>
+        <a href="#" class="social-link">
+          <svg><!-- Twitter icon --></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
