@@ -3,7 +3,7 @@ import NewsletterInvite from '@components/landing/NewsletterInvite.astro';
 import SocialLinks from '@components/landing/SocialLinks.astro';
 import RelatedPostSection from '@components/landing/RelatedPostSection.astro';
 
-const { pageTitle, siteUrl, publishDate } = Astro.props;
+const { pageTitle, siteUrl, publishDate, srcImage, altImage } = Astro.props;
 
 const formattedDate = publishDate.toLocaleDateString('es-ES', {
   year: 'numeric',
@@ -19,7 +19,7 @@ const shareUrl = encodeURIComponent(pageUrl);
 <article>
   <header class="post-header">
     <h1 class="post-title">{pageTitle}</h1>
-    <div class="post-meta">
+    <div class="post-meta flex justify-between">
       <time datetime={publishDate.toISOString()} class="post-date">
         <i class="fas fa-calendar"></i>
         {formattedDate}
@@ -32,29 +32,13 @@ const shareUrl = encodeURIComponent(pageUrl);
       fetchpriority="high"
       width="1820"
       height="1024"
-      src="/wp-content/uploads/sites/128/2025/03/tenweb_media_rrzsflcu0.webp"
-      alt="Maktub Events Venue - A vibrant social space in Barcelona"
+      src={srcImage}
+      alt={altImage}
     />
   </div>
   <div class="post-content">
-    <p>
-      Maktub es más que un simple bar de citas; es un centro de interacción
-      social y experiencias inolvidables. Organizamos una variedad de eventos a
-      lo largo de la semana, desde noches temáticas hasta presentaciones de
-      música en vivo. Únete a nosotros para una noche de diversión, conexión y
-      recuerdos inolvidables.
-    </p>
-    <p>
-      Nuestros eventos están diseñados para crear un ambiente animado y
-      envolvente, permitiéndote conocer nuevas personas y ampliar tus conexiones
-      sociales. Desde reuniones íntimas hasta fiestas a gran escala, ofrecemos
-      experiencias para todos los gustos.
-    </p>
-    <p>
-      Mantente atento a nuestros próximos eventos, que contarán con invitados
-      especiales, música en vivo y promociones exclusivas. Síguenos en redes
-      sociales para estar al tanto de las últimas novedades y anuncios.
-    </p>
+    <slot />
+
     <div class="share-section">
       <h5 class="share-heading">Comparte este posteo</h5>
       <SocialLinks shareUrl={shareUrl} shareText={shareText} />
