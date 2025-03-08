@@ -1,36 +1,36 @@
 ---
 ---
 
-<div class="header-container" id="header">
-  <div class="container">
-    <div class="nav-wrapper">
-      <div class="logo-wrapper">
+<div class="sticky top-0 bg-white z-[1000] shadow-md" id="header">
+  <div class="max-w-[1200px] mx-auto px-4">
+    <div class="flex items-center justify-between py-4">
+      <div>
         <a href="/">
           <img
             width="150"
             height="40"
             src="/wp-content/uploads/sites/128/2025/03/logo_BO1vIKvM.webp"
-            class="logo-wrapper img"
+            class="block"            
             alt="AmorLounge Logo"
           />
         </a>
       </div>
-      <div class="nav-menu-wrapper">
-        <nav class="nav-menu nav-menu--desktop">
-          <ul class="nav-list">
+      <div class="flex items-center gap-8">
+        <nav class="mx-8 md:block hidden">
+          <ul class="flex list-none m-0 p-0 justify-center gap-8">
             <li>
-              <a href="/about-us/" class="nav-link">Conocenos</a>
+              <a href="/about-us/" class="text-gray-800 no-underline font-medium hover:text-gray-600 transition-colors">Conocenos</a>
             </li>
             <li>
-              <a href="/the-app/" class="nav-link">La App</a>
+              <a href="/the-app/" class="text-gray-800 no-underline font-medium hover:text-gray-600 transition-colors">La App</a>
             </li>
             <li>
-              <a href="/contact-location/" class="nav-link">Contactanos</a>
+              <a href="/contact-location/" class="text-gray-800 no-underline font-medium hover:text-gray-600 transition-colors">Contactanos</a>
             </li>
           </ul>
         </nav>
         <div
-          class="menu-toggle"
+          class="hidden md:hidden cursor-pointer bg-transparent border-0 p-2 z-[1001]"
           aria-controls="mobile-menu"
           role="button"
           tabindex="0"
@@ -51,7 +51,7 @@
           <svg
             aria-hidden="true"
             role="presentation"
-            class="menu-icon menu-icon--close"
+            class="menu-icon menu-icon--close hidden"
             width="24"
             height="24"
             viewBox="0 0 24 24"
@@ -63,93 +63,16 @@
           </svg>
         </div>
       </div>
-      <a href="/app" class="elementor-button">Ir a la App</a>
+      <a href="/app" class="bg-red-600 text-white px-6 py-3 rounded font-medium hover:bg-red-700 transition-colors">Ir a la App</a>
     </div>
   </div>
 </div>
 
 <style>
-  .header-container {
-    position: sticky;
-    top: 0;
-    background: white;
-    z-index: 1000;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  .menu-toggle[aria-expanded='true'] .menu-icon--open {
+    @apply hidden;
   }
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
-  }
-  .nav-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem 0;
-  }
-  .logo-wrapper img {
-    display: block;
-  }
-  .nav-menu-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-  }
-  .nav-menu {
-    margin: 0 2rem;
-  }
-  .nav-list {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    justify-content: center;
-    gap: 2rem;
-  }
-  .nav-link {
-    color: #333;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.2s;
-  }
-  .nav-link:hover {
-    color: #666;
-  }
-  .elementor-button {
-    background-color: #ff0000;
-    color: white;
-    padding: 0.75rem 1.5rem;
-    border-radius: 4px;
-    text-decoration: none;
-    font-weight: 500;
-    transition: background-color 0.2s;
-  }
-  .elementor-button:hover {
-    background-color: #cc0000;
-  }
-  .menu-toggle {
-    display: none;
-  }
-  @media (max-width: 768px) {
-    .nav-menu--desktop {
-      display: none;
-    }
-    .menu-toggle {
-      display: block;
-      cursor: pointer;
-      background: none;
-      border: none;
-      padding: 0.5rem;
-      z-index: 1001;
-    }
-    .menu-icon--close {
-      display: none;
-    }
-    .menu-toggle[aria-expanded='true'] .menu-icon--open {
-      display: none;
-    }
-    .menu-toggle[aria-expanded='true'] .menu-icon--close {
-      display: block;
-    }
+  .menu-toggle[aria-expanded='true'] .menu-icon--close {
+    @apply block;
   }
 </style>
