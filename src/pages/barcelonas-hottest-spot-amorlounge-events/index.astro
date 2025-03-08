@@ -1,387 +1,839 @@
 ---
 import PageLandingLayout from '@layouts/PageLandingLayout.astro';
+
+const publishDate = new Date('2025-03-01');
+const formattedDate = publishDate.toLocaleDateString('es-ES', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+
+const pageTitle = 'El lugar más vibrante de Barcelona: Eventos Maktub';
+const siteUrl = 'https://maktub.es';
+const pageUrl = new URL(Astro.url.pathname, siteUrl).toString();
+const shareText = encodeURIComponent(pageTitle);
+const shareUrl = encodeURIComponent(pageUrl);
 ---
 
+<style>
+  .breadcrumb-nav {
+    margin-bottom: 2rem;
+    padding: 1rem 0;
+  }
+  .breadcrumb-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: #666;
+    font-size: 1rem;
+  }
+  .breadcrumb-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .breadcrumb-list a {
+    color: #ff69b4;
+    text-decoration: none;
+    transition: color 0.2s;
+    font-weight: 500;
+  }
+  .breadcrumb-list a:hover {
+    color: #ff1493;
+  }
+  .breadcrumb-separator {
+    color: #666;
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .post-header {
+    margin-bottom: 2.5rem;
+  }
+  .post-title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin: 0 0 1.5rem;
+    color: #333;
+    line-height: 1.2;
+  }
+  .post-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #666;
+    font-size: 1rem;
+    padding: 0.5rem 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+  }
+  .post-date {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .post-date i {
+    font-size: 1rem;
+    color: #666;
+  }
+  .social-links {
+    display: flex;
+    gap: 1.25rem;
+  }
+  .social-link {
+    color: #666;
+    text-decoration: none;
+    transition: color 0.2s;
+    font-size: 1.125rem;
+  }
+  .social-link:hover {
+    color: #ff69b4;
+  }
+  .social-link i {
+    font-size: 1.125rem;
+  }
+
+  .post-image {
+    margin-bottom: 2rem;
+  }
+  .post-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .post-content {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: #333;
+  }
+
+  .share-section {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #eee;
+  }
+
+  .share-heading {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #333;
+  }
+
+  .share-buttons {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .share-button {
+    color: #666;
+    text-decoration: none;
+    transition: color 0.2s;
+    font-size: 1.25rem;
+  }
+
+  .share-button:hover {
+    color: #ff69b4;
+  }
+
+  .related-posts {
+    margin-top: 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-top: 1px solid #eee;
+  }
+
+  .related-posts-heading {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    color: #333;
+  }
+
+  .related-posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .related-post {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .related-post-image {
+    margin-bottom: 1rem;
+    overflow: hidden;
+    border-radius: 8px;
+  }
+
+  .related-post-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+
+  .related-post-image:hover img {
+    transform: scale(1.05);
+  }
+
+  .related-post-category {
+    margin-bottom: 0.5rem;
+  }
+
+  .related-post-category a {
+    color: #ff69b4;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+
+  .related-post-category a:hover {
+    color: #ff1493;
+  }
+
+  .related-post-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+  }
+
+  .related-post-title a {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .related-post-title a:hover {
+    color: #ff69b4;
+  }
+
+  .related-post-excerpt {
+    color: #666;
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .related-post-link {
+    color: #ff69b4;
+    text-decoration: none;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: auto;
+  }
+
+  .related-post-link:hover {
+    color: #ff1493;
+  }
+
+  .related-post-link i {
+    font-size: 0.875rem;
+  }
+
+  .newsletter-section {
+    margin: 4rem 0;
+    padding: 3rem;
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    text-align: center;
+  }
+
+  .newsletter-heading {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #333;
+  }
+
+  .newsletter-description {
+    font-size: 1.125rem;
+    color: #666;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .newsletter-form {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+
+  .form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #333;
+    text-align: left;
+  }
+
+  .form-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #333;
+    background-color: #fff;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    transition: border-color 0.2s ease;
+  }
+
+  .form-input:focus {
+    outline: none;
+    border-color: #ff69b4;
+  }
+
+  .form-actions {
+    margin-bottom: 1rem;
+  }
+
+  .submit-button {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #fff;
+    background-color: #ff69b4;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+
+  .submit-button:hover {
+    background-color: #ff1493;
+  }
+
+  .form-disclaimer {
+    font-size: 0.875rem;
+    color: #666;
+    margin-top: 1rem;
+  }
+
+  .post-image {
+    margin: 2rem 0;
+    overflow: hidden;
+  }
+
+  .post-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+
+  .post-image:hover img {
+    transform: scale(1.02);
+  }
+
+  .container {
+    max-width: 1200px;
+  }
+
+  @media (max-width: 768px) {
+    .post-image {
+      margin: 1.5rem 0;
+      border-radius: 8px;
+    }
+
+    .post-header {
+      padding: 1.5rem 0;
+    }
+
+    .post-title {
+      font-size: 1.75rem;
+    }
+
+    .post-meta {
+      flex-direction: column;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .social-links {
+      margin-left: 0;
+    }
+
+    .post-content {
+      padding: 1.5rem 0;
+    }
+
+    .newsletter-section {
+      padding: 2rem 1rem;
+      margin: 2rem 0;
+    }
+
+    .newsletter-heading {
+      font-size: 1.5rem;
+    }
+
+    .newsletter-description {
+      font-size: 1rem;
+    }
+
+    .related-posts {
+      margin-top: 2rem;
+      padding: 2rem 1rem 0;
+    }
+
+    .related-posts-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .related-post-title {
+      font-size: 1.125rem;
+    }
+  }
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .container {
+      padding: 0 2rem;
+    }
+
+    .related-posts {
+      margin-top: 3rem;
+      padding: 2.5rem 2rem 0;
+    }
+
+    .related-posts-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1025px) {
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+  }
+
+  .breadcrumb-nav {
+    padding: 1rem 0;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #eee;
+  }
+
+  .breadcrumb-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .breadcrumb-list li {
+    display: flex;
+    align-items: center;
+    font-size: 0.875rem;
+    color: #666;
+  }
+
+  .breadcrumb-list a {
+    color: #ff69b4;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .breadcrumb-list a:hover {
+    color: #ff1493;
+  }
+
+  .breadcrumb-separator {
+    margin: 0 0.5rem;
+    color: #999;
+  }
+
+  @media (max-width: 768px) {
+    .breadcrumb-nav {
+      padding: 0.75rem 0;
+      margin-bottom: 1.5rem;
+    }
+
+    .breadcrumb-list {
+      gap: 0.25rem;
+    }
+
+    .breadcrumb-list li {
+      font-size: 0.75rem;
+    }
+
+    .breadcrumb-separator {
+      margin: 0 0.25rem;
+    }
+  }
+
+  .post-header {
+    padding: 2rem 0;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 2rem;
+  }
+
+  .post-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+  }
+
+  .post-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .post-date {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #666;
+    font-size: 0.875rem;
+  }
+
+  .post-date i {
+    color: #ff69b4;
+  }
+
+  .social-links {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .social-link {
+    color: #666;
+    font-size: 1.25rem;
+    transition: color 0.2s;
+  }
+
+  .social-link:hover {
+    color: #ff69b4;
+  }
+
+  .post-content {
+    padding: 2rem 0;
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: #444;
+  }
+
+  .post-content p {
+    margin-bottom: 1.5rem;
+  }
+
+  .post-content p:last-child {
+    margin-bottom: 0;
+  }
+
+  .share-section {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #eee;
+  }
+
+  .share-heading {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 1rem;
+  }
+
+  .share-buttons {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+</style>
+
 <PageLandingLayout>
-  <div>
-    <div>
-      <div>
-        <div>
-          <ul>
-            <li>
-              <a href="1602">Inicio</a><span class="breadcrumb-separator"
-                ><i aria-hidden="true" class="fa fa-angle-right"></i></span
-              >
-            </li><li>
-              <a href="/category/events/">Eventos</a><span
-                class="breadcrumb-separator"
-                ><i aria-hidden="true" class="fa fa-angle-right"></i></span
-              >
-            </li><li>El lugar más vibrante de Barcelona: Eventos Maktub</li>
-          </ul>
+  <div class="container">
+    <nav class="breadcrumb-nav" aria-label="migas de pan">
+      <ul class="breadcrumb-list">
+        <li>
+          <a href="/">Inicio</a>
+          <span class="breadcrumb-separator">&gt;</span>
+        </li>
+        <li>
+          <a href="/eventos/">Eventos</a>
+          <span class="breadcrumb-separator">&gt;</span>
+        </li>
+        <li>El lugar más vibrante de Barcelona: Eventos Maktub</li>
+      </ul>
+    </nav>
+    <header class="post-header">
+      <h1 class="post-title">{pageTitle}</h1>
+      <div class="post-meta">
+        <time datetime={publishDate.toISOString()} class="post-date">
+          <i class="fas fa-calendar"></i>
+          {formattedDate}
+        </time>
+        <div class="social-links">
+          <a
+            href={`https://www.linkedin.com/sharing/share-offsite/?url=${shareUrl}`}
+            class="social-link"
+            aria-label="Compartir en LinkedIn"
+            target="_blank"
+            rel="noopener"
+          >
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a
+            href={`https://twitter.com/intent/tweet?url=${shareUrl}&text=${shareText}`}
+            class="social-link"
+            aria-label="Compartir en Twitter"
+            target="_blank"
+            rel="noopener"
+          >
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a
+            href={`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`}
+            class="social-link"
+            aria-label="Compartir en Facebook"
+            target="_blank"
+            rel="noopener"
+          >
+            <i class="fab fa-facebook"></i>
+          </a>
         </div>
       </div>
-      <div>
-        <div>
-          <h1 class="elementor-heading-title elementor-size-default">
-            <a href="/barcelonas-hottest-spot-amorlounge-events/"
-              >El lugar más vibrante de Barcelona: Eventos Maktub</a
-            >
-          </h1>
-        </div>
-      </div>
-      <div>
-        <div>
-          <div>
-            <ul
-              class="elementor-inline-items elementor-inline-terms elementor-icon-list-items elementor-post-info"
-            >
-              <li
-                class="elementor-icon-list-item elementor-repeater-item-we8428zw elementor-inline-item"
-                itemprop="datePublished"
-              >
-                <a href="/2025/03/01/">
-                  <span class="elementor-icon-list-icon">
-                    <i aria-hidden="true" class="fas fa-calendar"></i>
-                  </span>
-                  <span
-                    class="elementor-icon-list-text elementor-post-info__item elementor-post-info__item--type-date"
-                  >
-                    1 de marzo de 2025
-                  </span>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div
-          class="elementor-element elementor-element-bp4mtcv8 elementor-share-buttons--view-icon elementor-share-buttons--skin-minimal elementor-share-buttons--shape-rounded elementor-grid-3 elementor-share-buttons--color-custom elementor-widget elementor-widget-twbbshare-buttons"
-          data-id="bp4mtcv8"
-          data-element_type="widget"
-          data-widget_type="twbbshare-buttons.default"
+    </header>
+  </div>
+  <div class="post-image">
+    <img
+      fetchpriority="high"
+      width="1820"
+      height="1024"
+      src="/wp-content/uploads/sites/128/2025/03/tenweb_media_rrzsflcu0.webp"
+      alt="Maktub Events Venue - A vibrant social space in Barcelona"
+    />
+  </div>
+  <div class="post-content">
+    <p>
+      Maktub es más que un simple bar de citas; es un centro de interacción
+      social y experiencias inolvidables. Organizamos una variedad de eventos a
+      lo largo de la semana, desde noches temáticas hasta presentaciones de
+      música en vivo. Únete a nosotros para una noche de diversión, conexión y
+      recuerdos inolvidables.
+    </p>
+    <p>
+      Nuestros eventos están diseñados para crear un ambiente animado y
+      envolvente, permitiéndote conocer nuevas personas y ampliar tus conexiones
+      sociales. Desde reuniones íntimas hasta fiestas a gran escala, ofrecemos
+      experiencias para todos los gustos.
+    </p>
+    <p>
+      Mantente atento a nuestros próximos eventos, que contarán con invitados
+      especiales, música en vivo y promociones exclusivas. Síguenos en redes
+      sociales para estar al tanto de las últimas novedades y anuncios.
+    </p>
+    <div class="share-section">
+      <h5 class="share-heading">Comparte este posteo</h5>
+      <div class="share-buttons">
+        <a
+          href={`https://www.linkedin.com/sharing/share-offsite/?url=${shareUrl}`}
+          class="share-button"
+          aria-label="Compartir en LinkedIn"
+          target="_blank"
+          rel="noopener"
         >
-          <div>
-            <div class="elementor-grid">
-              <div class="elementor-grid-item">
-                <div
-                  class="elementor-share-btn elementor-share-btn_linkedin"
-                >
-                  <span class="elementor-share-btn__icon">
-                    <i class="fab fa-linkedin"></i>
-                  </span>
-                </div>
-              </div>
-              <div class="elementor-grid-item">
-                <div
-                  class="elementor-share-btn elementor-share-btn_twitter"
-                >
-                  <span class="elementor-share-btn__icon">
-                    <i class="fab fa-twitter"></i>
-                  </span>
-                </div>
-              </div>
-              <div class="elementor-grid-item">
-                <div
-                  class="elementor-share-btn elementor-share-btn_facebook"
-                >
-                  <span class="elementor-share-btn__icon">
-                    <i class="fab fa-facebook"></i>
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a
+          href={`https://twitter.com/intent/tweet?url=${shareUrl}&text=${shareText}`}
+          class="share-button"
+          aria-label="Compartir en Twitter"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a
+          href={`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`}
+          class="share-button"
+          aria-label="Compartir en Facebook"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="fab fa-facebook"></i>
+        </a>
       </div>
     </div>
-    <div>
-      <img
-        fetchpriority="high"
-        width="1820"
-        height="1024"
-        src="/wp-content/uploads/sites/128/2025/03/tenweb_media_rrzsflcu0.webp"
-        class="attachment-full size-full wp-image-1574"
-        alt=""
+  </div>
+  <div class="newsletter-section">
+    <h2 class="newsletter-heading">Suscríbete a nuestro boletín</h2>
+    <p class="newsletter-description">
+      Mantente al día con las últimas publicaciones del blog. Sin spam, lo
+      prometemos.
+    </p>
+    <form class="newsletter-form" method="post">
+      <input type="hidden" name="post_id" value="1631" />
+      <input type="hidden" name="form_id" value="10rgf1zi" />
+      <input
+        type="hidden"
+        name="referer_title"
+        value="Barcelona's Hottest Spot: Maktub Events"
       />
-    </div>
-    <div>
-      <div>
-        <p>
-          Maktub es más que un simple bar de citas; es un centro de
-          interacción social y experiencias inolvidables. Organizamos una
-          variedad de eventos a lo largo de la semana, desde noches
-          temáticas hasta presentaciones de música en vivo. Únete a
-          nosotros para una noche de diversión, conexión y recuerdos
-          inolvidables. Nuestros eventos están diseñados para crear un
-          ambiente animado y envolvente, permitiéndote conocer nuevas
-          personas y ampliar tus conexiones sociales. Desde reuniones
-          íntimas hasta fiestas a gran escala, ofrecemos experiencias para
-          todos los gustos. Mantente atento a nuestros próximos eventos,
-          que contarán con invitados especiales, música en vivo y
-          promociones exclusivas. Síguenos en redes sociales para estar al
-          tanto de las últimas novedades y anuncios.
-        </p>
-      </div>
-      <div>
-        <div>
-          <h5>Comparte este posteo</h5>
-        </div>
-      </div>
-      <div>
-        <div>
-          <div>
-            <span>
-              <i class="fab fa-linkedin"></i>
-            </span>
-          </div>
-        </div>
-        <div>
-          <div>
-            <span>
-              <i class="fab fa-twitter"></i>
-            </span>
-          </div>
-        </div>
-        <div>
-          <div>
-            <span>
-              <i class="fab fa-facebook"></i>
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div>
-      <div>
-        <div>
-          <h2>Suscríbete a nuestro boletín</h2>
-        </div>
-      </div>
-      <div>
-        <div>
-          Mantente al día con las últimas publicaciones del blog. Sin spam,
-          lo prometemos.
-        </div>
-      </div>
-      <div>
-        <div>
-          <form class="elementor-form" method="post">
-            <input type="hidden" name="post_id" value="1631" />
-            <input type="hidden" name="form_id" value="10rgf1zi" />
-            <input
-              type="hidden"
-              name="referer_title"
-              value="Barcelona’s Hottest Spot: Maktub Events"
-            />
+      <input type="hidden" name="queried_id" value="1601" />
 
-            <input type="hidden" name="queried_id" value="1601" />
+      <div class="form-group">
+        <label for="form-field-email" class="form-label">Email</label>
+        <input
+          type="email"
+          name="form_fields[email]"
+          id="form-field-email"
+          class="form-input"
+          placeholder="Ingresa tu correo electrónico"
+          required
+          aria-required="true"
+        />
+      </div>
 
-            <div>
-              <div>
-                <label for="form-field-email"> Email </label>
-                <input
-                  size="1"
-                  type="email"
-                  name="form_fields[email]"
-                  id="form-field-email"
-                  class="elementor-field elementor-size-sm elementor-field-textual"
-                  placeholder="Enter your email"
-                  required="required"
-                  aria-required="true"
-                />
-              </div>
-              <div
-                class="elementor-field-group elementor-column elementor-field-type-submit elementor-col-30 e-form__buttons"
-              >
-                <button type="submit" class="elementor-button">
-                  <span>
-                    <span class="elementor-button-icon"> </span>
-                    <span class="elementor-button-text">Suscríbete</span>
-                  </span>
-                </button>
-                <button
-                  type="reset"
-                  class="elementor-button elementor-hidden"
-                >
-                  <span> </span>
-                </button>
-              </div>
-              <div
-                class="elementor-form-text-after-description-wrapper elementor-field-group elementor-column elementor-col-100 elementor-widget-wrap"
-              >
-                <div
-                  class="elementor-text-editor elementor-clearfix elementor-element"
-                >
-                  Al hacer clic en "Suscríbete", confirmas que aceptas
-                  nuestros Términos y Condiciones.
-                </div>
-              </div>
-            </div>
-          </form>
-        </div>
+      <div class="form-actions">
+        <button type="submit" class="submit-button">
+          <span>Suscríbete</span>
+        </button>
       </div>
-    </div>
-    <div>
-      <h2>Publicaciones relacionadas</h2>
-      <div>
-        <div>
-          <article>
-            <div class="twbb-image-container">
-              <a href="/barcelonas-hottest-spot-amorlounge-events/">
-                <div>
-                  <img
-                    width="1820"
-                    height="1024"
-                    src="/wp-content/uploads/sites/128/2025/03/tenweb_media_rrzsflcu0.webp"
-                    alt=""
-                  />
-                </div>
-              </a>
-            </div>
-            <div>
-              <div>
-                <a href="/category/events/" alt="Eventos">
-                  <div>Eventos</div>
-                </a>
-              </div>
-              <h5>
-                <a href="/barcelonas-hottest-spot-amorlounge-events/">
-                  El lugar más vibrante de Barcelona: Eventos Maktub
-                </a>
-              </h5>
-              <div>
-                <p>
-                  Vive la vibrante vida nocturna y los eventos exclusivos
-                  de Maktub, el bar de citas líder en Barcelona.
-                </p>
-              </div>
-              <div>
-                <div>
-                  <a
-                    href="/barcelonas-hottest-spot-amorlounge-events/"
-                    aria-label="Read more about Barcelona’s Hottest Spot: Maktub Events"
-                    tabindex="-1"
-                  >
-                    Leer más <i
-                      aria-hidden="true"
-                      class="fas fa-angle-right"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </article>
-          <article>
-            <div>
-              <a
-                href="/the-art-of-conversation-dating-strategies-for/"
-                tabindex="-1"
-              >
-                <div class="elementor-post__thumbnail">
-                  <img
-                    loading="lazy"
-                    width="1820"
-                    height="1024"
-                    src="/wp-content/uploads/sites/128/2025/03/tenweb_media_rx9hefrca.webp"
-                    class="attachment-medium size-medium wp-image-1573"
-                    alt=""
-                  />
-                </div>
-              </a>
-            </div>
-            <div class="elementor-post__text">
-              <div class="twbb-post__badge-container">
-                <a
-                  class="twbb-post__badge-link"
-                  href="/category/dating-strategies/"
-                  alt="Estrategias de citas"
-                >
-                  <div class="elementor-post__badge">
-                    Estrategias de citas
-                  </div>
-                </a>
-              </div>
-              <h5 class="elementor-post__title">
-                <a href="/the-art-of-conversation-dating-strategies-for/">
-                  El arte de la conversación: Estrategias de citas para
-                  Maktub
-                </a>
-              </h5>
-              <div class="elementor-post__excerpt">
-                <p>
-                  Domina el arte de la conversación y crea conexiones
-                  duraderas en Maktub.
-                </p>
-              </div>
-              <div class="elementor-post__read-more-wrapper">
-                <div class="elementor-post__read-more-container">
-                  <a
-                    href="/the-art-of-conversation-dating-strategies-for/"
-                    aria-label="Read more about The Art of Conversation: Estrategias de citas for Maktub"
-                    tabindex="-1"
-                  >
-                    Leer más <i
-                      aria-hidden="true"
-                      class="fas fa-angle-right"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </article>
-          <article>
-            <div class="twbb-image-container">
-              <a href="/unlocking-love-in-barcelona-your-guide-to/">
-                <div class="elementor-post__thumbnail">
-                  <img
-                    loading="lazy"
-                    width="1820"
-                    height="1024"
-                    src="/wp-content/uploads/sites/128/2025/03/tenweb_media_R7ZFYALQF.webp"
-                    class="attachment-medium size-medium wp-image-1583"
-                    alt=""
-                  />
-                </div>
-              </a>
-            </div>
-            <div class="elementor-post__text">
-              <div class="twbb-post__badge-container">
-                <a
-                  class="twbb-post__badge-link"
-                  href="/category/dating-tips/"
-                  alt="Consejos de citas"
-                >
-                  <div class="elementor-post__badge">
-                    Consejos de citas
-                  </div>
-                </a>
-              </div>
-              <h5 class="elementor-post__title">
-                <a href="/unlocking-love-in-barcelona-your-guide-to/">
-                  Desbloqueando el amor en Barcelona: Tu guía para Maktub
-                </a>
-              </h5>
-              <div class="elementor-post__excerpt">
-                <p>
-                  Descubre la atmósfera única y las salas temáticas de
-                  Maktub, el bar de citas líder en Barcelona.
-                </p>
-              </div>
-              <div class="elementor-post__read-more-wrapper">
-                <div class="elementor-post__read-more-container">
-                  <a
-                    href="/unlocking-love-in-barcelona-your-guide-to/"
-                    aria-label="Lee más sobre Desbloqueando el amor en Barcelona: Tu guía para Maktub"
-                    tabindex="-1"
-                  >
-                    Leer más <i
-                      aria-hidden="true"
-                      class="fas fa-angle-right"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </article>
+
+      <p class="form-disclaimer">
+        Al hacer clic en "Suscríbete", confirmas que aceptas nuestros Términos y
+        Condiciones.
+      </p>
+    </form>
+  </div>
+  <div class="related-posts">
+    <h2 class="related-posts-heading">Publicaciones relacionadas</h2>
+    <div class="related-posts-grid">
+      <article class="related-post">
+        <a
+          href="/barcelonas-hottest-spot-amorlounge-events/"
+          class="related-post-image"
+        >
+          <img
+            width="1820"
+            height="1024"
+            src="/wp-content/uploads/sites/128/2025/03/tenweb_media_rrzsflcu0.webp"
+            alt="Eventos Maktub en Barcelona"
+            loading="lazy"
+          />
+        </a>
+        <div class="related-post-category">
+          <a href="/eventos/">Eventos</a>
         </div>
-      </div>
+        <h5 class="related-post-title">
+          <a href="/barcelonas-hottest-spot-amorlounge-events/">
+            El lugar más vibrante de Barcelona: Eventos Maktub
+          </a>
+        </h5>
+        <div class="related-post-excerpt">
+          <p>
+            Vive la vibrante vida nocturna y los eventos exclusivos de Maktub,
+            el bar de citas líder en Barcelona.
+          </p>
+        </div>
+        <a
+          href="/barcelonas-hottest-spot-amorlounge-events/"
+          class="related-post-link"
+          aria-label="Leer más sobre Eventos Maktub en Barcelona"
+        >
+          Leer más <i class="fas fa-angle-right" aria-hidden="true"></i>
+        </a>
+      </article>
+
+      <article class="related-post">
+        <a
+          href="/the-art-of-conversation-dating-strategies-for/"
+          class="related-post-image"
+        >
+          <img
+            width="1820"
+            height="1024"
+            src="/wp-content/uploads/sites/128/2025/03/tenweb_media_rx9hefrca.webp"
+            alt="Estrategias de conversación para citas"
+            loading="lazy"
+          />
+        </a>
+        <div class="related-post-category">
+          <a href="/estrategias-de-citas/">Estrategias de citas</a>
+        </div>
+        <h5 class="related-post-title">
+          <a href="/the-art-of-conversation-dating-strategies-for/">
+            El arte de la conversación: Estrategias de citas para Maktub
+          </a>
+        </h5>
+        <div class="related-post-excerpt">
+          <p>
+            Domina el arte de la conversación y crea conexiones duraderas en
+            Maktub.
+          </p>
+        </div>
+        <a
+          href="/the-art-of-conversation-dating-strategies-for/"
+          class="related-post-link"
+          aria-label="Leer más sobre estrategias de conversación"
+        >
+          Leer más <i class="fas fa-angle-right" aria-hidden="true"></i>
+        </a>
+      </article>
+
+      <article class="related-post">
+        <a
+          href="/unlocking-love-in-barcelona-your-guide-to/"
+          class="related-post-image"
+        >
+          <img
+            width="1820"
+            height="1024"
+            src="/wp-content/uploads/sites/128/2025/03/tenweb_media_R7ZFYALQF.webp"
+            alt="Guía de Maktub Barcelona"
+            loading="lazy"
+          />
+        </a>
+        <div class="related-post-category">
+          <a href="/consejos-de-citas/">Consejos de citas</a>
+        </div>
+        <h5 class="related-post-title">
+          <a href="/unlocking-love-in-barcelona-your-guide-to/">
+            Desbloqueando el amor en Barcelona: Tu guía para Maktub
+          </a>
+        </h5>
+        <div class="related-post-excerpt">
+          <p>
+            Descubre la atmósfera única y las salas temáticas de Maktub, el bar
+            de citas líder en Barcelona.
+          </p>
+        </div>
+        <a
+          href="/unlocking-love-in-barcelona-your-guide-to/"
+          class="related-post-link"
+          aria-label="Leer más sobre la guía de Maktub"
+        >
+          Leer más <i class="fas fa-angle-right" aria-hidden="true"></i>
+        </a>
+      </article>
     </div>
   </div>
 </PageLandingLayout>
