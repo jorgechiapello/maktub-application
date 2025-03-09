@@ -3,14 +3,15 @@ import '@fortawesome/fontawesome-free/css/all.min.css'
 
 import LandingLayout from '@layouts/LandingLayout.astro'
 import StarIcon from '../components/icons/StarIcon.astro'
+import TestimonialCard from '@components/landing/TestimonialCard.astro'
 ---
 
 <LandingLayout>
   <div class="relative min-h-[90vh] flex items-center">
     <div class="absolute inset-0 z-0">
-      <img 
-        src="/wp-content/uploads/sites/128/2025/03/tenweb_media_r0ofxa4or.webp" 
-        alt="Maktub Lounge" 
+      <img
+        src="/wp-content/uploads/sites/128/2025/03/tenweb_media_r0ofxa4or.webp"
+        alt="Maktub Lounge"
         class="w-full h-full object-cover brightness-50"
       />
     </div>
@@ -20,19 +21,19 @@ import StarIcon from '../components/icons/StarIcon.astro'
         <span class="block">en Maktub</span>
       </h1>
       <div class="text-lg md:text-xl mb-8 max-w-2xl mx-auto">
-        Experimenta el bar de citas más lujoso de Barcelona, donde el romance
-        se encuentra con la elegancia moderna. Descarga nuestra app y explora
+        Experimenta el bar de citas más lujoso de Barcelona, donde el romance se
+        encuentra con la elegancia moderna. Descarga nuestra app y explora
         habitaciones temáticas para una noche inolvidable.
       </div>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a 
-          href="/conocenos/" 
+        <a
+          href="/conocenos/"
           class="inline-block bg-white text-black px-8 py-3 rounded-full font-semibold hover:bg-opacity-90 transition-all"
         >
           Saber Más
         </a>
-        <a 
-          href="/la-app/" 
+        <a
+          href="/la-app/"
           class="inline-block bg-white text-black px-8 py-3 rounded-full font-semibold hover:bg-opacity-90 transition-all"
         >
           Obtener la App
@@ -42,7 +43,9 @@ import StarIcon from '../components/icons/StarIcon.astro'
   </div>
   <div class="max-w-[1200px] mx-auto py-20 px-4">
     <div class="text-center mb-12">
-      <h2 class="text-4xl font-amiri font-bold mb-6">Descubre la Esencia de Maktub</h2>
+      <h2 class="text-4xl font-amiri font-bold mb-6">
+        Descubre la Esencia de Maktub
+      </h2>
       <p class="text-lg max-w-3xl mx-auto">
         Fundado en 2023, Maktub se dedica a fomentar conexiones genuinas en un
         entorno moderno y romántico. Nuestra misión es crear experiencias
@@ -52,45 +55,50 @@ import StarIcon from '../components/icons/StarIcon.astro'
     <div class="grid md:grid-cols-3 gap-8">
       <div class="p-6">
         <div class="flex justify-center mb-4">
-          <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-black">
+          <div
+            class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-black"
+          >
             <i class="fas fa-history text-2xl text-white"></i>
           </div>
         </div>
         <h3 class="text-xl font-bold mb-4 text-center">Nuestra Historia</h3>
         <p class="text-gray-600 text-left">
-          Maktub fue fundado por un equipo apasionado de expertos en
-          relaciones y profesionales de la hostelería. Imaginamos un
-          espacio en Barcelona donde la gente pudiera conocerse,
-          socializar y disfrutar de deliciosos alimentos y bebidas
-          mientras explora el romance.
+          Maktub fue fundado por un equipo apasionado de expertos en relaciones
+          y profesionales de la hostelería. Imaginamos un espacio en Barcelona
+          donde la gente pudiera conocerse, socializar y disfrutar de deliciosos
+          alimentos y bebidas mientras explora el romance.
         </p>
       </div>
       <div class="p-6">
         <div class="flex justify-center mb-4">
-          <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-black">
+          <div
+            class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-black"
+          >
             <i class="fas fa-bullseye text-2xl text-white"></i>
           </div>
         </div>
         <h3 class="text-xl font-bold mb-4 text-center">Nuestra Misión</h3>
         <p class="text-gray-600 text-left">
-          Nos esforzamos por crear una experiencia social única que
-          fomenta conexiones genuinas a través de una mezcla de
-          ambiente, delicias culinarias y tecnología innovadora. Únete a
-          nosotros en nuestra misión de unir a las personas.
+          Nos esforzamos por crear una experiencia social única que fomenta
+          conexiones genuinas a través de una mezcla de ambiente, delicias
+          culinarias y tecnología innovadora. Únete a nosotros en nuestra misión
+          de unir a las personas.
         </p>
       </div>
       <div class="p-6">
         <div class="flex justify-center mb-4">
-          <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-black">
+          <div
+            class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-black"
+          >
             <i class="fas fa-thumbs-up text-2xl text-white"></i>
           </div>
         </div>
         <h3 class="text-xl font-bold mb-4 text-center">Nuestros Valores</h3>
         <p class="text-gray-600 text-left">
-          En Maktub, abrazamos la inclusión, la conexión, la calidad y
-          la innovación. Damos la bienvenida a todos, creemos en el
-          poder de la conexión humana y estamos comprometidos en brindar
-          un servicio y experiencias de alta calidad.
+          En Maktub, abrazamos la inclusión, la conexión, la calidad y la
+          innovación. Damos la bienvenida a todos, creemos en el poder de la
+          conexión humana y estamos comprometidos en brindar un servicio y
+          experiencias de alta calidad.
         </p>
       </div>
     </div>
@@ -99,17 +107,20 @@ import StarIcon from '../components/icons/StarIcon.astro'
     <div class="grid md:grid-cols-2 gap-12 mb-16">
       <div>
         <h2 class="text-4xl font-amiri font-bold">
-          Explora Nuestras <em class="italic">Únicas</em> y <em class="italic">Románticas</em> Habitaciones Tematizadas
+          Explora Nuestras <em class="italic">Únicas</em> y <em class="italic"
+            >Románticas</em
+          > Habitaciones Tematizadas
         </h2>
       </div>
       <div>
         <p class="text-gray-600 text-lg">
-          En AmorLounge, creemos que el ambiente es tan importante como la compañía.
-          Por eso, hemos creado una variedad de habitaciones tematizadas, cada
-          una diseñada para evocar un estado de ánimo específico y mejorar tu
-          experiencia de citas. Ya sea que busques un ambiente acogedor e íntimo
-          o un ambiente vibrante y energético, tenemos una habitación perfecta
-          para ti. Descubre tu ambiente romántico ideal y crea memorias inolvidables.
+          En AmorLounge, creemos que el ambiente es tan importante como la
+          compañía. Por eso, hemos creado una variedad de habitaciones
+          tematizadas, cada una diseñada para evocar un estado de ánimo
+          específico y mejorar tu experiencia de citas. Ya sea que busques un
+          ambiente acogedor e íntimo o un ambiente vibrante y energético,
+          tenemos una habitación perfecta para ti. Descubre tu ambiente
+          romántico ideal y crea memorias inolvidables.
         </p>
       </div>
     </div>
@@ -123,12 +134,14 @@ import StarIcon from '../components/icons/StarIcon.astro'
           />
         </div>
         <div class="p-6">
-          <h3 class="text-2xl font-bold mb-4">The Velvet Lounge: Íntimo y Lujoso</h3>
+          <h3 class="text-2xl font-bold mb-4">
+            The Velvet Lounge: Íntimo y Lujoso
+          </h3>
           <p class="text-gray-600 mb-6">
-            Disfruta de la opulencia de nuestro Velvet Lounge, donde
-            asientos acogedores y luces suaves crean un ambiente íntimo.
-            Perfecto para conversaciones profundas y momentos románticos,
-            esta habitación está diseñada para conexiones inolvidables.
+            Disfruta de la opulencia de nuestro Velvet Lounge, donde asientos
+            acogedores y luces suaves crean un ambiente íntimo. Perfecto para
+            conversaciones profundas y momentos románticos, esta habitación está
+            diseñada para conexiones inolvidables.
           </p>
           <a
             href="/themed-dating-experience/"
@@ -148,12 +161,14 @@ import StarIcon from '../components/icons/StarIcon.astro'
           />
         </div>
         <div class="p-6">
-          <h3 class="text-2xl font-bold mb-4">La Sala de Fiesta: Vibrante y Energética</h3>
+          <h3 class="text-2xl font-bold mb-4">
+            La Sala de Fiesta: Vibrante y Energética
+          </h3>
           <p class="text-gray-600 mb-6">
-            Experimenta la emoción de nuestra Sala de Fiesta, donde
-            colores vibrantes y música alegre crean un ambiente lúdico.
-            Ideal para conocer gente nueva y disfrutar de interacciones
-            divertidas, esta habitación es perfecta para una experiencia dinámica.
+            Experimenta la emoción de nuestra Sala de Fiesta, donde colores
+            vibrantes y música alegre crean un ambiente lúdico. Ideal para
+            conocer gente nueva y disfrutar de interacciones divertidas, esta
+            habitación es perfecta para una experiencia dinámica.
           </p>
           <a
             href="/themed-dating-experience/"
@@ -173,14 +188,15 @@ import StarIcon from '../components/icons/StarIcon.astro'
           />
         </div>
         <div class="p-6">
-          <h3 class="text-2xl font-bold mb-4">La Suite de la Serenidad: Calma y Relajante</h3>
+          <h3 class="text-2xl font-bold mb-4">
+            La Suite de la Serenidad: Calma y Relajante
+          </h3>
           <p class="text-gray-600 mb-6">
-            Desconecta en la tranquilidad de nuestra Suite de la
-            Serenidad, donde los colores calmantes y la música suave
-            crean un ambiente relajante. Ideal para conversaciones
-            significativas y conexiones genuinas, esta habitación está
-            diseñada para aquellos que buscan una experiencia de citas
-            serena.
+            Desconecta en la tranquilidad de nuestra Suite de la Serenidad,
+            donde los colores calmantes y la música suave crean un ambiente
+            relajante. Ideal para conversaciones significativas y conexiones
+            genuinas, esta habitación está diseñada para aquellos que buscan una
+            experiencia de citas serena.
           </p>
           <a
             href="/themed-dating-experience/"
@@ -192,708 +208,310 @@ import StarIcon from '../components/icons/StarIcon.astro'
       </div>
     </div>
   </div>
-  <div>
+  <div
+    id="menu"
+    class="flex flex-col md:flex-row items-center justify-between max-w-7xl mx-auto px-4 py-16 gap-8"
+  >
+    <div class="flex-1 space-y-8">
+      <div>
+        <h2 class="text-4xl font-bold mb-4">
+          Deléitate con Nuestro <em>Menú Exquisito</em> para una Experiencia Gastronómica
+          Inolvidable
+        </h2>
+        <p class="text-gray-600 mb-8">
+          En AmorLounge, nuestro menú está diseñado para deleitar tus sentidos.
+          Utilizamos solo los ingredientes más frescos y de origen local para
+          crear platos que son tanto deliciosos como visualmente impresionantes.
+          Combina tu comida con uno de nuestros cócteles de firma para una
+          velada perfecta.
+        </p>
+      </div>
+      <div class="grid grid-cols-2 gap-8">
+        <div>
+          <div class="flex items-baseline">
+            <span class="text-4xl font-bold">25</span>
+            <span class="text-2xl ml-1">+</span>
+          </div>
+          <p class="text-gray-600">
+            Platos gourmet elaborados con pasión y precisión
+          </p>
+        </div>
+        <div>
+          <div class="flex items-baseline">
+            <span class="text-4xl font-bold">15</span>
+            <span class="text-2xl ml-1">+</span>
+          </div>
+          <p class="text-gray-600">
+            Cócteles de firma que complementan perfectamente tu comida
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="flex-1">
+      <img
+        src="wp-content/uploads/sites/128/2025/03/tenweb_media_rhkaaymg5.webp"
+        alt="Presentación de plato gourmet exquisito"
+        class="w-full rounded-lg shadow-lg"
+        width="1024"
+        height="1024"
+        loading="eager"
+      />
+    </div>
+  </div>
+  <div id="download-app" class="bg-red-600 py-16 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto text-center">
+      <div class="space-y-8">
+        <div class="space-y-4">
+          <h2 class="text-3xl font-bold text-white sm:text-4xl">
+            Descarga la Aplicación de Maktub
+          </h2>
+          <p class="text-xl text-white/90">
+            Descarga nuestra aplicación para conectarte con potenciales matches
+            y mejorar tu experiencia de citas en Maktub. ¡Es rápido y fácil!
+          </p>
+        </div>
+        <div class="flex justify-center space-x-4">
+          <a
+            href="/la-app/"
+            class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-red-600 bg-white hover:bg-red-50 transition-colors duration-150"
+          >
+            Descargar Ahora
+          </a>
+          <a
+            href="/la-app/"
+            class="inline-flex items-center px-6 py-3 border border-white text-base font-medium rounded-md text-white hover:bg-red-500 transition-colors duration-150"
+          >
+            Aprende Más
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="testimonials" class="bg-gray-50 py-24 sm:py-32">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="mx-auto max-w-xl text-center">
+        <h2 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+          Lo Que Dicen Nuestros Invitados
+        </h2>
+        <p class="mt-6 text-lg leading-8 text-gray-600">
+          Únete a los muchos que encontraron amor y alegría en Maktub.
+        </p>
+      </div>
+      <div
+        class="mx-auto mt-16 grid max-w-2xl grid-cols-1 grid-rows-1 gap-8 text-sm leading-6 text-gray-900 sm:mt-20 sm:grid-cols-2 xl:mx-0 xl:max-w-none xl:grid-cols-3"
+      >
+        <TestimonialCard
+          name="Sofía Martínez"
+          role="Cliente Feliz"
+          content="Maktub es el lugar perfecto para una velada romántica! El ambiente es encantador, y conocí a alguien especial aquí."
+          imageSrc="/wp-content/uploads/sites/128/2025/03/thumbnail_female_V0ZN3rBl.webp"
+        />
+        <TestimonialCard
+          name="Liam Johnson"
+          role="Cliente Regular"
+          content="Me encantan las habitaciones temáticas! Cada visita se siente única, y los cócteles son simplemente divinos."
+          imageSrc="/wp-content/uploads/sites/128/2025/03/thumbnail_male_bDMpSYtE.webp"
+        />
+        <TestimonialCard
+          name="Emma Brown"
+          role="Primera Visita"
+          content="Tuve una experiencia increíble en Maktub! El personal fue amable, y me sentí cómoda conociendo gente nueva."
+          imageSrc="/wp-content/uploads/sites/128/2025/03/thumbnail_female_V0ZN3rBl.webp"
+        />
+        <TestimonialCard
+          name="Noah Smith"
+          role="Organizador de Eventos"
+          content="Organizar mi evento en Maktub fue un éxito! A todos les encantó el ambiente y el delicioso menú."
+          imageSrc="/wp-content/uploads/sites/128/2025/03/thumbnail_male_Uw47OOiD.webp"
+        />
+        <TestimonialCard
+          name="Olivia García"
+          role="Influencer Social"
+          content="El ambiente en Maktub es incomparable! Capturé tantos momentos hermosos para mis seguidores."
+          imageSrc="/wp-content/uploads/sites/128/2025/03/thumbnail_female_b2IujfsB.webp"
+        />
+        <TestimonialCard
+          name="Ethan Davis"
+          role="Nuevo Cliente"
+          content="Estaba nervioso por las citas, pero Maktub lo hizo fácil para conectar con otros. ¡Lo recomiendo!"
+          imageSrc="/wp-content/uploads/sites/128/2025/03/thumbnail_male_Uw47OOiD.webp"
+        />
+      </div>
+    </div>
+  </div>
+  <div id="blog">
     <div>
       <div>
         <div>
-          <h2>
-            Disfruta de Nuestro <em>Menú Exquisito</em> para una Experiencia Gastronómica
-            Inolvidable
-          </h2>
-        </div>
-      </div>
-      <div>
-        <div>
-          En Maktub, nuestro menú está diseado para deleitar tus sentidos.
-          Utilizamos solo los ingredientes frescos y locales para crear platos
-          que son tanto deliciosos como visuales. Puedes emparejar tu comida con
-          uno de nuestros cocktails de firma para una noche perfecta.
-        </div>
-      </div>
-      <div>
-        <div>
           <div>
             <div>
-              <div>
-                <div>
-                  <span></span>
-                  <span>
-                    <span> </span>
-                  </span>
-                </div>
-              </div>
-              <div>
-                <div>Platos gourmet elaborados con pasión y precisión.</div>
-              </div>
+              <h2>Maktub Blog</h2>
             </div>
-            <div>
-              <div>
-                <div>
-                  <div>
-                    <div>
-                      <span></span>
-                      <span>0</span>
-                      <span
-                        class="elementor-counter-number-suffix"
-                        style="line-height: 1;">+</span
-                      >
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <div>
-                  Cocktails de firma que complementan perfectamente tu comida.
-                </div>
-              </div>
-            </div>
+          </div>
+          <div>
+            <div>Explora conocimientos sobre citas y relaciones.</div>
           </div>
         </div>
         <div>
           <div>
-            <img
-              fetchpriority="high"
-              width="1024"
-              height="1024"
-              src="wp-content/uploads/sites/128/2025/03/tenweb_media_rhkaaymg5.webp"
-              class="attachment-full size-full wp-image-1584"
-              alt=""
-            />
-          </div>
-        </div>
-      </div>
-      <div>
-        <div>
-          <div>
             <div>
-              <div>
-                <div>
-                  <div>
-                    <h2>Descarga la Aplicación de Maktub</h2>
-                    <div>
-                      Descarga nuestra aplicación para conectarte con
-                      potenciales matches y mejorar tu experiencia de citas en
-                      Maktub. ¡Es rápido y fácil!
-                    </div>
-                  </div>
-                  <div>
-                    <div>
-                      <div>
-                        <a href="/la-app/">Descargar Ahora</a>
-                      </div>
-                      <div>
-                        <a href="/la-app/">Aprende Más </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <a href="/la-app/">
+                <span>
+                  <span>Descarga la App</span>
+                </span>
+              </a>
             </div>
           </div>
         </div>
       </div>
       <div>
         <div>
-          <div>
-            <div>
-              <h2>Lo Que Dicen Nuestros Invitados</h2>
-            </div>
-          </div>
-          <div>
-            <div>
-              Únete a los muchos que encontraron amor y alegría en Maktub.
-            </div>
-          </div>
-          <div>
-            <div>
+          <div data-skin="classic ">
+            <article>
               <div>
-                <div>
+                <a
+                  href="/barcelonas-hottest-spot-amorlounge-events/"
+                  tabindex="-1"
+                >
                   <div>
-                    <div>
-                      <div>
-                        <div>
-                          <div>
-                            <div>
-                              <StarIcon />
-                            </div>
-                            <div>
-                              <StarIcon />
-                            </div>
-                          </div>
-                          <div>
-                            <div>
-                              <StarIcon />
-                            </div>
-                            <div>
-                              <StarIcon />
-                            </div>
-                          </div>
-                          <div>
-                            <div>
-                              <StarIcon />
-                            </div>
-                            <div>
-                              <StarIcon />
-                            </div>
-                          </div>
-                          <div>
-                            <div>
-                              <StarIcon />
-                            </div>
-                            <div>
-                              <StarIcon />
-                            </div>
-                          </div>
-                          <div>
-                            <div>
-                              <StarIcon />
-                            </div>
-                            <div>
-                              <StarIcon />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div>
-                        Maktub es el lugar perfecto para una velada romántica.
-                        El ambiente es encantador, y conocí a alguien especial
-                        aquí.
-                      </div>
-                    </div>
-                    <div>
-                      <div>
-                        <img
-                          src="wp-content/uploads/sites/128/2025/03/thumbnail_female_xyAwjo99.webp"
-                          alt="Sophia Martinez"
-                        />
-                      </div>
-                      <cite
-                        ><span>Sophia Martinez</span><span
-                          >Cliente satisfecho</span
-                        ></cite
-                      >
-                    </div>
+                    <img
+                      width="1820"
+                      height="1024"
+                      src="wp-content/uploads/sites/128/2025/03/tenweb_media_rrzsflcu0.webp"
+                      class="attachment-medium size-medium wp-image-1574"
+                      alt=""
+                    />
                   </div>
-                </div>
-                <div>
-                  <div>
-                    <div>
-                      <div>
-                        <div>
-                          <div>
-                            <div>
-                              <StarIcon />
-                            </div>
-                            <div>
-                              <StarIcon />
-                            </div>
-                          </div>
-                          <div>
-                            <div>
-                              <StarIcon />
-                            </div>
-                            <div>
-                              <StarIcon />
-                            </div>
-                          </div>
-                          <div>
-                            <div>
-                              <StarIcon />
-                            </div>
-                            <div>
-                              <StarIcon />
-                            </div>
-                          </div>
-                          <div>
-                            <div>
-                              <StarIcon />
-                            </div>
-                            <div>
-                              <StarIcon />
-                            </div>
-                          </div>
-                          <div>
-                            <div>
-                              <StarIcon />
-                            </div>
-                            <div>
-                              <StarIcon />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div>
-                        ¡Me encantan las habitaciones temáticas! Cada visita se
-                        siente única, y los cócteles son simplemente divinos.
-                      </div>
-                    </div>
-                    <div>
-                      <div>
-                        <img
-                          src="wp-content/uploads/sites/128/2025/03/thumbnail_male_tG8lOLDh.webp"
-                          alt="Liam Johnson"
-                        />
-                      </div>
-                      <cite
-                        ><span>Liam Johnson</span><span>Cliente Regular</span
-                        ></cite
-                      >
-                    </div>
-                  </div>
-                </div>
-                <div>
-                  <div>
-                    <div>
-                      <div>
-                        <div>
-                          <div>
-                            <div>
-                              <StarIcon />
-                            </div>
-                            <div>
-                              <StarIcon />
-                            </div>
-                          </div>
-                          <div>
-                            <div>
-                              <StarIcon />
-                            </div>
-                            <div>
-                              <StarIcon />
-                            </div>
-                          </div>
-                          <div>
-                            <div>
-                              <StarIcon />
-                            </div>
-                            <div>
-                              <StarIcon />
-                            </div>
-                          </div>
-                          <div>
-                            <div>
-                              <StarIcon />
-                            </div>
-                            <div>
-                              <StarIcon />
-                            </div>
-                          </div>
-                          <div>
-                            <div>
-                              <StarIcon />
-                            </div>
-                            <div>
-                              <StarIcon />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div>
-                        Tuve una experiencia increíble en Maktub. El personal
-                        fue amable y me sentí cómodo conociendo gente nueva.
-                      </div>
-                    </div>
-                    <div>
-                      <div>
-                        <img
-                          src="wp-content/uploads/sites/128/2025/03/thumbnail_female_V0ZN3rBl.webp"
-                          alt="Emma Brown"
-                        />
-                      </div>
-                      <cite
-                        ><span>Emma Brown</span><span
-                          >Visitante de Primera Vez</span
-                        ></cite
-                      >
-                    </div>
-                  </div>
-                </div>
-                <div>
-                  <div>
-                    <div>
-                      <div>
-                        <div>
-                          <div>
-                            <div>
-                              <StarIcon />
-                            </div>
-                            <div>
-                              <StarIcon />
-                            </div>
-                          </div>
-                          <div>
-                            <div>
-                              <StarIcon />
-                            </div>
-                            <div>
-                              <StarIcon />
-                            </div>
-                          </div>
-                          <div>
-                            <div>
-                              <StarIcon />
-                            </div>
-                            <div>
-                              <StarIcon />
-                            </div>
-                          </div>
-                          <div>
-                            <div>
-                              <StarIcon />
-                            </div>
-                            <div>
-                              <StarIcon />
-                            </div>
-                          </div>
-                          <div>
-                            <div>
-                              <StarIcon />
-                            </div>
-                            <div>
-                              <StarIcon />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div>
-                        ¡Hacer mi evento en Maktub fue un éxito! Todos adoraron
-                        el ambiente y el delicioso menú.
-                      </div>
-                    </div>
-                    <div>
-                      <div>
-                        <img
-                          src="wp-content/uploads/sites/128/2025/03/thumbnail_male_bDMpSYtE.webp"
-                          alt="Noah Smith"
-                        />
-                      </div>
-                      <cite
-                        ><span>Noah Smith</span><span
-                          >Organizador de Eventos</span
-                        ></cite
-                      >
-                    </div>
-                  </div>
-                </div>
-                <div>
-                  <div>
-                    <div>
-                      <div>
-                        <div>
-                          <div>
-                            <div>
-                              <StarIcon />
-                            </div>
-                            <div>
-                              <StarIcon />
-                            </div>
-                          </div>
-                          <div>
-                            <div>
-                              <StarIcon />
-                            </div>
-                            <div>
-                              <StarIcon />
-                            </div>
-                          </div>
-                          <div>
-                            <div>
-                              <StarIcon />
-                            </div>
-                            <div>
-                              <StarIcon />
-                            </div>
-                          </div>
-                          <div>
-                            <div>
-                              <StarIcon />
-                            </div>
-                            <div>
-                              <StarIcon />
-                            </div>
-                          </div>
-                          <div>
-                            <div>
-                              <StarIcon />
-                            </div>
-                            <div>
-                              <StarIcon />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div>
-                        ¡La vibra en Maktub es inigualable! Capturé muchos
-                        momentos hermosos para mis seguidores.
-                      </div>
-                    </div>
-                    <div>
-                      <div>
-                        <img
-                          src="wp-content/uploads/sites/128/2025/03/thumbnail_female_b2IujfsB.webp"
-                          alt="Olivia Garcia"
-                        />
-                      </div>
-                      <cite
-                        ><span>Olivia Garcia</span><span
-                          >Influencer de Redes Sociales</span
-                        ></cite
-                      >
-                    </div>
-                  </div>
-                </div>
-                <div>
-                  <div>
-                    <div>
-                      <div>
-                        <div>
-                          <div>
-                            <div>
-                              <StarIcon />
-                            </div>
-                            <div>
-                              <StarIcon />
-                            </div>
-                          </div>
-                          <div>
-                            <div>
-                              <StarIcon />
-                            </div>
-                            <div>
-                              <StarIcon />
-                            </div>
-                          </div>
-                          <div>
-                            <div>
-                              <StarIcon />
-                            </div>
-                            <div>
-                              <StarIcon />
-                            </div>
-                          </div>
-                          <div>
-                            <div>
-                              <StarIcon />
-                            </div>
-                            <div>
-                              <StarIcon />
-                            </div>
-                          </div>
-                          <div>
-                            <div>
-                              <StarIcon />
-                            </div>
-                            <div>
-                              <StarIcon />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div>
-                        Estaba nervioso por salir, pero Maktub hizo que fuera
-                        fácil conectar con otros. ¡Lo recomiendo mucho!
-                      </div>
-                    </div>
-                    <div>
-                      <div>
-                        <img
-                          src="wp-content/uploads/sites/128/2025/03/thumbnail_male_Uw47OOiD.webp"
-                          alt="Ethan Davis"
-                        />
-                      </div>
-                      <cite
-                        ><span>Ethan Davis</span><span
-                          >Nuevo en la Comunidad</span
-                        ></cite
-                      >
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div>
-        <div>
-          <div>
-            <div>
-              <div>
-                <div>
-                  <h2>Maktub Blog</h2>
-                </div>
+                </a>
               </div>
               <div>
-                <div>Explora conocimientos sobre citas y relaciones.</div>
-              </div>
-            </div>
-            <div>
-              <div>
                 <div>
-                  <a href="/la-app/">
-                    <span>
-                      <span>Descarga la App</span>
-                    </span>
+                  <a href="/category/events/">
+                    <div class="elementor-post__badge">Eventos</div>
                   </a>
                 </div>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div>
-              <div data-skin="classic ">
-                <article>
+                <h5>
+                  <a href="/barcelonas-hottest-spot-amorlounge-events/">
+                    Barcelona&#8217;s Hottest Spot: Maktub Events
+                  </a>
+                </h5>
+                <div class="elementor-post__excerpt">
+                  <p>
+                    Experimenta la vibrante vida nocturna y eventos exclusivos
+                    en Maktub, el bar de citas más destacado de Barcelona.
+                  </p>
+                </div>
+                <div>
                   <div>
                     <a
                       href="/barcelonas-hottest-spot-amorlounge-events/"
+                      aria-label="Read more about Barcelona’s Hottest Spot: Maktub Events"
                       tabindex="-1"
                     >
-                      <div>
-                        <img
-                          width="1820"
-                          height="1024"
-                          src="wp-content/uploads/sites/128/2025/03/tenweb_media_rrzsflcu0.webp"
-                          class="attachment-medium size-medium wp-image-1574"
-                          alt=""
-                        />
-                      </div>
+                      Leer más <i aria-hidden="true" class="fas fa-angle-right"
+                      ></i>
                     </a>
                   </div>
+                </div>
+              </div>
+            </article>
+            <article>
+              <div>
+                <a href="/the-art-of-conversation-dating-strategies-for/">
                   <div>
-                    <div>
-                      <a href="/category/events/">
-                        <div class="elementor-post__badge">Eventos</div>
-                      </a>
-                    </div>
-                    <h5>
-                      <a href="/barcelonas-hottest-spot-amorlounge-events/">
-                        Barcelona&#8217;s Hottest Spot: Maktub Events
-                      </a>
-                    </h5>
-                    <div class="elementor-post__excerpt">
-                      <p>
-                        Experimenta la vibrante vida nocturna y eventos
-                        exclusivos en Maktub, el bar de citas más destacado de
-                        Barcelona.
-                      </p>
-                    </div>
-                    <div>
-                      <div>
-                        <a
-                          href="/barcelonas-hottest-spot-amorlounge-events/"
-                          aria-label="Read more about Barcelona’s Hottest Spot: Maktub Events"
-                          tabindex="-1"
-                        >
-                          Leer más <i
-                            aria-hidden="true"
-                            class="fas fa-angle-right"></i>
-                        </a>
-                      </div>
-                    </div>
+                    <img
+                      loading="lazy"
+                      width="1820"
+                      height="1024"
+                      src="wp-content/uploads/sites/128/2025/03/tenweb_media_rx9hefrca.webp"
+                      class="attachment-medium size-medium wp-image-1573"
+                      alt=""
+                    />
                   </div>
-                </article>
-                <article>
-                  <div>
-                    <a href="/the-art-of-conversation-dating-strategies-for/">
-                      <div>
-                        <img
-                          loading="lazy"
-                          width="1820"
-                          height="1024"
-                          src="wp-content/uploads/sites/128/2025/03/tenweb_media_rx9hefrca.webp"
-                          class="attachment-medium size-medium wp-image-1573"
-                          alt=""
-                        />
-                      </div>
-                    </a>
-                  </div>
-                  <div>
-                    <div>
-                      <a href="/category/dating-strategies/">
-                        <div class="elementor-post__badge">
-                          Estrategias de Citas
-                        </div>
-                      </a>
+                </a>
+              </div>
+              <div>
+                <div>
+                  <a href="/category/dating-strategies/">
+                    <div class="elementor-post__badge">
+                      Estrategias de Citas
                     </div>
-                    <h5>
-                      <a href="/the-art-of-conversation-dating-strategies-for/">
-                        El Arte de la Conversación: Estrategias de Citas para
-                        Maktub
-                      </a>
-                    </h5>
-                    <div class="elementor-post__excerpt">
-                      <p>
-                        Domina el arte de la conversación y crea conexiones
-                        duraderas en Maktub.
-                      </p>
-                    </div>
-                    <div>
-                      <div>
-                        <a
-                          class="elementor-post__read-more"
-                          href="/the-art-of-conversation-dating-strategies-for/"
-                          aria-label="Leer más sobre El Arte de la Conversación: Estrategias de Citas para Maktub"
-                          tabindex="-1"
-                        >
-                          Leer Más <i
-                            aria-hidden="true"
-                            class="fas fa-angle-right"></i>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </article>
-                <article>
+                  </a>
+                </div>
+                <h5>
+                  <a href="/the-art-of-conversation-dating-strategies-for/">
+                    El Arte de la Conversación: Estrategias de Citas para Maktub
+                  </a>
+                </h5>
+                <div class="elementor-post__excerpt">
+                  <p>
+                    Domina el arte de la conversación y crea conexiones
+                    duraderas en Maktub.
+                  </p>
+                </div>
+                <div>
                   <div>
                     <a
-                      class="elementor-post__thumbnail__link"
-                      href="/unlocking-love-in-barcelona-your-guide-to/"
+                      class="elementor-post__read-more"
+                      href="/the-art-of-conversation-dating-strategies-for/"
+                      aria-label="Leer más sobre El Arte de la Conversación: Estrategias de Citas para Maktub"
                       tabindex="-1"
                     >
-                      <div>
-                        <img
-                          loading="lazy"
-                          width="1820"
-                          height="1024"
-                          src="wp-content/uploads/sites/128/2025/03/tenweb_media_R7ZFYALQF.webp"
-                          class="attachment-medium size-medium wp-image-1583"
-                          alt=""
-                        />
-                      </div>
+                      Leer Más <i aria-hidden="true" class="fas fa-angle-right"
+                      ></i>
                     </a>
                   </div>
-                  <div>
-                    <div>
-                      <a href="/category/dating-tips/" alt="Consejos de citas">
-                        <div class="elementor-post__badge">
-                          Estrategias de Citas
-                        </div>
-                      </a>
-                    </div>
-                    <h5>
-                      <a href="/unlocking-love-in-barcelona-your-guide-to/">
-                        Descubriendo el Amor en Barcelona: Tu Guía para Maktub
-                      </a>
-                    </h5>
-                    <div class="elementor-post__excerpt">
-                      <p>
-                        Descubre la atmósfera única y las habitaciones temáticas
-                        en Maktub, el bar de citas principal de Barcelona.
-                      </p>
-                    </div>
-                    <div>
-                      <div>
-                        <a>
-                          Leer Más <i
-                            aria-hidden="true"
-                            class="fas fa-angle-right"></i>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </article>
+                </div>
               </div>
-            </div>
+            </article>
+            <article>
+              <div>
+                <a
+                  class="elementor-post__thumbnail__link"
+                  href="/unlocking-love-in-barcelona-your-guide-to/"
+                  tabindex="-1"
+                >
+                  <div>
+                    <img
+                      loading="lazy"
+                      width="1820"
+                      height="1024"
+                      src="wp-content/uploads/sites/128/2025/03/tenweb_media_R7ZFYALQF.webp"
+                      class="attachment-medium size-medium wp-image-1583"
+                      alt=""
+                    />
+                  </div>
+                </a>
+              </div>
+              <div>
+                <div>
+                  <a href="/category/dating-tips/" alt="Consejos de citas">
+                    <div class="elementor-post__badge">
+                      Estrategias de Citas
+                    </div>
+                  </a>
+                </div>
+                <h5>
+                  <a href="/unlocking-love-in-barcelona-your-guide-to/">
+                    Descubriendo el Amor en Barcelona: Tu Guía para Maktub
+                  </a>
+                </h5>
+                <div class="elementor-post__excerpt">
+                  <p>
+                    Descubre la atmósfera única y las habitaciones temáticas en
+                    Maktub, el bar de citas principal de Barcelona.
+                  </p>
+                </div>
+                <div>
+                  <div>
+                    <a>
+                      Leer Más <i aria-hidden="true" class="fas fa-angle-right"
+                      ></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </article>
           </div>
         </div>
       </div>
