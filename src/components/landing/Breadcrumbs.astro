@@ -15,16 +15,15 @@ for (let i = 1; i < items.length; i++) {
     path: `${mappedItems[i - 1].path}/${items[i].path}`.replace('//', '/'),
   })
 }
-console.log(mappedItems)
 ---
 
-<nav class="mb-8 py-4" aria-label="migas de pan">
+<nav class="py-4" aria-label="migas de pan">
   <ul class="flex flex-wrap items-center gap-3 text-base">
     {
       mappedItems.map((item, index) => (
-        <li class="flex items-center gap-3">
+        <li class="flex items-center gap-1">
           {index === items.length - 1 ? (
-            <span class="text-black">{item.label}</span>
+            <span class="text-gray-600">{item.label}</span>
           ) : (
             <a
               href={item.path}
@@ -34,7 +33,7 @@ console.log(mappedItems)
             </a>
           )}
           {index < items.length - 1 && (
-            <span class="text-gray-600 font-normal">&gt;</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gray-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
           )}
         </li>
       ))
