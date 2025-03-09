@@ -2,7 +2,7 @@
 import PageLandingLayout from '@layouts/PageLandingLayout.astro'
 import Breadcrumbs from '@components/landing/Breadcrumbs.astro'
 import BlogPreview from '@components/landing/BlogPreview.astro'
-
+import BlogPostGrid from '@components/landing/BlogPostGrid.astro'
 import { blogUnlockingLove } from '@data/blogs'
 ---
 
@@ -11,9 +11,13 @@ import { blogUnlockingLove } from '@data/blogs'
     items={[
       { label: 'Inicio', path: '/' },
       { label: 'Blog', path: '/blog' },
-      { label: 'Dating tips', path: '/dating-tips/' },
+      { label: 'Consejos de citas', path: '/dating-tips/' },
     ]}
   />
+  <h2 class="text-2xl font-semibold mb-8 text-gray-800">
+    Consejos de citas
+  </h2>
+  <BlogPostGrid>
   <BlogPreview
     title={blogUnlockingLove.title}
     categoryTitle={blogUnlockingLove.categoryTitle}
@@ -22,4 +26,5 @@ import { blogUnlockingLove } from '@data/blogs'
     postId={blogUnlockingLove.postId}
     excerpt={blogUnlockingLove.excerpt}
   />
+</BlogPostGrid>
 </PageLandingLayout>

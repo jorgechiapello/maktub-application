@@ -1,7 +1,7 @@
 ---
-import PageLandingLayout from '@layouts/PageLandingLayout.astro';
-import Breadcrumbs from '@components/landing/Breadcrumbs.astro';
-import BlogPreview from '@components/landing/BlogPreview.astro';
+import PageLandingLayout from '@layouts/PageLandingLayout.astro'
+import Breadcrumbs from '@components/landing/Breadcrumbs.astro'
+import BlogPreview from '@components/landing/BlogPreview.astro'
 ---
 
 <PageLandingLayout>
@@ -12,12 +12,14 @@ import BlogPreview from '@components/landing/BlogPreview.astro';
       { label: 'Estrategias de citas', path: '/dating-strategies' },
     ]}
   />
-  <BlogPreview
-    title="El arte de la conversación: Estrategias de citas para Maktub"
-    categoryTitle="Estrategias de citas"
-    categoryId="dating-strategies"
-    image="/wp-content/uploads/sites/128/2025/03/tenweb_media_rx9hefrca.webp"
-    postId="the-art-of-conversation-dating-strategies-for"
-    excerpt="Domina el arte de la conversación y crea conexiones duraderas en Maktub."
-  />
+  <div class="max-w-[378px]">
+    <BlogPreview
+      title="El arte de la conversación: Estrategias de citas para Maktub"
+      categoryTitle="Estrategias de citas"
+      categoryId="dating-strategies"
+      image="/wp-content/uploads/sites/128/2025/03/tenweb_media_rx9hefrca.webp"
+      postId="the-art-of-conversation-dating-strategies-for"
+      excerpt="Domina el arte de la conversación y crea conexiones duraderas en Maktub."
+    />
+  </div>
 </PageLandingLayout>

@@ -1,7 +1,13 @@
 ---
 import PageLandingLayout from '@layouts/PageLandingLayout.astro'
 import Breadcrumbs from '@components/landing/Breadcrumbs.astro'
-import RelatedPostSection from '@components/landing/RelatedPostSection.astro'
+import BlogPreview from '@components/landing/BlogPreview.astro'
+import BlogPostGrid from '@components/landing/BlogPostGrid.astro'
+import {
+  blogHottestSpot,
+  blogArtOfConversation,
+  blogUnlockingLove,
+} from '@data/blogs'
 ---
 
 <PageLandingLayout>
@@ -9,7 +15,35 @@ import RelatedPostSection from '@components/landing/RelatedPostSection.astro'
     items={[
       { label: 'Inicio', path: '/' },
       { label: 'Blog', path: '/blog' },
-    ]}
-  />
-  <RelatedPostSection />
+      ]}
+    />
+    <h2 class="text-2xl font-semibold mb-8 text-gray-800">
+      Publicaciones
+    </h2>
+    <BlogPostGrid>
+      <BlogPreview
+        title={blogHottestSpot.title}
+        categoryTitle={blogHottestSpot.categoryTitle}
+        categoryId={blogHottestSpot.categoryId}
+        image={blogHottestSpot.image}
+        postId={blogHottestSpot.postId}
+        excerpt={blogHottestSpot.excerpt}
+      />
+      <BlogPreview
+        title={blogArtOfConversation.title}
+        categoryTitle={blogArtOfConversation.categoryTitle}
+        categoryId={blogArtOfConversation.categoryId}
+        image={blogArtOfConversation.image}
+        postId={blogArtOfConversation.postId}
+        excerpt={blogArtOfConversation.excerpt}
+      />
+      <BlogPreview
+        title={blogUnlockingLove.title}
+        categoryTitle={blogUnlockingLove.categoryTitle}
+        categoryId={blogUnlockingLove.categoryId}
+        image={blogUnlockingLove.image}
+        postId={blogUnlockingLove.postId}
+        excerpt={blogUnlockingLove.excerpt}
+      />
+    </BlogPostGrid>
 </PageLandingLayout>

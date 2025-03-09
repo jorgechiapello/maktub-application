@@ -1,12 +1,13 @@
 ---
 import BlogPreview from '@components/landing/BlogPreview.astro';
+import BlogPostGrid from '@components/landing/BlogPostGrid.astro';
 
 import { blogArtOfConversation, blogUnlockingLove, blogHottestSpot } from '@data/blogs';
 ---
 
-<div class="related-posts">
-  <h2 class="related-posts-heading">Publicaciones relacionadas</h2>
-  <div class="related-posts-grid">
+<div class="mx-auto border-t border-gray-200 mt-16">
+  <h2 class="text-2xl font-semibold mb-8 text-gray-800">Publicaciones relacionadas</h2>
+  <BlogPostGrid>
     <BlogPreview
       title={blogHottestSpot.title}
       categoryTitle={blogHottestSpot.categoryTitle}
@@ -31,48 +32,5 @@ import { blogArtOfConversation, blogUnlockingLove, blogHottestSpot } from '@data
       postId={blogUnlockingLove.postId}
       excerpt={blogUnlockingLove.excerpt}
     />
-  </div>
+  </BlogPostGrid>
 </div>
-<style>
-  .related-posts {
-    margin-top: 4rem;
-    margin: 0 auto;
-    border-top: 1px solid #eee;
-  }
-
-  .related-posts-heading {
-    font-size: 1.75rem;
-    font-weight: 600;
-    margin-bottom: 2rem;
-    color: #333;
-  }
-
-  .related-posts-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-  }
-
-  @media (max-width: 768px) {
-    .related-posts {
-      margin-top: 2rem;
-      padding: 2rem 1rem 0;
-    }
-
-    .related-posts-grid {
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-    }
-  }
-
-  @media (min-width: 769px) and (max-width: 1024px) {
-    .related-posts {
-      margin-top: 3rem;
-      padding: 2.5rem 2rem 0;
-    }
-
-    .related-posts-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-</style>

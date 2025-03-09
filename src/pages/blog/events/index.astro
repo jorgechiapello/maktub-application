@@ -2,6 +2,7 @@
 import PageLandingLayout from '@layouts/PageLandingLayout.astro'
 import Breadcrumbs from '@components/landing/Breadcrumbs.astro'
 import BlogPreview from '@components/landing/BlogPreview.astro'
+import BlogPostGrid from '@components/landing/BlogPostGrid.astro'
 
 import { blogHottestSpot } from '@data/blogs'
 ---
@@ -14,12 +15,17 @@ import { blogHottestSpot } from '@data/blogs'
       { label: 'Eventos', path: '/events' },
     ]}
   />
-  <BlogPreview
-    title={blogHottestSpot.title}
-    categoryTitle={blogHottestSpot.categoryTitle}
-    categoryId={blogHottestSpot.categoryId}
-    image={blogHottestSpot.image}
-    postId={blogHottestSpot.postId}
-    excerpt={blogHottestSpot.excerpt}
-  />
+  <h2 class="text-2xl font-semibold mb-8 text-gray-800">
+    Eventos
+  </h2>
+  <BlogPostGrid>
+    <BlogPreview
+      title={blogHottestSpot.title}
+      categoryTitle={blogHottestSpot.categoryTitle}
+      categoryId={blogHottestSpot.categoryId}
+      image={blogHottestSpot.image}
+      postId={blogHottestSpot.postId}
+      excerpt={blogHottestSpot.excerpt}
+    />
+  </BlogPostGrid>
 </PageLandingLayout>
