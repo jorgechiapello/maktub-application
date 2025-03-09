@@ -9,39 +9,37 @@ const siteUrl = 'https://maktub.es';
 ---
 
 <PageLandingLayout>
-  <div class="max-w-[1200px] mx-auto">
-    <Breadcrumbs
-      items={[
-        { label: 'Inicio', href: '/' },
-        { label: 'Eventos', href: '/eventos/' },
-        { label: 'El lugar más vibrante de Barcelona: Eventos Maktub' },
-      ]}
-    />
-    <BlogPost
-      pageTitle={pageTitle}
-      publishDate={publishDate}
-      siteUrl={siteUrl}
-      srcImage="/wp-content/uploads/sites/128/2025/03/tenweb_media_rrzsflcu0.webp"
-      altImage="Maktub Events Venue - A vibrant social space in Barcelona"
-    >
-      <p>
-        Maktub es más que un simple bar de citas; es un centro de interacción
-        social y experiencias inolvidables. Organizamos una variedad de eventos
-        a lo largo de la semana, desde noches temáticas hasta presentaciones de
-        música en vivo. Únete a nosotros para una noche de diversión, conexión y
-        recuerdos inolvidables.
-      </p>
-      <p>
-        Nuestros eventos están diseñados para crear un ambiente animado y
-        envolvente, permitiéndote conocer nuevas personas y ampliar tus
-        conexiones sociales. Desde reuniones íntimas hasta fiestas a gran
-        escala, ofrecemos experiencias para todos los gustos.
-      </p>
-      <p>
-        Mantente atento a nuestros próximos eventos, que contarán con invitados
-        especiales, música en vivo y promociones exclusivas. Síguenos en redes
-        sociales para estar al tanto de las últimas novedades y anuncios.
-      </p>
-    </BlogPost>
-  </div>
+  <Breadcrumbs
+    items={[
+      { label: 'Inicio', href: '/' },
+      { label: 'Eventos', href: '/eventos/' },
+      { label: 'El lugar más vibrante de Barcelona: Eventos Maktub' },
+    ]}
+  />
+  <BlogPost
+    pageTitle={pageTitle}
+    publishDate={publishDate}
+    siteUrl={siteUrl}
+    srcImage="/wp-content/uploads/sites/128/2025/03/tenweb_media_rrzsflcu0.webp"
+    altImage="Maktub Events Venue - A vibrant social space in Barcelona"
+  >
+    <p>
+      Maktub es más que un simple bar de citas; es un centro de interacción
+      social y experiencias inolvidables. Organizamos una variedad de eventos a
+      lo largo de la semana, desde noches temáticas hasta presentaciones de
+      música en vivo. Únete a nosotros para una noche de diversión, conexión y
+      recuerdos inolvidables.
+    </p>
+    <p>
+      Nuestros eventos están diseñados para crear un ambiente animado y
+      envolvente, permitiéndote conocer nuevas personas y ampliar tus conexiones
+      sociales. Desde reuniones íntimas hasta fiestas a gran escala, ofrecemos
+      experiencias para todos los gustos.
+    </p>
+    <p>
+      Mantente atento a nuestros próximos eventos, que contarán con invitados
+      especiales, música en vivo y promociones exclusivas. Síguenos en redes
+      sociales para estar al tanto de las últimas novedades y anuncios.
+    </p>
+  </BlogPost>
 </PageLandingLayout>
