@@ -1,17 +1,18 @@
 ---
+import { pages } from '@data/pages'
+
 type BreadcrumbItem = { label: string; path: string }
 
-type Props = {
-  items: BreadcrumbItem[]
-}
-
-const { items } = Astro.props
+const url = Astro.request.url
+const items: BreadcrumbItem[] = new URL(url).pathname
+  .split('/')
+  .map((path) => ({ path, label: pages[path] }))
 
 const mappedItems = [items[0]]
 for (let i = 1; i < items.length; i++) {
   mappedItems.push({
     ...items[i],
-    path: `${mappedItems[i - 1].path}${items[i].path}`.replace('//', '/'),
+    path: `${mappedItems[i - 1].path}/${items[i].path}`.replace('//', '/'),
   })
 }
 ---
