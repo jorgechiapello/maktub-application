@@ -1,131 +1,49 @@
 ---
+
 ---
 
-<div class="newsletter-section">
-  <h2 class="newsletter-heading">Subscribirse a nuestro boletín</h2>
-  <p class="newsletter-description">
-    Mantente al día con las últimas publicaciones del blog. Sin spam, lo
-    prometemos.
-  </p>
-  <form class="newsletter-form" method="post">
-    <input type="hidden" name="post_id" value="1631" />
-    <input type="hidden" name="form_id" value="10rgf1zi" />
-    <input
-      type="hidden"
-      name="referer_title"
-      value="Barcelona's Hottest Spot: Maktub Events"
-    />
-    <input type="hidden" name="queried_id" value="1601" />
+<div class="w-full p-16 bg-[#f8f9fa]">
+  <div class="w-full max-w-3xl mx-auto p-12 rounded-xl">
+    <div class="max-w-2xl mx-auto">
+      <h2 class="text-4xl font-bold text-center mb-4">
+        Subscribirse a nuestro boletín
+      </h2>
 
-    <div class="form-group">
-      <label for="form-field-email" class="form-label">Email</label>
-      <input
-        type="email"
-        name="form_fields[email]"
-        id="form-field-email"
-        class="form-input"
-        placeholder="Ingresa tu correo electrónico"
-      />
+      <p class="text-center text-gray-600 mb-8">
+        Mantente al día con las últimas publicaciones del blog. Sin spam, lo
+        prometemos.
+      </p>
+
+      <form method="post" class="w-full">
+        <input type="hidden" name="post_id" value="1631" />
+        <input type="hidden" name="form_id" value="10rgf1zi" />
+        <input
+          type="hidden"
+          name="referer_title"
+          value="Barcelona's Hottest Spot: Maktub Events"
+        />
+        <input type="hidden" name="queried_id" value="1601" />
+
+        <div class="flex gap-2 mb-4">
+          <input
+            type="email"
+            name="form_fields[email]"
+            placeholder="Ingresa tu correo electrónico"
+            class="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+          />
+          <button
+            type="submit"
+            class="px-6 py-2 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-700 transition-colors"
+          >
+            Suscribirse
+          </button>
+        </div>
+
+        <p class="text-sm text-center text-gray-500">
+          Al hacer clic en suscribirse, confirmas que estás de acuerdo con
+          nuestros Términos y Condiciones.
+        </p>
+      </form>
     </div>
-  </form>
+  </div>
 </div>
-
-<style>
-  .newsletter-section {
-    margin: 4rem 0;
-    padding: 3rem;
-    background-color: #f8f9fa;
-    border-radius: 12px;
-    text-align: center;
-  }
-
-  .newsletter-heading {
-    font-size: 1.75rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    color: #333;
-  }
-
-  .newsletter-description {
-    font-size: 1.125rem;
-    color: #666;
-    margin-bottom: 2rem;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .newsletter-form {
-    margin: 0 auto;
-  }
-
-  .form-group {
-    margin-bottom: 1.5rem;
-  }
-
-  .form-label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 500;
-    color: #333;
-    text-align: left;
-  }
-
-  .form-input {
-    width: 100%;
-    padding: 0.75rem 1rem;
-    font-size: 1rem;
-    line-height: 1.5;
-    color: #333;
-    background-color: #fff;
-    border: 2px solid #ddd;
-    border-radius: 6px;
-    transition: border-color 0.2s ease;
-  }
-
-  .form-input:focus {
-    outline: none;
-    border-color: #ff0000;
-  }
-
-  .form-actions {
-    margin-bottom: 1rem;
-  }
-
-  .submit-button {
-    display: inline-block;
-    padding: 0.75rem 2rem;
-    font-size: 1rem;
-    font-weight: 500;
-    color: #fff;
-    background-color: #ff0000;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-  }
-
-  .submit-button:hover {
-    background-color: #cc0000;
-  }
-
-  .form-disclaimer {
-    font-size: 0.875rem;
-    color: #666;
-    margin-top: 1rem;
-  }
-
-  @media (max-width: 768px) {
-    .newsletter-section {
-      padding: 2rem 1rem;
-      margin: 2rem 0;
-    }
-
-    .newsletter-heading {
-      font-size: 1.5rem;
-    }
-
-    .newsletter-description {
-      font-size: 1rem;
-    }
-  }
-</style>
