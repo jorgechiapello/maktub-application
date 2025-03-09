@@ -5,7 +5,11 @@ import LandingLayout from '@layouts/LandingLayout.astro'
 import StarIcon from '../components/icons/StarIcon.astro'
 import TestimonialCard from '@components/landing/TestimonialCard.astro'
 import BlogLandingPreview from '@components/landing/BlogLandingPreview.astro'
-import { blogArtOfConversation, blogUnlockingLove, blogHottestSpot } from '@data/blogs'
+import {
+  blogArtOfConversation,
+  blogUnlockingLove,
+  blogHottestSpot,
+} from '@data/blogs'
 ---
 
 <LandingLayout>
@@ -43,7 +47,7 @@ import { blogArtOfConversation, blogUnlockingLove, blogHottestSpot } from '@data
       </div>
     </div>
   </div>
-  <div class="max-w-[1200px] mx-auto py-20 px-4">
+  <div id="about" class="max-w-[1200px] mx-auto py-20 px-4">
     <div class="text-center mb-12">
       <h2 class="text-4xl font-amiri font-bold mb-6">
         Descubre la Esencia de Maktub
@@ -105,107 +109,109 @@ import { blogArtOfConversation, blogUnlockingLove, blogHottestSpot } from '@data
       </div>
     </div>
   </div>
-  <div class="max-w-[1200px] mx-auto py-20 px-4">
-    <div class="grid md:grid-cols-2 gap-12 mb-16">
-      <div>
-        <h2 class="text-4xl font-amiri font-bold">
-          Explora Nuestras <em class="italic">Únicas</em> y <em class="italic"
-            >Románticas</em
-          > Habitaciones Tematizadas
-        </h2>
-      </div>
-      <div>
-        <p class="text-gray-600 text-lg">
-          En AmorLounge, creemos que el ambiente es tan importante como la
-          compañía. Por eso, hemos creado una variedad de habitaciones
-          tematizadas, cada una diseñada para evocar un estado de ánimo
-          específico y mejorar tu experiencia de citas. Ya sea que busques un
-          ambiente acogedor e íntimo o un ambiente vibrante y energético,
-          tenemos una habitación perfecta para ti. Descubre tu ambiente
-          romántico ideal y crea memorias inolvidables.
-        </p>
-      </div>
-    </div>
-    <div class="grid md:grid-cols-3 gap-8">
-      <div class="bg-white rounded-lg overflow-hidden shadow-lg">
-        <div class="relative h-64">
-          <img
-            src="/wp-content/uploads/sites/128/2025/03/tenweb_media_r0ofxa4or.webp"
-            alt="The Velvet Lounge at AmorLounge"
-            class="w-full h-full object-cover"
-          />
+  <div id="rooms" class="py-20 bg-gray-200">
+    <div class="max-w-[1200px] mx-auto">
+      <div class="grid md:grid-cols-2 gap-12 mb-16">
+        <div>
+          <h2 class="text-4xl font-amiri font-bold">
+            Explora Nuestras <em class="italic">Únicas</em> y <em class="italic"
+              >Románticas</em
+            > Habitaciones Tematizadas
+          </h2>
         </div>
-        <div class="p-6">
-          <h3 class="text-2xl font-bold mb-4">
-            The Velvet Lounge: Íntimo y Lujoso
-          </h3>
-          <p class="text-gray-600 mb-6">
-            Disfruta de la opulencia de nuestro Velvet Lounge, donde asientos
-            acogedores y luces suaves crean un ambiente íntimo. Perfecto para
-            conversaciones profundas y momentos románticos, esta habitación está
-            diseñada para conexiones inolvidables.
+        <div>
+          <p class="text-gray-600 text-lg">
+            En Maktub, creemos que el ambiente es tan importante como la
+            compañía. Por eso, hemos creado una variedad de habitaciones
+            tematizadas, cada una diseñada para evocar un estado de ánimo
+            específico y mejorar tu experiencia de citas. Ya sea que busques un
+            ambiente acogedor e íntimo o un ambiente vibrante y energético,
+            tenemos una habitación perfecta para ti. Descubre tu ambiente
+            romántico ideal y crea memorias inolvidables.
           </p>
-          <a
-            href="/themed-dating-experience/"
-            class="inline-block bg-black text-white px-6 py-2 rounded-full hover:bg-opacity-90 transition-all"
-          >
-            Aprende Más
-          </a>
         </div>
       </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white rounded-lg overflow-hidden shadow-lg">
+          <div class="relative h-64">
+            <img
+              src="/wp-content/uploads/sites/128/2025/03/tenweb_media_r0ofxa4or.webp"
+              alt="The Velvet Lounge at Maktub"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div class="p-6">
+            <h3 class="text-2xl font-bold mb-4">
+              The Velvet Lounge: Íntimo y Lujoso
+            </h3>
+            <p class="text-gray-600 mb-6">
+              Disfruta de la opulencia de nuestro Velvet Lounge, donde asientos
+              acogedores y luces suaves crean un ambiente íntimo. Perfecto para
+              conversaciones profundas y momentos románticos, esta habitación
+              está diseñada para conexiones inolvidables.
+            </p>
+            <a
+              href="/themed-dating-experience/"
+              class="inline-block bg-black text-white px-6 py-2 rounded-full hover:bg-opacity-90 transition-all"
+            >
+              Aprende Más
+            </a>
+          </div>
+        </div>
 
-      <div class="bg-white rounded-lg overflow-hidden shadow-lg">
-        <div class="relative h-64">
-          <img
-            src="/wp-content/uploads/sites/128/2025/03/tenweb_media_RYMGBZE44.webp"
-            alt="The Fiesta Room at AmorLounge"
-            class="w-full h-full object-cover"
-          />
+        <div class="bg-white rounded-lg overflow-hidden shadow-lg">
+          <div class="relative h-64">
+            <img
+              src="/wp-content/uploads/sites/128/2025/03/tenweb_media_RYMGBZE44.webp"
+              alt="The Fiesta Room at Maktub"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div class="p-6">
+            <h3 class="text-2xl font-bold mb-4">
+              La Sala de Fiesta: Vibrante y Energética
+            </h3>
+            <p class="text-gray-600 mb-6">
+              Experimenta la emoción de nuestra Sala de Fiesta, donde colores
+              vibrantes y música alegre crean un ambiente lúdico. Ideal para
+              conocer gente nueva y disfrutar de interacciones divertidas, esta
+              habitación es perfecta para una experiencia dinámica.
+            </p>
+            <a
+              href="/themed-dating-experience/"
+              class="inline-block bg-black text-white px-6 py-2 rounded-full hover:bg-opacity-90 transition-all"
+            >
+              Aprende Más
+            </a>
+          </div>
         </div>
-        <div class="p-6">
-          <h3 class="text-2xl font-bold mb-4">
-            La Sala de Fiesta: Vibrante y Energética
-          </h3>
-          <p class="text-gray-600 mb-6">
-            Experimenta la emoción de nuestra Sala de Fiesta, donde colores
-            vibrantes y música alegre crean un ambiente lúdico. Ideal para
-            conocer gente nueva y disfrutar de interacciones divertidas, esta
-            habitación es perfecta para una experiencia dinámica.
-          </p>
-          <a
-            href="/themed-dating-experience/"
-            class="inline-block bg-black text-white px-6 py-2 rounded-full hover:bg-opacity-90 transition-all"
-          >
-            Aprende Más
-          </a>
-        </div>
-      </div>
 
-      <div class="bg-white rounded-lg overflow-hidden shadow-lg">
-        <div class="relative h-64">
-          <img
-            src="/wp-content/uploads/sites/128/2025/03/tenweb_media_RBFCUY4UR.webp"
-            alt="The Serenity Suite at AmorLounge"
-            class="w-full h-full object-cover"
-          />
-        </div>
-        <div class="p-6">
-          <h3 class="text-2xl font-bold mb-4">
-            La Suite de la Serenidad: Calma y Relajante
-          </h3>
-          <p class="text-gray-600 mb-6">
-            Desconecta en la tranquilidad de nuestra Suite de la Serenidad,
-            donde los colores calmantes y la música suave crean un ambiente
-            relajante. Ideal para conversaciones significativas y conexiones
-            genuinas, esta habitación está diseñada para aquellos que buscan una
-            experiencia de citas serena.
-          </p>
-          <a
-            href="/themed-dating-experience/"
-            class="inline-block bg-black text-white px-6 py-2 rounded-full hover:bg-opacity-90 transition-all"
-          >
-            Aprende Más
-          </a>
+        <div class="bg-white rounded-lg overflow-hidden shadow-lg">
+          <div class="relative h-64">
+            <img
+              src="/wp-content/uploads/sites/128/2025/03/tenweb_media_RBFCUY4UR.webp"
+              alt="The Serenity Suite at Maktub"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div class="p-6">
+            <h3 class="text-2xl font-bold mb-4">
+              La Suite de la Serenidad: Calma y Relajante
+            </h3>
+            <p class="text-gray-600 mb-6">
+              Desconecta en la tranquilidad de nuestra Suite de la Serenidad,
+              donde los colores calmantes y la música suave crean un ambiente
+              relajante. Ideal para conversaciones significativas y conexiones
+              genuinas, esta habitación está diseñada para aquellos que buscan
+              una experiencia de citas serena.
+            </p>
+            <a
+              href="/themed-dating-experience/"
+              class="inline-block bg-black text-white px-6 py-2 rounded-full hover:bg-opacity-90 transition-all"
+            >
+              Aprende Más
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -221,7 +227,7 @@ import { blogArtOfConversation, blogUnlockingLove, blogHottestSpot } from '@data
           Inolvidable
         </h2>
         <p class="text-gray-600 mb-8">
-          En AmorLounge, nuestro menú está diseñado para deleitar tus sentidos.
+          En Maktub, nuestro menú está diseñado para deleitar tus sentidos.
           Utilizamos solo los ingredientes más frescos y de origen local para
           crear platos que son tanto deliciosos como visualmente impresionantes.
           Combina tu comida con uno de nuestros cócteles de firma para una
@@ -343,16 +349,15 @@ import { blogArtOfConversation, blogUnlockingLove, blogHottestSpot } from '@data
   </div>
   <div id="blog" class="w-full bg-black py-20 px-4" id="blog">
     <div class="max-w-[1200px] mx-auto flex flex-col gap-12">
-		<div>
-			<h2 class="text-4xl font-amiri font-bold text-white text-left">
-				AmorLounge Blog
-			</h2>
-			<p class="text-lg max-w-3xl text-white text-left">
-				Explore insights on dating and relationships.
-			</p>
-		</div>
+      <div>
+        <h2 class="text-4xl font-amiri font-bold text-white text-left">
+          Maktub Blog
+        </h2>
+        <p class="text-lg max-w-3xl text-white text-left">
+          Explore insights on dating and relationships.
+        </p>
+      </div>
       <div class="grid grid-cols-2 gap-8">
-        <!-- blogArtOfConversation -->
         <BlogLandingPreview
           imageUrl={blogArtOfConversation.image}
           imageAlt={blogArtOfConversation.imageAlt}
@@ -361,7 +366,6 @@ import { blogArtOfConversation, blogUnlockingLove, blogHottestSpot } from '@data
           description={blogArtOfConversation.excerpt}
           readMoreUrl={blogArtOfConversation.readMoreUrl}
         />
-<!-- blogUnlockingLove -->
         <BlogLandingPreview
           imageUrl={blogUnlockingLove.image}
           imageAlt={blogUnlockingLove.imageAlt}
@@ -370,7 +374,6 @@ import { blogArtOfConversation, blogUnlockingLove, blogHottestSpot } from '@data
           description={blogUnlockingLove.excerpt}
           readMoreUrl={blogUnlockingLove.readMoreUrl}
         />
-<!-- blogHottestSpot -->
         <BlogLandingPreview
           imageUrl={blogHottestSpot.image}
           imageAlt={blogHottestSpot.imageAlt}
