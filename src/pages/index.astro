@@ -3,6 +3,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css'
 
 import LandingLayout from '@layouts/LandingLayout.astro'
 import StarIcon from '../components/icons/StarIcon.astro'
+import RoomPreview from '../components/landing/RoomPreview.astro'
 import TestimonialCard from '@components/landing/TestimonialCard.astro'
 import BlogLandingPreview from '@components/landing/BlogLandingPreview.astro'
 import {
@@ -10,6 +11,8 @@ import {
   blogUnlockingLove,
   blogHottestSpot,
 } from '@data/blogs'
+
+import { rooms } from '@data/appFeatures'
 ---
 
 <LandingLayout>
@@ -132,87 +135,17 @@ import {
         </div>
       </div>
       <div class="grid md:grid-cols-3 gap-8">
-        <div class="bg-white rounded-lg overflow-hidden shadow-lg">
-          <div class="relative h-64">
-            <img
-              src="/wp-content/uploads/sites/128/2025/03/tenweb_media_r0ofxa4or.webp"
-              alt="The Velvet Lounge at Maktub"
-              class="w-full h-full object-cover"
+        {
+          rooms.map((room) => (
+            <RoomPreview
+              imageSrc={room.imageUrl}
+              imageAlt={room.imageAlt}
+              title={room.title}
+              description={room.description}
+              linkHref="/ambientes/"
             />
-          </div>
-          <div class="p-6">
-            <h3 class="text-2xl font-bold mb-4">
-              The Velvet Lounge: Íntimo y Lujoso
-            </h3>
-            <p class="text-gray-600 mb-6">
-              Disfruta de la opulencia de nuestro Velvet Lounge, donde asientos
-              acogedores y luces suaves crean un ambiente íntimo. Perfecto para
-              conversaciones profundas y momentos románticos, esta habitación
-              está diseñada para conexiones inolvidables.
-            </p>
-            <a
-              href="/themed-dating-experience/"
-              class="inline-block bg-black text-white px-6 py-2 rounded-full hover:bg-opacity-90 transition-all"
-            >
-              Aprende Más
-            </a>
-          </div>
-        </div>
-
-        <div class="bg-white rounded-lg overflow-hidden shadow-lg">
-          <div class="relative h-64">
-            <img
-              src="/wp-content/uploads/sites/128/2025/03/tenweb_media_RYMGBZE44.webp"
-              alt="The Fiesta Room at Maktub"
-              class="w-full h-full object-cover"
-            />
-          </div>
-          <div class="p-6">
-            <h3 class="text-2xl font-bold mb-4">
-              La Sala de Fiesta: Vibrante y Energética
-            </h3>
-            <p class="text-gray-600 mb-6">
-              Experimenta la emoción de nuestra Sala de Fiesta, donde colores
-              vibrantes y música alegre crean un ambiente lúdico. Ideal para
-              conocer gente nueva y disfrutar de interacciones divertidas, esta
-              habitación es perfecta para una experiencia dinámica.
-            </p>
-            <a
-              href="/themed-dating-experience/"
-              class="inline-block bg-black text-white px-6 py-2 rounded-full hover:bg-opacity-90 transition-all"
-            >
-              Aprende Más
-            </a>
-          </div>
-        </div>
-
-        <div class="bg-white rounded-lg overflow-hidden shadow-lg">
-          <div class="relative h-64">
-            <img
-              src="/wp-content/uploads/sites/128/2025/03/tenweb_media_RBFCUY4UR.webp"
-              alt="The Serenity Suite at Maktub"
-              class="w-full h-full object-cover"
-            />
-          </div>
-          <div class="p-6">
-            <h3 class="text-2xl font-bold mb-4">
-              La Suite de la Serenidad: Calma y Relajante
-            </h3>
-            <p class="text-gray-600 mb-6">
-              Desconecta en la tranquilidad de nuestra Suite de la Serenidad,
-              donde los colores calmantes y la música suave crean un ambiente
-              relajante. Ideal para conversaciones significativas y conexiones
-              genuinas, esta habitación está diseñada para aquellos que buscan
-              una experiencia de citas serena.
-            </p>
-            <a
-              href="/themed-dating-experience/"
-              class="inline-block bg-black text-white px-6 py-2 rounded-full hover:bg-opacity-90 transition-all"
-            >
-              Aprende Más
-            </a>
-          </div>
-        </div>
+          ))
+        }
       </div>
     </div>
   </div>

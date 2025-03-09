@@ -1,0 +1,43 @@
+---
+interface Props {
+  imageSrc: string
+  imageAlt: string
+  title: string
+  description: string
+  linkHref: string
+  linkText?: string
+}
+
+const {
+  imageSrc,
+  imageAlt,
+  title,
+  description,
+  linkHref,
+  linkText = 'Aprende Más',
+} = Astro.props
+---
+
+<div class="bg-black rounded-lg overflow-hidden shadow-lg h-full flex flex-col">
+  <div class="relative h-64">
+    <img src={imageSrc} alt={imageAlt} class="w-full h-full object-cover" />
+  </div>
+  <div class="p-6 flex flex-col flex-grow">
+    <div class="mb-auto">
+      <h3 class="text-2xl font-bold mb-4 text-white">
+        {title}
+      </h3>
+      <p class="text-gray-100 mb-6">
+        {description}
+      </p>
+    </div>
+    <div class="flex">
+      <a
+        href={linkHref}
+        class="inline-block bg-white text-black px-6 py-2 rounded-full hover:bg-opacity-90 transition-all mt-4"
+      >
+        {linkText}
+      </a>
+    </div>
+  </div>
+</div>
