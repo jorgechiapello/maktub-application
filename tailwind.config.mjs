@@ -12,6 +12,7 @@ export default {
       },
       fontFamily: {
         sans: ['Montserrat', 'sans-serif'],
+        amiri: ['Amiri', 'serif'],  
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in',
