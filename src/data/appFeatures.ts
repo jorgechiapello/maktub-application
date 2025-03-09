@@ -91,20 +91,20 @@ export const dishes: CardContent[] = [
 
 export const cocktails: CardContent[] = [
   {
-    title: 'El Beso del sol',
+    title: 'El Beso del Sol',
     description:
       'Un cóctel exclusivo que combina pisco peruano, pulpa de maracuyá fresca, un toque de miel de agave y espuma de lima. Decorado con pétalos comestibles y oro en hoja.',
     imageUrl: '/cocktails/trago_beso_del_sol.jpg',
     imageAlt:
-      'Cóctel signature con pisco y maracuyá, decorado elegantemente con pétalos y oro comestible.',
+      'Cóctel "El Beso del Sol" con pisco, maracuyá, y decorado con pétalos comestibles y oro en hoja.',
   },
   {
-    title: 'Noche de azúcar y canela',
+    title: 'Noche de Azúcar y Canela',
     description:
       'Gin premium infusionado con pétalos de rosa, licor St. Germain, jugo de limón y un splash de agua tónica rosada. Servido con hielo cristalino y garnish de rosa orgánica.',
     imageUrl: '/cocktails/trago_noche_azucar_canela.jpg',
     imageAlt:
-      'Cóctel rosado con gin y flores, presentado con hielo cristalino y rosa orgánica.',
+      'Cóctel "Noche de Azúcar y Canela" rosado con gin, flores y rosa orgánica, servido con hielo cristalino.',
   },
   {
     title: 'Susurro Nocturno',
@@ -112,6 +112,6 @@ export const cocktails: CardContent[] = [
       'Mezcla seductora de tequila añejo, licor de café, chocolate negro líquido y un toque de canela. Coronado con espuma de vainilla y polvo de cacao.',
     imageUrl: '/cocktails/trago_susurro_nocturno.jpg',
     imageAlt:
-      'Cóctel oscuro y elegante con tequila y café, decorado con espuma y cacao.',
+      'Cóctel "Susurro Nocturno" oscuro con tequila, café, chocolate, espuma de vainilla y polvo de cacao.',
   },
 ]
