@@ -1,14 +1,17 @@
 ---
-import PageLandingLayout from '@layouts/PageLandingLayout.astro';
-import Breadcrumbs from '@components/landing/Breadcrumbs.astro';
-import BlogPost from '@components/landing/BlogPost.astro';
+import PageLandingLayout from '@layouts/PageLandingLayout.astro'
+import Breadcrumbs from '@components/landing/Breadcrumbs.astro'
+import BlogPost from '@components/landing/BlogPost.astro'
 
-const publishDate = new Date('2025-03-12');
-const pageTitle = 'Descubriendo el Amor en Barcelona: Tu Guía de AmorLounge';
-const siteUrl = 'https://maktub.es';
+const publishDate = new Date('2025-03-12')
+const pageTitle = 'Descubriendo el Amor en Barcelona: Tu Guía de AmorLounge'
+const siteUrl = 'https://maktub.es'
 ---
 
-<PageLandingLayout>
+<PageLandingLayout
+  title="Descubriendo el Amor en Barcelona: Tu Guía de AmorLounge"
+  href="/blog/dating-tips/unlocking-love-in-barcelona-your-guide-to/"
+>
   <Breadcrumbs
     items={[
       { label: 'Inicio', path: '/' },

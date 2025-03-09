@@ -1,15 +1,17 @@
 ---
-import PageLandingLayout from '@layouts/PageLandingLayout.astro';
-import Breadcrumbs from '@components/landing/Breadcrumbs.astro';
-import BlogPost from '@components/landing/BlogPost.astro';
+import PageLandingLayout from '@layouts/PageLandingLayout.astro'
+import Breadcrumbs from '@components/landing/Breadcrumbs.astro'
+import BlogPost from '@components/landing/BlogPost.astro'
 
-const publishDate = new Date('2025-02-08');
-const pageTitle =
-  'The Arte de la conversación: Estrategias de citas for Maktub';
-const siteUrl = 'https://maktub.es';
+const publishDate = new Date('2025-02-08')
+const pageTitle = 'The Arte de la conversación: Estrategias de citas for Maktub'
+const siteUrl = 'https://maktub.es'
 ---
 
-<PageLandingLayout>
+<PageLandingLayout
+  title="The Arte de la conversación: Estrategias de citas for Maktub"
+  href="/blog/dating-strategies/the-art-of-conversation-dating-strategies-for/"
+>
   <Breadcrumbs
     items={[
       { label: 'Inicio', path: '/' },

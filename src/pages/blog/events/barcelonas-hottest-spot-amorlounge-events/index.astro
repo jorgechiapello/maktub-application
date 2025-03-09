@@ -1,14 +1,17 @@
 ---
-import PageLandingLayout from '@layouts/PageLandingLayout.astro';
-import Breadcrumbs from '@components/landing/Breadcrumbs.astro';
-import BlogPost from '@components/landing/BlogPost.astro';
+import PageLandingLayout from '@layouts/PageLandingLayout.astro'
+import Breadcrumbs from '@components/landing/Breadcrumbs.astro'
+import BlogPost from '@components/landing/BlogPost.astro'
 
-const publishDate = new Date('2025-03-01');
-const pageTitle = 'El lugar más vibrante de Barcelona: Eventos Maktub';
-const siteUrl = 'https://maktub.es';
+const publishDate = new Date('2025-03-01')
+const pageTitle = 'El lugar más vibrante de Barcelona: Eventos Maktub'
+const siteUrl = 'https://maktub.es'
 ---
 
-<PageLandingLayout>
+<PageLandingLayout
+  title="El lugar más vibrante de Barcelona: Eventos Maktub"
+  href="/blog/events/barcelonas-hottest-spot-amorlounge-events/"
+>
   <Breadcrumbs
     items={[
       { label: 'Inicio', path: '/' },
