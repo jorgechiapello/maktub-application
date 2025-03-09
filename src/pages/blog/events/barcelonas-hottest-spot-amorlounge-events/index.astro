@@ -1,6 +1,5 @@
 ---
 import PageLandingLayout from '@layouts/PageLandingLayout.astro'
-import Breadcrumbs from '@components/landing/Breadcrumbs.astro'
 import BlogPost from '@components/landing/BlogPost.astro'
 
 const publishDate = new Date('2025-03-01')
@@ -12,7 +11,6 @@ const siteUrl = 'https://maktub.es'
   title="El lugar más vibrante de Barcelona: Eventos Maktub"
   href="/blog/events/barcelonas-hottest-spot-amorlounge-events/"
 >
-  <Breadcrumbs />
   <BlogPost
     pageTitle={pageTitle}
     publishDate={publishDate}

@@ -3,7 +3,8 @@ import Analytics from '@vercel/analytics/astro';
 import SpeedInsights from '@vercel/speed-insights/astro';
 import { ViewTransitions } from 'astro:transitions';
 import Footer from '@components/landing/Footer.astro';
-import NavigationBar from '@components/landing/NavigationBar.astro';
+import NavigationBar from '@components/landing/NavigationBar.astro';  
+import Breadcrumbs from '@components/landing/Breadcrumbs.astro'
 
 const { title, href } = Astro.props;
 ---
@@ -27,6 +28,7 @@ const { title, href } = Astro.props;
   <body>
     <NavigationBar />
     <div class="max-w-[1200px] mx-auto">
+      <Breadcrumbs/>
       <slot />
     </div>
     <Footer />

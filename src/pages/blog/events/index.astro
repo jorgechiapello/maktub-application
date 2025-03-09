@@ -1,6 +1,5 @@
 ---
 import PageLandingLayout from '@layouts/PageLandingLayout.astro'
-import Breadcrumbs from '@components/landing/Breadcrumbs.astro'
 import BlogPreview from '@components/landing/BlogPreview.astro'
 import BlogPostGrid from '@components/landing/BlogPostGrid.astro'
 
@@ -8,7 +7,6 @@ import { blogHottestSpot } from '@data/blogs'
 ---
 
 <PageLandingLayout title="Eventos" href="/blog/events/">
-  <Breadcrumbs />
   <h2 class="text-2xl font-semibold mb-8 text-gray-800">Eventos</h2>
   <BlogPostGrid>
     <BlogPreview

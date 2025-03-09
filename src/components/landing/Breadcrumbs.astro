@@ -1,14 +1,14 @@
 ---
-import { pages } from '@data/pages'
+import { pagesTitles, initialPage } from '@data/pages'
 
 type BreadcrumbItem = { label: string; path: string }
 
 const url = Astro.request.url
 const items: BreadcrumbItem[] = new URL(url).pathname
   .split('/')
-  .map((path) => ({ path, label: pages[path] }))
+  .map((path) => ({ path, label: pagesTitles[`/${path}`] }))
 
-const mappedItems = [items[0]]
+const mappedItems = [initialPage]
 for (let i = 1; i < items.length; i++) {
   mappedItems.push({
     ...items[i],
