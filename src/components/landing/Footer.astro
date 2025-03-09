@@ -1,3 +1,6 @@
+---
+import NewsletterInput from '@components/landing/NewsletterInput.astro';
+---
 <footer class="py-16 pb-8 bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid grid-cols-1 md:grid-cols-[repeat(3,1fr)_2fr] gap-8 mb-8">
@@ -36,18 +39,7 @@
             Subscribirse a nuestro boletín para recibir las últimas
             noticias y ofertas exclusivas.
           </p>
-          <form class="flex gap-2">
-            <input
-              type="email"
-              placeholder="Tu correo electrónico"
-              class="flex-1 px-3 py-3 border border-gray-300 rounded-md text-base focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500"
-            />
-            <button
-              type="submit"
-              class="px-6 py-3 bg-red-600 text-white rounded-md text-base font-medium hover:bg-pink-600 transition-colors duration-200">
-              Subscribirse
-            </button>
-          </form>
+          <NewsletterInput />
         </div>
       </div>
     </div>
