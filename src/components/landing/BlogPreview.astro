@@ -5,7 +5,7 @@ const categoryUrl = `/blog/${categoryId}`
 const url = `${categoryUrl}/${postId}`
 ---
 
-<article class="flex flex-col">
+<article class="flex flex-col gap-1">
   <a href={url} class="mb-4 overflow-hidden rounded-lg group">
     <img 
       width="1820" 
@@ -16,15 +16,15 @@ const url = `${categoryUrl}/${postId}`
       class="w-full h-auto block transition-transform duration-300 group-hover:scale-105" 
     />
   </a>
-  <div class="mb-2">
+  <div>
     <a href={categoryUrl} class="text-red-600 hover:text-red-800 text-sm font-medium no-underline">{categoryTitle}</a>
   </div>
-  <h5 class="text-xl md:text-lg font-semibold mb-3 leading-tight">
+  <h5 class="text-xl md:text-lg font-semibold leading-tight">
     <a href={url} class="text-gray-800 hover:text-red-600 no-underline transition-colors duration-200">
       {title}
     </a>
   </h5>
-  <div class="text-gray-600 text-[0.9375rem] leading-relaxed mb-4">
+  <div class="text-gray-600 text-[0.9375rem] leading-relaxed">
     <p>
       {excerpt}
     </p>
