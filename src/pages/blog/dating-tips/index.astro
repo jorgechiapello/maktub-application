@@ -14,17 +14,15 @@ import { blogUnlockingLove } from '@data/blogs'
       { label: 'Consejos de citas', path: '/dating-tips/' },
     ]}
   />
-  <h2 class="text-2xl font-semibold mb-8 text-gray-800">
-    Consejos de citas
-  </h2>
+  <h2 class="text-2xl font-semibold mb-8 text-gray-800">Consejos de citas</h2>
   <BlogPostGrid>
-  <BlogPreview
-    title={blogUnlockingLove.title}
-    categoryTitle={blogUnlockingLove.categoryTitle}
-    categoryId={blogUnlockingLove.categoryId}
-    image={blogUnlockingLove.image}
-    postId={blogUnlockingLove.postId}
-    excerpt={blogUnlockingLove.excerpt}
-  />
-</BlogPostGrid>
+    <BlogPreview
+      title={blogUnlockingLove.title}
+      categoryTitle={blogUnlockingLove.categoryTitle}
+      categoryId={blogUnlockingLove.categoryId}
+      image={blogUnlockingLove.image}
+      postId={blogUnlockingLove.postId}
+      excerpt={blogUnlockingLove.excerpt}
+    />
+  </BlogPostGrid>
 </PageLandingLayout>
