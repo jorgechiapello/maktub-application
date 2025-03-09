@@ -1,63 +1,107 @@
 ---
-import NewsletterInput from '@components/landing/NewsletterInput.astro';
+import NewsletterInput from '@components/landing/NewsletterInput.astro'
+import SocialLinks from '@components/landing/SocialLinks.astro'
+import {
+  conocenosPage,
+  contactanosPage,
+  laAppPage,
+  ambientesPage,
+  comeAquiPage,
+} from '@data/pages'
+import { rooms } from '@data/appFeatures'
 ---
+
 <footer class="py-16 pb-8 bg-white">
   <div class="max-w-[1200px] mx-auto">
     <div class="grid grid-cols-1 md:grid-cols-[repeat(3,1fr)_2fr] gap-8 mb-8">
       <div class="space-y-4">
-        <h3 class="text-xl font-semibold text-black mb-4">Explore</h3>
+        <h3 class="text-xl font-semibold text-black mb-4">Explora</h3>
         <ul class="space-y-2">
-          <li><a href="/about-us/" class="text-gray-600 hover:text-gray-500 transition-colors">Conocenos</a></li>
-          <li><a href="/the-app/" class="text-gray-600 hover:text-gray-500 transition-colors">La App</a></li>
-          <li><a href="/contact-location/" class="text-gray-600 hover:text-gray-500 transition-colors">Contactanos</a></li>
+          <li>
+            <a
+              href={conocenosPage.path}
+              class="text-gray-600 hover:text-gray-500 transition-colors"
+              >{conocenosPage.label}</a
+            >
+          </li>
+          <li>
+            <a
+              href={laAppPage.path}
+              class="text-gray-600 hover:text-gray-500 transition-colors"
+              >{laAppPage.label}</a
+            >
+          </li>
+          <li>
+            <a
+              href={contactanosPage.path}
+              class="text-gray-600 hover:text-gray-500 transition-colors"
+              >{contactanosPage.label}</a
+            >
+          </li>
         </ul>
       </div>
       <div class="space-y-4">
         <h3 class="text-xl font-semibold text-black mb-4">Salas Temáticas</h3>
         <ul class="space-y-2">
-          <li>
-            <a href="/rooms/romantic-rendezvous/" class="text-gray-600 hover:text-gray-500 transition-colors">Encuentro Romántico</a>
-          </li>
-          <li>
-            <a href="/rooms/barcelona-nights/" class="text-gray-600 hover:text-gray-500 transition-colors">Noches Barcelonesas</a>
-          </li>
-          <li><a href="/rooms/secret-garden/" class="text-gray-600 hover:text-gray-500 transition-colors">Jardín Secreto</a></li>
+          {
+            rooms.map((room) => (
+              <li>
+                <a
+                  href={ambientesPage.path}
+                  class="text-gray-600 hover:text-gray-500 transition-colors"
+                >
+                  {room.title}
+                </a>
+              </li>
+            ))
+          }
         </ul>
       </div>
       <div class="space-y-4">
         <h3 class="text-xl font-semibold text-black mb-4">Menu</h3>
         <ul class="space-y-2">
-          <li><a href="/menu/cocktails/" class="text-gray-600 hover:text-gray-500 transition-colors">Cocktails</a></li>
-          <li><a href="/menu/tapas/" class="text-gray-600 hover:text-gray-500 transition-colors">Tapas</a></li>
-          <li><a href="/menu/desserts/" class="text-gray-600 hover:text-gray-500 transition-colors">Postres</a></li>
+          <li>
+            <a
+              href={comeAquiPage.path}
+              class="text-gray-600 hover:text-gray-500 transition-colors"
+              >Cocktails</a
+            >
+          </li>
+          <li>
+            <a
+              href={comeAquiPage.path}
+              class="text-gray-600 hover:text-gray-500 transition-colors"
+              >Tapas</a
+            >
+          </li>
         </ul>
       </div>
       <div class="space-y-4">
-        <h3 class="text-xl font-semibold text-black mb-4">Mantente actualizado</h3>
+        <h3 class="text-xl font-semibold text-black mb-4">
+          Mantente actualizado
+        </h3>
         <div class="flex flex-col gap-2">
           <p>
-            Subscribirse a nuestro boletín para recibir las últimas
-            noticias y ofertas exclusivas.
+            Subscribirse a nuestro boletín para recibir las últimas noticias y
+            ofertas exclusivas.
           </p>
           <NewsletterInput />
         </div>
       </div>
     </div>
-    <div class="flex flex-col md:flex-row justify-between items-center gap-4 pt-8 border-t border-gray-200">
-      <div class="flex flex-wrap gap-4 items-center justify-center md:justify-start">
-        <span class="text-gray-600">© 2024 Maktub. Todos los derechos reservados.</span>
+    <div
+      class="flex flex-col md:flex-row justify-between items-center gap-4 pt-8 border-t border-gray-200"
+    >
+      <div
+        class="flex flex-wrap gap-4 items-center justify-center md:justify-start"
+      >
+        <span class="text-gray-600"
+          >© 2024 Maktub. Todos los derechos reservados.</span
+        >
       </div>
-      <div class="flex gap-4">
-        <a href="#" class="flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors">
-          <svg class="w-5 h-5"><!-- Instagram icon --></svg>
-        </a>
-        <a href="#" class="flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors">
-          <svg class="w-5 h-5"><!-- Facebook icon --></svg>
-        </a>
-        <a href="#" class="flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors">
-          <svg class="w-5 h-5"><!-- Twitter icon --></svg>
-        </a>
-      </div>
+      <SocialLinks variant="round" />
     </div>
   </div>
 </footer>
+
+

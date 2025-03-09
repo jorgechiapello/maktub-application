@@ -1,19 +1,15 @@
 ---
-import NewsletterInvite from '@components/landing/NewsletterInvite.astro';
-import SocialLinks from '@components/landing/SocialLinks.astro';
-import RelatedPostSection from '@components/landing/RelatedPostSection.astro';
+import NewsletterInvite from '@components/landing/NewsletterInvite.astro'
+import SocialLinks from '@components/landing/SocialLinks.astro'
+import RelatedPostSection from '@components/landing/RelatedPostSection.astro'
 
-const { pageTitle, siteUrl, publishDate, srcImage, altImage } = Astro.props;
+const { pageTitle, siteUrl, publishDate, srcImage, altImage } = Astro.props
 
 const formattedDate = publishDate.toLocaleDateString('es-ES', {
   year: 'numeric',
   month: 'long',
   day: 'numeric',
-});
-
-const shareText = encodeURIComponent(pageTitle);
-const pageUrl = new URL(Astro.url.pathname, siteUrl).toString();
-const shareUrl = encodeURIComponent(pageUrl);
+})
 ---
 
 <article class="flex flex-col gap-8">
@@ -24,7 +20,7 @@ const shareUrl = encodeURIComponent(pageUrl);
         <i class="fas fa-calendar"></i>
         {formattedDate}
       </time>
-      <SocialLinks shareUrl={shareUrl} shareText={shareText} />
+      <SocialLinks />
     </div>
   </header>
   <div class="post-image">
@@ -40,7 +36,7 @@ const shareUrl = encodeURIComponent(pageUrl);
     <slot />
     <div class="share-section">
       <h5 class="share-heading">Comparte este posteo</h5>
-      <SocialLinks shareUrl={shareUrl} shareText={shareText} />
+      <SocialLinks />
     </div>
   </div>
 
