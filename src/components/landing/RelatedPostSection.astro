@@ -1,19 +1,19 @@
 ---
 import BlogPreview from '@components/landing/BlogPreview.astro';
 
-import { blogArtOfConversation, blogUnlockingLove, blogEvents } from '@data/blogs';
+import { blogArtOfConversation, blogUnlockingLove, blogHottestSpot } from '@data/blogs';
 ---
 
 <div class="related-posts">
   <h2 class="related-posts-heading">Publicaciones relacionadas</h2>
   <div class="related-posts-grid">
     <BlogPreview
-      title={blogEvents.title}
-      categoryTitle={blogEvents.categoryTitle}
-      categoryId={blogEvents.categoryId}
-      image={blogEvents.image}
-      postId={blogEvents.postId}
-      excerpt={blogEvents.excerpt}
+      title={blogHottestSpot.title}
+      categoryTitle={blogHottestSpot.categoryTitle}
+      categoryId={blogHottestSpot.categoryId}
+      image={blogHottestSpot.image}
+      postId={blogHottestSpot.postId}
+      excerpt={blogHottestSpot.excerpt}
     />
     <BlogPreview
       title={blogArtOfConversation.title}

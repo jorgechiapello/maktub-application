@@ -18,7 +18,7 @@ export const blogUnlockingLove = {
     'AmorLounge es más que un bar; es una experiencia. Sumérgete en la atmósfera vibrante, explora nuestras salas temáticas y descubre la conexión perfecta.',
 }
 
-export const blogEvents = {
+export const blogHottestSpot = {
   title: 'El lugar más vibrante de Barcelona: Eventos Maktub',
   categoryTitle: 'Eventos',
   categoryId: 'events',
