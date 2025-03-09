@@ -1,27 +1,117 @@
-export interface AppFeature {
-  title: string;
-  description: string;
-  imageUrl: string;
-  imageAlt: string;
+export interface CardContent {
+  title: string
+  description: string
+  imageUrl: string
+  imageAlt: string
 }
 
-export const appFeatures: AppFeature[] = [
+export const appFeatures: CardContent[] = [
   {
-    title: "Profile Browsing",
-    description: "Easily browse profiles of other Maktub members. Filter by interests, age, and location to find your perfect match. Start connecting before you even arrive at the bar.",
-    imageUrl: "/wp-content/uploads/sites/128/2025/03/tenweb_media_srj6v4ctm.webp",
-    imageAlt: "A screenshot of the Maktub app's profile browsing feature, showing potential matches in Barcelona."
+    title: 'Profile Browsing',
+    description:
+      'Easily browse profiles of other Maktub members. Filter by interests, age, and location to find your perfect match. Start connecting before you even arrive at the bar.',
+    imageUrl:
+      '/wp-content/uploads/sites/128/2025/03/tenweb_media_srj6v4ctm.webp',
+    imageAlt:
+      "A screenshot of the Maktub app's profile browsing feature, showing potential matches in Barcelona.",
   },
   {
-    title: "Smart Matchmaking",
-    description: "Our intelligent algorithm suggests compatible matches based on your preferences and interests. Increase your chances of finding someone special with our advanced matchmaking technology.",
-    imageUrl: "/wp-content/uploads/sites/128/2025/03/tenweb_media_STGCGMSGW.webp",
-    imageAlt: "An image showcasing the Maktub app's matchmaking algorithm, highlighting compatibility scores."
+    title: 'Smart Matchmaking',
+    description:
+      'Our intelligent algorithm suggests compatible matches based on your preferences and interests. Increase your chances of finding someone special with our advanced matchmaking technology.',
+    imageUrl:
+      '/wp-content/uploads/sites/128/2025/03/tenweb_media_STGCGMSGW.webp',
+    imageAlt:
+      "An image showcasing the Maktub app's matchmaking algorithm, highlighting compatibility scores.",
   },
   {
-    title: "Themed Room Check-in",
-    description: "Check into themed rooms via the app to let others know where you are. See who else is in the room and start conversations. Enhance your in-person experience with digital interaction.",
-    imageUrl: "/wp-content/uploads/sites/128/2025/03/tenweb_media_SPZZWEN9R.webp",
-    imageAlt: "A visual representation of the Maktub app's integration with the bar's themed rooms, showing users checking in."
-  }
-];
+    title: 'Themed Room Check-in',
+    description:
+      'Check into themed rooms via the app to let others know where you are. See who else is in the room and start conversations. Enhance your in-person experience with digital interaction.',
+    imageUrl:
+      '/wp-content/uploads/sites/128/2025/03/tenweb_media_SPZZWEN9R.webp',
+    imageAlt:
+      "A visual representation of the Maktub app's integration with the bar's themed rooms, showing users checking in.",
+  },
+]
+
+export const rooms: CardContent[] = [
+  {
+    title: 'Sala discoteca',
+    description:
+      'Una habitación lujosa bañada en suave luz de velas, con cortinas de terciopelo, una cama king-size con pétalos de rosa y un balcón privado con vistas al horizonte de la ciudad.',
+    imageUrl: '/rooms/sala_discoteca.jpg',
+    imageAlt:
+      'Sala con diseño innovador y futurista, combinado con luces de neón, pantallas interactivas y con iluminación dinámica.',
+  },
+  {
+    title: 'Sala entretenimiento',
+    description:
+      'Sumérgete en un oasis encantador con arreglos florales en cascada, luces de hadas y un rincón íntimo para cenar, perfecto para una velada mágica.',
+    imageUrl: '/rooms/sala_entretenimiento.jpg',
+    imageAlt:
+      'Espacio vibrante y energético colorido, con estética moderna y divertida.',
+  },
+  {
+    title: 'Sala romántica',
+    description:
+      'Un espacio sofisticado adornado con detalles dorados, mobiliario de lujo y un jacuzzi privado, creando el escenario perfecto para una escapada íntima y opulenta.',
+    imageUrl: '/rooms/sala_romantica.jpg',
+    imageAlt:
+      'Habitación elegante para un ambiente íntimo y romántico con estilo clásico.',
+  },
+]
+
+export const dishes: CardContent[] = [
+  {
+    title: 'Empanadas',
+    description:
+      'Deliciosas empanadas pequeñas de carne, acompañadas de una exquisita salsa de sacha inchi y un toque de aceite de oliva. Presentadas con una decoración vibrante y temática.',
+    imageUrl: '/comida/empanadas.jpg',
+    imageAlt:
+      'Empanadas pequeñas de carne con salsa de sacha inchi y aceite de oliva, servidas en un plato decorativo.',
+  },
+  {
+    title: 'Ceviche de camarones',
+    description:
+      'Fresco ceviche de camarones con pétalos de rosa y maracuyá, una combinación perfecta de sabores tropicales y marinos, ideal para una experiencia romántica.',
+    imageUrl: '/comida/ceviche_camarones.jpg',
+    imageAlt:
+      'Ceviche de camarones con pétalos de rosa y maracuyá, decorado con ingredientes frescos y coloridos.',
+  },
+  {
+    title: 'Pulpo a la Gallega',
+    description:
+      'Exquisito pulpo a la gallega con pesto de rocoto, acompañado de una suave crema de patatas y un toque picante. Un plato pequeño pero visualmente impresionante.',
+    imageUrl: '/comida/pulpo_gallega.jpg',
+    imageAlt:
+      'Pulpo a la gallega con pesto de rocoto y crema de patatas, presentado de forma estética y apetecible.',
+  },
+]
+
+export const cocktails: CardContent[] = [
+  {
+    title: 'El Beso del sol',
+    description:
+      'Un cóctel exclusivo que combina pisco peruano, pulpa de maracuyá fresca, un toque de miel de agave y espuma de lima. Decorado con pétalos comestibles y oro en hoja.',
+    imageUrl: '/cocktails/trago_beso_del_sol.jpg',
+    imageAlt:
+      'Cóctel signature con pisco y maracuyá, decorado elegantemente con pétalos y oro comestible.',
+  },
+  {
+    title: 'Noche de azúcar y canela',
+    description:
+      'Gin premium infusionado con pétalos de rosa, licor St. Germain, jugo de limón y un splash de agua tónica rosada. Servido con hielo cristalino y garnish de rosa orgánica.',
+    imageUrl: '/cocktails/trago_noche_azucar_canela.jpg',
+    imageAlt:
+      'Cóctel rosado con gin y flores, presentado con hielo cristalino y rosa orgánica.',
+  },
+  {
+    title: 'Susurro Nocturno',
+    description:
+      'Mezcla seductora de tequila añejo, licor de café, chocolate negro líquido y un toque de canela. Coronado con espuma de vainilla y polvo de cacao.',
+    imageUrl: '/cocktails/trago_susurro_nocturno.jpg',
+    imageAlt:
+      'Cóctel oscuro y elegante con tequila y café, decorado con espuma y cacao.',
+  },
+]

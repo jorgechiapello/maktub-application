@@ -39,6 +39,7 @@ export const pagesTitles: Record<string, string> = {
   [conocenosPage.path]: conocenosPage.label,
   [contactanosPage.path]: contactanosPage.label,
   [laAppPage.path]: laAppPage.label,
+  [comeAquiPage.path]: comeAquiPage.label,
   ...blogsPathsAndTitles,
   ...blogCategoriesPathsAndName
 }
