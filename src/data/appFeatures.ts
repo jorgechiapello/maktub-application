@@ -7,31 +7,31 @@ export interface CardContent {
 
 export const appFeatures: CardContent[] = [
   {
-    title: 'Profile Browsing',
+    title: 'Navegación de Perfiles',
     description:
-      'Easily browse profiles of other Maktub members. Filter by interests, age, and location to find your perfect match. Start connecting before you even arrive at the bar.',
+      'Navega fácilmente por los perfiles de otros miembros de Maktub. Filtra por intereses, edad y ubicación para encontrar tu pareja perfecta. Comienza a conectar antes de llegar al bar.',
     imageUrl:
       '/wp-content/uploads/sites/128/2025/03/tenweb_media_srj6v4ctm.webp',
     imageAlt:
-      "A screenshot of the Maktub app's profile browsing feature, showing potential matches in Barcelona.",
+      'Una captura de pantalla de la función de navegación de perfiles de la aplicación Maktub, mostrando posibles coincidencias en Barcelona.',
   },
   {
-    title: 'Smart Matchmaking',
+    title: 'Emparejamiento Inteligente',
     description:
-      'Our intelligent algorithm suggests compatible matches based on your preferences and interests. Increase your chances of finding someone special with our advanced matchmaking technology.',
+      'Nuestro algoritmo inteligente sugiere coincidencias compatibles basadas en tus preferencias e intereses. Aumenta tus posibilidades de encontrar a alguien especial con nuestra avanzada tecnología de emparejamiento.',
     imageUrl:
       '/wp-content/uploads/sites/128/2025/03/tenweb_media_STGCGMSGW.webp',
     imageAlt:
-      "An image showcasing the Maktub app's matchmaking algorithm, highlighting compatibility scores.",
+      'Una imagen que muestra el algoritmo de emparejamiento de la aplicación Maktub, destacando las puntuaciones de compatibilidad.',
   },
   {
-    title: 'Themed Room Check-in',
+    title: 'Check-in en Salas Temáticas',
     description:
-      'Check into themed rooms via the app to let others know where you are. See who else is in the room and start conversations. Enhance your in-person experience with digital interaction.',
+      'Haz check-in en salas temáticas a través de la aplicación para que los demás sepan dónde estás. Ve quién más está en la sala y comienza conversaciones. Mejora tu experiencia en persona con interacción digital.',
     imageUrl:
       '/wp-content/uploads/sites/128/2025/03/tenweb_media_SPZZWEN9R.webp',
     imageAlt:
-      "A visual representation of the Maktub app's integration with the bar's themed rooms, showing users checking in.",
+      'Una representación visual de la integración de la aplicación Maktub con las salas temáticas del bar, mostrando usuarios haciendo check-in.',
   },
 ]
 
