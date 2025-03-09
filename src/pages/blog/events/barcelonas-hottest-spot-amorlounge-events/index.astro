@@ -11,9 +11,13 @@ const siteUrl = 'https://maktub.es';
 <PageLandingLayout>
   <Breadcrumbs
     items={[
-      { label: 'Inicio', href: '/' },
-      { label: 'Eventos', href: '/eventos/' },
-      { label: 'El lugar más vibrante de Barcelona: Eventos Maktub' },
+      { label: 'Inicio', path: '/' },
+      { label: 'Blog', path: '/blog' },
+      { label: 'Eventos', path: '/events' },
+      {
+        label: 'El lugar más vibrante de Barcelona: Eventos Maktub',
+        path: '/barcelonas-hottest-spot-amorlounge-events',
+      },
     ]}
   />
   <BlogPost
