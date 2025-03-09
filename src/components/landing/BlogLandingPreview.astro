@@ -1,0 +1,42 @@
+---
+interface Props {
+  imageUrl: string
+  imageAlt: string
+  category: string
+  title: string
+  description: string
+  readMoreUrl: string
+}
+
+const { imageUrl, imageAlt, category, title, description, readMoreUrl } =
+  Astro.props
+---
+
+<div class="bg-black rounded-lg overflow-hidden shadow-lg flex flex-row group hover:cursor-pointer">
+  <div class="relative w-1/2 overflow-hidden">
+    <a href={readMoreUrl}>
+      <img
+        src={imageUrl}
+        alt={imageAlt}
+        class="w-full h-full object-cover cursor-pointer object-center transition-transform duration-500 ease-in-out group-hover:scale-110"
+      />
+    </a>
+  </div>
+  <div class="px-2 w-1/2 flex flex-col justify-between overflow-y-auto">
+    <div>
+      <div class="text-sm text-white mb-2 group-hover:text-gray-400">{category}</div>
+      <h3 class="text-xl font-bold mb-3 text-white">
+        <a href={readMoreUrl} class="cursor-pointer group-hover:text-gray-400">{title}</a>
+      </h3>
+      <p class="text-white mb-4 text-sm">
+        {description}
+      </p>
+    </div>
+    <a
+      href={readMoreUrl}
+      class="text-white font-semibold inline-flex items-center group-hover:text-gray-400"
+    >
+      Read More <span class="ml-1">→</span>
+    </a>
+  </div>
+</div>

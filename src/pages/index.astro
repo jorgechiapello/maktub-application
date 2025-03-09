@@ -4,6 +4,8 @@ import '@fortawesome/fontawesome-free/css/all.min.css'
 import LandingLayout from '@layouts/LandingLayout.astro'
 import StarIcon from '../components/icons/StarIcon.astro'
 import TestimonialCard from '@components/landing/TestimonialCard.astro'
+import BlogLandingPreview from '@components/landing/BlogLandingPreview.astro'
+import { blogArtOfConversation, blogUnlockingLove, blogHottestSpot } from '@data/blogs'
 ---
 
 <LandingLayout>
@@ -339,90 +341,44 @@ import TestimonialCard from '@components/landing/TestimonialCard.astro'
       </div>
     </div>
   </div>
-  <div class="max-w-[1200px] mx-auto py-20 px-4" id="blog">
-    <div class="text-center mb-12">
-      <h2 class="text-4xl font-amiri font-bold mb-6">AmorLounge Blog</h2>
-      <p class="text-lg max-w-3xl mx-auto">Explore insights on dating and relationships.</p>
-    </div>
-    <div class="grid md:grid-cols-3 gap-8">
-      <!-- Blog Card 1 -->
-      <div class="bg-white rounded-lg overflow-hidden shadow-lg">
-        <div class="relative h-64">
-          <img
-            src="/wp-content/uploads/sites/128/2025/03/tenweb_media_r0ofxa4or.webp"
-            alt="AmorLounge Interior"
-            class="w-full h-full object-cover"
-          />
-        </div>
-        <div class="p-6">
-          <div class="text-sm text-gray-500 mb-2">Dating Tips</div>
-          <h3 class="text-xl font-bold mb-3">
-            Unlocking Love in Barcelona: Your Guide to AmorLounge
-          </h3>
-          <p class="text-gray-600 mb-4">
-            Discover the unique atmosphere and themed rooms at AmorLounge,
-            Barcelona's premier dating bar.
-          </p>
-          <a
-            href="/unlocking-love-in-barcelona-your-guide-to/"
-            class="text-black font-semibold hover:underline"
-          >
-            Read More →
-          </a>
-        </div>
-      </div>
-
-      <!-- Blog Card 2 -->
-      <div class="bg-white rounded-lg overflow-hidden shadow-lg">
-        <div class="relative h-64">
-          <img
-            src="/wp-content/uploads/sites/128/2025/03/tenweb_media_RYMGBZE44.webp"
-            alt="Couple Talking"
-            class="w-full h-full object-cover"
-          />
-        </div>
-        <div class="p-6">
-          <div class="text-sm text-gray-500 mb-2">Dating Strategies</div>
-          <h3 class="text-xl font-bold mb-3">
-            The Art of Conversation: Dating Strategies for AmorLounge
-          </h3>
-          <p class="text-gray-600 mb-4">
-            Master the art of conversation and create lasting connections at AmorLounge.
-          </p>
-          <a
-            href="/dating-strategies-for-amorlounge/"
-            class="text-black font-semibold hover:underline"
-          >
-            Read More →
-          </a>
-        </div>
-      </div>
-
-      <!-- Blog Card 3 -->
-      <div class="bg-white rounded-lg overflow-hidden shadow-lg">
-        <div class="relative h-64">
-          <img
-            src="/wp-content/uploads/sites/128/2025/03/tenweb_media_RBFCUY4UR.webp"
-            alt="AmorLounge Event"
-            class="w-full h-full object-cover"
-          />
-        </div>
-        <div class="p-6">
-          <div class="text-sm text-gray-500 mb-2">Events</div>
-          <h3 class="text-xl font-bold mb-3">
-            Barcelona's Hottest Spot: AmorLounge Events
-          </h3>
-          <p class="text-gray-600 mb-4">
-            Experience the vibrant nightlife and exclusive events at AmorLounge,
-            Barcelona's premier dating bar.
-          </p>
-          <a
-            href="/barcelonas-hottest-spot-amorlounge-events/"
-            class="text-black font-semibold hover:underline"
-          >
-            Read More →
-          </a>
-        </div>
+  <div id="blog" class="w-full bg-black py-20 px-4" id="blog">
+    <div class="max-w-[1200px] mx-auto flex flex-col gap-12">
+		<div>
+			<h2 class="text-4xl font-amiri font-bold text-white text-left">
+				AmorLounge Blog
+			</h2>
+			<p class="text-lg max-w-3xl text-white text-left">
+				Explore insights on dating and relationships.
+			</p>
+		</div>
+      <div class="grid grid-cols-2 gap-8">
+        <!-- blogArtOfConversation -->
+        <BlogLandingPreview
+          imageUrl={blogArtOfConversation.image}
+          imageAlt={blogArtOfConversation.imageAlt}
+          category={blogArtOfConversation.categoryId}
+          title={blogArtOfConversation.title}
+          description={blogArtOfConversation.excerpt}
+          readMoreUrl={blogArtOfConversation.readMoreUrl}
+        />
+<!-- blogUnlockingLove -->
+        <BlogLandingPreview
+          imageUrl={blogUnlockingLove.image}
+          imageAlt={blogUnlockingLove.imageAlt}
+          category={blogUnlockingLove.categoryId}
+          title={blogUnlockingLove.title}
+          description={blogUnlockingLove.excerpt}
+          readMoreUrl={blogUnlockingLove.readMoreUrl}
+        />
+<!-- blogHottestSpot -->
+        <BlogLandingPreview
+          imageUrl={blogHottestSpot.image}
+          imageAlt={blogHottestSpot.imageAlt}
+          category={blogHottestSpot.categoryId}
+          title={blogHottestSpot.title}
+          description={blogHottestSpot.excerpt}
+          readMoreUrl={blogHottestSpot.readMoreUrl}
+        />
       </div>
     </div>
   </div>
