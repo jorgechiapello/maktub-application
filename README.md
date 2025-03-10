@@ -31,11 +31,14 @@ The goal is to build a client-side web application that's easy to share and show
 
 ## TODOs Landing page
 - [x] Translate to Spanish
-- [ ] Add blog posts
+- [x] Fix social media icons (real IG, fake tiktok and facebook)
+- [x] Use Instagram Link
+- [x] Use proper content for food and drinks
+- [x] Add blog posts
 - [ ] Use proper pictures
 - [ ] Use proper logo
-- [x] Fix links to social media (real IG, fake tiktok and facebook)
-- [x] Use proper content for food and drinks
+- [ ] Use Facebook Link
+- [ ] Use TikTok Link
 
 ## TODOs
 - [x] Upload a proper logo
