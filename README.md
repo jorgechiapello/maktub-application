@@ -34,7 +34,7 @@ The goal is to build a client-side web application that's easy to share and show
 - [ ] Add blog posts
 - [ ] Use proper pictures
 - [ ] Use proper logo
-- [ ] Fix links to social media
+- [ ] Fix links to social media (real IG, fake tiktok and facebook)
 
 ## TODOs
 - [x] Upload a proper logo
