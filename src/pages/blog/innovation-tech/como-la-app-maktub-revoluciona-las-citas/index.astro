@@ -3,21 +3,22 @@ import PageLandingLayout from '@layouts/PageLandingLayout.astro'
 import BlogPost from '@components/landing/BlogPost.astro'
 import PageSubtitle from '@components/landing/PageSubtitle.astro'
 
+import { blogMaktubApp } from '@data/blogs'
+
 const publishDate = new Date('2025-03-10')
-const pageTitle = 'Cómo la App Maktub revoluciona las citas en Maktub'
 const siteUrl = 'https://maktub.es'
 ---
 
 <PageLandingLayout
-  title="Cómo la App Maktub revoluciona las citas en Maktub"
-  href="/blog/innovation-tech/como-la-app-maktub-revoluciona-las-citas/"
+  title={blogMaktubApp.title}
+  href={blogMaktubApp.readMoreUrl}
 >
   <BlogPost
-    pageTitle={pageTitle}
+    pageTitle={blogMaktubApp.title}
     publishDate={publishDate}
     siteUrl={siteUrl}
-    srcImage="/wp-content/uploads/sites/128/2025/03/tenweb_media_rx9hefrca.webp"
-    altImage="Cómo la App Maktub revoluciona las citas en Maktub"
+    srcImage={blogMaktubApp.image}
+    altImage={blogMaktubApp.imageAlt}
   >
     <p>
       En el mundo de las citas modernas, la app Maktub está cambiando las reglas
