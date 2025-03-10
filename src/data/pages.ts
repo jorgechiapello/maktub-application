@@ -12,6 +12,8 @@ const blogCategoriesPathsAndName = Object.entries(blogCategories).reduce(
 
 type Page = { label: string; path: string }
 
+export const siteUrl = 'https://maktub-app.vercel.app'
+
 export const initialPage: Page = { label: 'Inicio', path: '/' }
 export const ambientesPage: Page = { label: 'Ambientes', path: '/ambientes' }
 export const blogPage: Page = { label: 'Blog', path: '/blog' }
