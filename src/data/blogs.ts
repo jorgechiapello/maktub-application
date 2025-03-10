@@ -20,22 +20,22 @@ export const blogMaktubApp = {
   title: 'Cómo la App Maktub revoluciona las citas en Maktub',
   postId: blogMaktubAppId,
   excerpt:
-  'Descubre cómo la app Maktub combina tecnología de vanguardia con experiencias reales para transformar el mundo de las citas modernas.',
+    'Descubre cómo la app Maktub combina tecnología de vanguardia con experiencias reales para transformar el mundo de las citas modernas.',
   image: '/wp-content/uploads/sites/128/2025/03/tenweb_media_rx9hefrca.webp',
-  imageAlt: 'App Maktub en smartphone',
+  imageAlt: 'Dos personas charlando',
   readMoreUrl: `/blog/${blogCategories.innovation.id}/${blogMaktubAppId}`,
 }
 
-const blogUnlockingLoveId = 'unlocking-love-in-barcelona-your-guide-to'
+const blogUnlockingLoveId = 'consejos-para-tu-primera-cita'
 export const blogUnlockingLove = {
   categoryTitle: blogCategories.datingTips.title,
   categoryId: blogCategories.datingTips.id,
-  title: 'Descubriendo el Amor en Barcelona: Tu Guía de Maktub',
+  title: 'Consejos para tu primera cita',
   postId: blogUnlockingLoveId,
   excerpt:
-  'Maktub es más que un bar; es una experiencia. Sumérgete en la atmósfera vibrante, explora nuestras salas temáticas y descubre la conexión perfecta.',
-  image: '/wp-content/uploads/sites/128/2025/03/tenweb_media_R7ZFYALQF.webp',
-  imageAlt: 'Maktub Interior',
+    'Cinco consejos prácticos para asegurarte de que tu primera cita en Maktub sea una experiencia memorable y exitosa.',
+  image: '/dating-tips.jpg',
+  imageAlt: 'Dos personas tomando un trago',
   readMoreUrl: `/blog/${blogCategories.datingTips.id}/${blogUnlockingLoveId}`,
 }
 
@@ -46,7 +46,7 @@ export const blogHottestSpot = {
   title: 'El lugar más vibrante de Barcelona: Eventos Maktub',
   postId: blogHottestSpotId,
   excerpt:
-  'Vive la vibrante vida nocturna y los eventos exclusivos de Maktub, el bar de citas líder en Barcelona.',
+    'Vive la vibrante vida nocturna y los eventos exclusivos de Maktub, el bar de citas líder en Barcelona.',
   image: '/wp-content/uploads/sites/128/2025/03/tenweb_media_rrzsflcu0.webp',
   imageAlt: 'People dancing in a bar',
   readMoreUrl: `/blog/${blogCategories.events.id}/${blogHottestSpotId}`,

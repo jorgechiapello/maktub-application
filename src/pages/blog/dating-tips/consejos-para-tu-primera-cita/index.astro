@@ -1,0 +1,81 @@
+---
+import PageLandingLayout from '@layouts/PageLandingLayout.astro'
+import BlogPost from '@components/landing/BlogPost.astro'
+import PageSubtitle from '@components/landing/PageSubtitle.astro'
+
+import { blogUnlockingLove } from '@data/blogs'
+
+const publishDate = new Date('2025-03-12')
+const siteUrl = 'https://maktub.es'
+---
+
+<PageLandingLayout
+  title={blogUnlockingLove.title}
+  href={blogUnlockingLove.readMoreUrl}
+>
+  <BlogPost
+    pageTitle={blogUnlockingLove.title}
+    publishDate={publishDate}
+    siteUrl={siteUrl}
+    srcImage={blogUnlockingLove.image}
+    altImage={blogUnlockingLove.imageAlt}
+  >
+    <p>
+      En el corazón de Barcelona, Maktub ofrece un entorno único para vivir experiencias de citas inolvidables. Si estás preparándote para una primera cita en este encantador bar, aquí tienes cinco consejos prácticos para asegurarte de que todo salga a la perfección.
+    </p>
+
+    <PageSubtitle>1. Viste para impresionar (y para ti mismo)</PageSubtitle>
+    <p>
+      La ropa es una parte crucial de cualquier cita. En Maktub, donde el
+      ambiente es relajado y sofisticado, es importante vestir de manera que te
+      haga sentir cómodo y confiado. Opta por un estilo que refleje tu
+      personalidad, pero mantén un equilibrio entre comodidad y estilo. Para las
+      mujeres, un vestido corte A o un conjunto de pantalones y top elegante
+      pueden ser ideales. Para los hombres, un par de pantalones chinos con una
+      camisa ligera es una excelente opción.
+    </p>
+
+    <PageSubtitle>2. Mantén una actitud positiva</PageSubtitle>
+    <p>
+      La actitud es todo en una primera cita. Acércate con una mentalidad
+      abierta y positiva, pensando que esta podría ser una experiencia divertida
+      y enriquecedora, independientemente del resultado. Recuerda que la primera
+      cita es una oportunidad para conocer a alguien nuevo y disfrutar del
+      momento, así que mantén una sonrisa y una actitud optimista.
+    </p>
+
+    <PageSubtitle>3. Conversación interesante: temas y preguntas</PageSubtitle>
+    <p>
+      La conversación es clave en cualquier cita. En Maktub, donde el ambiente
+      es propicio para charlar, asegúrate de tener temas interesantes para
+      hablar. Pregúntale sobre sus pasatiempos, viajes, películas favoritas o
+      libros recientes. Evita temas demasiado personales o polémicos en una
+      primera cita. Preguntas como "¿Cuál es tu mayor logro?" o "¿Qué te gusta
+      hacer en tu tiempo libre?" pueden ser excelentes para conocer más sobre tu
+      cita.
+    </p>
+
+    <PageSubtitle>4. Aprovecha el ambiente de Maktub</PageSubtitle>
+    <p>
+      Maktub no es solo un bar; es un espacio diseñado para fomentar conexiones
+      significativas. Aprovecha las actividades y eventos que se organizan allí
+      para romper el hielo. Participa en juegos o actividades interactivas que
+      te permitan conocer mejor a tu cita en un ambiente relajado y divertido.
+    </p>
+
+    <PageSubtitle>5. Sé tú mismo/a</PageSubtitle>
+    <p>
+      La autenticidad es fundamental en cualquier relación. No intentes ser
+      alguien que no eres. Maktub es un lugar donde puedes ser tú mismo, así que
+      aprovecha esta oportunidad para mostrar tu verdadera personalidad.
+      Comparte tus intereses y pasiones genuinamente, y escucha con atención lo
+      que tu cita tiene que decir.
+    </p>
+
+    <p>
+      Siguiendo estos consejos, podrás asegurarte de que tu primera cita en
+      Maktub sea una experiencia memorable y emocionante. ¡Disfruta del momento
+      y deja que la magia de Maktub haga el resto!
+    </p>
+  </BlogPost>
+</PageLandingLayout>
