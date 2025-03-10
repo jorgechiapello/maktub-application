@@ -1,0 +1,77 @@
+---
+import PageLandingLayout from '@layouts/PageLandingLayout.astro'
+import BlogPost from '@components/landing/BlogPost.astro'
+import PageSubtitle from '@components/landing/PageSubtitle.astro'
+
+const publishDate = new Date('2025-03-10')
+const pageTitle = 'Cómo la App Maktub revoluciona las citas en Maktub'
+const siteUrl = 'https://maktub.es'
+---
+
+<PageLandingLayout
+  title="Cómo la App Maktub revoluciona las citas en Maktub"
+  href="/blog/innovation-tech/como-la-app-maktub-revoluciona-las-citas/"
+>
+  <BlogPost
+    pageTitle={pageTitle}
+    publishDate={publishDate}
+    siteUrl={siteUrl}
+    srcImage="/wp-content/uploads/sites/128/2025/03/tenweb_media_rx9hefrca.webp"
+    altImage="Cómo la App Maktub revoluciona las citas en Maktub"
+  >
+    <p>
+      En el mundo de las citas modernas, la app Maktub está cambiando las reglas
+      del juego al combinar la tecnología de vanguardia con la experiencia única
+      del bar Maktub en Barcelona. Esta innovadora aplicación no solo conecta a
+      las personas en línea, sino que también las invita a vivir experiencias
+      reales en un ambiente diseñado para fomentar conexiones auténticas.
+    </p>
+
+    <PageSubtitle>La magia de la tecnología</PageSubtitle>
+    <p>
+      La app Maktub utiliza un sofisticado algoritmo de compatibilidad que va
+      más allá de los simples swipes. Al analizar las preferencias, intereses y
+      personalidades de los usuarios, la app sugiere matches con un potencial
+      real de conexión. Pero lo verdaderamente revolucionario es cómo integra
+      estas sugerencias con el espacio físico del bar Maktub.
+    </p>
+
+    <PageSubtitle>Del mundo virtual al real</PageSubtitle>
+    <p>
+      Una vez que se produce un match, la app no solo facilita la comunicación
+      en línea, sino que también permite a los usuarios reservar una mesa en el
+      bar Maktub. El ambiente cuidadosamente diseñado del bar, con sus espacios
+      acogedores y actividades interactivas, proporciona el escenario perfecto
+      para que las parejas se conozcan en persona.
+    </p>
+
+    <PageSubtitle>Testimonios de éxito</PageSubtitle>
+    <p>
+      María, una usuaria de 28 años, comparte su experiencia: "Estaba cansada de
+      las apps de citas tradicionales. Maktub me sorprendió gratamente. No solo
+      encontré a alguien compatible, sino que nuestra primera cita en el bar fue
+      increíble. Las actividades rompehielos nos ayudaron a sentirnos cómodos
+      desde el principio".
+    </p>
+    <p>
+      Carlos, de 35 años, añade: "La combinación de la app y el bar es genial.
+      Me encanta que pueda conocer a alguien en un ambiente seguro y divertido.
+      Definitivamente, Maktub ha cambiado mi perspectiva sobre las citas en
+      línea".
+    </p>
+
+    <PageSubtitle>Más que una App, una experiencia</PageSubtitle>
+    <p>
+      Lo que hace única a Maktub es su enfoque holístico de las citas. No se
+      trata solo de encontrar un match en línea, sino de crear oportunidades
+      reales para conexiones significativas. Con eventos temáticos, noches de
+      juegos y otras actividades especiales, Maktub está redefiniendo lo que
+      significa tener una cita en la era digital.
+    </p>
+    <p>
+      En conclusión, la app Maktub está revolucionando el mundo de las citas al
+      cerrar la brecha entre lo virtual y lo real, ofreciendo a sus usuarios una
+      experiencia de citas verdaderamente innovadora y emocionante.
+    </p>
+  </BlogPost>
+</PageLandingLayout>

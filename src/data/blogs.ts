@@ -1,8 +1,4 @@
 export const blogCategories = {
-  datingStrategies: {
-    id: 'dating-strategies',
-    title: 'Estrategias de citas',
-  },
   datingTips: {
     id: 'dating-tips',
     title: 'Consejos de citas',
@@ -11,19 +7,23 @@ export const blogCategories = {
     id: 'events',
     title: 'Eventos',
   },
+  innovation: {
+    id: 'innovation-tech',
+    title: 'Innovación y Tecnología',
+  },
 }
 
-const blogArtOfConversationId ='the-art-of-conversation-dating-strategies-for'
-export const blogArtOfConversation = {
-  categoryTitle: blogCategories.datingStrategies.title,
-  categoryId: blogCategories.datingStrategies.id,
-  title: 'El arte de la conversación: Estrategias de citas para Maktub',
-  postId: blogArtOfConversationId,
+const blogMaktubAppId = 'como-la-app-maktub-revoluciona-las-citas'
+export const blogMaktubApp = {
+  categoryTitle: blogCategories.innovation.title,
+  categoryId: blogCategories.innovation.id,
+  title: 'Cómo la App Maktub revoluciona las citas en Maktub',
+  postId: blogMaktubAppId,
   excerpt:
-  'Domina el arte de la conversación y crea conexiones duraderas en Maktub.',
+  'Descubre cómo la app Maktub combina tecnología de vanguardia con experiencias reales para transformar el mundo de las citas modernas.',
   image: '/wp-content/uploads/sites/128/2025/03/tenweb_media_rx9hefrca.webp',
-  imageAlt: 'Maktub Interior',
-  readMoreUrl: `/blog/${blogCategories.datingStrategies.id}/${blogArtOfConversationId}`,
+  imageAlt: 'App Maktub en smartphone',
+  readMoreUrl: `/blog/${blogCategories.innovation.id}/${blogMaktubAppId}`,
 }
 
 const blogUnlockingLoveId = 'unlocking-love-in-barcelona-your-guide-to'
@@ -52,4 +52,4 @@ export const blogHottestSpot = {
   readMoreUrl: `/blog/${blogCategories.events.id}/${blogHottestSpotId}`,
 }
 
-export const blogPosts = [blogArtOfConversation, blogUnlockingLove, blogHottestSpot]
+export const blogPosts = [blogMaktubApp, blogUnlockingLove, blogHottestSpot]

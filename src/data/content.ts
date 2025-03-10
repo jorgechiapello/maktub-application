@@ -64,28 +64,28 @@ export const rooms: CardContent[] = [
 
 export const dishes: CardContent[] = [
   {
-    title: 'Empanadas',
+    title: 'Empanadas de carne con salsa de sacha inchi y aceite de oliva',
     description:
-      'Deliciosas empanadas pequeñas de carne, acompañadas de una exquisita salsa de sacha inchi y un toque de aceite de oliva. Presentadas con una decoración vibrante y temática.',
+      'Empanadas crujientes rellenas de carne de res, con una suave salsa de sacha inchi, semilla originaria de la Amazonía, conocida por sus propiedades afrodisíacas.',
     imageUrl: '/comida/empanadas.jpg',
     imageAlt:
-      'Empanadas pequeñas de carne con salsa de sacha inchi y aceite de oliva, servidas en un plato decorativo.',
+      'Empanadas crujientes de carne con salsa de sacha inchi y aceite de oliva, servidas en un plato decorativo.',
   },
   {
-    title: 'Ceviche de camarones',
+    title: 'Ceviche de camarones con pétalos de rosa y maracuyá',
     description:
-      'Fresco ceviche de camarones con pétalos de rosa y maracuyá, una combinación perfecta de sabores tropicales y marinos, ideal para una experiencia romántica.',
+      'Camarones frescos, macerados en jugo de limón y maracuyá, con un toque de pétalos de rosa comestibles y un toque de chile. La combinación perfecta para una noche de pasión.',
     imageUrl: '/comida/ceviche_camarones.jpg',
     imageAlt:
       'Ceviche de camarones con pétalos de rosa y maracuyá, decorado con ingredientes frescos y coloridos.',
   },
   {
-    title: 'Pulpo a la Gallega',
+    title: 'Pulpo a la Gallega con pesto de rocoto',
     description:
-      'Exquisito pulpo a la gallega con pesto de rocoto, acompañado de una suave crema de patatas y un toque picante. Un plato pequeño pero visualmente impresionante.',
+      'Pulpo a la parrilla con una crema de patatas y aceite de oliva, acompañado de un pesto picante de rocoto, un toque de Perú que resalta los sabores Mediterráneos.',
     imageUrl: '/comida/pulpo_gallega.jpg',
     imageAlt:
-      'Pulpo a la gallega con pesto de rocoto y crema de patatas, presentado de forma estética y apetecible.',
+      'Pulpo a la parrilla con crema de patatas y aceite de oliva, decorado con pesto picante de rocoto.',
   },
 ]
 
@@ -93,25 +93,25 @@ export const cocktails: CardContent[] = [
   {
     title: 'El Beso del Sol',
     description:
-      'Un cóctel exclusivo que combina pisco peruano, pulpa de maracuyá fresca, un toque de miel de agave y espuma de lima. Decorado con pétalos comestibles y oro en hoja.',
+      'Pisco, jugo de naranja y maracuyá se entrelazan en un cóctel refrescante, cálido y lleno de energía, como un día de verano.',
     imageUrl: '/cocktails/trago_beso_del_sol.jpg',
     imageAlt:
-      'Cóctel "El Beso del Sol" con pisco, maracuyá, y decorado con pétalos comestibles y oro en hoja.',
+      'Cóctel "El Beso del Sol" con pisco, maracuyá, servido con hielo cristalino.',
   },
   {
     title: 'Noche de Azúcar y Canela',
     description:
-      'Gin premium infusionado con pétalos de rosa, licor St. Germain, jugo de limón y un splash de agua tónica rosada. Servido con hielo cristalino y garnish de rosa orgánica.',
+      'Whisky de bourbon, canela y jarabe de arce crean un cóctel dulce y especiado, ideal para una noche de seducción.',
     imageUrl: '/cocktails/trago_noche_azucar_canela.jpg',
     imageAlt:
-      'Cóctel "Noche de Azúcar y Canela" rosado con gin, flores y rosa orgánica, servido con hielo cristalino.',
+      'Cóctel "Noche de Azúcar y Canela" con whisky, canela y jarabe de arce, servido con hielo cristalino.',
   },
   {
     title: 'Susurro Nocturno',
     description:
-      'Mezcla seductora de tequila añejo, licor de café, chocolate negro líquido y un toque de canela. Coronado con espuma de vainilla y polvo de cacao.',
+      'Cóctel floral y afrutado con vodka infusionado, hibisco y granada, perfecto para una velada íntima bajo las estrellas.',
     imageUrl: '/cocktails/trago_susurro_nocturno.jpg',
     imageAlt:
-      'Cóctel "Susurro Nocturno" oscuro con tequila, café, chocolate, espuma de vainilla y polvo de cacao.',
+      'Cóctel "Susurro Nocturno" oscuro con vodka, hibisco, granada, servido con hielo cristalino.',
   },
 ]

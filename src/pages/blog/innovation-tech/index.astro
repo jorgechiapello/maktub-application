@@ -1,0 +1,26 @@
+---
+import PageLandingLayout from '@layouts/PageLandingLayout.astro'
+import BlogPreview from '@components/landing/BlogPreview.astro'
+import BlogPostGrid from '@components/landing/BlogPostGrid.astro'
+
+import { blogMaktubApp } from '@data/blogs'
+---
+
+<PageLandingLayout
+  title="Innovación y Tecnología"
+  href="/blog/innovation-tech/"
+>
+  <h2 class="text-2xl font-semibold mb-8 text-gray-800">
+    Innovación y Tecnología
+  </h2>
+  <BlogPostGrid>
+    <BlogPreview
+      title={blogMaktubApp.title}
+      categoryTitle={blogMaktubApp.categoryTitle}
+      categoryId={blogMaktubApp.categoryId}
+      image={blogMaktubApp.image}
+      postId={blogMaktubApp.postId}
+      excerpt={blogMaktubApp.excerpt}
+    />
+  </BlogPostGrid>
+</PageLandingLayout>

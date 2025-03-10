@@ -2,7 +2,7 @@
 import BlogPreview from '@components/landing/BlogPreview.astro';
 import BlogPostGrid from '@components/landing/BlogPostGrid.astro';
 
-import { blogArtOfConversation, blogUnlockingLove, blogHottestSpot } from '@data/blogs';
+import { blogMaktubApp, blogUnlockingLove, blogHottestSpot } from '@data/blogs';
 ---
 
 <div class="mx-auto border-t border-gray-200 mt-16">
@@ -17,12 +17,12 @@ import { blogArtOfConversation, blogUnlockingLove, blogHottestSpot } from '@data
       excerpt={blogHottestSpot.excerpt}
     />
     <BlogPreview
-      title={blogArtOfConversation.title}
-      categoryTitle={blogArtOfConversation.categoryTitle}
-      categoryId={blogArtOfConversation.categoryId}
-      image={blogArtOfConversation.image}
-      postId={blogArtOfConversation.postId}
-      excerpt={blogArtOfConversation.excerpt}
+      title={blogMaktubApp.title}
+      categoryTitle={blogMaktubApp.categoryTitle}
+      categoryId={blogMaktubApp.categoryId}
+      image={blogMaktubApp.image}
+      postId={blogMaktubApp.postId}
+      excerpt={blogMaktubApp.excerpt}
     />
     <BlogPreview
       title={blogUnlockingLove.title}

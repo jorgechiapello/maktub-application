@@ -6,12 +6,12 @@ import RoomPreview from '../components/landing/RoomPreview.astro'
 import TestimonialCard from '@components/landing/TestimonialCard.astro'
 import BlogLandingPreview from '@components/landing/BlogLandingPreview.astro'
 import {
-  blogArtOfConversation,
+  blogMaktubApp,
   blogUnlockingLove,
   blogHottestSpot,
 } from '@data/blogs'
 
-import { rooms } from '@data/appFeatures'
+import { rooms } from '@data/content'
 import ZigZagUnderline from '@components/landing/ZigZagUnderline.astro'
 ---
 
@@ -298,12 +298,12 @@ import ZigZagUnderline from '@components/landing/ZigZagUnderline.astro'
       </div>
       <div class="grid grid-cols-2 gap-8">
         <BlogLandingPreview
-          imageUrl={blogArtOfConversation.image}
-          imageAlt={blogArtOfConversation.imageAlt}
-          category={blogArtOfConversation.categoryId}
-          title={blogArtOfConversation.title}
-          description={blogArtOfConversation.excerpt}
-          readMoreUrl={blogArtOfConversation.readMoreUrl}
+          imageUrl={blogMaktubApp.image}
+          imageAlt={blogMaktubApp.imageAlt}
+          category={blogMaktubApp.categoryId}
+          title={blogMaktubApp.title}
+          description={blogMaktubApp.excerpt}
+          readMoreUrl={blogMaktubApp.readMoreUrl}
         />
         <BlogLandingPreview
           imageUrl={blogUnlockingLove.image}

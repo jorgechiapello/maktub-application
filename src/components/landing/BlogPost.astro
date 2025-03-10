@@ -2,6 +2,7 @@
 import NewsletterInvite from '@components/landing/NewsletterInvite.astro'
 import SocialLinks from '@components/landing/SocialLinks.astro'
 import RelatedPostSection from '@components/landing/RelatedPostSection.astro'
+import PageTitle from './PageTitle.astro'
 
 const { pageTitle, siteUrl, publishDate, srcImage, altImage } = Astro.props
 
@@ -14,7 +15,7 @@ const formattedDate = publishDate.toLocaleDateString('es-ES', {
 
 <article class="flex flex-col gap-8">
   <header class="post-header">
-    <h1 class="post-title">{pageTitle}</h1>
+    <PageTitle>{pageTitle}</PageTitle>
     <div class="post-meta flex justify-between">
       <time datetime={publishDate.toISOString()} class="post-date">
         <i class="fas fa-calendar"></i>
