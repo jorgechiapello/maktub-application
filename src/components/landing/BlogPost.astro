@@ -14,29 +14,33 @@ const formattedDate = publishDate.toLocaleDateString('es-ES', {
 ---
 
 <article class="flex flex-col gap-8">
-  <header class="post-header">
+  <header class="py-8 border-b border-gray-200 mb-8">
     <PageTitle>{pageTitle}</PageTitle>
-    <div class="post-meta flex justify-between">
-      <time datetime={publishDate.toISOString()} class="post-date">
-        <i class="fas fa-calendar"></i>
+    <div class="flex justify-between">
+      <time
+        datetime={publishDate.toISOString()}
+        class="flex items-center gap-2 text-sm text-gray-500"
+      >
+        <i class="fas fa-calendar text-red-500"></i>
         {formattedDate}
       </time>
       <SocialLinks />
     </div>
   </header>
-  <div class="post-image">
-    <img
-      fetchpriority="high"
-      width="1820"
-      height="1024"
-      src={srcImage}
-      alt={altImage}
-    />
-  </div>
-  <div class="post-content">
+  <img
+    fetchpriority="high"
+    width="1820"
+    height="1024"
+    src={srcImage}
+    alt={altImage}
+    class="w-full h-auto block mx-auto md:rounded-lg"
+  />
+  <div class="py-8 text-lg leading-relaxed">
     <slot />
-    <div class="share-section">
-      <h5 class="share-heading">Comparte este posteo</h5>
+    <div class="mt-12 pt-8 border-t">
+      <h5 class="text-xl font-semibold mb-4">
+        Comparte este posteo
+      </h5>
       <SocialLinks />
     </div>
   </div>
@@ -44,96 +48,3 @@ const formattedDate = publishDate.toLocaleDateString('es-ES', {
   <RelatedPostSection />
   <NewsletterInvite />
 </article>
-<style>
-  .post-title {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #333;
-    margin-bottom: 1.5rem;
-    line-height: 1.2;
-  }
-
-  .post-date {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
-  .post-date i {
-    font-size: 1rem;
-    color: #666;
-  }
-  .post-image {
-    margin-bottom: 2rem;
-  }
-  .post-image img {
-    width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-  }
-
-  .share-section {
-    margin-top: 3rem;
-    padding-top: 2rem;
-    border-top: 1px solid #eee;
-  }
-
-  .share-heading {
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    color: #333;
-  }
-
-  @media (max-width: 768px) {
-    .post-image {
-      margin: 1.5rem 0;
-      border-radius: 8px;
-    }
-
-    .post-header {
-      padding: 1.5rem 0;
-    }
-
-    .post-title {
-      font-size: 1.75rem;
-    }
-
-    .post-content {
-      padding: 1.5rem 0;
-    }
-  }
-
-  .post-header {
-    padding: 2rem 0;
-    border-bottom: 1px solid #eee;
-    margin-bottom: 2rem;
-  }
-
-  .post-date {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: #666;
-    font-size: 0.875rem;
-  }
-
-  .post-date i {
-    color: #ff0000;
-  }
-
-  .post-content {
-    padding: 2rem 0;
-    font-size: 1.125rem;
-    line-height: 1.8;
-    color: #444;
-  }
-
-  .post-content p {
-    margin-bottom: 1.5rem;
-  }
-
-  .post-content p:last-child {
-    margin-bottom: 0;
-  }
-</style>
