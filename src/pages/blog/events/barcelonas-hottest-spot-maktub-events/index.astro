@@ -1,40 +1,120 @@
 ---
 import PageLandingLayout from '@layouts/PageLandingLayout.astro'
 import BlogPost from '@components/landing/BlogPost.astro'
+import PageSubtitle from '@components/landing/PageSubtitle.astro'
+
+import { blogHottestSpot } from '@data/blogs'
 
 const publishDate = new Date('2025-03-01')
-const pageTitle = 'El lugar más vibrante de Barcelona: Eventos Maktub'
 const siteUrl = 'https://maktub.es'
 ---
 
 <PageLandingLayout
-  title="El lugar más vibrante de Barcelona: Eventos Maktub"
-  href="/blog/events/barcelonas-hottest-spot-Maktub-events/"
+  title={blogHottestSpot.title}
+  href={blogHottestSpot.readMoreUrl}
 >
   <BlogPost
-    pageTitle={pageTitle}
+    pageTitle={blogHottestSpot.title}
     publishDate={publishDate}
     siteUrl={siteUrl}
-    srcImage="/wp-content/uploads/sites/128/2025/03/tenweb_media_rrzsflcu0.webp"
-    altImage="Maktub Events Venue - A vibrant social space in Barcelona"
+    srcImage={blogHottestSpot.image}
+    altImage={blogHottestSpot.imageAlt}
   >
     <p>
-      Maktub es más que un simple bar de citas; es un centro de interacción
-      social y experiencias inolvidables. Organizamos una variedad de eventos a
-      lo largo de la semana, desde noches temáticas hasta presentaciones de
-      música en vivo. Únete a nosotros para una noche de diversión, conexión y
-      recuerdos inolvidables.
+      En Maktub, la magia de Barcelona se entrelaza con la promesa del destino.
+      Como dice nuestro lema, "Lo que está escrito", todo lo que sucede aquí
+      sigue un plan, ¡y ese plan podría incluir conocer a tu próxima gran
+      conexión! Más que un simple bar, Maktub es un catalizador de experiencias
+      memorables, diseñadas para fomentar la autenticidad y la diversión.
+    </p>
+
+    <PageSubtitle
+      >¿Por qué Maktub es el Lugar Perfecto para Conectar?</PageSubtitle
+    >
+    <p>
+      En Maktub, entendemos la necesidad de espacios que faciliten conexiones
+      personales significativas. Inspirados en la vibrante vida social de
+      Barcelona, hemos creado un bar que aborda las inseguridades de las
+      primeras citas y ofrece un ambiente seguro y acogedor donde puedes ser tú
+      mismo.
+    </p>
+
+    <PageSubtitle
+      >Nuestras tres salas temáticas: un mundo de posibilidades</PageSubtitle
+    >
+    <p>
+      Maktub se distingue por sus tres salas temáticas, cada una diseñada para
+      satisfacer diferentes necesidades y expectativas:
+    </p>
+    <ul class="list-disc pl-6 mb-4 space-y-2">
+      <li>
+        <strong>Sala Romántica:</strong> Para aquellos que buscan algo serio, esta
+        sala ofrece un ambiente íntimo y acogedor, ideal para conversaciones profundas
+        y conexiones emocionales.
+      </li>
+      <li>
+        <strong>Sala Divertida:</strong> Con juegos y entretenimiento, esta sala
+        es perfecta para quienes prefieren una aproximación más casual y relajada
+        a las citas. Rompe el hielo con actividades interactivas y descubre el lado
+        divertido de conocer a alguien nuevo.
+      </li>
+      <li>
+        <strong>Club para Bailar:</strong> Un espacio para la liberación y la diversión,
+        donde puedes soltarte y disfrutar de la música mientras conoces gente en
+        un ambiente más festivo.
+      </li>
+    </ul>
+
+    <PageSubtitle>¿Qué eventos te esperan en Maktub?</PageSubtitle>
+    <p>
+      Si bien Maktub no organiza speed dating como tal (¡aún!), el ambiente del
+      bar está diseñado para que cada noche se sienta como una oportunidad para
+      conocer a alguien especial. Aquí te damos algunas ideas de lo que podrías
+      encontrar:
+    </p>
+    <ul class="list-disc pl-6 mb-4 space-y-2">
+      <li>
+        <strong>Noches Temáticas:</strong> Desde veladas románticas con música suave
+        y cócteles afrodisíacos, hasta noches de juegos interactivos y desafíos en
+        grupo, siempre hay algo emocionante en Maktub.
+      </li>
+      <li>
+        <strong>Espectáculos en Vivo:</strong> Disfruta de presentaciones artísticas
+        que añaden un toque de magia a la noche y proporcionan temas de conversación
+        interesantes.
+      </li>
+      <li>
+        <strong>Encuentros Casuales:</strong> Simplemente relájate en cualquiera
+        de nuestras salas, disfruta de nuestra deliciosa propuesta gastronómica y
+        déjate llevar por la conversación con otros asistentes.
+      </li>
+    </ul>
+
+    <PageSubtitle
+      >Y No Olvides Nuestra App: El Destino en tus Manos</PageSubtitle
+    >
+    <p>
+      Para maximizar tus oportunidades de conexión, te invitamos a descargar
+      nuestra app "Cupido's Match". Esta herramienta te permite crear un perfil
+      que refleje tus intereses y preferencias, lo que facilita el
+      emparejamiento con personas afines antes incluso de llegar al bar. Imagina
+      llegar a Maktub sabiendo que tienes una conexión potencial esperándote...
+      ¡Eso es lo que está escrito!
+    </p>
+
+    <PageSubtitle
+      >Maktub: más que un bar, un catalizador de conexiones</PageSubtitle
+    >
+    <p>
+      Así que, ¿qué esperas? Únete a nosotros en Maktub y descubre un nuevo
+      mundo de posibilidades. Ya sea que busques el amor verdadero, una noche de
+      diversión o simplemente una conexión genuina, estamos seguros de que lo
+      encontrarás aquí.
     </p>
     <p>
-      Nuestros eventos están diseñados para crear un ambiente animado y
-      envolvente, permitiéndote conocer nuevas personas y ampliar tus conexiones
-      sociales. Desde reuniones íntimas hasta fiestas a gran escala, ofrecemos
-      experiencias para todos los gustos.
+      Recuerda: Nada sucede por casualidad. En Maktub, todo sigue un plan, ¡y el
+      tuyo podría estar a punto de comenzar!
     </p>
-    <p>
-      Mantente atento a nuestros próximos eventos, que contarán con invitados
-      especiales, música en vivo y promociones exclusivas. Síguenos en redes
-      sociales para estar al tanto de las últimas novedades y anuncios.
-    </p>
+    <p>¡Nos vemos en Maktub!</p>
   </BlogPost>
 </PageLandingLayout>
