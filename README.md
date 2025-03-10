@@ -30,11 +30,12 @@ The goal is to build a client-side web application that's easy to share and show
    ```
 
 ## TODOs Landing page
-- [ ] Translate to Spanish
+- [x] Translate to Spanish
 - [ ] Add blog posts
 - [ ] Use proper pictures
 - [ ] Use proper logo
 - [ ] Fix links to social media (real IG, fake tiktok and facebook)
+- [ ] Use proper content for food and drinks
 
 ## TODOs
 - [x] Upload a proper logo
