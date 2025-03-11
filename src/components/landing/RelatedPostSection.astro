@@ -1,12 +1,13 @@
 ---
 import BlogPreview from '@components/landing/BlogPreview.astro';
 import BlogPostGrid from '@components/landing/BlogPostGrid.astro';
+import PageTitle from '@components/landing/PageTitle.astro'
 
 import { blogMaktubApp, blogUnlockingLove, blogHottestSpot } from '@data/blogs';
 ---
 
 <div class="mx-auto border-t border-gray-200 mt-16">
-  <h2 class="text-2xl font-semibold mb-8 text-gray-800">Publicaciones relacionadas</h2>
+  <PageTitle class="text-2xl font-semibold mb-8 text-gray-800">Publicaciones relacionadas</PageTitle>
   <BlogPostGrid>
     <BlogPreview
       title={blogHottestSpot.title}
