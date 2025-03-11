@@ -1,5 +1,6 @@
 ---
 import { topLevelPages } from '@data/pages'
+import ButtonLink from '@components/landing/ButtonLink.astro'
 ---
 
 <div class="sticky top-0 bg-white z-[1000] shadow-md" id="header">
@@ -68,11 +69,9 @@ import { topLevelPages } from '@data/pages'
           </svg>
         </div>
       </div>
-      <a
-        href="/app"
-        class="bg-primary text-white px-6 py-3 rounded font-medium hover:bg-red-700 transition-colors"
-        >Ir a la App</a
-      >
+      <ButtonLink href="/app" >
+        Ir a la App
+      </ButtonLink>
     </div>
   </div>
 </div>
