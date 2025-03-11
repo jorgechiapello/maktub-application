@@ -1,13 +1,27 @@
 ---
 import ZigZagUnderline from '@components/landing/ZigZagUnderline.astro'
+
+const images = [
+  { src: "/landing-pictures/inside-bar.jpg", alt: "Maktub Lounge" },
+  { src: "/landing-pictures/bartender_barra_copa_fresa.jpg", alt: "Bartender en Maktub" },
+  { src: "/landing-pictures/chin_chin_copas_frutales.jpg", alt: "Chin chin en Maktub" },
+];
+const initialTime = 2000; // Time before first transition (2 seconds)
+const transitionInterval = 3000; // Time between subsequent transitions (3 second)
+const animationDuration = 3000; // Duration of the fade/slide animation
 ---
-<div class="relative min-h-[90vh] flex items-center">
+
+<div class="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
     <div class="absolute inset-0 z-0">
-      <img
-        src="/landing-pictures/inside-bar.jpg"
-        alt="Maktub Lounge"
-        class="w-full h-full object-cover brightness-50"
-      />
+      {images.map((image, index) => (
+        <div class={`carousel-slide absolute inset-0 ${index === 0 ? 'active' : ''}`} data-index={index}>
+          <img
+            src={image.src}
+            alt={image.alt}
+            class="w-full h-full object-cover brightness-50"
+          />
+        </div>
+      ))}
     </div>
     <div class="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
       <h1 class="text-5xl md:text-6xl font-bold mb-6 font-amiri">
@@ -35,3 +49,96 @@ import ZigZagUnderline from '@components/landing/ZigZagUnderline.astro'
       </div>
     </div>
   </div>
+
+<script define:vars={{ initialTime, transitionInterval, animationDuration }}>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Make sure all images are loaded before starting the carousel
+    window.addEventListener('load', () => {
+      const slides = document.querySelectorAll('.carousel-slide');
+      if (slides.length < 2) return; // Don't run if there's only one slide
+      
+      const totalSlides = slides.length;
+      let currentSlide = 0;
+      let isAnimating = false;
+
+      // Force first slide to be visible immediately
+      slides[0].classList.add('active');
+      slides[0].style.opacity = '1';
+      slides[0].style.display = 'block';
+
+      function showSlide(index) {
+        if (isAnimating) return;
+        isAnimating = true;
+        
+        // Calculate next slide index
+        const nextSlide = (index + 1) % totalSlides;
+        
+        // Get current and next slide elements
+        const current = slides[index];
+        const next = slides[nextSlide];
+        
+        if (!current || !next) {
+          isAnimating = false;
+          return;
+        }
+
+        // Prepare next slide
+        next.style.transform = 'translateX(0)';
+        next.style.opacity = '0';
+        next.style.display = 'block';
+        
+        // Short delay to ensure display:block takes effect
+        setTimeout(() => {
+          // Animate current slide to the right and fade out
+          current.style.transform = 'translateX(30px)';
+          current.style.opacity = '0';
+          
+          // Fade in next slide
+          next.style.opacity = '1';
+          
+          // After animation completes
+          setTimeout(() => {
+            current.style.display = 'none';
+            current.style.transform = 'translateX(0)';
+            isAnimating = false;
+            currentSlide = nextSlide;
+          }, animationDuration);
+        }, 50);
+      }
+
+      // Use initialTime for the first transition
+      const initialTimer = setTimeout(() => {
+        showSlide(currentSlide);
+        
+        // Then set up regular interval for subsequent transitions
+        const intervalTimer = setInterval(() => {
+          showSlide(currentSlide);
+        }, transitionInterval);
+      }, initialTime);
+    });
+  });
+</script>
+
+<style>
+  .carousel-slide {
+    opacity: 0;
+    transition: opacity 2000ms ease, transform 2000ms ease;
+    will-change: opacity, transform;
+    display: none;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .carousel-slide.active {
+    opacity: 1;
+    display: block;
+  }
+  
+  /* Ensure the text is centered and visible */
+  .relative.z-10 {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    text-align: center;
+  }
+</style>
