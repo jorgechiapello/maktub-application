@@ -47,7 +47,7 @@ export const blogHottestSpot = {
   postId: blogHottestSpotId,
   excerpt:
     'Vive la vibrante vida nocturna y los eventos exclusivos de Maktub, el bar de citas líder en Barcelona.',
-  image: '/wp-content/uploads/sites/128/2025/03/tenweb_media_rrzsflcu0.webp',
+  image: '/dos_amigos_celebrando.jpg',
   imageAlt: 'People dancing in a bar',
   readMoreUrl: `/blog/${blogCategories.events.id}/${blogHottestSpotId}`,
 }
