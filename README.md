@@ -35,8 +35,8 @@ The goal is to build a client-side web application that's easy to share and show
 - [x] Use Instagram Link
 - [x] Use proper content for food and drinks
 - [x] Add blog posts
-- [ ] Use proper pictures
 - [x] Use proper logo
+- [ ] Use proper pictures
 - [ ] Use Facebook Link
 - [ ] Use TikTok Link
 

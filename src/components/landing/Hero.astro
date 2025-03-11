@@ -1,0 +1,37 @@
+---
+import ZigZagUnderline from '@components/landing/ZigZagUnderline.astro'
+---
+<div class="relative min-h-[90vh] flex items-center">
+    <div class="absolute inset-0 z-0">
+      <img
+        src="/landing-pictures/inside-bar.jpg"
+        alt="Maktub Lounge"
+        class="w-full h-full object-cover brightness-50"
+      />
+    </div>
+    <div class="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
+      <h1 class="text-5xl md:text-6xl font-bold mb-6 font-amiri">
+        <span class="block">Encuentra tu Crush en</span>
+        <ZigZagUnderline variant="light">Maktub</ZigZagUnderline>
+      </h1>
+      <div class="text-lg md:text-xl mb-8 max-w-2xl mx-auto">
+        Descubre la experiencia perfecta para encontrar tu crush en un ambiente
+        moderno y romántico. Descarga nuestra app y descubre habitaciones temáticas
+        para una noche inolvidable.
+      </div>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="/conocenos/"
+          class="inline-block bg-white text-black px-8 py-3 rounded-full font-semibold hover:bg-opacity-90 transition-all"
+        >
+          Saber Más
+        </a>
+        <a
+          href="/la-app/"
+          class="inline-block bg-white text-black px-8 py-3 rounded-full font-semibold hover:bg-opacity-90 transition-all"
+        >
+          Obtener la App
+        </a>
+      </div>
+    </div>
+  </div>

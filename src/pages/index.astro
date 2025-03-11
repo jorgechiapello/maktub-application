@@ -5,6 +5,8 @@ import LandingLayout from '@layouts/LandingLayout.astro'
 import RoomPreview from '../components/landing/RoomPreview.astro'
 import TestimonialCard from '@components/landing/TestimonialCard.astro'
 import BlogLandingPreview from '@components/landing/BlogLandingPreview.astro'
+import Hero from '@components/landing/Hero.astro'
+import LabeledCounter from '@components/landing/LabeledCounter.astro'
 import {
   blogMaktubApp,
   blogUnlockingLove,
@@ -12,44 +14,10 @@ import {
 } from '@data/blogs'
 
 import { rooms } from '@data/content'
-import ZigZagUnderline from '@components/landing/ZigZagUnderline.astro'
 ---
 
 <LandingLayout>
-  <div class="relative min-h-[90vh] flex items-center">
-    <div class="absolute inset-0 z-0">
-      <img
-        src="/wp-content/uploads/sites/128/2025/03/tenweb_media_r0ofxa4or.webp"
-        alt="Maktub Lounge"
-        class="w-full h-full object-cover brightness-50"
-      />
-    </div>
-    <div class="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
-      <h1 class="text-5xl md:text-6xl font-bold mb-6 font-amiri">
-        <span class="block">Encuentra tu Crush en</span>
-        <ZigZagUnderline variant="light">Maktub</ZigZagUnderline>
-      </h1>
-      <div class="text-lg md:text-xl mb-8 max-w-2xl mx-auto">
-        Descubre la experiencia perfecta para encontrar tu crush en un ambiente
-        moderno y romántico. Descarga nuestra app y descubre habitaciones temáticas
-        para una noche inolvidable.
-      </div>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a
-          href="/conocenos/"
-          class="inline-block bg-white text-black px-8 py-3 rounded-full font-semibold hover:bg-opacity-90 transition-all"
-        >
-          Saber Más
-        </a>
-        <a
-          href="/la-app/"
-          class="inline-block bg-white text-black px-8 py-3 rounded-full font-semibold hover:bg-opacity-90 transition-all"
-        >
-          Obtener la App
-        </a>
-      </div>
-    </div>
-  </div>
+  <Hero />
   <div id="about" class="max-w-[1200px] mx-auto py-20 px-4">
     <div class="text-center mb-12">
       <h2 class="text-4xl font-amiri font-bold mb-6">
@@ -168,24 +136,8 @@ import ZigZagUnderline from '@components/landing/ZigZagUnderline.astro'
         </p>
       </div>
       <div class="grid grid-cols-2 gap-8">
-        <div>
-          <div class="flex items-baseline">
-            <span class="text-4xl font-bold">25</span>
-            <span class="text-2xl ml-1">+</span>
-          </div>
-          <p class="text-gray-600">
-            Platos gourmet elaborados con pasión y precisión
-          </p>
-        </div>
-        <div>
-          <div class="flex items-baseline">
-            <span class="text-4xl font-bold">15</span>
-            <span class="text-2xl ml-1">+</span>
-          </div>
-          <p class="text-gray-600">
-            Cócteles de firma que complementan perfectamente tu comida
-          </p>
-        </div>
+        <LabeledCounter label="Platos gourmet elaborados con pasión y precisión" count={25} />
+        <LabeledCounter label="Cócteles de firma que complementan perfectamente tu comida" count={15} />
       </div>
     </div>
     <div class="flex-1">
@@ -199,7 +151,7 @@ import ZigZagUnderline from '@components/landing/ZigZagUnderline.astro'
       />
     </div>
   </div>
-  <div id="download-app" class="bg-red-600 py-16 px-4 sm:px-6 lg:px-8">
+  <div id="download-app" class="bg-primary py-16 px-4 sm:px-6 lg:px-8">
     <div class="max-w-7xl mx-auto text-center">
       <div class="space-y-8">
         <div class="space-y-4">

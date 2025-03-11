@@ -1,0 +1,136 @@
+---
+const { label, count } = Astro.props;
+---
+
+<div class="counter-container">
+  <div class="flex items-baseline">
+    <span class="counter text-4xl font-bold transition-all duration-200 ease-out" style="--tw-translate-y: 0;">0</span>
+    <span class="text-2xl ml-1">+</span>
+    <span class="target-count" style="display: none;">{count}</span>
+  </div>
+  <p class="text-gray-600">{label}</p>
+</div>
+
+<script>
+  // Function to check if an element is in the viewport
+  function isInViewport(element: Element): boolean {
+    const rect = element.getBoundingClientRect();
+    return (
+      rect.top >= 0 &&
+      rect.left >= 0 &&
+      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+  }
+
+  // Function to animate counter with rapidly increasing numbers
+  function animateCounter(counterElement: HTMLElement, targetCount: number, duration = 1000): void {
+    const startTime = Date.now();
+    let intervalId: number | null = null;
+    let currentValue = 0;
+    
+    // Calculate step size for a non-linear progression
+    // This will make the counter increase faster at the beginning and slow down near the end
+    function calculateNextValue(progress: number): number {
+      // Non-linear curve that starts fast and slows down
+      // Easing function: accelerate at start, decelerate at end
+      const easedProgress = progress < 0.5 ?
+        4 * progress * progress * progress :
+        1 - Math.pow(-2 * progress + 2, 3) / 2;
+      
+      return Math.floor(easedProgress * targetCount);
+    }
+    
+    // Start with a very fast interval
+    const updateFrequency = 20; // Start updating very rapidly (milliseconds)
+    
+    // Function to update the counter display
+    function updateCounter(): void {
+      const elapsedTime = Date.now() - startTime;
+      const progress = Math.min(elapsedTime / duration, 1);
+      
+      if (progress < 1) {
+        // Calculate the next value based on progress
+        currentValue = calculateNextValue(progress);
+        counterElement.textContent = currentValue.toString();
+      } else {
+        // Animation complete, show the exact target
+        counterElement.textContent = targetCount.toString();
+        if (intervalId !== null) {
+          clearInterval(intervalId);
+        }
+      }
+    }
+    
+    // Start the interval
+    intervalId = setInterval(updateCounter, updateFrequency);
+    
+    // Ensure we clean up the interval after the duration
+    setTimeout(() => {
+      if (intervalId) {
+        clearInterval(intervalId);
+        counterElement.textContent = targetCount;
+      }
+    }, duration);
+  }
+
+  // Initialize counters when the DOM is loaded
+  document.addEventListener('DOMContentLoaded', () => {
+    const counterContainers = document.querySelectorAll('.counter-container');
+    
+    // Set up intersection observer
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const container = entry.target;
+          const counterElement = container.querySelector('.counter');
+          const targetCountElement = container.querySelector('.target-count');
+          
+          // Ensure elements exist before proceeding
+          if (counterElement && targetCountElement && targetCountElement.textContent) {
+            const targetCount = parseInt(targetCountElement.textContent, 10);
+            
+            // Start animation
+            animateCounter(counterElement as HTMLElement, targetCount);
+          }
+          
+          // Unobserve after animation starts
+          observer.unobserve(container);
+        }
+      });
+    }, { threshold: 0.1 }); // Trigger when at least 10% of the element is visible
+    
+    // Observe all counter containers
+    counterContainers.forEach(container => {
+      observer.observe(container);
+    });
+  });
+
+  // Also check on scroll for browsers that don't support IntersectionObserver
+  if (!('IntersectionObserver' in window)) {
+    let animatedCounters = new Set();
+    
+    function checkCounters() {
+      const counterContainers = document.querySelectorAll('.counter-container');
+      
+      counterContainers.forEach(container => {
+        if (!animatedCounters.has(container) && isInViewport(container)) {
+          const counterElement = container.querySelector('.counter');
+          const targetCountElement = container.querySelector('.target-count');
+          const targetCount = parseInt(targetCountElement.textContent, 10);
+          
+          // Start animation
+          animateCounter(counterElement, targetCount);
+          
+          // Mark as animated
+          animatedCounters.add(container);
+        }
+      });
+    }
+    
+    // Check on scroll
+    window.addEventListener('scroll', checkCounters);
+    // Initial check
+    window.addEventListener('DOMContentLoaded', checkCounters);
+  }
+</script>
