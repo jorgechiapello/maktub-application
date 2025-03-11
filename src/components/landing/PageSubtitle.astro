@@ -1,6 +1,25 @@
 ---
+interface Props {
+  variant?: 'primary' | 'light';
+}
+
+const { variant = 'primary' } = Astro.props;
 ---
 
-<h2 class="text-3xl font-bold text-black font-amiri mt-8 mb-4 border-b-2 border-black pb-2">
+<h2 class="page-subtitle">
   <slot />
 </h2>
+
+<style define:vars={{
+  accentColor: variant === 'primary' ? '#b2133e' : '#f7c9cf'
+}}>
+  .page-subtitle {
+    font-family: 'Amiri', serif;
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: #333;
+    margin: 2rem 0 1.5rem;
+    line-height: 1.2;
+    letter-spacing: 0.02em;
+  }
+</style>
