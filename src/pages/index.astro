@@ -7,11 +7,8 @@ import TestimonialCard from '@components/landing/TestimonialCard.astro'
 import BlogLandingPreview from '@components/landing/BlogLandingPreview.astro'
 import Hero from '@components/landing/Hero.astro'
 import LabeledCounter from '@components/landing/LabeledCounter.astro'
-import {
-  blogMaktubApp,
-  blogUnlockingLove,
-  blogHottestSpot,
-} from '@data/blogs'
+import FadeFromBelow from '@components/landing/FadeFromBelow.astro'
+import { blogMaktubApp, blogUnlockingLove, blogHottestSpot } from '@data/blogs'
 
 import { rooms } from '@data/content'
 ---
@@ -81,41 +78,43 @@ import { rooms } from '@data/content'
     </div>
   </div>
   <div id="rooms" class="py-20 bg-gray-200">
-    <div class="max-w-[1200px] mx-auto">
-      <div class="grid md:grid-cols-2 gap-12 mb-16">
-        <div>
-          <h2 class="text-4xl font-amiri font-bold">
-            Explora Nuestras <em class="italic">Únicas</em> y <em class="italic"
-              >Románticas</em
-            > Habitaciones Tematizadas
-          </h2>
+    <FadeFromBelow>
+      <div class="max-w-[1200px] mx-auto">
+        <div class="grid md:grid-cols-2 gap-12 mb-16">
+          <div>
+            <h2 class="text-4xl font-amiri font-bold">
+              Explora Nuestras <em class="italic">Únicas</em> y <em
+                class="italic">Románticas</em
+              > Habitaciones Tematizadas
+            </h2>
+          </div>
+          <div>
+            <p class="text-gray-600 text-lg">
+              En Maktub, creemos que el ambiente es tan importante como la
+              compañía. Por eso, hemos creado una variedad de habitaciones
+              tematizadas, cada una diseñada para evocar un estado de ánimo
+              específico y mejorar tu experiencia de citas. Ya sea que busques
+              un ambiente acogedor e íntimo o un ambiente vibrante y energético,
+              tenemos una habitación perfecta para ti. Descubre tu ambiente
+              romántico ideal y crea memorias inolvidables.
+            </p>
+          </div>
         </div>
-        <div>
-          <p class="text-gray-600 text-lg">
-            En Maktub, creemos que el ambiente es tan importante como la
-            compañía. Por eso, hemos creado una variedad de habitaciones
-            tematizadas, cada una diseñada para evocar un estado de ánimo
-            específico y mejorar tu experiencia de citas. Ya sea que busques un
-            ambiente acogedor e íntimo o un ambiente vibrante y energético,
-            tenemos una habitación perfecta para ti. Descubre tu ambiente
-            romántico ideal y crea memorias inolvidables.
-          </p>
+        <div class="grid md:grid-cols-3 gap-8">
+          {
+            rooms.map((room) => (
+              <RoomPreview
+                imageSrc={room.imageUrl}
+                imageAlt={room.imageAlt}
+                title={room.title}
+                description={room.description}
+                linkHref="/ambientes/"
+              />
+            ))
+          }
         </div>
       </div>
-      <div class="grid md:grid-cols-3 gap-8">
-        {
-          rooms.map((room) => (
-            <RoomPreview
-              imageSrc={room.imageUrl}
-              imageAlt={room.imageAlt}
-              title={room.title}
-              description={room.description}
-              linkHref="/ambientes/"
-            />
-          ))
-        }
-      </div>
-    </div>
+    </FadeFromBelow>
   </div>
   <div
     id="menu"
@@ -136,8 +135,14 @@ import { rooms } from '@data/content'
         </p>
       </div>
       <div class="grid grid-cols-2 gap-8">
-        <LabeledCounter label="Platos gourmet elaborados con pasión y precisión" count={25} />
-        <LabeledCounter label="Cócteles de firma que complementan perfectamente tu comida" count={15} />
+        <LabeledCounter
+          label="Platos gourmet elaborados con pasión y precisión"
+          count={25}
+        />
+        <LabeledCounter
+          label="Cócteles de firma que complementan perfectamente tu comida"
+          count={15}
+        />
       </div>
     </div>
     <div class="flex-1">
