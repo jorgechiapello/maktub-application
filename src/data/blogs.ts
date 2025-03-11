@@ -21,7 +21,7 @@ export const blogMaktubApp = {
   postId: blogMaktubAppId,
   excerpt:
     'Descubre cómo la app Maktub combina tecnología de vanguardia con experiencias reales para transformar el mundo de las citas modernas.',
-  image: '/wp-content/uploads/sites/128/2025/03/tenweb_media_rx9hefrca.webp',
+  image: '/app-features/cellphone_profile.webp',
   imageAlt: 'Dos personas charlando',
   readMoreUrl: `/blog/${blogCategories.innovation.id}/${blogMaktubAppId}`,
 }

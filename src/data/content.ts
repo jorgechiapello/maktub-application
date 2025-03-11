@@ -11,7 +11,7 @@ export const appFeatures: CardContent[] = [
     description:
       'Navega fácilmente por los perfiles de otros miembros de Maktub. Filtra por intereses, edad y ubicación para encontrar tu pareja perfecta. Comienza a conectar antes de llegar al bar.',
     imageUrl:
-      '/wp-content/uploads/sites/128/2025/03/tenweb_media_srj6v4ctm.webp',
+      '/app-features/cellphone_profile.webp',
     imageAlt:
       'Una captura de pantalla de la función de navegación de perfiles de la aplicación Maktub, mostrando posibles coincidencias en Barcelona.',
   },
@@ -20,7 +20,7 @@ export const appFeatures: CardContent[] = [
     description:
       'Nuestro algoritmo inteligente sugiere coincidencias compatibles basadas en tus preferencias e intereses. Aumenta tus posibilidades de encontrar a alguien especial con nuestra avanzada tecnología de emparejamiento.',
     imageUrl:
-      '/wp-content/uploads/sites/128/2025/03/tenweb_media_STGCGMSGW.webp',
+      '/app-features/app_stats.webp',
     imageAlt:
       'Una imagen que muestra el algoritmo de emparejamiento de la aplicación Maktub, destacando las puntuaciones de compatibilidad.',
   },
@@ -29,7 +29,7 @@ export const appFeatures: CardContent[] = [
     description:
       'Haz check-in en salas temáticas a través de la aplicación para que los demás sepan dónde estás. Ve quién más está en la sala y comienza conversaciones. Mejora tu experiencia en persona con interacción digital.',
     imageUrl:
-      '/wp-content/uploads/sites/128/2025/03/tenweb_media_SPZZWEN9R.webp',
+      '/app-features/lounge.webp',
     imageAlt:
       'Una representación visual de la integración de la aplicación Maktub con las salas temáticas del bar, mostrando usuarios haciendo check-in.',
   },
