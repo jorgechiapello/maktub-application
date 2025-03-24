@@ -23,7 +23,7 @@ export const contactanosPage: Page = {
   path: '/contactanos',
 }
 export const laAppPage: Page = { label: 'La app', path: '/la-app' }
-export const comeAquiPage: Page = { label: 'Come aqui', path: '/come-aqui' }
+export const comeAquiPage: Page = { label: 'Come aquí', path: '/come-aqui' }
 
 export const topLevelPages = [
   conocenosPage,
