@@ -6,32 +6,38 @@ import PresentationCard from '@components/landing/PresentationCard.astro'
 import ZigZagUnderline from '@components/landing/ZigZagUnderline.astro'
 import SplitContentSection from '@components/landing/SplitContentSection.astro'
 import ButtonLink from '@components/landing/ButtonLink.astro'
-import { cocktails } from "@data/cocktails"
-import { dishes } from "@data/dishes"
+import { cocktails } from '@data/cocktails'
+import { dishes } from '@data/dishes'
 ---
 
 <PageLandingLayout title="Come Aquí" href="/come-aqui/">
   <section class="container mx-auto flex flex-col gap-10">
     <SplitContentSection>
       <Fragment slot="title">
-        Descubre la <ZigZagUnderline>Experiencia</ZigZagUnderline> de Sabores y
-        Sensaciones
+        Descubre la <ZigZagUnderline>Experiencia</ZigZagUnderline> de Sabores y Sensaciones
       </Fragment>
       <Fragment slot="description">
-        Sumérgete en un viaje culinario único en Maktub. Desde platos
-        gourmet cuidadosamente elaborados hasta cócteles artesanales que
-        despiertan los sentidos. Disfruta de una experiencia gastronómica
-        sorbo cuenta una historia.
+        Sumérgete en un viaje culinario único en Maktub. Desde platos gourmet
+        cuidadosamente elaborados hasta cócteles artesanales que despiertan los
+        sentidos. Disfruta de una experiencia gastronómica sorbo cuenta una
+        historia.
       </Fragment>
     </SplitContentSection>
     <div class="flex justify-center">
       <ButtonLink href="/contactanos">Reserva</ButtonLink>
     </div>
 
-    <h2 class="text-3xl font-bold text-center mt-4 mb-6">Nuestra Comida</h2>
+    <h2 class="text-3xl font-bold text-center mt-8">Nuestros cócteles</h2>
+    <div class="flex justify-center">
+      <ButtonLink
+        href="https://drive.google.com/file/d/1VQ2oKtTVIev6GxLQN6vAapaHXG9qJElk/view?usp=sharing"
+        target="_blank"
+        rel="noopener">Menú</ButtonLink
+      >
+    </div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       {
-        dishes.map((feature) => (
+        cocktails.map((feature) => (
           <PresentationCard
             title={feature.title}
             description={feature.description}
@@ -41,10 +47,11 @@ import { dishes } from "@data/dishes"
         ))
       }
     </div>
-    <h2 class="text-3xl font-bold text-center mt-8 mb-6">Nuestros cócteles</h2>
+
+    <h2 class="text-3xl font-bold text-center mt-4 mb-6">Nuestra Comida</h2>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       {
-        cocktails.map((feature) => (
+        dishes.map((feature) => (
           <PresentationCard
             title={feature.title}
             description={feature.description}

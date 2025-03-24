@@ -1,9 +1,11 @@
 ---
-const { href } = Astro.props
+const { href, target, rel } = Astro.props
 ---
 
 <a
   href={href}
+  target={target}
+  rel={rel}
   class="bg-primary text-white px-6 py-3 rounded font-medium hover:bg-red-700 transition-colors"
   ><slot /></a
 >
