@@ -12,17 +12,17 @@ const { imageUrl, imageAlt, category, title, description, readMoreUrl } =
   Astro.props
 ---
 
-<div class="bg-black rounded-lg overflow-hidden shadow-lg flex flex-row group hover:cursor-pointer">
-  <div class="relative w-1/2 overflow-hidden">
+<div class="bg-black rounded-lg overflow-hidden shadow-lg flex flex-col md:flex-row group hover:cursor-pointer">
+  <div class="relative w-full md:w-1/2 overflow-hidden">
     <a href={readMoreUrl}>
       <img
         src={imageUrl}
         alt={imageAlt}
-        class="w-full h-full object-cover cursor-pointer object-center transition-transform duration-500 ease-in-out group-hover:scale-110"
+        class="w-full h-64 md:h-full object-cover cursor-pointer object-center transition-transform duration-500 ease-in-out group-hover:scale-110"
       />
     </a>
   </div>
-  <div class="px-2 w-1/2 flex flex-col justify-between overflow-y-auto">
+  <div class="px-4 py-4 md:py-0 md:px-2 w-full md:w-1/2 flex flex-col justify-between overflow-y-auto">
     <div>
       <div class="text-sm text-white mb-2 group-hover:text-gray-400">{category}</div>
       <h3 class="text-xl font-bold mb-3 text-white">
